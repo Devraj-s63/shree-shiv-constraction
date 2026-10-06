@@ -18,9 +18,10 @@ export default {
           border: '#CBD5E1',
         },
         'safety-amber': {
-          DEFAULT: '#D97706',
-          light: '#F59E0B',
-          dark: '#B45309',
+          DEFAULT: '#B45309', // WCAG AA compliant on #F4F3EF (4.52:1)
+          light: '#D97706',
+          dark: '#92400E', // High contrast (6.39:1)
+          brand: '#F59E0B',
         },
       },
       fontFamily: {
