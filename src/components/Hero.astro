@@ -3,43 +3,54 @@ import Button from './Button.astro';
 ---
 
 <section id="hero-section" class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden min-h-[640px] lg:min-h-[760px] flex items-center">
-  <!-- Subtle Brushed Steel Texture Underlay -->
-  <div class="absolute inset-0 pointer-events-none opacity-[0.07] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] z-0" aria-hidden="true"></div>
+  <!-- Full-bleed Cinematic Video Container (Desktop & Tablet: >= 768px, respect reduced motion) -->
+  <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <!-- Desktop Video: Muted, Autoplay, Loop, Playsinline, Preload metadata with Poster -->
+    <video
+      id="hero-bg-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/images/hero-steel-poster.webp"
+      class="hidden md:motion-safe:block w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.08]"
+    >
+      <source src="/videos/hero-steel.mp4" type="video/mp4" />
+      <source src="/images/3D_animation_of_steel_rebar_20261006174601.mp4" type="video/mp4" />
+    </video>
 
-  <!-- 3D Three.js WebGL Container (Desktop & Tablet: >= 768px) -->
+    <!-- Still Poster Fallback: Active for Mobile (< 768px) and prefers-reduced-motion -->
+    <picture class="block md:motion-safe:hidden w-full h-full">
+      <source srcset="/images/hero-steel-poster.webp" type="image/webp" />
+      <img
+        src="/images/hero-steel-poster.jpg"
+        alt="Shree Shiv TMT steel stock yard"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        class="w-full h-full object-cover object-center filter brightness-[0.72] contrast-[1.05]"
+      />
+    </picture>
+  </div>
+
+  <!-- Subtle Film-Grain Overlay Texture -->
   <div
-    id="hero-3d-canvas-container"
-    class="absolute inset-0 pointer-events-none hidden md:block z-0 overflow-hidden"
+    class="absolute inset-0 pointer-events-none z-[1] opacity-35 mix-blend-overlay bg-[url('/images/film-grain.svg')] [background-repeat:repeat]"
     aria-hidden="true"
   >
   </div>
 
-  <!-- Mobile Static Image Fallback (< 768px) with zero video/WebGL overhead -->
+  <!-- Directional Dark Gradient Scrim From the Left (Guarantees 100% WCAG Typography Readability) -->
   <div
-    class="absolute inset-0 pointer-events-none block md:hidden z-0 overflow-hidden"
-    aria-hidden="true"
-  >
-    <img
-      src="/images/hero-tmt-fallback.webp"
-      alt="Shree Shiv TMT Steel Yard stock"
-      width="1200"
-      height="800"
-      fetchpriority="high"
-      class="w-full h-full object-cover object-right opacity-60"
-    />
-  </div>
-
-  <!-- Directional Dark Steel Scrim Behind Oversized Typography -->
-  <!-- Deep on the left, fading towards the right to reveal the 3D rotating bundle -->
-  <div
-    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-r from-steel-blue-dark via-steel-blue-dark/95 md:via-steel-blue-dark/85 to-steel-blue-dark/20 lg:to-transparent"
+    class="absolute inset-0 pointer-events-none z-[2] bg-gradient-to-r from-steel-blue-dark via-steel-blue-dark/95 md:via-steel-blue-dark/85 to-steel-blue-dark/35 lg:to-transparent"
     aria-hidden="true"
   >
   </div>
 
   <!-- Top and Bottom Industrial Seam Shadow -->
   <div
-    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-steel-blue-dark/70 via-transparent to-steel-blue-dark/85"
+    class="absolute inset-0 pointer-events-none z-[2] bg-gradient-to-b from-steel-blue-dark/70 via-transparent to-steel-blue-dark/90"
     aria-hidden="true"
   >
   </div>
@@ -194,35 +205,3 @@ import Button from './Button.astro';
     </div>
   </div>
 </section>
-
-<script>
-  // Lazy-load Three.js 3D scene only on desktop devices (width >= 768px) and when browser is idle
-  document.addEventListener('DOMContentLoaded', () => {
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const container = document.getElementById('hero-3d-canvas-container');
-
-    if (isMobile || prefersReducedMotion || !container) {
-      return;
-    }
-
-    // Lazy load the 3D module on idle or slight scroll to avoid blocking initial critical render
-    const load3D = () => {
-      import('../scripts/tmtScene.js')
-        .then((module) => {
-          if (module && typeof module.initTmtHeroScene === 'function') {
-            module.initTmtHeroScene(container);
-          }
-        })
-        .catch((err) => {
-          console.warn('Three.js scene deferred load skipped:', err);
-        });
-    };
-
-    if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(load3D, { timeout: 1200 });
-    } else {
-      setTimeout(load3D, 200);
-    }
-  });
-</script>
