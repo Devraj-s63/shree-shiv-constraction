@@ -1,0 +1,119 @@
+---
+import Button from './Button.astro';
+---
+
+<section class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden">
+  <!-- Subtle Animated Texture Background (SVG Architectural Structural Lines) -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.06] select-none" aria-hidden="true">
+    <svg class="w-full h-full animate-[steelDrift_60s_linear_infinite]" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <pattern id="industrial-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+          <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#FFFFFF" stroke-width="1" />
+          <path d="M 0 40 L 80 40 M 40 0 L 40 80" fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-dasharray="2,4" />
+          <circle cx="40" cy="40" r="1.5" fill="#D97706" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#industrial-grid)" />
+    </svg>
+  </div>
+
+  <!-- Hero Content Grid -->
+  <div class="relative max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-28 lg:py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Left Column: Primary Messaging (8 cols) -->
+      <div class="lg:col-span-8">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2.5 bg-steel-blue px-3.5 py-1.5 border border-steel-gray/30 mb-6">
+          <span class="w-2 h-2 bg-safety-amber inline-block"></span>
+          <span class="font-display text-[11px] md:text-xs uppercase tracking-widest text-canvas font-bold">
+            Authorized Stockist &bull; Bhilwara, Rajasthan
+          </span>
+        </div>
+
+        <!-- Hindi Main Headline -->
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-canvas leading-[1.1] uppercase mb-4">
+          मजबूती की सही पहचान
+        </h1>
+
+        <!-- English Subline -->
+        <p class="font-body text-base sm:text-lg md:text-xl text-canvas/80 font-normal leading-relaxed max-w-2xl mb-8">
+          TMT bars &amp; building materials in Bhilwara &mdash; strong today, strong tomorrow.
+        </p>
+
+        <!-- Two Primary CTAs: Call Now & WhatsApp -->
+        <div class="flex flex-wrap items-center gap-4">
+          <Button
+            variant="call-outline"
+            href="tel:8278643303"
+            class="!text-canvas !border-canvas hover:!bg-canvas hover:!text-steel-blue px-6 py-3.5 text-xs md:text-sm"
+            ariaLabel="Call Shree Shiv Construction directly"
+          >
+            <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
+              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            Call Now: 8278643303
+          </Button>
+
+          <Button
+            variant="whatsapp"
+            href="https://wa.me/918278643303"
+            target="_blank"
+            class="px-6 py-3.5 text-xs md:text-sm"
+            ariaLabel="Chat on WhatsApp with Shree Shiv Construction"
+          >
+            <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
+            </svg>
+            WhatsApp Inquiry
+          </Button>
+        </div>
+      </div>
+
+      <!-- Right Column: Technical Spec & Stock Ledger Panel (4 cols) -->
+      <div class="lg:col-span-4 border border-steel-gray/40 bg-steel-blue/40 p-6 md:p-8 backdrop-blur-none">
+        <div class="border-b border-steel-gray/30 pb-4 mb-4 flex justify-between items-center">
+          <span class="font-display text-xs uppercase tracking-widest text-safety-amber font-bold">
+            Live Yard Inventory
+          </span>
+          <span class="font-mono text-[10px] text-canvas/50">
+            GST Verified
+          </span>
+        </div>
+
+        <ul class="space-y-3 font-mono text-xs text-canvas/80">
+          <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
+            <span class="text-canvas font-semibold font-body">Kay2 Xenox TMT</span>
+            <span class="text-safety-amber">Fe 550D Certified</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
+            <span class="text-canvas font-semibold font-body">TMT Sariya Sizes</span>
+            <span>8mm &ndash; 32mm Ready</span>
+          </li>
+          <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
+            <span class="text-canvas font-semibold font-body">Binding Wire</span>
+            <span>Annealed Industrial</span>
+          </li>
+          <li class="flex justify-between items-center">
+            <span class="text-canvas font-semibold font-body">Cover Blocks</span>
+            <span>Slab / Column / Beam</span>
+          </li>
+        </ul>
+
+        <div class="mt-6 pt-4 border-t border-steel-gray/30 text-[11px] text-canvas/60">
+          Location: 200 Feet Road, Near Sharda Evergreen, Bhilwara
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes steelDrift {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-80px);
+    }
+  }
+</style>
