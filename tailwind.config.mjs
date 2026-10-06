@@ -6,25 +6,26 @@ export default {
       colors: {
         canvas: '#F4F3EF',
         canvasMuted: '#EDECE8',
-        steelBlue: {
-          DEFAULT: '#1A242F',
-          dark: '#16202B',
-          light: '#253342',
+        'steel-blue': {
+          DEFAULT: '#0F2A43',
+          dark: '#0A1C2D',
+          light: '#1B3D5E',
         },
-        steelGray: {
-          DEFAULT: '#3E4A56',
-          light: '#566270',
-          dark: '#2D3640',
+        'steel-gray': {
+          DEFAULT: '#4A5568',
+          light: '#718096',
+          dark: '#2D3748',
+          border: '#CBD5E1',
         },
-        safetyAmber: {
+        'safety-amber': {
           DEFAULT: '#D97706',
-          dark: '#B45309',
           light: '#F59E0B',
+          dark: '#B45309',
         },
       },
       fontFamily: {
         display: ['Archivo', 'sans-serif'],
-        body: ['Public Sans', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         none: '0px',
