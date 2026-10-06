@@ -38,55 +38,55 @@ const usps = [
 ];
 ---
 
-<section id="why-choose-us" class="py-16 md:py-24 border-t border-steel-gray/20 motion-reveal-section">
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
-    <div class="lg:col-span-7">
+<section id="why-choose-us" class="py-24 md:py-36 hairline-b motion-reveal-section">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+    <div class="lg:col-span-8">
       <SectionHeading
         eyebrow="Core Value Propositions"
         title="Why Choose Shree Shiv"
         subtitle="Uncompromising structural integrity for every foundation. We supply certified materials that protect builders, contractors, and families for generations."
       />
     </div>
-    <div class="lg:col-span-5 flex lg:justify-end gap-3 self-center">
-      <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank">
+    <div class="lg:col-span-4 flex lg:justify-end gap-3 self-center">
+      <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank" class="px-6 py-3.5">
         WhatsApp Us
       </Button>
-      <Button variant="call-outline" href="tel:8278643303">
+      <Button variant="call-outline" href="tel:8278643303" class="px-6 py-3.5 !border-white/20 !text-white hover:!border-safety-amber hover:!text-safety-amber">
         Call 8278643303
       </Button>
     </div>
   </div>
 
-  <!-- 4 USPs Staggered Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 motion-stagger-grid">
+  <!-- 4 USPs Asymmetric Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 motion-stagger-grid">
     {usps.map((usp) => (
-      <div class={`${usp.colSpan} motion-stagger-item border border-steel-gray/30 bg-canvas p-6 md:p-8 flex flex-col justify-between hover:border-steel-blue transition-colors group relative`}>
+      <div class={`${usp.colSpan} motion-stagger-item hairline-all bg-canvasMuted/50 hover:bg-canvasMuted p-8 md:p-10 flex flex-col justify-between transition-all duration-300 group relative`}>
         <div>
           <!-- Top Row: Number & Icon -->
-          <div class="flex items-center justify-between border-b border-steel-gray/20 pb-4 mb-5">
-            <span class="font-mono text-xs font-bold text-safety-amber tracking-widest">
+          <div class="flex items-center justify-between hairline-b pb-6 mb-6">
+            <span class="micro-label text-safety-amber">
               {usp.number} // {usp.label}
             </span>
-            <div class="w-10 h-10 bg-steel-blue text-safety-amber flex items-center justify-center shrink-0">
+            <div class="w-10 h-10 bg-canvas text-safety-amber flex items-center justify-center shrink-0 hairline-all">
               <span set:html={usp.iconSvg} />
             </div>
           </div>
 
           <!-- Title -->
-          <h3 class="font-display text-xl md:text-2xl font-black uppercase tracking-tight text-steel-blue mb-3 group-hover:text-steel-blue-light transition-colors">
+          <h3 class="font-display text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-4 group-hover:text-safety-amber transition-colors">
             {usp.title}
           </h3>
 
           <!-- Description -->
-          <p class="font-body text-sm text-steel-gray leading-relaxed mb-4">
+          <p class="font-body text-sm md:text-base text-steel-gray leading-relaxed mb-6">
             {usp.description}
           </p>
         </div>
 
         <!-- Footnote Status -->
-        <div class="pt-3 border-t border-steel-gray/10 flex items-center gap-2 text-[11px] font-mono text-steel-gray">
+        <div class="pt-4 hairline-t flex items-center gap-2 text-[11px] font-mono text-steel-gray">
           <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
-          <span>Verified Yard Standard</span>
+          <span class="tracking-widest uppercase">VERIFIED YARD STANDARD</span>
         </div>
       </div>
     ))}

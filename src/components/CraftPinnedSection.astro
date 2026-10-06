@@ -31,18 +31,18 @@ const steps = [
 ];
 ---
 
-<section id="craft-pinned-section" class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-28">
+<section id="craft-pinned-section" class="relative bg-canvasMuted text-white hairline-b overflow-hidden py-24 md:py-36">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
     
     <!-- Section Eyebrow -->
-    <div class="mb-12 md:mb-16">
+    <div class="mb-16 md:mb-20">
       <div class="inline-flex items-center gap-2 mb-3">
         <span class="w-2.5 h-2.5 bg-safety-amber inline-block"></span>
-        <span class="font-display text-xs font-bold uppercase tracking-widest text-canvas/70">
+        <span class="micro-label text-steel-gray">
           Engineering &amp; Standards
         </span>
       </div>
-      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-canvas leading-tight max-w-3xl">
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] font-black uppercase tracking-tight text-white leading-[1.02] max-w-4xl">
         The Structural Craft <br />
         <span class="text-safety-amber">Behind Every Reinforcement Bar</span>
       </h2>
@@ -52,11 +52,11 @@ const steps = [
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
       
       <!-- Left Column: Scrolling Editorial Text Blocks (6 cols) -->
-      <div class="lg:col-span-6 space-y-24 md:space-y-36 craft-text-container py-8">
+      <div class="lg:col-span-6 space-y-28 md:space-y-40 craft-text-container py-8">
         {steps.map((item, index) => (
           <div class="craft-text-step" data-step-index={index}>
-            <div class="inline-flex items-center gap-3 border-b border-steel-gray/30 pb-3 mb-6 w-full">
-              <span class="font-mono text-base font-black text-safety-amber tracking-widest">
+            <div class="inline-flex items-center gap-3 hairline-b pb-4 mb-6 w-full">
+              <span class="micro-label text-safety-amber">
                 STAGE // {item.step}
               </span>
               <span class="text-canvas/40">&bull;</span>

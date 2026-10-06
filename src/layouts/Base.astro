@@ -137,19 +137,19 @@ const hardwareStoreSchema = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={fullOgImageUrl} />
 
-    <!-- Google Fonts Preconnect & High-Performance Asynchronous Loading -->
+    <!-- Google Fonts Preconnect & High-Performance Asynchronous Loading: Archivo + Public Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap"
       />
     </noscript>
 
@@ -162,33 +162,36 @@ const hardwareStoreSchema = {
     )}
   </head>
   <body class="bg-canvas text-steel-blue font-body min-h-screen flex flex-col selection:bg-safety-amber selection:text-white">
+    <!-- Site-wide Film-Grain Texture at Low Opacity -->
+    <div class="site-film-grain" aria-hidden="true"></div>
+
     <!-- Branded Industrial Preloader -->
     <Preloader />
 
-    <!-- Top Utility Announcement Bar -->
-    <aside class="bg-steel-blue-dark text-canvas/80 text-[11px] font-display uppercase tracking-wider py-1.5 px-4 md:px-8 border-b border-steel-blue">
+    <!-- Top Utility Announcement Bar with Hairline Divider -->
+    <aside class="bg-canvasMuted text-steel-gray text-[11px] font-display uppercase tracking-widest py-2 px-4 md:px-8 hairline-b">
       <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
         <div class="flex items-center gap-2">
           <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
           <span>Bhilwara, Rajasthan &bull; GSTIN: 08FFXPB0515IZ5</span>
         </div>
-        <div class="hidden sm:flex items-center gap-4 text-canvas/70">
-          <span>मजबूती की सही पहचान</span>
-          <span class="text-steel-gray/60">|</span>
-          <a href="tel:8278643303" class="hover:text-canvas transition-colors">Direct Desk: 8278643303</a>
+        <div class="hidden sm:flex items-center gap-4 text-steel-gray/80">
+          <span class="micro-label text-canvasMuted/40 text-steel-gray">मजबूती की सही पहचान</span>
+          <span class="text-steel-gray/30">|</span>
+          <a href="tel:8278643303" class="hover:text-safety-amber transition-colors">Direct Desk: 8278643303</a>
         </div>
       </div>
     </aside>
 
-    <!-- Sticky Industrial Navbar with Smooth Height Shrink Transition -->
-    <header class="sticky top-0 z-40 bg-canvas/95 border-b border-steel-gray/30 transition-all duration-200">
+    <!-- Sticky Luxury Charcoal Navbar with Thin Hairline Divider -->
+    <header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md hairline-b transition-all duration-200">
       <div id="main-navbar-container" class="max-w-7xl mx-auto px-4 md:px-8 h-20 transition-all duration-200 flex items-center justify-between gap-4">
         <!-- Logo / Brand Identity -->
         <a href="/" class="flex flex-col group focus:outline-none" aria-label="Shree Shiv Construction and Steel Home">
-          <span class="font-display font-black text-lg md:text-xl tracking-tight text-steel-blue uppercase leading-none">
+          <span class="font-display font-black text-lg md:text-xl tracking-tight text-white uppercase leading-none group-hover:text-safety-amber transition-colors">
             Shree Shiv
           </span>
-          <span class="font-display font-bold text-[10px] md:text-xs tracking-widest text-safety-amber uppercase mt-1">
+          <span class="micro-label text-safety-amber mt-1">
             Construction &amp; Steel
           </span>
         </a>
@@ -198,7 +201,7 @@ const hardwareStoreSchema = {
           {navLinks.map((link) => (
             <a
               href={link.href}
-              class="font-display text-xs uppercase tracking-wider font-bold text-steel-gray hover:text-steel-blue border-b-2 border-transparent hover:border-safety-amber py-2 transition-colors duration-150"
+              class="micro-label text-steel-gray hover:text-white border-b-2 border-transparent hover:border-safety-amber py-2 transition-colors duration-150"
             >
               {link.label}
             </a>
@@ -210,7 +213,7 @@ const hardwareStoreSchema = {
           <Button
             variant="call-outline"
             href="tel:8278643303"
-            class="hidden sm:inline-flex py-2 px-3 md:px-4 text-[11px] md:text-xs"
+            class="hidden sm:inline-flex py-2 px-3 md:px-4 text-[11px] md:text-xs !border-white/20 !text-white hover:!border-safety-amber hover:!text-safety-amber"
             ariaLabel="Call Shree Shiv Construction directly"
           >
             <svg class="w-3.5 h-3.5 mr-1.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -236,13 +239,13 @@ const hardwareStoreSchema = {
           <button
             id="mobile-nav-toggle"
             type="button"
-            class="lg:hidden p-2 text-steel-blue border border-steel-gray/30 hover:border-steel-blue focus:outline-none"
+            class="lg:hidden p-2 text-white border border-white/20 hover:border-safety-amber focus:outline-none"
             aria-label="Toggle mobile menu"
           >
-            <svg id="hamburger-icon" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+            <svg id="hamburger-icon" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
             </svg>
-            <svg id="close-icon" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24">
+            <svg id="close-icon" class="w-6 h-6 fill-current hidden" viewBox="0 0 24 24">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
             </svg>
           </button>

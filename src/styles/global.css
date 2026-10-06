@@ -9,12 +9,61 @@
   }
 
   html {
-    background-color: #F4F3EF;
-    color: #0F2A43;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #0B0D10;
+    color: #E2E8F0;
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  body {
+    background-color: #0B0D10;
+    color: #E2E8F0;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.035em;
+  }
+
+  /* Micro-label luxury typography utilities */
+  .micro-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+  }
+
+  /* Thin hairline dividers */
+  .hairline-b {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hairline-t {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hairline-x {
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .hairline-all {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Site-wide subtle film-grain texture overlay */
+  .site-film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 99;
+    opacity: 0.045;
+    background-image: url('/images/film-grain.svg');
+    background-repeat: repeat;
   }
 }

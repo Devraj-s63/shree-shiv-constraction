@@ -4,29 +4,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#F4F3EF',
-        canvasMuted: '#EDECE8',
+        // Deep Charcoal-Black Canvas
+        canvas: '#0B0D10',
+        canvasMuted: '#12161C',
+        canvasSubtle: '#181E26',
+        
+        // Steel Palettes adapted for deep luxury dark-mode
         'steel-blue': {
-          DEFAULT: '#0F2A43',
-          dark: '#0A1C2D',
-          light: '#1B3D5E',
+          DEFAULT: '#E2E8F0', // High-contrast crisp foreground heading color
+          dark: '#080A0E',    // Absolute obsidian black
+          light: '#F8FAFC',
+          card: '#10141A',
         },
         'steel-gray': {
-          DEFAULT: '#4A5568',
-          light: '#718096',
-          dark: '#2D3748',
-          border: '#CBD5E1',
+          DEFAULT: '#94A3B8', // High-contrast silver body copy
+          light: '#CBD5E1',
+          dark: '#475569',
+          border: 'rgba(255, 255, 255, 0.08)', // Ultra-thin luxury divider
         },
+        
+        // Warm Amber-Gold Accents
         'safety-amber': {
-          DEFAULT: '#B45309', // WCAG AA compliant on #F4F3EF (4.52:1)
-          light: '#D97706',
-          dark: '#92400E', // High contrast (6.39:1)
-          brand: '#F59E0B',
+          DEFAULT: '#D97706', // Rich warm amber-gold
+          light: '#F59E0B',
+          dark: '#B45309',
+          brand: '#FBBF24',
+          glow: 'rgba(217, 119, 6, 0.15)'
         },
       },
       fontFamily: {
         display: ['Archivo', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        body: ['Public Sans', 'sans-serif'],
       },
       borderRadius: {
         none: '0px',

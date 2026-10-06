@@ -49,26 +49,26 @@ const exhibits = [
 ];
 ---
 
-<section id="horizontal-product-gallery" class="relative bg-canvas py-20 md:py-28 overflow-hidden border-b border-steel-gray/20">
+<section id="horizontal-product-gallery" class="relative bg-canvas py-24 md:py-36 overflow-hidden hairline-b">
   
   <!-- Section Intro Header -->
-  <div class="max-w-7xl mx-auto px-6 md:px-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
     <div>
       <div class="inline-flex items-center gap-2 mb-3">
         <span class="w-2.5 h-2.5 bg-safety-amber inline-block"></span>
-        <span class="font-display text-xs font-bold uppercase tracking-widest text-steel-gray">
+        <span class="micro-label text-steel-gray">
           Curated Catalog Exhibition
         </span>
       </div>
-      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-steel-blue leading-tight">
+      <h2 class="font-display text-[clamp(2.5rem,6vw,5rem)] font-black uppercase tracking-tight text-white leading-[1.02]">
         Horizontal Gallery &bull; <br class="hidden sm:inline" />
         <span class="text-steel-gray">Engineering Catalog</span>
       </h2>
     </div>
 
     <div class="font-mono text-xs text-steel-gray flex items-center gap-3">
-      <span class="text-safety-amber font-bold">SCROLL DOWN TO EXPLORE</span>
-      <span class="hidden sm:inline">&bull; 05 PRODUCT TILES</span>
+      <span class="micro-label text-safety-amber">SCROLL DOWN TO EXPLORE</span>
+      <span class="hidden sm:inline text-steel-gray/40">&bull; 05 PRODUCT TILES</span>
     </div>
   </div>
 
@@ -76,7 +76,7 @@ const exhibits = [
   <div class="gallery-pin-wrapper w-full overflow-hidden">
     <div class="gallery-track flex gap-6 md:gap-8 px-6 md:px-12 w-max">
       {exhibits.map((item) => (
-        <div class="gallery-card w-[320px] sm:w-[420px] md:w-[480px] shrink-0 border-2 border-steel-blue bg-steel-blue-dark text-canvas flex flex-col justify-between group overflow-hidden">
+        <div class="gallery-card w-[340px] sm:w-[440px] md:w-[500px] shrink-0 hairline-all bg-canvasMuted text-white flex flex-col justify-between group overflow-hidden">
           
           <!-- Image Header with Hover Scale -->
           <div class="relative aspect-[16/10] overflow-hidden border-b border-steel-gray/30 bg-black">
