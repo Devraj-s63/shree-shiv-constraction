@@ -2,7 +2,10 @@
 import Button from './Button.astro';
 ---
 
-<section id="hero-section" class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
+<section id="hero-section" class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden min-h-[640px] lg:min-h-[760px] flex items-center">
+  <!-- Subtle Brushed Steel Texture Underlay -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.07] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] z-0" aria-hidden="true"></div>
+
   <!-- 3D Three.js WebGL Container (Desktop & Tablet: >= 768px) -->
   <div
     id="hero-3d-canvas-container"
@@ -18,115 +21,148 @@ import Button from './Button.astro';
   >
     <img
       src="/images/hero-tmt-fallback.webp"
-      alt=""
+      alt="Shree Shiv TMT Steel Yard stock"
       width="1200"
       height="800"
       fetchpriority="high"
-      class="w-full h-full object-cover object-right opacity-65"
+      class="w-full h-full object-cover object-right opacity-60"
     />
   </div>
 
-  <!-- Dark Scrim Behind Headline & Left Column for WCAG Text Readability -->
-  <!-- Left-to-right gradient provides deep contrast over rotating 3D geometry -->
+  <!-- Directional Dark Steel Scrim Behind Oversized Typography -->
+  <!-- Deep on the left, fading towards the right to reveal the 3D rotating bundle -->
   <div
-    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-r from-steel-blue-dark via-steel-blue-dark/90 md:via-steel-blue-dark/85 to-steel-blue-dark/30 lg:to-transparent"
+    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-r from-steel-blue-dark via-steel-blue-dark/95 md:via-steel-blue-dark/85 to-steel-blue-dark/20 lg:to-transparent"
     aria-hidden="true"
   >
   </div>
 
-  <!-- Vertical Subtle Vignette (Top & Bottom seam blending) -->
+  <!-- Top and Bottom Industrial Seam Shadow -->
   <div
-    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-steel-blue-dark/60 via-transparent to-steel-blue-dark/80"
+    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-steel-blue-dark/70 via-transparent to-steel-blue-dark/85"
     aria-hidden="true"
   >
   </div>
 
-  <!-- Hero Content Grid -->
+  <!-- Hero Editorial Grid (Asymmetric Layout) -->
   <div class="relative max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24 lg:py-28 z-10 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <!-- Left Column: Primary Messaging with Scrim-Protected Typography (8 cols) -->
-      <div class="lg:col-span-8 motion-hero-entrance">
-        <!-- Eyebrow Badge -->
-        <div class="inline-flex items-center gap-2.5 bg-steel-blue px-3.5 py-1.5 border border-steel-gray/30 mb-6 backdrop-blur-sm">
-          <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-          <span class="font-display text-[11px] md:text-xs uppercase tracking-widest text-canvas font-bold">
-            Authorized Stockist &bull; Bhilwara, Rajasthan
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Left Column: Oversized Editorial Hindi Typography & CTAs (7 cols) -->
+      <div class="lg:col-span-7 motion-hero-entrance">
+        <!-- Industrial Tag & Coordinates -->
+        <div class="flex flex-wrap items-center gap-3 mb-6">
+          <div class="inline-flex items-center gap-2 bg-steel-blue px-3.5 py-1.5 border border-steel-gray/40">
+            <span class="w-2.5 h-2.5 bg-safety-amber inline-block"></span>
+            <span class="font-display text-[11px] md:text-xs uppercase tracking-widest text-canvas font-bold">
+              Kay2 Xenox &bull; Bhilwara
+            </span>
+          </div>
+          <span class="font-mono text-[11px] text-canvas/60 hidden sm:inline-block">
+            200 FT RD &bull; EST. BHILWARA
           </span>
         </div>
 
-        <!-- Hindi Main Headline (Protected by Scrim) -->
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-canvas leading-[1.1] uppercase mb-4 drop-shadow-sm">
-          मजबूती की सही पहचान
+        <!-- Oversized Hindi Main Headline Overlapping the 3D Canvas -->
+        <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[90px] font-black tracking-tighter text-canvas leading-[0.98] uppercase mb-6 drop-shadow-md">
+          मजबूती <br class="hidden sm:inline" />
+          <span class="text-canvas">की सही</span> <br class="hidden sm:inline" />
+          <span class="text-safety-amber drop-shadow-sm">पहचान</span>
         </h1>
 
-        <!-- English Subline -->
-        <p class="font-body text-base sm:text-lg md:text-xl text-canvas/90 font-normal leading-relaxed max-w-2xl mb-8 drop-shadow-sm">
-          TMT bars &amp; building materials in Bhilwara &mdash; strong today, strong tomorrow.
-        </p>
+        <!-- English Subtitle & Industrial Descriptor -->
+        <div class="border-l-2 border-safety-amber pl-4 sm:pl-6 mb-8 max-w-xl">
+          <p class="font-body text-base sm:text-lg md:text-xl text-canvas/90 font-normal leading-relaxed">
+            High-ductility Fe 550D TMT reinforcement steel, annealed binding wire, and structural building materials delivered direct from our Bhilwara yard.
+          </p>
+          <div class="font-mono text-xs text-safety-amber/90 mt-2 flex items-center gap-2">
+            <span>&bull; Fe 550D Certified</span>
+            <span>&bull; Ready Stock 8mm-32mm</span>
+            <span>&bull; Mill Test Verified</span>
+          </div>
+        </div>
 
-        <!-- Two Primary CTAs: Call Now & WhatsApp -->
+        <!-- Direct Action Bar -->
         <div class="flex flex-wrap items-center gap-4">
           <Button
             variant="call-outline"
             href="tel:8278643303"
-            class="!text-canvas !border-canvas hover:!bg-canvas hover:!text-steel-blue px-6 py-3.5 text-xs md:text-sm"
+            class="!text-canvas !border-canvas hover:!bg-canvas hover:!text-steel-blue px-7 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
             ariaLabel="Call Shree Shiv Construction directly"
           >
             <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
               <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
-            Call Now: 8278643303
+            Direct Dispatch: 8278643303
           </Button>
 
           <Button
             variant="whatsapp"
-            href="https://wa.me/918278643303"
+            href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20TMT%20Sariya%20prices%20in%20Bhilwara"
             target="_blank"
-            class="px-6 py-3.5 text-xs md:text-sm"
+            class="px-7 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
             ariaLabel="Chat on WhatsApp with Shree Shiv Construction"
           >
             <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
             </svg>
-            WhatsApp Inquiry
+            WhatsApp Rate Sheet
           </Button>
         </div>
       </div>
 
-      <!-- Right Column: Technical Spec & Stock Ledger Panel (4 cols) -->
-      <div class="lg:col-span-4 border border-steel-gray/40 bg-steel-blue-dark/75 backdrop-blur-md p-6 md:p-8 motion-hero-entrance">
-        <div class="border-b border-steel-gray/30 pb-4 mb-4 flex justify-between items-center">
-          <span class="font-display text-xs uppercase tracking-widest text-safety-amber font-bold">
-            Live Yard Inventory
-          </span>
-          <span class="font-mono text-[10px] text-canvas/50">
-            GST Verified
-          </span>
-        </div>
+      <!-- Right Column: Asymmetric Industrial Manifest & Live Spec Sheet (5 cols) -->
+      <div class="lg:col-span-5 motion-hero-entrance">
+        <div class="relative bg-steel-blue-dark/85 backdrop-blur-md border border-steel-gray/50 p-6 md:p-8">
+          <!-- Corner Safety Amber Accent Notch -->
+          <div class="absolute -top-1 -right-1 w-4 h-4 bg-safety-amber"></div>
 
-        <ul class="space-y-3 font-mono text-xs text-canvas/80">
-          <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
-            <span class="text-canvas font-semibold font-body">Kay2 Xenox TMT</span>
-            <span class="text-safety-amber font-medium">Fe 550D Certified</span>
-          </li>
-          <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
-            <span class="text-canvas font-semibold font-body">TMT Sariya Sizes</span>
-            <span>8mm &ndash; 32mm Ready</span>
-          </li>
-          <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
-            <span class="text-canvas font-semibold font-body">Binding Wire</span>
-            <span>Annealed Industrial</span>
-          </li>
-          <li class="flex justify-between items-center">
-            <span class="text-canvas font-semibold font-body">Cover Blocks</span>
-            <span>Slab / Column / Beam</span>
-          </li>
-        </ul>
+          <div class="border-b border-steel-gray/30 pb-4 mb-5 flex justify-between items-center">
+            <div>
+              <span class="font-display text-xs uppercase tracking-widest text-safety-amber font-bold block">
+                Yard Inventory Ledger
+              </span>
+              <span class="font-mono text-[10px] text-canvas/50">
+                DEPOT // 200 FEET ROAD BHILWARA
+              </span>
+            </div>
+            <span class="font-mono text-[10px] text-safety-amber border border-safety-amber/40 px-2 py-0.5">
+              ACTIVE
+            </span>
+          </div>
 
-        <div class="mt-6 pt-4 border-t border-steel-gray/30 text-[11px] text-canvas/60">
-          Location: 200 Feet Road, Near Sharda Evergreen, Bhilwara
+          <!-- Technical Gauges List -->
+          <ul class="space-y-3.5 font-mono text-xs">
+            <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2.5">
+              <span class="text-canvas font-semibold font-body text-sm">Kay2 Xenox TMT</span>
+              <span class="text-safety-amber font-mono font-medium">Fe 550D / X-RIB</span>
+            </li>
+            <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2.5">
+              <span class="text-canvas font-semibold font-body text-sm">Standard Sariya Stock</span>
+              <span class="text-canvas/80">8mm to 32mm Ready</span>
+            </li>
+            <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2.5">
+              <span class="text-canvas font-semibold font-body text-sm">Binding Wire</span>
+              <span class="text-canvas/80">Annealed Industrial Bundles</span>
+            </li>
+            <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2.5">
+              <span class="text-canvas font-semibold font-body text-sm">Cover Blocks</span>
+              <span class="text-canvas/80">Slab / Column / Beam</span>
+            </li>
+            <li class="flex justify-between items-center">
+              <span class="text-canvas font-semibold font-body text-sm">Weighbridge Loading</span>
+              <span class="text-safety-amber font-mono">Computerized Slip</span>
+            </li>
+          </ul>
+
+          <!-- Authenticity Tag -->
+          <div class="mt-6 pt-4 border-t border-steel-gray/30 flex items-center justify-between text-[11px] font-mono text-canvas/60">
+            <span>GSTIN: 08FFXPB0515IZ5</span>
+            <span class="text-safety-amber font-bold">100% Genuine</span>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -156,7 +192,7 @@ import Button from './Button.astro';
     };
 
     if ('requestIdleCallback' in window) {
-      (window as any).requestIdleCallback(load3D, { timeout: 1500 });
+      (window as any).requestIdleCallback(load3D, { timeout: 1200 });
     } else {
       setTimeout(load3D, 200);
     }

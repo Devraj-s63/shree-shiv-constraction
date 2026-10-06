@@ -1,0 +1,118 @@
+---
+// YardShowcase.astro - Editorial asymmetric photographic showcase of genuine yard & store operations
+---
+
+<section class="py-16 md:py-24 border-b border-steel-gray/20 bg-canvas relative overflow-hidden">
+  <!-- Subtle concrete texture overlay -->
+  <div class="absolute inset-0 pointer-events-none opacity-[0.04] bg-[radial-gradient(#000000_1px,transparent_1px)] [background-size:20px_20px]" aria-hidden="true"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+    
+    <!-- Editorial Section Header: Asymmetric left-aligned with industrial spec numbering -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end mb-12 md:mb-16">
+      <div class="lg:col-span-8">
+        <div class="inline-flex items-center gap-2 mb-3">
+          <span class="w-2.5 h-2.5 bg-safety-amber inline-block"></span>
+          <span class="font-display text-xs font-bold uppercase tracking-widest text-steel-gray">
+            Physical Yard &bull; Direct Operations
+          </span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-steel-blue leading-[1.05]">
+          Heavy Stock Yard &amp; <br />
+          <span class="text-steel-gray">Bhilwara Retail Depot</span>
+        </h2>
+      </div>
+
+      <div class="lg:col-span-4 lg:text-right font-mono text-xs text-steel-gray">
+        <p class="font-bold text-steel-blue uppercase">200 Feet Road, Near Sharda Evergreen</p>
+        <p>Bhilwara &bull; Daily Yard Loading &bull; Crane Assisted</p>
+      </div>
+    </div>
+
+    <!-- Asymmetric Editorial Photography Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Primary Feature: Real Stock Yard Photography (7 cols) -->
+      <div class="lg:col-span-7 border-2 border-steel-blue bg-steel-blue-dark relative overflow-hidden group flex flex-col justify-between">
+        <div class="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] w-full">
+          <img
+            src="/images/steel-yard-stock.webp"
+            alt="Shree Shiv Construction industrial steel yard stock with stacked TMT sariya bundles and overhead crane"
+            width="1400"
+            height="788"
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02] filter contrast-[1.03]"
+          />
+          <!-- Industrial corner badge -->
+          <div class="absolute top-4 left-4 bg-steel-blue-dark/90 border border-safety-amber/60 px-3 py-1 text-canvas font-mono text-[11px] uppercase tracking-wider backdrop-blur-sm">
+            <span class="w-2 h-2 bg-safety-amber inline-block mr-1.5"></span>
+            Live Heavy Stock &bull; Bhilwara Yard
+          </div>
+        </div>
+
+        <div class="p-6 md:p-8 bg-steel-blue text-canvas flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-steel-gray/30">
+          <div>
+            <h3 class="font-display text-lg md:text-xl font-bold uppercase tracking-wide text-canvas">
+              Overhead Gantry &amp; Trailer Weighbridge
+            </h3>
+            <p class="font-body text-xs md:text-sm text-canvas/80 mt-1 max-w-md">
+              Organized bulk rebars stacked on concrete sleepers. Quick loading for commercial trailers, tractors, and pickups.
+            </p>
+          </div>
+          <span class="font-mono text-xs text-safety-amber font-bold whitespace-nowrap bg-steel-blue-dark px-3 py-1.5 border border-safety-amber/30">
+            50T CAPACITY
+          </span>
+        </div>
+      </div>
+
+      <!-- Secondary Feature: Storefront & Loading Depot (5 cols) -->
+      <div class="lg:col-span-5 border border-steel-gray/30 bg-canvasMuted flex flex-col justify-between">
+        <div class="relative overflow-hidden aspect-[4/3] w-full">
+          <img
+            src="/images/shop-front-depot.webp"
+            alt="Shree Shiv Construction and Steel storefront depot in Bhilwara with steel rods and cement bags"
+            width="1200"
+            height="900"
+            loading="lazy"
+            class="w-full h-full object-cover filter contrast-[1.02]"
+          />
+          <div class="absolute top-4 left-4 bg-steel-blue-dark/90 border border-steel-gray/40 px-3 py-1 text-canvas font-mono text-[11px] uppercase tracking-wider backdrop-blur-sm">
+            Depot Counter &bull; Retail Dispatch
+          </div>
+        </div>
+
+        <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+          <div>
+            <span class="font-mono text-xs text-safety-amber font-bold tracking-widest uppercase block mb-1">
+              ESTABLISHED IN RAJASTHAN
+            </span>
+            <h3 class="font-display text-xl font-black uppercase tracking-tight text-steel-blue mb-2">
+              Walk-in Store &amp; Order Desk
+            </h3>
+            <p class="font-body text-xs md:text-sm text-steel-gray leading-relaxed mb-6">
+              Contractors, homebuilders, and fabricators can inspect mill certificates, verify physical rod ribbing, and collect immediate dispatch slips.
+            </p>
+          </div>
+
+          <!-- Quick Yard Facts -->
+          <div class="border-t border-steel-gray/20 pt-4 space-y-2 font-mono text-xs text-steel-blue">
+            <div class="flex justify-between">
+              <span class="text-steel-gray">Dispatch Days:</span>
+              <span class="font-bold">Monday &ndash; Saturday</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-steel-gray">Computerized Billing:</span>
+              <span class="font-bold text-safety-amber">Instant GST Invoice</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-steel-gray">Location Anchor:</span>
+              <span>Near Sharda Evergreen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
