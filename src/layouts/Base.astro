@@ -17,7 +17,7 @@ const {
   title = "TMT Sariya in Bhilwara | Shree Shiv Construction & Steel | Kay2 Xenox Dealer",
   description = "Leading TMT sariya in Bhilwara and building material supplier. Authorized Kay2 Xenox dealer in Bhilwara stocking Fe 550D bars, binding wire & cover blocks. Call 8278643303.",
   canonicalPath = Astro.url.pathname,
-  ogImage = '/images/og-preview.svg',
+  ogImage = '/images/og-preview.webp',
   ogType = 'website',
   faqSchema,
 } = Astro.props;
@@ -135,13 +135,21 @@ const hardwareStoreSchema = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={fullOgImageUrl} />
 
-    <!-- Google Fonts Preconnect & Stylesheet -->
+    <!-- Google Fonts Preconnect & High-Performance Asynchronous Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
 
     <!-- Google Rich Results Verified: HardwareStore Schema (Present on every page) -->
     <script type="application/ld+json" set:html={JSON.stringify(hardwareStoreSchema)} />
