@@ -66,12 +66,27 @@ const faqs = [
     answer: 'Yes, we stock high-tensile annealed binding wire (18 and 20 gauge) and precast high-density concrete cover blocks (20mm to 75mm) at our yard. You can bundle all reinforcement accessories together with your steel order into a single delivery truck, saving transport costs and site delays.',
   },
 ];
+
+// Google Rich Results Compliant FAQPage Schema JSON-LD
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer,
+    },
+  })),
+};
 ---
 
 <Base
   title="TMT Sariya in Bhilwara FAQs | Prices, Kay2 Xenox & Delivery Questions"
   description="Answers to top questions regarding TMT sariya in Bhilwara, daily per-quintal rates, site delivery, authorized Kay2 Xenox dealership, and bulk order discounts."
   canonicalPath="/faq"
+  faqSchema={faqPageSchema}
 >
   <!-- Single H1 Page Header -->
   <header class="bg-steel-blue-dark text-canvas border-b-2 border-safety-amber py-14 md:py-20">
@@ -104,7 +119,7 @@ const faqs = [
       <Badge variant="amber">Payment &amp; GST Invoicing</Badge>
     </div>
 
-    <!-- 10 Questions Accordions / Structured Blocks (H2 per FAQ) -->
+    <!-- 10 Questions Accordions / Structured Blocks -->
     <div class="space-y-6">
       {faqs.map((faq, index) => (
         <article
