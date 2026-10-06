@@ -29,7 +29,7 @@ const contactLines = [
 
 <Base
   title="Contact Building Material Supplier Bhilwara | Kay2 Xenox Dealer Yard"
-  description="Contact Shree Shiv Construction & Steel on 200 Feet Road, Bhilwara. Leading building material supplier and authorized Kay2 Xenox dealer. Call 8278643303 or 9602812764."
+  description="Contact Shree Shiv Construction & Steel on 200 Feet Road, Bhilwara. Leading building material supplier and authorized Kay2 Xenox dealer. Request a callback or call 8278643303."
   canonicalPath="/contact"
 >
   <!-- Single H1 Page Header -->
@@ -80,31 +80,121 @@ const contactLines = [
       ))}
     </div>
 
-    <!-- WhatsApp Banner -->
-    <div class="border-2 border-steel-blue bg-steel-blue text-canvas p-8 md:p-10 mb-16 flex flex-col lg:flex-row items-center justify-between gap-6">
-      <div>
-        <Badge variant="amber" class="mb-3">Instant Messaging</Badge>
-        <h2 class="font-display text-2xl md:text-3xl font-black uppercase tracking-tight text-canvas">
-          Send Your Material List On WhatsApp
-        </h2>
-        <p class="font-body text-sm text-canvas/80 mt-2 max-w-2xl leading-relaxed">
-          Need a quick quotation for specific bar sizes (8mm &ndash; 32mm), binding wire rolls, or cover blocks? Message us directly for immediate turnaround.
-        </p>
+    <!-- Request a Callback Form Section (Asymmetric Grid) -->
+    <section class="border-2 border-steel-blue bg-canvas p-8 md:p-12 mb-16 relative" id="callback-section">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Form Header & Guidance (5 cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          <Badge variant="amber">Instant Yard Dispatch Response</Badge>
+          <h2 class="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-steel-blue">
+            Request a Callback
+          </h2>
+          <p class="font-body text-sm text-steel-gray leading-relaxed">
+            Fill out your details below to start a verified WhatsApp callback request directly with our Bhilwara sales desk (<strong class="text-steel-blue">918278643303</strong>).
+          </p>
+          <div class="border-t border-steel-gray/20 pt-4 space-y-2 text-xs font-mono text-steel-gray">
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+              <span>10-digit Indian mobile verification</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+              <span>Direct prefilled WhatsApp format</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+              <span>Zero third-party telemetry data sharing</span>
+            </div>
+          </div>
+
+          <!-- Note on Rate Limiting & Spam Protection -->
+          <div class="mt-6 p-4 bg-canvasMuted border border-steel-gray/30 text-[11px] font-mono text-steel-gray leading-normal">
+            <span class="text-steel-blue font-bold uppercase block mb-1">Notice on Security &amp; Fair Use:</span>
+            Submissions are client-verified and rate-limited to 1 request every 30 seconds per browser session to prevent automated spam abuse.
+          </div>
+        </div>
+
+        <!-- Form Fields & Validation (7 cols) -->
+        <div class="lg:col-span-7 bg-canvasMuted border border-steel-gray/30 p-6 md:p-8">
+          <form id="callback-form" novalidate class="space-y-6">
+            <!-- Honeypot Field for anti-bot spam protection (hidden from humans) -->
+            <div class="hidden" aria-hidden="true">
+              <label for="company_fax">Leave this field blank</label>
+              <input type="text" id="company_fax" name="company_fax" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Name Field -->
+            <div>
+              <label for="cb-name" class="font-display text-xs uppercase tracking-wider font-bold text-steel-blue block mb-1.5">
+                Full Name <span class="text-safety-amber">*</span>
+              </label>
+              <input
+                type="text"
+                id="cb-name"
+                name="name"
+                placeholder="e.g. Ramesh Sharma"
+                required
+                class="w-full bg-canvas border border-steel-gray/40 px-4 py-3 text-sm text-steel-blue placeholder-steel-gray/50 focus:border-steel-blue focus:outline-none focus:ring-1 focus:ring-steel-blue transition-colors"
+              />
+              <span id="name-error" class="hidden text-xs font-mono text-red-600 mt-1 block"></span>
+            </div>
+
+            <!-- 10-Digit Phone Field -->
+            <div>
+              <label for="cb-phone" class="font-display text-xs uppercase tracking-wider font-bold text-steel-blue block mb-1.5">
+                10-Digit Mobile Number <span class="text-safety-amber">*</span>
+              </label>
+              <div class="relative flex">
+                <span class="inline-flex items-center px-3.5 bg-steel-blue text-canvas text-xs font-mono font-bold border border-r-0 border-steel-blue select-none">
+                  +91
+                </span>
+                <input
+                  type="tel"
+                  id="cb-phone"
+                  name="phone"
+                  maxlength="10"
+                  placeholder="9876543210"
+                  required
+                  class="w-full bg-canvas border border-steel-gray/40 px-4 py-3 text-sm font-mono text-steel-blue placeholder-steel-gray/50 focus:border-steel-blue focus:outline-none focus:ring-1 focus:ring-steel-blue transition-colors"
+                />
+              </div>
+              <span id="phone-error" class="hidden text-xs font-mono text-red-600 mt-1 block"></span>
+            </div>
+
+            <!-- Material Requirement / Message Field -->
+            <div>
+              <label for="cb-message" class="font-display text-xs uppercase tracking-wider font-bold text-steel-blue block mb-1.5">
+                Material Requirement / Message <span class="text-safety-amber">*</span>
+              </label>
+              <textarea
+                id="cb-message"
+                name="message"
+                rows="3"
+                placeholder="e.g. Need price for 12mm &amp; 16mm Kay2 Xenox TMT bars (approx 2 tons) + binding wire for house in Bhilwara."
+                required
+                class="w-full bg-canvas border border-steel-gray/40 px-4 py-3 text-sm text-steel-blue placeholder-steel-gray/50 focus:border-steel-blue focus:outline-none focus:ring-1 focus:ring-steel-blue transition-colors"
+              ></textarea>
+              <span id="message-error" class="hidden text-xs font-mono text-red-600 mt-1 block"></span>
+            </div>
+
+            <!-- Form Status / Rate-limit alert -->
+            <div id="form-status" class="hidden p-3 font-mono text-xs border"></div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              id="submit-btn"
+              class="w-full inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-6 py-4 bg-[#128C7E] text-white hover:bg-[#075E54] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-safety-amber"
+            >
+              <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
+              </svg>
+              <span>Submit &amp; Open WhatsApp Callback</span>
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="shrink-0 w-full lg:w-auto">
-        <Button
-          variant="whatsapp"
-          href="https://wa.me/918278643303?text=Hello%20Shree%20Shiv%20Construction,%20I%20need%20a%20rate%20quote%20for%20my%20construction%20project."
-          target="_blank"
-          class="w-full lg:w-auto text-xs md:text-sm px-6 py-4"
-        >
-          <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
-          </svg>
-          Chat on WhatsApp: 8278643303
-        </Button>
-      </div>
-    </div>
+    </section>
 
     <!-- Location & Timings Section -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
@@ -197,4 +287,124 @@ const contactLines = [
       </div>
     </div>
   </main>
+
+  <!-- Client-side Callback Form Validation & Honeypot Protection -->
+  <script>
+    const form = document.getElementById('callback-form') as HTMLFormElement | null;
+    const nameInput = document.getElementById('cb-name') as HTMLInputElement | null;
+    const phoneInput = document.getElementById('cb-phone') as HTMLInputElement | null;
+    const messageInput = document.getElementById('cb-message') as HTMLTextAreaElement | null;
+    const honeypot = document.getElementById('company_fax') as HTMLInputElement | null;
+
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+    const messageError = document.getElementById('message-error');
+    const formStatus = document.getElementById('form-status');
+
+    let lastSubmissionTime = 0;
+    const RATE_LIMIT_MS = 30000; // 30 seconds
+
+    function validatePhone(phone: string): boolean {
+      // 10-digit Indian phone starting with 6, 7, 8, or 9
+      const indianPhoneRegex = /^[6-9]\d{9}$/;
+      return indianPhoneRegex.test(phone.trim());
+    }
+
+    if (form && nameInput && phoneInput && messageInput) {
+      // Clean phone input to numbers only
+      phoneInput.addEventListener('input', () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, '');
+        if (phoneError) phoneError.classList.add('hidden');
+      });
+
+      nameInput.addEventListener('input', () => {
+        if (nameError) nameError.classList.add('hidden');
+      });
+
+      messageInput.addEventListener('input', () => {
+        if (messageError) messageError.classList.add('hidden');
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // 1. Honeypot anti-spam check
+        if (honeypot && honeypot.value.trim() !== '') {
+          console.warn('Bot submission blocked via honeypot.');
+          return;
+        }
+
+        // 2. Rate limit check
+        const now = Date.now();
+        if (now - lastSubmissionTime < RATE_LIMIT_MS) {
+          const remainingSec = Math.ceil((RATE_LIMIT_MS - (now - lastSubmissionTime)) / 1000);
+          if (formStatus) {
+            formStatus.className = 'p-3 font-mono text-xs border border-safety-amber bg-safety-amber/10 text-safety-amber-dark block';
+            formStatus.textContent = `Rate limit active: Please wait ${remainingSec} seconds before submitting another callback request.`;
+          }
+          return;
+        }
+
+        // 3. Validation checks
+        let isValid = true;
+        const nameVal = nameInput.value.trim();
+        const phoneVal = phoneInput.value.trim();
+        const messageVal = messageInput.value.trim();
+
+        if (!nameVal) {
+          if (nameError) {
+            nameError.textContent = 'Please enter your full name.';
+            nameError.classList.remove('hidden');
+          }
+          isValid = false;
+        }
+
+        if (!phoneVal) {
+          if (phoneError) {
+            phoneError.textContent = 'Please enter your 10-digit mobile number.';
+            phoneError.classList.remove('hidden');
+          }
+          isValid = false;
+        } else if (!validatePhone(phoneVal)) {
+          if (phoneError) {
+            phoneError.textContent = 'Please enter a valid 10-digit Indian phone number starting with 6, 7, 8, or 9.';
+            phoneError.classList.remove('hidden');
+          }
+          isValid = false;
+        }
+
+        if (!messageVal) {
+          if (messageError) {
+            messageError.textContent = 'Please specify your material requirement or message.';
+            messageError.classList.remove('hidden');
+          }
+          isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // 4. Update submission timestamp
+        lastSubmissionTime = now;
+
+        // 5. Construct prefilled WhatsApp payload targeting 918278643303
+        const prefilledText = [
+          `*CALLBACK REQUEST — Shree Shiv Construction & Steel*`,
+          `*Name:* ${nameVal}`,
+          `*Phone:* +91 ${phoneVal}`,
+          `*Requirement:* ${messageVal}`,
+          `*Source:* Website Contact Form (Bhilwara)`
+        ].join('\n');
+
+        const whatsappUrl = `https://wa.me/918278643303?text=${encodeURIComponent(prefilledText)}`;
+
+        if (formStatus) {
+          formStatus.className = 'p-3 font-mono text-xs border border-emerald-600 bg-emerald-50 text-emerald-800 block';
+          formStatus.textContent = 'Redirecting to WhatsApp with your prefilled callback details...';
+        }
+
+        // Open WhatsApp in new tab or native app
+        window.open(whatsappUrl, '_blank');
+      });
+    }
+  </script>
 </Base>
