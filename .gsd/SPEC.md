@@ -2,8 +2,26 @@
 
 > **Status**: `FINALIZED`
 
-## Vision
-A high-impact, authentic digital presence for **Shree Shiv Construction** embodying an unapologetically industrial, structural, and editorial aesthetic. Built to showcase civil engineering capability, heavy construction infrastructure, project integrity, and equipment scale with architectural clarity.
+## Business Profile
+- **Entity**: Shree Shiv Construction & Steel
+- **Location**: 200 Feet Road, Near Sharda Evergreen, Bhilwara 311001, Rajasthan
+- **Taglines**: "मजबूती की सही पहचान" / "Building a Stronger Tomorrow"
+- **Contact**: +91 8278643303, +91 9602812764
+- **GSTIN**: 08FFXPB0515IZ5
+- **Instagram**: @shreeshivconstructionsteel
+
+## Core Products & Inventory
+- Kay2 Xenox TMT Bars
+- TMT Sariya (Fe 550D / Fe 500)
+- Annealed Binding Wire
+- Concrete Cover Blocks (Slab, Beam, Column, Footing)
+- Structural Building Materials
+
+## Core Value Propositions
+- High strength structural grade materials
+- Extended operational lifespan and corrosion resistance
+- Residential and commercial deployment capability
+- Fair, direct pricing with dependable dispatch service
 
 ## Design Rules & Strict Aesthetic Constraints
 - **Palette**:
