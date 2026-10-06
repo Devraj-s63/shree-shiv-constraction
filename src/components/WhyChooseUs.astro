@@ -1,0 +1,98 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import Button from './Button.astro';
+
+const usps = [
+  {
+    number: '01',
+    title: 'High Strength',
+    label: 'Fe 550D Certified',
+    description: 'High tensile ductility, seismic endurance, and superior load distribution ensuring maximum safety under extreme structural stress.',
+    // Custom inline SVG: High Strength / Rebar Tensile Icon
+    iconSvg: `<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>`,
+    colSpan: 'md:col-span-6',
+  },
+  {
+    number: '02',
+    title: 'Long Life',
+    label: 'Corrosion Resistant',
+    description: 'Advanced thermo-mechanical treatment prevents rust progression and oxidation, protecting the integrity of internal concrete for decades.',
+    // Custom inline SVG: Durability / Shield Longevity Icon
+    iconSvg: `<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>`,
+    colSpan: 'md:col-span-6',
+  },
+  {
+    number: '03',
+    title: 'Residential & Commercial',
+    label: 'Versatile Deployment',
+    description: 'Engineered for diverse structural demands, from individual residential plots and multi-story apartments to heavy industrial plant foundations.',
+    // Custom inline SVG: Architecture / Building Scale Icon
+    iconSvg: `<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>`,
+    colSpan: 'md:col-span-6',
+  },
+  {
+    number: '04',
+    title: 'Fair Price + Best Service',
+    label: 'Direct Yard Transparency',
+    description: 'Direct computerized weighbridge billing without hidden middleman fees, backed by swift local yard loading and dedicated truck transport.',
+    // Custom inline SVG: Direct Scale / Verified Handshake Icon
+    iconSvg: `<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>`,
+    colSpan: 'md:col-span-6',
+  },
+];
+---
+
+<section id="why-choose-us" class="py-16 md:py-24 border-t border-steel-gray/20">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+    <div class="lg:col-span-7">
+      <SectionHeading
+        eyebrow="Core Value Propositions"
+        title="Why Choose Shree Shiv"
+        subtitle="Uncompromising structural integrity for every foundation. We supply certified materials that protect builders, contractors, and families for generations."
+      />
+    </div>
+    <div class="lg:col-span-5 flex lg:justify-end gap-3 self-center">
+      <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank">
+        WhatsApp Us
+      </Button>
+      <Button variant="call-outline" href="tel:8278643303">
+        Call 8278643303
+      </Button>
+    </div>
+  </div>
+
+  <!-- 4 USPs Asymmetric Editorial Grid (2x2 with industrial linework) -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+    {usps.map((usp) => (
+      <div class={`${usp.colSpan} border border-steel-gray/30 bg-canvas p-6 md:p-8 flex flex-col justify-between hover:border-steel-blue transition-colors group relative`}>
+        <div>
+          <!-- Top Row: Number & Icon -->
+          <div class="flex items-center justify-between border-b border-steel-gray/20 pb-4 mb-5">
+            <span class="font-mono text-xs font-bold text-safety-amber tracking-widest">
+              {usp.number} // {usp.label}
+            </span>
+            <div class="w-10 h-10 bg-steel-blue text-safety-amber flex items-center justify-center shrink-0">
+              <span set:html={usp.iconSvg} />
+            </div>
+          </div>
+
+          <!-- Title -->
+          <h3 class="font-display text-xl md:text-2xl font-black uppercase tracking-tight text-steel-blue mb-3 group-hover:text-steel-blue-light transition-colors">
+            {usp.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="font-body text-sm text-steel-gray leading-relaxed mb-4">
+            {usp.description}
+          </p>
+        </div>
+
+        <!-- Footnote Status -->
+        <div class="pt-3 border-t border-steel-gray/10 flex items-center gap-2 text-[11px] font-mono text-steel-gray">
+          <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+          <span>Verified Yard Standard</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

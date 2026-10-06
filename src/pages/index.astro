@@ -3,8 +3,8 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import ProductsGrid from '../components/ProductsGrid.astro';
-import SectionHeading from '../components/SectionHeading.astro';
-import Button from '../components/Button.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import StatsBand from '../components/StatsBand.astro';
 ---
 
 <Base>
@@ -19,59 +19,10 @@ import Button from '../components/Button.astro';
     <!-- Products Grid (5 Cards: Kay2 Xenox TMT Bars, TMT Sariya, Binding Wire, Cover Blocks, Building Materials) -->
     <ProductsGrid />
 
-    <!-- Why Choose Us / USPs Section -->
-    <section class="border-t border-steel-gray/20 py-16 md:py-20 mb-12">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div class="lg:col-span-5">
-          <SectionHeading
-            eyebrow="Industrial Quality Standards"
-            title="Building a Stronger Tomorrow"
-            subtitle="Engineered steel supply with verified Fe 550D metallurgy, straight-rib precision grip, and immediate yard dispatch in Bhilwara."
-          />
-          <div class="mt-6 flex flex-wrap gap-3">
-            <Button variant="call-outline" href="tel:8278643303">
-              Direct Desk: 8278643303
-            </Button>
-            <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank">
-              WhatsApp Order
-            </Button>
-          </div>
-        </div>
-
-        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div class="border border-steel-gray/30 p-6 bg-canvas">
-            <div class="font-display text-xs font-bold uppercase tracking-wider text-safety-amber mb-2">High Strength</div>
-            <h4 class="font-display text-base font-black uppercase text-steel-blue mb-2">Fe 550D Reinforcement</h4>
-            <p class="font-body text-xs text-steel-gray leading-relaxed">
-              Certified tensile strength and elongation metrics designed to endure high seismic loads and severe structural stresses.
-            </p>
-          </div>
-
-          <div class="border border-steel-gray/30 p-6 bg-canvas">
-            <div class="font-display text-xs font-bold uppercase tracking-wider text-safety-amber mb-2">Durability</div>
-            <h4 class="font-display text-base font-black uppercase text-steel-blue mb-2">Long Operational Life</h4>
-            <p class="font-body text-xs text-steel-gray leading-relaxed">
-              Superior corrosion resistance prevents internal concrete cracking and rust expansion over decades.
-            </p>
-          </div>
-
-          <div class="border border-steel-gray/30 p-6 bg-canvas">
-            <div class="font-display text-xs font-bold uppercase tracking-wider text-safety-amber mb-2">Applications</div>
-            <h4 class="font-display text-base font-black uppercase text-steel-blue mb-2">Residential &amp; Commercial</h4>
-            <p class="font-body text-xs text-steel-gray leading-relaxed">
-              Versatile reinforcement supply suitable for individual housing plots, multi-story buildings, and factory foundations.
-            </p>
-          </div>
-
-          <div class="border border-steel-gray/30 p-6 bg-canvas">
-            <div class="font-display text-xs font-bold uppercase tracking-wider text-safety-amber mb-2">Pricing &amp; Service</div>
-            <h4 class="font-display text-base font-black uppercase text-steel-blue mb-2">Fair Price + Best Service</h4>
-            <p class="font-body text-xs text-steel-gray leading-relaxed">
-              Transparent per-ton/per-bundle rates with organized local logistics and immediate loading facilities at 200 Feet Road.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Why Choose Us (4 USPs: High Strength, Long Life, Residential & Commercial, Fair Price + Best Service) -->
+    <WhyChooseUs />
   </main>
+
+  <!-- Animated Stats Band with Count-Up Numbers -->
+  <StatsBand />
 </Base>

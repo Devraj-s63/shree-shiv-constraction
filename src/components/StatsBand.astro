@@ -1,0 +1,107 @@
+---
+// StatsBand component with technical count-up metrics engine
+const stats = [
+  {
+    target: 5,
+    suffix: '+',
+    label: 'Product Categories',
+    subtext: 'Kay2 TMT, Sariya, Wire, Blocks, Materials',
+  },
+  {
+    target: 2,
+    suffix: '',
+    label: 'Direct Phone Lines',
+    subtext: '8278643303 & 9602812764 Active',
+  },
+  {
+    target: 100,
+    suffix: '%',
+    label: 'Genuine Brands',
+    subtext: 'Authentic mill-certified steel only',
+  },
+  {
+    target: 550,
+    suffix: 'D',
+    label: 'Fe Grade Standard',
+    subtext: 'Seismic ductility reinforcement stock',
+  },
+];
+---
+
+<section class="bg-steel-blue-dark text-canvas border-y-2 border-safety-amber py-14 md:py-20 relative overflow-hidden" id="stats-band">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 divide-y sm:divide-y-0 lg:divide-x divide-steel-gray/30">
+      {stats.map((stat, index) => (
+        <div class={`flex flex-col justify-between pt-6 sm:pt-0 ${index > 0 ? 'lg:pl-8' : ''}`}>
+          <div>
+            <div class="flex items-baseline gap-1 mb-2">
+              <span
+                class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-safety-amber tracking-tight counter-number"
+                data-target={stat.target}
+              >
+                0
+              </span>
+              <span class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-safety-amber">
+                {stat.suffix}
+              </span>
+            </div>
+            <h3 class="font-display text-sm md:text-base font-bold uppercase tracking-wider text-canvas mb-1">
+              {stat.label}
+            </h3>
+          </div>
+          <p class="font-body text-xs text-canvas/60 mt-2">
+            {stat.subtext}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- IntersectionObserver count-up script (Zero hover bounce, clean mechanical count-up) -->
+<script>
+  function initCounters() {
+    const counters = document.querySelectorAll('.counter-number');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const target = parseInt(el.getAttribute('data-target') || '0', 10);
+            const duration = 1400; // ms
+            const startTime = performance.now();
+
+            function updateCount(currentTime: number) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease-out mechanical curve
+              const current = Math.floor(progress * target);
+              el.textContent = current.toString();
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCount);
+              } else {
+                el.textContent = target.toString();
+              }
+            }
+
+            requestAnimationFrame(updateCount);
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    counters.forEach((c) => observer.observe(c));
+  }
+
+  // Run on initial load and page navigations
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCounters);
+  } else {
+    initCounters();
+  }
+</script>
