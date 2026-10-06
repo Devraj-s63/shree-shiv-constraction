@@ -1,0 +1,204 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+
+// Editable Opening Hours Placeholders
+const openingHours = [
+  { days: 'Monday – Saturday', hours: '9:00 AM – 8:00 PM', status: 'Regular Yard & Dispatch Hours' },
+  { days: 'Sunday', hours: 'Emergency Dispatch / By Prior Appointment', status: 'On-Call Truck Loading' },
+];
+
+const contactLines = [
+  {
+    type: 'Primary Sales & Rates',
+    phone: '8278643303',
+    href: 'tel:8278643303',
+    label: '+91 8278643303',
+    subtext: 'Daily TMT rates, truckload orders, invoice inquiries',
+  },
+  {
+    type: 'Alternate & Yard Support',
+    phone: '9602812764',
+    href: 'tel:9602812764',
+    label: '+91 9602812764',
+    subtext: 'Logistics tracking, driver coordination, yard loading',
+  },
+];
+---
+
+<Base
+  title="Contact & Location | Shree Shiv Construction & Steel, Bhilwara"
+  description="Contact Shree Shiv Construction & Steel in Bhilwara. Phone lines: 8278643303 and 9602812764. Visit our yard on 200 Feet Road, Near Sharda Evergreen."
+>
+  <!-- Page Header -->
+  <header class="bg-steel-blue-dark text-canvas border-b-2 border-safety-amber py-14 md:py-20">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-safety-amber inline-block"></span>
+          <span class="font-display text-xs uppercase tracking-widest text-canvas/70 font-bold">
+            Yard Inquiries &bull; Direct Desk
+          </span>
+        </div>
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-canvas leading-tight mb-4">
+          Contact &amp; Location
+        </h1>
+        <p class="font-body text-sm sm:text-base text-canvas/80 leading-relaxed">
+          Get in touch with our sales and dispatch team for live steel rates, bundle quotations, computerized weighbridge slips, and site delivery scheduling.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
+    <!-- Quick Contact Cards (Asymmetric 12-col layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16">
+      {contactLines.map((line, idx) => (
+        <div class="md:col-span-6 border border-steel-gray/30 bg-canvas p-6 md:p-8 flex flex-col justify-between hover:border-steel-blue transition-colors">
+          <div>
+            <div class="flex justify-between items-center border-b border-steel-gray/20 pb-3 mb-4">
+              <span class="font-mono text-xs font-bold text-safety-amber tracking-widest">
+                LINE 0{idx + 1}
+              </span>
+              <Badge variant="steel">{line.type}</Badge>
+            </div>
+            <a href={line.href} class="font-display text-2xl md:text-3xl font-black text-steel-blue hover:text-safety-amber transition-colors block mb-2">
+              {line.label}
+            </a>
+            <p class="font-body text-xs text-steel-gray leading-relaxed mb-6">
+              {line.subtext}
+            </p>
+          </div>
+          <div>
+            <Button variant="call-outline" href={line.href} class="w-full text-xs">
+              Call {line.phone}
+            </Button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- WhatsApp Banner -->
+    <div class="border-2 border-steel-blue bg-steel-blue text-canvas p-8 md:p-10 mb-16 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div>
+        <Badge variant="amber" class="mb-3">Instant Messaging</Badge>
+        <h2 class="font-display text-2xl md:text-3xl font-black uppercase tracking-tight text-canvas">
+          Send Your Material List On WhatsApp
+        </h2>
+        <p class="font-body text-sm text-canvas/80 mt-2 max-w-2xl leading-relaxed">
+          Need a quick quotation for specific bar sizes (8mm &ndash; 32mm), binding wire rolls, or cover blocks? Message us directly for immediate turnaround.
+        </p>
+      </div>
+      <div class="shrink-0 w-full lg:w-auto">
+        <Button
+          variant="whatsapp"
+          href="https://wa.me/918278643303?text=Hello%20Shree%20Shiv%20Construction,%20I%20need%20a%20rate%20quote%20for%20my%20construction%20project."
+          target="_blank"
+          class="w-full lg:w-auto text-xs md:text-sm px-6 py-4"
+        >
+          <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
+          </svg>
+          Chat on WhatsApp: 8278643303
+        </Button>
+      </div>
+    </div>
+
+    <!-- Location & Timings Section (Asymmetric Layout) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <!-- Address & Opening Hours (5 cols) -->
+      <div class="lg:col-span-5 space-y-8">
+        <!-- Physical Yard Info -->
+        <div class="border border-steel-gray/30 bg-canvas p-6 md:p-8">
+          <SectionHeading
+            eyebrow="Physical Location"
+            title="Yard &amp; Depot"
+            subtitle="Strategically located on 200 Feet Road with wide trailer access and convenient approach from all parts of Bhilwara."
+          />
+
+          <address class="not-italic font-body text-steel-gray text-sm md:text-base leading-relaxed space-y-1 mb-6">
+            <p class="font-bold text-steel-blue">Shree Shiv Construction &amp; Steel</p>
+            <p>200 Feet Road, Near Sharda Evergreen,</p>
+            <p>Bhilwara &ndash; 311001, Rajasthan, India</p>
+          </address>
+
+          <div class="space-y-2 font-mono text-xs text-steel-gray border-t border-steel-gray/20 pt-4">
+            <div class="flex justify-between">
+              <span>GSTIN:</span>
+              <strong class="text-steel-blue">08FFXPB0515IZ5</strong>
+            </div>
+            <div class="flex justify-between">
+              <span>Instagram:</span>
+              <a href="https://instagram.com/shreeshivconstructionsteel" target="_blank" rel="noopener noreferrer" class="text-safety-amber hover:underline">
+                @shreeshivconstructionsteel
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editable Opening Hours Card -->
+        <div class="border border-steel-gray/30 bg-canvas p-6 md:p-8">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-2 h-2 bg-safety-amber inline-block"></span>
+            <h3 class="font-display text-xs font-bold uppercase tracking-widest text-steel-blue">
+              Opening Hours (Editable Schedule)
+            </h3>
+          </div>
+
+          <div class="space-y-4">
+            {openingHours.map((schedule) => (
+              <div class="border-b border-steel-gray/10 pb-3">
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="font-display text-sm font-bold uppercase text-steel-blue">
+                    {schedule.days}
+                  </span>
+                  <span class="font-mono text-xs font-semibold text-safety-amber">
+                    {schedule.hours}
+                  </span>
+                </div>
+                <span class="font-body text-xs text-steel-gray">
+                  {schedule.status}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p class="font-body text-[11px] text-steel-gray/70 mt-4">
+            * Note: For bulk site shipments, tractor-trolley loading can be pre-scheduled outside standard yard hours by speaking to our dispatcher.
+          </p>
+        </div>
+      </div>
+
+      <!-- Embedded Google Map (7 cols) -->
+      <div class="lg:col-span-7 border border-steel-gray/30 bg-canvasMuted flex flex-col min-h-[500px]">
+        <div class="bg-steel-blue text-canvas px-4 py-2 text-xs font-mono flex items-center justify-between border-b border-steel-gray/30">
+          <span class="flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 text-safety-amber fill-current" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            200 Feet Road, Near Sharda Evergreen, Bhilwara 311001
+          </span>
+          <a
+            href="https://maps.google.com/?q=200+Feet+Road+Near+Sharda+Evergreen+Bhilwara+311001"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-safety-amber hover:underline uppercase text-[10px] tracking-wider font-bold"
+          >
+            Google Maps &rarr;
+          </a>
+        </div>
+
+        <iframe
+          title="Shree Shiv Construction and Steel Location Map"
+          class="w-full flex-grow border-0 grayscale hover:grayscale-0 transition-all duration-200 min-h-[460px]"
+          src="https://maps.google.com/maps?q=200%20Feet%20Road,%20Near%20Sharda%20Evergreen,%20Bhilwara%20311001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </main>
+</Base>
