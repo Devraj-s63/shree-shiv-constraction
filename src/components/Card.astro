@@ -1,0 +1,28 @@
+---
+interface Props {
+  variant?: 'default' | 'steel' | 'canvas' | 'outline';
+  class?: string;
+  id?: string;
+}
+
+const {
+  variant = 'default',
+  class: className = '',
+  id,
+} = Astro.props;
+
+const baseStyles = 'border p-6 md:p-8 transition-colors duration-150 relative';
+
+const variantStyles: Record<string, string> = {
+  default: 'bg-canvas border-steel-gray/30 hover:border-steel-blue',
+  steel: 'bg-steel-blue text-canvas border-steel-blue hover:bg-steel-blue-dark',
+  canvas: 'bg-canvasMuted border-steel-gray/30 hover:border-steel-blue',
+  outline: 'bg-transparent border-steel-gray/40 hover:border-steel-blue',
+};
+
+const computedClass = `${baseStyles} ${variantStyles[variant] || variantStyles.default} ${className}`;
+---
+
+<div class={computedClass} id={id}>
+  <slot />
+</div>

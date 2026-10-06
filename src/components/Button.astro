@@ -1,0 +1,58 @@
+---
+interface Props {
+  variant?: 'primary' | 'whatsapp' | 'call-outline' | 'secondary';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  target?: string;
+  rel?: string;
+  id?: string;
+  ariaLabel?: string;
+}
+
+const {
+  variant = 'primary',
+  href,
+  type = 'button',
+  class: className = '',
+  target,
+  rel,
+  id,
+  ariaLabel,
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-5 py-3 transition-colors duration-150 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-safety-amber focus:ring-offset-2';
+
+const variantStyles: Record<string, string> = {
+  primary: 'bg-steel-blue text-canvas border border-steel-blue hover:bg-steel-blue-light hover:border-steel-blue-light active:bg-steel-blue-dark',
+  whatsapp: 'bg-[#128C7E] text-white border border-[#128C7E] hover:bg-[#075E54] hover:border-[#075E54] active:bg-[#075E54]',
+  'call-outline': 'bg-transparent text-steel-blue border-2 border-steel-blue hover:bg-steel-blue hover:text-canvas active:bg-steel-blue-dark',
+  secondary: 'bg-transparent text-steel-gray border border-steel-gray/40 hover:border-steel-blue hover:text-steel-blue active:bg-canvasMuted',
+};
+
+const computedClass = `${baseStyles} ${variantStyles[variant] || variantStyles.primary} ${className}`;
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={computedClass}
+      target={target}
+      rel={target === '_blank' ? (rel || 'noopener noreferrer') : rel}
+      id={id}
+      aria-label={ariaLabel}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={computedClass}
+      id={id}
+      aria-label={ariaLabel}
+    >
+      <slot />
+    </button>
+  )
+}

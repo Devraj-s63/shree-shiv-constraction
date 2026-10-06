@@ -1,29 +1,73 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+import Card from '../components/Card.astro';
+import SectionHeading from '../components/SectionHeading.astro';
 import '../styles/global.css';
 ---
 
 <BaseLayout>
-  <main class="min-h-screen border-b border-steel-gray/20 p-8 md:p-16">
-    <header class="border-b border-steel-blue/30 pb-6 mb-12">
-      <div class="text-xs uppercase tracking-widest text-steel-gray font-semibold mb-2">
-        Bhilwara, Rajasthan
-      </div>
-      <h1 class="font-display text-3xl md:text-5xl font-black uppercase tracking-tight text-steel-blue">
-        Shree Shiv Construction &amp; Steel
-      </h1>
-      <p class="mt-2 text-steel-gray text-sm">
-        मजबूती की सही पहचान &bull; Building a Stronger Tomorrow
-      </p>
-    </header>
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+    <SectionHeading
+      eyebrow="Direct Stockist &bull; Bhilwara, Rajasthan"
+      title="Shree Shiv Construction & Steel"
+      subtitle="Authorized supplier of Kay2 Xenox TMT bars, Fe 550D Sariya, binding wire, and precision concrete cover blocks."
+    />
 
-    <section class="max-w-2xl">
-      <div class="inline-block bg-steel-blue text-canvas px-4 py-2 text-xs font-bold uppercase tracking-wider mb-4">
-        Design System Ready
-      </div>
-      <p class="font-body text-base text-steel-blue leading-relaxed">
-        Tailwind design system configured with <span class="font-semibold text-steel-blue">steel-blue (#0F2A43)</span>, <span class="font-semibold text-steel-gray">steel-gray</span>, and <span class="font-semibold text-safety-amber">safety-amber</span> accents. Display typography is set to <span class="font-display font-bold">Archivo</span> and body text to <span class="font-body font-medium">Inter</span>.
-      </p>
-    </section>
+    <!-- Badges Showcase -->
+    <div class="flex flex-wrap gap-3 mb-10">
+      <Badge variant="amber">Fe 550D Grade</Badge>
+      <Badge variant="steel">Kay2 Xenox Stockist</Badge>
+      <Badge variant="neutral">GST: 08FFXPB0515IZ5</Badge>
+      <Badge variant="success">Verified Quality</Badge>
+    </div>
+
+    <!-- Buttons Showcase -->
+    <div class="flex flex-wrap items-center gap-4 mb-14">
+      <Button variant="primary">Request Quotation</Button>
+      <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank">
+        <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
+        </svg>
+        WhatsApp Order
+      </Button>
+      <Button variant="call-outline" href="tel:8278643303">
+        Call 8278643303
+      </Button>
+      <Button variant="secondary" href="tel:9602812764">
+        Alternate 9602812764
+      </Button>
+    </div>
+
+    <!-- Cards Layout (Asymmetric, No 3-in-a-row) -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      <Card class="md:col-span-7">
+        <span class="text-xs font-display font-bold uppercase tracking-wider text-safety-amber mb-2 block">
+          Primary Product Line
+        </span>
+        <h3 class="font-display text-xl md:text-2xl font-bold uppercase tracking-tight text-steel-blue mb-3">
+          Kay2 Xenox TMT Steel Bars
+        </h3>
+        <p class="font-body text-steel-gray text-sm leading-relaxed mb-4">
+          High ductility seismic resistant Fe 550D reinforcement steel. Engineered with advanced rib pattern technology ensuring maximum concrete grip and structural stability.
+        </p>
+        <div class="text-xs text-steel-gray font-mono border-t border-steel-gray/20 pt-3">
+          Standard Diameters: 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, 32mm
+        </div>
+      </Card>
+
+      <Card variant="canvas" class="md:col-span-5">
+        <span class="text-xs font-display font-bold uppercase tracking-wider text-steel-gray mb-2 block">
+          Essential Accessories
+        </span>
+        <h3 class="font-display text-lg md:text-xl font-bold uppercase tracking-tight text-steel-blue mb-3">
+          Wire &amp; Cover Blocks
+        </h3>
+        <p class="font-body text-steel-gray text-sm leading-relaxed">
+          Annealed binding wire and precast high-density concrete cover blocks for slabs, beams, columns, and foundations.
+        </p>
+      </Card>
+    </div>
   </main>
 </BaseLayout>
