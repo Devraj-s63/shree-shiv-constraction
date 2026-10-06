@@ -5,6 +5,8 @@ import TrustStrip from '../components/TrustStrip.astro';
 import ProductsGrid from '../components/ProductsGrid.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import StatsBand from '../components/StatsBand.astro';
+import FaqTeaser from '../components/FaqTeaser.astro';
+import LocationSection from '../components/LocationSection.astro';
 ---
 
 <Base>
@@ -25,4 +27,13 @@ import StatsBand from '../components/StatsBand.astro';
 
   <!-- Animated Stats Band with Count-Up Numbers -->
   <StatsBand />
+
+  <!-- Additional Sections: FAQ Teaser & Physical Location -->
+  <main class="max-w-7xl mx-auto px-6 md:px-8">
+    <!-- FAQ Teaser with Accordions and Link to /faq -->
+    <FaqTeaser />
+
+    <!-- Location Section with Address Text + Embedded Google Map -->
+    <LocationSection />
+  </main>
 </Base>

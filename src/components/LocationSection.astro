@@ -1,0 +1,106 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import Button from './Button.astro';
+---
+
+<section id="location" class="py-16 md:py-24 border-t border-steel-gray/20">
+  <SectionHeading
+    eyebrow="Physical Yard &bull; Bhilwara"
+    title="Visit Our Yard &amp; Office"
+    subtitle="Conveniently situated on 200 Feet Road with ample heavy trailer turning space and rapid computerized loading facilities."
+  />
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+    <!-- Left Column: Detailed Address & Coordinates (5 cols) -->
+    <div class="lg:col-span-5 border border-steel-gray/30 bg-canvas p-6 md:p-8 flex flex-col justify-between">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-4">
+          <span class="w-2 h-2 bg-safety-amber inline-block"></span>
+          <span class="font-display text-xs font-bold uppercase tracking-widest text-steel-blue">
+            Registered Depot &amp; Yard
+          </span>
+        </div>
+
+        <h3 class="font-display text-2xl font-black uppercase tracking-tight text-steel-blue mb-4">
+          Shree Shiv Construction &amp; Steel
+        </h3>
+
+        <address class="not-italic font-body text-steel-gray text-sm md:text-base leading-relaxed mb-6 space-y-1">
+          <p class="font-semibold text-steel-blue">200 Feet Road, Near Sharda Evergreen,</p>
+          <p>Bhilwara &ndash; 311001, Rajasthan, India</p>
+        </address>
+
+        <div class="border-t border-steel-gray/20 pt-4 space-y-3 font-mono text-xs">
+          <div class="flex justify-between items-center">
+            <span class="text-steel-gray">Primary Contact:</span>
+            <a href="tel:8278643303" class="text-steel-blue font-bold hover:text-safety-amber transition-colors">
+              +91 8278643303
+            </a>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-steel-gray">Alternate Line:</span>
+            <a href="tel:9602812764" class="text-steel-blue font-bold hover:text-safety-amber transition-colors">
+              +91 9602812764
+            </a>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-steel-gray">GSTIN:</span>
+            <span class="text-steel-blue font-semibold">08FFXPB0515IZ5</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-steel-gray">Yard Timings:</span>
+            <span class="text-steel-blue">Mon &ndash; Sat: 8:00 AM &ndash; 8:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-steel-gray/20 flex flex-wrap gap-3">
+        <Button
+          variant="call-outline"
+          href="tel:8278643303"
+          class="text-xs"
+        >
+          Call For Directions
+        </Button>
+        <Button
+          variant="whatsapp"
+          href="https://wa.me/918278643303?text=Requesting%20location%20pin%20for%20yard"
+          target="_blank"
+          class="text-xs"
+        >
+          Get Location Pin
+        </Button>
+      </div>
+    </div>
+
+    <!-- Right Column: Embedded Google Map (7 cols) -->
+    <div class="lg:col-span-7 border border-steel-gray/30 bg-canvasMuted min-h-[380px] lg:min-h-[460px] relative overflow-hidden flex flex-col">
+      <div class="bg-steel-blue text-canvas px-4 py-2 text-xs font-mono flex items-center justify-between border-b border-steel-gray/30">
+        <span class="flex items-center gap-2">
+          <!-- Custom inline SVG Map Pin -->
+          <svg class="w-3.5 h-3.5 text-safety-amber fill-current" viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          200 Feet Road, Near Sharda Evergreen, Bhilwara 311001
+        </span>
+        <a
+          href="https://maps.google.com/?q=200+Feet+Road+Near+Sharda+Evergreen+Bhilwara+311001"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-safety-amber hover:underline uppercase text-[10px] tracking-wider font-bold"
+        >
+          Open In Google Maps &rarr;
+        </a>
+      </div>
+
+      <iframe
+        title="Shree Shiv Construction and Steel Location Map"
+        class="w-full flex-grow border-0 grayscale hover:grayscale-0 transition-all duration-200"
+        src="https://maps.google.com/maps?q=200%20Feet%20Road,%20Near%20Sharda%20Evergreen,%20Bhilwara%20311001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>

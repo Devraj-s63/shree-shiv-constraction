@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+
+const fullFaqs = [
+  {
+    category: 'Product & Authenticity',
+    items: [
+      {
+        q: 'Are you an authorized stockist of Kay2 Xenox TMT bars in Bhilwara?',
+        a: 'Yes, Shree Shiv Construction & Steel is an authorized stockist in Bhilwara supplying genuine Kay2 Xenox TMT bars. Every bundle originates with official mill test certificates and original manufacturer markings.',
+      },
+      {
+        q: 'What is the difference between Fe 500 and Fe 550D TMT bars?',
+        a: 'Fe 550D offers higher yield strength combined with high ductility ("D" stands for ductility). It absorbs higher stress and strain during earthquakes, making it the preferred standard for modern RCC structures.',
+      },
+      {
+        q: 'What sizes of TMT Sariya are readily available in the yard?',
+        a: 'We maintain regular ready stock for 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, and 32mm bars in standard 12-meter straight lengths or folded factory bundles.',
+      },
+    ],
+  },
+  {
+    category: 'Ordering & Yard Dispatch',
+    items: [
+      {
+        q: 'Can individual homeowners buy small retail quantities?',
+        a: 'Yes, we cater to both individual home builders needing a few bundles or quintals as well as large civil developers ordering multiple truckloads.',
+      },
+      {
+        q: 'How is the steel weighed and billed?',
+        a: 'All consignments are weighed accurately on computerized weighbridge systems. You receive a verified weighment slip along with an official GST invoice (GSTIN: 08FFXPB0515IZ5).',
+      },
+      {
+        q: 'Do you arrange site transport and delivery in and around Bhilwara?',
+        a: 'Yes, we have reliable local transport tie-ups for tractor-trolley or mini-truck deliveries directly to your construction site across Bhilwara and nearby tehsils.',
+      },
+    ],
+  },
+  {
+    category: 'Accessories & Building Supplies',
+    items: [
+      {
+        q: 'What binding wire specifications do you supply?',
+        a: 'We supply high-grade annealed binding wire in 18 and 20 gauge coils, specifically heat-treated to ensure flexible knotting without snapping under tension.',
+      },
+      {
+        q: 'Why are precision concrete cover blocks necessary?',
+        a: 'Cover blocks ensure the reinforcement steel maintains the specified distance from the shuttering face, preventing water infiltration, rebar rusting, and structural failure over time.',
+      },
+    ],
+  },
+];
+---
+
+<Base
+  title="Frequently Asked Questions | Shree Shiv Construction & Steel, Bhilwara"
+  description="Common questions about Kay2 Xenox TMT bars, Fe 550D steel grades, binding wire, cover blocks, yard weighment, and site deliveries in Bhilwara, Rajasthan."
+>
+  <main class="max-w-5xl mx-auto px-6 md:px-8 py-12 md:py-20">
+    <SectionHeading
+      eyebrow="Help Desk &bull; Bhilwara Yard"
+      title="Frequently Asked Questions"
+      subtitle="Detailed technical and commercial answers regarding our reinforcement steel stock, billing procedures, and delivery services."
+    />
+
+    <div class="space-y-12">
+      {fullFaqs.map((section) => (
+        <section class="border border-steel-gray/30 bg-canvas p-6 md:p-8">
+          <h2 class="font-display text-sm font-bold uppercase tracking-wider text-safety-amber mb-6 pb-3 border-b border-steel-gray/20">
+            {section.category}
+          </h2>
+
+          <div class="space-y-4">
+            {section.items.map((item, idx) => (
+              <details class="group border border-steel-gray/20 bg-canvasMuted open:border-steel-blue">
+                <summary class="flex justify-between items-center p-4 md:p-5 cursor-pointer select-none font-display font-bold uppercase tracking-tight text-steel-blue text-sm md:text-base list-none focus:outline-none">
+                  <span class="flex items-center gap-3">
+                    <span class="font-mono text-xs text-safety-amber">Q{idx + 1}.</span>
+                    <span>{item.q}</span>
+                  </span>
+                  <span class="ml-4 w-6 h-6 bg-steel-blue text-canvas flex items-center justify-center shrink-0 text-xs transition-transform duration-150 group-open:rotate-45">
+                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
+                      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="px-5 pb-5 pt-2 font-body text-sm text-steel-gray leading-relaxed border-t border-steel-gray/10">
+                  <p>{item.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <!-- Quick Inquiry Box -->
+    <div class="mt-12 p-8 border-2 border-steel-blue bg-steel-blue text-canvas flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="font-display text-xl font-bold uppercase tracking-tight">Have a specific question or custom schedule?</h3>
+        <p class="font-body text-sm text-canvas/70 mt-1">Speak directly with our yard sales manager for instant advice.</p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank">
+          WhatsApp Desk
+        </Button>
+        <Button variant="call-outline" href="tel:8278643303" class="!text-canvas !border-canvas hover:!bg-canvas hover:!text-steel-blue">
+          Call 8278643303
+        </Button>
+      </div>
+    </div>
+  </main>
+</Base>
