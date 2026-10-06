@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <!-- Background Steel Gradient -->
+    <radialGradient id="hero-bg-rad" cx="65%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#1B3855" />
+      <stop offset="45%" stop-color="#0F2A43" />
+      <stop offset="100%" stop-color="#071522" />
+    </radialGradient>
+
+    <!-- Metallic Steel Cylinder Gradients -->
+    <linearGradient id="bar-metal-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D3B48" />
+      <stop offset="25%" stop-color="#7C8B99" />
+      <stop offset="45%" stop-color="#C5D1DC" />
+      <stop offset="55%" stop-color="#647482" />
+      <stop offset="85%" stop-color="#1E2832" />
+      <stop offset="100%" stop-color="#0F171F" />
+    </linearGradient>
+
+    <linearGradient id="bar-metal-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3A4A59" />
+      <stop offset="30%" stop-color="#93A3B2" />
+      <stop offset="50%" stop-color="#E2EBF2" />
+      <stop offset="65%" stop-color="#556574" />
+      <stop offset="90%" stop-color="#162029" />
+      <stop offset="100%" stop-color="#0A1017" />
+    </linearGradient>
+
+    <!-- Amber Rim Light Gradient -->
+    <linearGradient id="amber-rim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#B45309" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0F2A43" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Industrial Ribs Pattern on TMT rebar -->
+    <pattern id="rebar-ribs" width="18" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(25)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#FFFFFF" stroke-width="2.5" stroke-opacity="0.18" />
+      <line x1="9" y1="0" x2="9" y2="40" stroke="#000000" stroke-width="2.5" stroke-opacity="0.35" />
+    </pattern>
+
+    <filter id="cinematic-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Deep Steel Canvas -->
+  <rect width="1200" height="800" fill="url(#hero-bg-rad)" />
+
+  <!-- Amber Ambient Atmospheric Rim Light Flare -->
+  <circle cx="850" cy="380" r="320" fill="#D97706" opacity="0.16" filter="url(#cinematic-glow)" />
+  <circle cx="950" cy="460" r="180" fill="#B45309" opacity="0.22" filter="url(#cinematic-glow)" />
+
+  <!-- Blueprint Coordinate Grid Lines -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" stroke-dasharray="6 6" />
+    <line x1="0" y1="400" x2="1200" y2="400" stroke-dasharray="6 6" />
+    <line x1="0" y1="600" x2="1200" y2="600" stroke-dasharray="6 6" />
+    <line x1="300" y1="0" x2="300" y2="800" stroke-dasharray="6 6" />
+    <line x1="600" y1="0" x2="600" y2="800" stroke-dasharray="6 6" />
+    <line x1="900" y1="0" x2="900" y2="800" stroke-dasharray="6 6" />
+  </g>
+
+  <!-- Rendered Bundle of Cylindrical TMT Rebars (Tilted 3D Isometric Projection) -->
+  <g transform="translate(850, 410) rotate(-28)">
+    <!-- Back Row Bars -->
+    <g transform="translate(-110, -130)">
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#bar-metal-1)" />
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#rebar-ribs)" />
+    </g>
+    <g transform="translate(-40, -150)">
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#bar-metal-2)" />
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#rebar-ribs)" />
+    </g>
+    <g transform="translate(50, -120)">
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#bar-metal-1)" />
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#rebar-ribs)" />
+    </g>
+
+    <!-- Mid Row Bars -->
+    <g transform="translate(-140, -50)">
+      <rect x="-350" y="-20" width="700" height="40" rx="4" fill="url(#bar-metal-2)" />
+      <rect x="-350" y="-20" width="700" height="40" rx="4" fill="url(#rebar-ribs)" />
+    </g>
+    <g transform="translate(-50, -60)">
+      <rect x="-350" y="-22" width="700" height="44" rx="4" fill="url(#bar-metal-1)" />
+      <rect x="-350" y="-22" width="700" height="44" rx="4" fill="url(#rebar-ribs)" />
+      <!-- Rim light accent on prominent bar -->
+      <line x1="-350" y1="-22" x2="350" y2="-22" stroke="#D97706" stroke-width="2.5" opacity="0.9" />
+    </g>
+    <g transform="translate(60, -45)">
+      <rect x="-350" y="-20" width="700" height="40" rx="4" fill="url(#bar-metal-2)" />
+      <rect x="-350" y="-20" width="700" height="40" rx="4" fill="url(#rebar-ribs)" />
+      <line x1="-350" y1="-20" x2="350" y2="-20" stroke="#D97706" stroke-width="2" opacity="0.8" />
+    </g>
+    <g transform="translate(130, -30)">
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#bar-metal-1)" />
+      <rect x="-350" y="-18" width="700" height="36" rx="4" fill="url(#rebar-ribs)" />
+    </g>
+
+    <!-- Center Foreground Dominant Bars -->
+    <g transform="translate(-100, 30)">
+      <rect x="-350" y="-24" width="700" height="48" rx="4" fill="url(#bar-metal-1)" />
+      <rect x="-350" y="-24" width="700" height="48" rx="4" fill="url(#rebar-ribs)" />
+      <line x1="-350" y1="-24" x2="350" y2="-24" stroke="#D97706" stroke-width="3" opacity="0.9" />
+    </g>
+    <g transform="translate(0, 20)">
+      <rect x="-350" y="-26" width="700" height="52" rx="4" fill="url(#bar-metal-2)" />
+      <rect x="-350" y="-26" width="700" height="52" rx="4" fill="url(#rebar-ribs)" />
+      <line x1="-350" y1="-26" x2="350" y2="-26" stroke="#F59E0B" stroke-width="3.5" opacity="0.95" />
+    </g>
+    <g transform="translate(90, 40)">
+      <rect x="-350" y="-22" width="700" height="44" rx="4" fill="url(#bar-metal-1)" />
+      <rect x="-350" y="-22" width="700" height="44" rx="4" fill="url(#rebar-ribs)" />
+      <line x1="-350" y1="-22" x2="350" y2="-22" stroke="#D97706" stroke-width="2.5" opacity="0.85" />
+    </g>
+
+    <!-- Front Row Lower Bars -->
+    <g transform="translate(-60, 110)">
+      <rect x="-350" y="-22" width="700" height="44" rx="4" fill="url(#bar-metal-2)" />
+      <rect x="-350" y="-22" width="700" height="44" rx="4" fill="url(#rebar-ribs)" />
+      <line x1="-350" y1="-22" x2="350" y2="-22" stroke="#D97706" stroke-width="2" opacity="0.8" />
+    </g>
+    <g transform="translate(40, 100)">
+      <rect x="-350" y="-20" width="700" height="40" rx="4" fill="url(#bar-metal-1)" />
+      <rect x="-350" y="-20" width="700" height="40" rx="4" fill="url(#rebar-ribs)" />
+      <line x1="-350" y1="-20" x2="350" y2="-20" stroke="#B45309" stroke-width="2" opacity="0.7" />
+    </g>
+
+    <!-- Steel Binding Wire Wrapping the Bundle -->
+    <path d="M -120 -160 C 200 -120, 220 120, -50 140 C -220 150, -220 -80, -120 -160" fill="none" stroke="#D97706" stroke-width="4.5" opacity="0.9" />
+    <path d="M 60 -150 C 320 -100, 320 130, 80 140 C -80 150, -60 -100, 60 -150" fill="none" stroke="#F59E0B" stroke-width="3.5" opacity="0.85" />
+  </g>
+
+  <!-- Left Dark Scrim (High-Opacity Gradient) to ensure 100% readable text in front -->
+  <rect x="0" y="0" width="750" height="800" fill="url(#left-scrim)" />
+  <defs>
+    <linearGradient id="left-scrim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F2A43" stop-opacity="0.96" />
+      <stop offset="60%" stop-color="#0F2A43" stop-opacity="0.85" />
+      <stop offset="85%" stop-color="#0F2A43" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#0F2A43" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Vignette overlay top and bottom -->
+  <linearGradient id="vert-vignette" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#0F2A43" stop-opacity="0.6" />
+    <stop offset="25%" stop-color="#0F2A43" stop-opacity="0" />
+    <stop offset="75%" stop-color="#0F2A43" stop-opacity="0" />
+    <stop offset="100%" stop-color="#0F2A43" stop-opacity="0.95" />
+  </linearGradient>
+  <rect width="1200" height="800" fill="url(#vert-vignette)" />
+</svg>

@@ -2,41 +2,65 @@
 import Button from './Button.astro';
 ---
 
-<section class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden">
-  <!-- Subtle Animated Texture Background (SVG Architectural Structural Lines) -->
-  <div class="absolute inset-0 pointer-events-none opacity-[0.06] select-none" aria-hidden="true">
-    <svg class="w-full h-full animate-[steelDrift_60s_linear_infinite]" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-      <defs>
-        <pattern id="industrial-grid" width="80" height="80" patternUnits="userSpaceOnUse">
-          <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#FFFFFF" stroke-width="1" />
-          <path d="M 0 40 L 80 40 M 40 0 L 40 80" fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-dasharray="2,4" />
-          <circle cx="40" cy="40" r="1.5" fill="#D97706" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#industrial-grid)" />
-    </svg>
+<section id="hero-section" class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
+  <!-- 3D Three.js WebGL Container (Desktop & Tablet: >= 768px) -->
+  <div
+    id="hero-3d-canvas-container"
+    class="absolute inset-0 pointer-events-none hidden md:block z-0 overflow-hidden"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- Mobile Static Image Fallback (< 768px) with zero video/WebGL overhead -->
+  <div
+    class="absolute inset-0 pointer-events-none block md:hidden z-0 overflow-hidden"
+    aria-hidden="true"
+  >
+    <img
+      src="/images/hero-tmt-fallback.webp"
+      alt=""
+      width="1200"
+      height="800"
+      fetchpriority="high"
+      class="w-full h-full object-cover object-right opacity-65"
+    />
+  </div>
+
+  <!-- Dark Scrim Behind Headline & Left Column for WCAG Text Readability -->
+  <!-- Left-to-right gradient provides deep contrast over rotating 3D geometry -->
+  <div
+    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-r from-steel-blue-dark via-steel-blue-dark/90 md:via-steel-blue-dark/85 to-steel-blue-dark/30 lg:to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- Vertical Subtle Vignette (Top & Bottom seam blending) -->
+  <div
+    class="absolute inset-0 pointer-events-none z-[1] bg-gradient-to-b from-steel-blue-dark/60 via-transparent to-steel-blue-dark/80"
+    aria-hidden="true"
+  >
   </div>
 
   <!-- Hero Content Grid -->
-  <div class="relative max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-28 lg:py-32">
+  <div class="relative max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24 lg:py-28 z-10 w-full">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <!-- Left Column: Primary Messaging (8 cols) -->
+      <!-- Left Column: Primary Messaging with Scrim-Protected Typography (8 cols) -->
       <div class="lg:col-span-8 motion-hero-entrance">
         <!-- Eyebrow Badge -->
-        <div class="inline-flex items-center gap-2.5 bg-steel-blue px-3.5 py-1.5 border border-steel-gray/30 mb-6">
+        <div class="inline-flex items-center gap-2.5 bg-steel-blue px-3.5 py-1.5 border border-steel-gray/30 mb-6 backdrop-blur-sm">
           <span class="w-2 h-2 bg-safety-amber inline-block"></span>
           <span class="font-display text-[11px] md:text-xs uppercase tracking-widest text-canvas font-bold">
             Authorized Stockist &bull; Bhilwara, Rajasthan
           </span>
         </div>
 
-        <!-- Hindi Main Headline -->
-        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-canvas leading-[1.1] uppercase mb-4">
+        <!-- Hindi Main Headline (Protected by Scrim) -->
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-canvas leading-[1.1] uppercase mb-4 drop-shadow-sm">
           मजबूती की सही पहचान
         </h1>
 
         <!-- English Subline -->
-        <p class="font-body text-base sm:text-lg md:text-xl text-canvas/80 font-normal leading-relaxed max-w-2xl mb-8">
+        <p class="font-body text-base sm:text-lg md:text-xl text-canvas/90 font-normal leading-relaxed max-w-2xl mb-8 drop-shadow-sm">
           TMT bars &amp; building materials in Bhilwara &mdash; strong today, strong tomorrow.
         </p>
 
@@ -70,7 +94,7 @@ import Button from './Button.astro';
       </div>
 
       <!-- Right Column: Technical Spec & Stock Ledger Panel (4 cols) -->
-      <div class="lg:col-span-4 border border-steel-gray/40 bg-steel-blue/40 p-6 md:p-8 backdrop-blur-none motion-hero-entrance">
+      <div class="lg:col-span-4 border border-steel-gray/40 bg-steel-blue-dark/75 backdrop-blur-md p-6 md:p-8 motion-hero-entrance">
         <div class="border-b border-steel-gray/30 pb-4 mb-4 flex justify-between items-center">
           <span class="font-display text-xs uppercase tracking-widest text-safety-amber font-bold">
             Live Yard Inventory
@@ -83,7 +107,7 @@ import Button from './Button.astro';
         <ul class="space-y-3 font-mono text-xs text-canvas/80">
           <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
             <span class="text-canvas font-semibold font-body">Kay2 Xenox TMT</span>
-            <span class="text-safety-amber">Fe 550D Certified</span>
+            <span class="text-safety-amber font-medium">Fe 550D Certified</span>
           </li>
           <li class="flex justify-between items-center border-b border-steel-gray/20 pb-2">
             <span class="text-canvas font-semibold font-body">TMT Sariya Sizes</span>
@@ -107,13 +131,34 @@ import Button from './Button.astro';
   </div>
 </section>
 
-<style>
-  @keyframes steelDrift {
-    0% {
-      transform: translateY(0);
+<script>
+  // Lazy-load Three.js 3D scene only on desktop devices (width >= 768px) and when browser is idle
+  document.addEventListener('DOMContentLoaded', () => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const container = document.getElementById('hero-3d-canvas-container');
+
+    if (isMobile || prefersReducedMotion || !container) {
+      return;
     }
-    100% {
-      transform: translateY(-80px);
+
+    // Lazy load the 3D module on idle or slight scroll to avoid blocking initial critical render
+    const load3D = () => {
+      import('../scripts/tmtScene.js')
+        .then((module) => {
+          if (module && typeof module.initTmtHeroScene === 'function') {
+            module.initTmtHeroScene(container);
+          }
+        })
+        .catch((err) => {
+          console.warn('Three.js scene deferred load skipped:', err);
+        });
+    };
+
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(load3D, { timeout: 1500 });
+    } else {
+      setTimeout(load3D, 200);
     }
-  }
-</style>
+  });
+</script>
