@@ -22,7 +22,7 @@ const faqs = [
 ];
 ---
 
-<section id="faq-teaser" class="py-16 md:py-24 border-t border-steel-gray/20">
+<section id="faq-teaser" class="py-16 md:py-24 border-t border-steel-gray/20 motion-reveal-section">
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
     <div class="lg:col-span-8">
       <SectionHeading
@@ -38,7 +38,7 @@ const faqs = [
     </div>
   </div>
 
-  <!-- 4 Accordions using semantic HTML <details> and <summary> -->
+  <!-- 4 Accordions -->
   <div class="space-y-4 max-w-4xl">
     {faqs.map((faq, index) => (
       <details class="group border border-steel-gray/30 bg-canvas transition-colors open:bg-canvasMuted open:border-steel-blue">
@@ -47,7 +47,6 @@ const faqs = [
             <span class="font-mono text-xs text-safety-amber">0{index + 1}.</span>
             <span>{faq.question}</span>
           </span>
-          <!-- Custom inline SVG: Sharp Chevron / Plus toggle -->
           <span class="ml-4 w-7 h-7 bg-steel-blue text-canvas flex items-center justify-center shrink-0 text-xs transition-transform duration-150 group-open:rotate-45">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
