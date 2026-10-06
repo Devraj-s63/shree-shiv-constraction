@@ -14,7 +14,7 @@ import Button from './Button.astro';
       playsinline
       preload="metadata"
       poster="/images/hero-steel-poster.webp"
-      class="hidden md:motion-safe:block w-full h-full object-cover object-center filter brightness-[0.75] contrast-[1.08]"
+      class="hero-parallax-bg hidden md:motion-safe:block w-full h-[120%] -top-[10%] absolute object-cover object-center filter brightness-[0.75] contrast-[1.08] will-change-transform"
     >
       <source src="/videos/hero-steel.mp4" type="video/mp4" />
       <source src="/images/3D_animation_of_steel_rebar_20261006174601.mp4" type="video/mp4" />
@@ -74,11 +74,21 @@ import Button from './Button.astro';
           </span>
         </div>
 
-        <!-- Oversized Hindi Main Headline Overlapping the 3D Canvas -->
-        <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[90px] font-black tracking-tighter text-canvas leading-[0.98] uppercase mb-6 drop-shadow-md">
-          मजबूती <br class="hidden sm:inline" />
-          <span class="text-canvas">की सही</span> <br class="hidden sm:inline" />
-          <span class="text-safety-amber drop-shadow-sm">पहचान</span>
+        <!-- Oversized Hindi Main Headline with Split-Text Animation Target -->
+        <h1
+          id="hero-hindi-headline"
+          class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[90px] font-black tracking-tighter text-canvas leading-[0.98] uppercase mb-6 drop-shadow-md overflow-hidden"
+          aria-label="मजबूती की सही पहचान"
+        >
+          <span class="split-line block">
+            <span class="split-char inline-block">म</span><span class="split-char inline-block">ज</span><span class="split-char inline-block">बू</span><span class="split-char inline-block">ती</span>
+          </span>
+          <span class="split-line block">
+            <span class="split-char inline-block">की</span> <span class="split-char inline-block">स</span><span class="split-char inline-block">ही</span>
+          </span>
+          <span class="split-line block text-safety-amber drop-shadow-sm">
+            <span class="split-char inline-block">प</span><span class="split-char inline-block">ह</span><span class="split-char inline-block">चा</span><span class="split-char inline-block">न</span>
+          </span>
         </h1>
 
         <!-- English Subtitle & Industrial Descriptor -->

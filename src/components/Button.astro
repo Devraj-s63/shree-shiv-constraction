@@ -21,7 +21,7 @@ const {
   ariaLabel,
 } = Astro.props;
 
-const baseStyles = 'inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-5 py-3 transition-colors duration-150 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-safety-amber focus:ring-offset-2';
+const baseStyles = 'magnetic-btn inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-5 py-3 transition-colors duration-150 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-safety-amber focus:ring-offset-2 will-change-transform';
 
 const variantStyles: Record<string, string> = {
   primary: 'bg-steel-blue text-canvas border border-steel-blue hover:bg-steel-blue-light hover:border-steel-blue-light active:bg-steel-blue-dark',

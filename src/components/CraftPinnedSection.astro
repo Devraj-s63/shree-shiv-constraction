@@ -1,0 +1,124 @@
+---
+// CraftPinnedSection.astro - Pinned editorial section where steel imagery cross-fades as text scrolls
+const steps = [
+  {
+    step: '01',
+    heading: 'High-Ductility Fe 550D Billet Rolling',
+    description: 'Thermo-mechanically treated through controlled water quenching, generating a tough tempered martensite rim around a ductile ferrite-pearlite core engineered for seismic flexibility.',
+    spec: 'Yield Strength: ≥ 550 N/mm² • Elongation: ≥ 16%',
+    image: '/images/hero-steel-poster.webp',
+    imageAlt: 'High-temperature rolled TMT sariya in Bhilwara yard',
+    badge: 'METALLURGY & DUCTILITY'
+  },
+  {
+    step: '02',
+    heading: 'Precision Cross-Rib Grip Bonding',
+    description: 'Advanced geometric X-rib profiles deliver mechanical interlock with concrete mortar, eliminating bar slippage inside heavy columns, beams, and residential foundation slabs.',
+    spec: 'Bond Strength: 2.2x over standard IS 1786 requirements',
+    image: '/images/steel-yard-stock.webp',
+    imageAlt: 'Organized bundles of ribbed TMT steel bars stacked in yard',
+    badge: 'CONCRETE ANCHORAGE'
+  },
+  {
+    step: '03',
+    heading: 'Direct Mandi Dispatch & Computerized Billing',
+    description: 'Immediate yard dispatch via 50-tonne computerized weighbridge slips. Zero consignment tampering, verified bundle count, and authentic manufacturer test certificates with every dispatch.',
+    spec: 'Electronic Weighbridge Slip • GSTIN Verified Invoice',
+    image: '/images/shop-front-depot.webp',
+    imageAlt: 'Retail order desk and dispatch depot in Bhilwara',
+    badge: 'DISPATCH TRANSPARENCY'
+  }
+];
+---
+
+<section id="craft-pinned-section" class="relative bg-steel-blue-dark text-canvas border-b-2 border-safety-amber overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-8 py-20 md:py-28">
+    
+    <!-- Section Eyebrow -->
+    <div class="mb-12 md:mb-16">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="w-2.5 h-2.5 bg-safety-amber inline-block"></span>
+        <span class="font-display text-xs font-bold uppercase tracking-widest text-canvas/70">
+          Engineering &amp; Standards
+        </span>
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-canvas leading-tight max-w-3xl">
+        The Structural Craft <br />
+        <span class="text-safety-amber">Behind Every Reinforcement Bar</span>
+      </h2>
+    </div>
+
+    <!-- Pinned Content Split Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      
+      <!-- Left Column: Scrolling Editorial Text Blocks (6 cols) -->
+      <div class="lg:col-span-6 space-y-24 md:space-y-36 craft-text-container py-8">
+        {steps.map((item, index) => (
+          <div class="craft-text-step" data-step-index={index}>
+            <div class="inline-flex items-center gap-3 border-b border-steel-gray/30 pb-3 mb-6 w-full">
+              <span class="font-mono text-base font-black text-safety-amber tracking-widest">
+                STAGE // {item.step}
+              </span>
+              <span class="text-canvas/40">&bull;</span>
+              <span class="font-mono text-xs uppercase tracking-wider text-canvas/70">
+                {item.badge}
+              </span>
+            </div>
+
+            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-canvas mb-4 leading-snug">
+              {item.heading}
+            </h3>
+
+            <p class="font-body text-sm sm:text-base text-canvas/80 leading-relaxed mb-6">
+              {item.description}
+            </p>
+
+            <div class="p-4 bg-steel-blue/40 border border-steel-gray/40 text-xs font-mono text-safety-amber flex items-center gap-3">
+              <span class="w-2 h-2 bg-safety-amber shrink-0"></span>
+              <span>{item.spec}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Right Column: Pinned Sticky Visual Screen with Cross-Fading Images (6 cols) -->
+      <div class="lg:col-span-6 lg:sticky lg:top-28 craft-image-pin-wrapper">
+        <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] border-2 border-steel-blue overflow-hidden bg-black shadow-2xl">
+          
+          <!-- Image Layer Stack -->
+          {steps.map((item, index) => (
+            <div
+              class={`craft-image-slide absolute inset-0 transition-opacity duration-700 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+              data-image-index={index}
+            >
+              <img
+                src={item.image}
+                alt={item.imageAlt}
+                width="1400"
+                height="900"
+                loading="lazy"
+                class="w-full h-full object-cover filter contrast-[1.08] brightness-[0.9]"
+              />
+              <!-- Dark gradient vignette overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-steel-blue-dark/90 via-transparent to-transparent"></div>
+              
+              <!-- Bottom caption strip -->
+              <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-canvas/80 bg-steel-blue-dark/85 backdrop-blur-sm p-3 border border-steel-gray/40">
+                <span class="text-safety-amber font-bold uppercase">{item.badge}</span>
+                <span>{item.step} / 03</span>
+              </div>
+            </div>
+          ))}
+
+          <!-- Industrial Framing HUD Crosshairs -->
+          <div class="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-safety-amber z-20 pointer-events-none"></div>
+          <div class="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-safety-amber z-20 pointer-events-none"></div>
+          <div class="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-safety-amber z-20 pointer-events-none"></div>
+          <div class="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-safety-amber z-20 pointer-events-none"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

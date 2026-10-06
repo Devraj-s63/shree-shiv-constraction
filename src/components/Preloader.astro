@@ -1,0 +1,51 @@
+---
+// Preloader.astro - Branded industrial preloader with geometric logo mark that wipes away on load
+---
+
+<div
+  id="brand-preloader"
+  class="fixed inset-0 z-[100] bg-steel-blue-dark text-canvas flex flex-col items-center justify-center select-none overflow-hidden"
+  aria-hidden="true"
+>
+  <!-- Background industrial grid pattern -->
+  <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" aria-hidden="true"></div>
+
+  <!-- Center Logo Container -->
+  <div id="preloader-content" class="relative z-10 flex flex-col items-center text-center px-6">
+    <!-- Geometric Steel Logo Mark -->
+    <div id="preloader-logo-mark" class="w-20 h-20 sm:w-24 sm:h-24 relative flex items-center justify-center mb-6">
+      <!-- Outer Rotating Steel Ring -->
+      <div class="preloader-ring-outer absolute inset-0 border-2 border-dashed border-steel-gray/40"></div>
+      <!-- Accent Amber Notch Box -->
+      <div class="preloader-ring-inner absolute inset-2 border-2 border-steel-blue bg-steel-blue/40 flex items-center justify-center">
+        <!-- Rebar Crosshair Mark -->
+        <svg class="w-10 h-10 sm:w-12 sm:h-12 text-safety-amber fill-current" viewBox="0 0 24 24">
+          <path d="M4 3h16v2H4V3zm2 4h12v2H6V7zm-2 4h16v2H4v-2zm2 4h12v2H6v-2zm-2 4h16v2H4v-2z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Hindi Tagline -->
+    <span id="preloader-tagline" class="font-display text-2xl sm:text-3xl font-black uppercase tracking-wider text-canvas mb-2">
+      मजबूती की सही पहचान
+    </span>
+
+    <!-- Brand Subtitle -->
+    <span class="font-display text-xs sm:text-sm uppercase tracking-widest text-safety-amber font-bold mb-6">
+      SHREE SHIV CONSTRUCTION &amp; STEEL
+    </span>
+
+    <!-- Progress Track Bar -->
+    <div class="w-48 sm:w-64 h-1 bg-steel-blue border border-steel-gray/40 overflow-hidden relative">
+      <div id="preloader-bar" class="absolute left-0 top-0 bottom-0 bg-safety-amber w-0"></div>
+    </div>
+
+    <span class="font-mono text-[10px] text-canvas/50 mt-3 tracking-widest uppercase">
+      BHILWARA &bull; FE 550D YARD DISPATCH
+    </span>
+  </div>
+
+  <!-- Wipe Curtain Panels (Split Dual Shutters that slide up and down) -->
+  <div id="preloader-curtain-top" class="absolute top-0 left-0 right-0 h-1/2 bg-steel-blue-dark border-b border-safety-amber pointer-events-none"></div>
+  <div id="preloader-curtain-bottom" class="absolute bottom-0 left-0 right-0 h-1/2 bg-steel-blue-dark border-t border-safety-amber pointer-events-none"></div>
+</div>

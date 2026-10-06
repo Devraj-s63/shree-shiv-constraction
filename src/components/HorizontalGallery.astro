@@ -1,0 +1,142 @@
+---
+// HorizontalGallery.astro - Premium horizontal-scroll product exhibition powered by GSAP ScrollTrigger
+const exhibits = [
+  {
+    number: '01',
+    name: 'Kay2 Xenox TMT Fe 550D',
+    gauge: '8mm to 32mm Stock',
+    summary: 'Flagship high-ductility rebar with specialized X-rib matrix engineered for critical seismic applications.',
+    tag: 'FLAGSHIP GRADE',
+    image: '/images/steel-yard-stock.webp',
+    specs: ['Fe 550D Certified', 'High Elongation', 'Fire Resistant', 'Mill Tested']
+  },
+  {
+    number: '02',
+    name: 'Standard TMT Sariya',
+    gauge: 'Full Gauge Spectrum',
+    summary: 'Complete gauge availability for individual bungalows, multi-story commercial structures, and civil works.',
+    tag: 'FOUNDATION ESSENTIAL',
+    image: '/images/hero-steel-poster.webp',
+    specs: ['IS 1786 Standard', 'Zero Rust Staging', 'Tough Core', 'Weighbridge Verified']
+  },
+  {
+    number: '03',
+    name: 'Annealed Binding Wire',
+    gauge: '18 & 20 Gauge Bundles',
+    summary: 'Soft annealed industrial tying wire offering superior pliability without snapping under intense tensile torque.',
+    tag: 'TYING ESSENTIAL',
+    image: '/images/shop-front-depot.webp',
+    specs: ['Dead Soft Annealed', 'Smooth Knotting', 'Uniform Diameter', 'Bulk Coils']
+  },
+  {
+    number: '04',
+    name: 'Precision Cover Blocks',
+    gauge: '20mm / 25mm / 40mm / 50mm',
+    summary: 'High-density precast concrete spacers ensuring exact reinforcement depth away from environmental exposure.',
+    tag: 'CODE COMPLIANCE',
+    image: '/images/steel-yard-stock.webp',
+    specs: ['M-30+ Concrete Grade', 'Zero Porosity', 'Beam & Slab Fit', 'Consistent Cover']
+  },
+  {
+    number: '05',
+    name: 'Structural Building Materials',
+    gauge: 'Direct Yard Loading',
+    summary: 'Essential site construction supplies sourced directly from accredited manufacturers for reliable site progress.',
+    tag: 'SITE DISPATCH',
+    image: '/images/shop-front-depot.webp',
+    specs: ['Wholesale Rates', 'Single Point Sourcing', 'Trailer Transit', 'Instant Delivery']
+  }
+];
+---
+
+<section id="horizontal-product-gallery" class="relative bg-canvas py-20 md:py-28 overflow-hidden border-b border-steel-gray/20">
+  
+  <!-- Section Intro Header -->
+  <div class="max-w-7xl mx-auto px-6 md:px-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div>
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="w-2.5 h-2.5 bg-safety-amber inline-block"></span>
+        <span class="font-display text-xs font-bold uppercase tracking-widest text-steel-gray">
+          Curated Catalog Exhibition
+        </span>
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-steel-blue leading-tight">
+        Horizontal Gallery &bull; <br class="hidden sm:inline" />
+        <span class="text-steel-gray">Engineering Catalog</span>
+      </h2>
+    </div>
+
+    <div class="font-mono text-xs text-steel-gray flex items-center gap-3">
+      <span class="text-safety-amber font-bold">SCROLL DOWN TO EXPLORE</span>
+      <span class="hidden sm:inline">&bull; 05 PRODUCT TILES</span>
+    </div>
+  </div>
+
+  <!-- Horizontal Scrolling Viewport Container -->
+  <div class="gallery-pin-wrapper w-full overflow-hidden">
+    <div class="gallery-track flex gap-6 md:gap-8 px-6 md:px-12 w-max">
+      {exhibits.map((item) => (
+        <div class="gallery-card w-[320px] sm:w-[420px] md:w-[480px] shrink-0 border-2 border-steel-blue bg-steel-blue-dark text-canvas flex flex-col justify-between group overflow-hidden">
+          
+          <!-- Image Header with Hover Scale -->
+          <div class="relative aspect-[16/10] overflow-hidden border-b border-steel-gray/30 bg-black">
+            <img
+              src={item.image}
+              alt={item.name}
+              width="800"
+              height="500"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.9] contrast-[1.05]"
+            />
+            <div class="absolute top-3 left-3 bg-steel-blue-dark/90 border border-safety-amber/60 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-canvas backdrop-blur-sm">
+              <span class="w-1.5 h-1.5 bg-safety-amber inline-block mr-1"></span>
+              {item.tag}
+            </div>
+            <div class="absolute bottom-3 right-3 bg-steel-blue-dark/90 px-2 py-0.5 text-[11px] font-mono text-safety-amber">
+              {item.number} / 05
+            </div>
+          </div>
+
+          <!-- Card Content Body -->
+          <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+            <div>
+              <span class="font-mono text-xs text-safety-amber font-bold tracking-wider block mb-2">
+                {item.gauge}
+              </span>
+              <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight text-canvas mb-3 group-hover:text-safety-amber transition-colors">
+                {item.name}
+              </h3>
+              <p class="font-body text-xs sm:text-sm text-canvas/80 leading-relaxed mb-6">
+                {item.summary}
+              </p>
+
+              <!-- Spec Badges List -->
+              <div class="grid grid-cols-2 gap-2 mb-6">
+                {item.specs.map((spec) => (
+                  <div class="bg-steel-blue/50 border border-steel-gray/40 px-2.5 py-1.5 text-[11px] font-mono text-canvas/90 flex items-center gap-1.5">
+                    <span class="w-1 h-1 bg-safety-amber inline-block"></span>
+                    <span>{spec}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Footer Action Link -->
+            <div class="pt-4 border-t border-steel-gray/30 flex items-center justify-between">
+              <a
+                href="/products"
+                class="magnetic-btn font-display text-xs uppercase tracking-wider font-bold text-safety-amber hover:underline inline-flex items-center gap-1.5"
+              >
+                <span>Full Specifications</span>
+                <span>&rarr;</span>
+              </a>
+              <span class="font-mono text-[10px] text-canvas/50">YARD READY</span>
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+  </div>
+
+</section>
