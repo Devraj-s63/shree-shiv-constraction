@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shreeshivconstruction.com/sitemap-index.xml
+Sitemap: https://shree-shiv-constraction.vercel.app/sitemap-index.xml

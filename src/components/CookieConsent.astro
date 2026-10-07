@@ -1,12 +1,12 @@
 ---
 // CookieConsent component with GA4 consent-gated loader
-// REPLACE THIS PLACEHOLDER MEASUREMENT ID WITH YOUR REAL GA4 ID (e.g. 'G-XXXXXXXXXX')
-const GA_MEASUREMENT_ID = 'G-PLACEHOLDER-MEASUREMENT-ID';
+// Set PUBLIC_GA_ID in environment variables (e.g. .env or Vercel dashboard) to activate GA4
+const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
 ---
 
 <div
   id="cookie-consent-banner"
-  class="fixed bottom-0 inset-x-0 z-50 bg-steel-blue-dark text-canvas border-t-2 border-safety-amber p-4 md:p-6 shadow-none transform translate-y-full transition-transform duration-300 hidden"
+  class="fixed bottom-0 inset-x-0 z-50 bg-steel-blue-dark text-white border-t-2 border-safety-amber p-4 md:p-6 shadow-none transform translate-y-full transition-transform duration-300 hidden"
   role="region"
   aria-label="Cookie and Privacy Preferences"
 >
@@ -19,7 +19,7 @@ const GA_MEASUREMENT_ID = 'G-PLACEHOLDER-MEASUREMENT-ID';
           Cookie &amp; Privacy Notice
         </span>
       </div>
-      <p class="font-body text-xs sm:text-sm text-canvas/80 leading-relaxed">
+      <p class="font-body text-xs sm:text-sm text-steel-gray-light leading-relaxed">
         We use anonymous telemetry cookies to understand site traffic and optimize our material catalog for builders in Bhilwara. We never sell personal data or track financial information. Read our <a href="/privacy-policy" class="text-safety-amber underline hover:text-white">Privacy Policy</a>.
       </p>
     </div>
@@ -54,9 +54,9 @@ const GA_MEASUREMENT_ID = 'G-PLACEHOLDER-MEASUREMENT-ID';
   const declineBtn = document.getElementById('cookie-decline-btn');
 
   function loadGA4() {
-    // Only load if valid measurement ID is set and not loaded already
-    if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === 'G-PLACEHOLDER-MEASUREMENT-ID') {
-      console.info('Google Analytics 4: Ready for deployment. Replace GA_MEASUREMENT_ID in CookieConsent.astro with your live G-XXXXXXXXXX ID.');
+    // Only load if a valid measurement ID is set and not loaded already
+    if (!GA_MEASUREMENT_ID || !/^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID)) {
+      return;
     }
 
     if (window._ga4Loaded) return;
