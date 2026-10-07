@@ -89,19 +89,19 @@ const faqPageSchema = {
   faqSchema={faqPageSchema}
 >
   <!-- Single H1 Page Header -->
-  <header class="bg-steel-blue-dark text-canvas border-b-2 border-safety-amber py-14 md:py-20">
+  <header class="bg-canvasMuted text-white hairline-b py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-6 md:px-8">
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 mb-3">
           <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-          <span class="font-display text-xs uppercase tracking-widest text-canvas/70 font-bold">
+          <span class="micro-label text-steel-gray">
             Buyer Knowledge Base &bull; Bhilwara
           </span>
         </div>
-        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-canvas leading-tight mb-4">
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight mb-4">
           TMT Sariya FAQs in Bhilwara
         </h1>
-        <p class="font-body text-sm sm:text-base text-canvas/80 leading-relaxed">
+        <p class="font-body text-sm sm:text-base text-steel-gray-light leading-relaxed">
           Direct answers to the most common questions asked by homeowners, civil contractors, and commercial developers purchasing reinforcement steel in Bhilwara.
         </p>
       </div>
@@ -124,9 +124,9 @@ const faqPageSchema = {
       {faqs.map((faq, index) => (
         <article
           id={faq.id}
-          class="border border-steel-gray/30 bg-canvas transition-colors hover:border-steel-blue p-6 md:p-8 relative"
+          class="hairline-all bg-canvasMuted transition-colors hover:border-safety-amber/50 p-6 md:p-8 relative"
         >
-          <div class="flex items-center justify-between border-b border-steel-gray/15 pb-3 mb-4">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
             <span class="font-mono text-xs font-bold text-safety-amber tracking-widest">
               QUESTION {index < 9 ? `0${index + 1}` : index + 1} // {faq.category}
             </span>
@@ -135,15 +135,15 @@ const faqPageSchema = {
             </span>
           </div>
 
-          <h2 class="font-display text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-steel-blue mb-4">
+          <h2 class="font-display text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-4">
             {faq.question}
           </h2>
 
-          <div class="bg-canvasMuted border-l-2 border-safety-amber p-4 md:p-5 font-body text-sm sm:text-base text-steel-blue leading-relaxed">
+          <div class="bg-canvasSubtle border-l-2 border-safety-amber p-4 md:p-5 font-body text-sm sm:text-base text-steel-gray-light leading-relaxed">
             <p>{faq.answer}</p>
           </div>
 
-          <div class="mt-5 pt-3 border-t border-steel-gray/10 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div class="mt-5 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
             <span class="font-mono text-steel-gray text-[11px]">
               Need more clarification on this?
             </span>
@@ -152,15 +152,15 @@ const faqPageSchema = {
                 href={`https://wa.me/918278643303?text=${encodeURIComponent(`Inquiry regarding: ${faq.question}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="font-display font-bold uppercase tracking-wider text-emerald-700 hover:text-emerald-900 inline-flex items-center gap-1.5"
+                class="font-display font-bold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5"
               >
                 <span>Ask on WhatsApp</span>
                 <span>&rarr;</span>
               </a>
-              <span class="text-steel-gray/40">|</span>
+              <span class="text-white/20">|</span>
               <a
                 href="tel:8278643303"
-                class="font-display font-bold uppercase tracking-wider text-steel-blue hover:text-safety-amber"
+                class="font-display font-bold uppercase tracking-wider text-white hover:text-safety-amber"
               >
                 Call Desk
               </a>
@@ -171,12 +171,12 @@ const faqPageSchema = {
     </div>
 
     <!-- Bottom Contact Callout -->
-    <div class="mt-16 border-2 border-steel-blue bg-steel-blue text-canvas p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="mt-16 hairline-all bg-canvasMuted text-white p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div>
-        <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight">
+        <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
           Have a project schedule or specific estimate?
         </h3>
-        <p class="font-body text-sm text-canvas/80 mt-1 max-w-xl">
+        <p class="font-body text-sm text-steel-gray-light mt-1 max-w-xl">
           Call or WhatsApp us your bar bending schedule (BBS) or material requirements for a custom rate quote.
         </p>
       </div>
@@ -184,7 +184,7 @@ const faqPageSchema = {
         <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank">
           WhatsApp: 8278643303
         </Button>
-        <Button variant="call-outline" href="tel:8278643303" class="!text-canvas !border-canvas hover:!bg-canvas hover:!text-steel-blue">
+        <Button variant="call-outline" href="tel:8278643303">
           Call 8278643303
         </Button>
       </div>

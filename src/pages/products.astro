@@ -100,19 +100,19 @@ const products = [
   canonicalPath="/products"
 >
   <!-- Single H1 Page Header -->
-  <header class="bg-steel-blue-dark text-canvas border-b-2 border-safety-amber py-14 md:py-20">
+  <header class="bg-canvasMuted text-white hairline-b py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-6 md:px-8">
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 mb-3">
           <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-          <span class="font-display text-xs uppercase tracking-widest text-canvas/70 font-bold">
+          <span class="micro-label text-steel-gray">
             Bhilwara Yard Inventory
           </span>
         </div>
-        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-canvas leading-tight mb-4">
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight mb-4">
           TMT Sariya &amp; Building Materials in Bhilwara
         </h1>
-        <p class="font-body text-sm sm:text-base text-canvas/80 leading-relaxed">
+        <p class="font-body text-sm sm:text-base text-steel-gray-light leading-relaxed">
           Authorized Kay2 Xenox dealer stocking certified Fe 550D reinforcement steel, industrial binding wire, and precision cover blocks. Inquire directly on WhatsApp for daily yard rates.
         </p>
       </div>
@@ -125,18 +125,18 @@ const products = [
       {products.map((item, index) => (
         <section
           id={item.id}
-          class="border border-steel-gray/30 bg-canvas p-8 md:p-12 relative scroll-mt-28 hover:border-steel-blue transition-colors"
+          class="hairline-all bg-canvasMuted p-8 md:p-12 relative scroll-mt-28 hover:border-safety-amber transition-colors"
         >
-          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-steel-gray/20 pb-6 mb-8">
+          <div class="flex flex-wrap items-center justify-between gap-4 hairline-b pb-6 mb-8">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-steel-blue flex items-center justify-center shrink-0">
-                <span set:html={item.iconSvg} />
+              <div class="w-12 h-12 bg-canvas text-white flex items-center justify-center shrink-0 hairline-all">
+                <span class="text-safety-amber" set:html={item.iconSvg} />
               </div>
               <div>
-                <span class="font-mono text-xs font-bold text-safety-amber tracking-widest block">
+                <span class="micro-label text-safety-amber block">
                   PRODUCT 0{index + 1}
                 </span>
-                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-steel-blue mt-0.5">
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white mt-0.5">
                   {item.name}
                 </h2>
               </div>
@@ -148,15 +148,15 @@ const products = [
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             <div class="lg:col-span-5 flex flex-col justify-between h-full">
               <div>
-                <h3 class="font-display text-base font-bold uppercase tracking-wider text-steel-blue mb-3">
+                <h3 class="font-display text-base font-bold uppercase tracking-wider text-white mb-3">
                   {item.subtitle}
                 </h3>
-                <p class="font-body text-sm md:text-base text-steel-gray leading-relaxed mb-8">
+                <p class="font-body text-sm md:text-base text-steel-gray-light leading-relaxed mb-8">
                   {item.overview}
                 </p>
               </div>
 
-              <div class="pt-6 border-t border-steel-gray/20 space-y-3">
+              <div class="pt-6 hairline-t space-y-3">
                 <Button
                   variant="whatsapp"
                   href={`https://wa.me/918278643303?text=${encodeURIComponent(item.whatsappMsg)}`}
@@ -180,9 +180,9 @@ const products = [
               </div>
             </div>
 
-            <div class="lg:col-span-7 bg-canvasMuted border border-steel-gray/20 p-6 md:p-8">
-              <div class="flex items-center justify-between border-b border-steel-gray/20 pb-3 mb-6">
-                <h4 class="font-display text-xs font-bold uppercase tracking-wider text-steel-blue">
+            <div class="lg:col-span-7 bg-canvasSubtle hairline-all p-6 md:p-8">
+              <div class="flex items-center justify-between hairline-b pb-3 mb-6">
+                <h4 class="micro-label text-safety-amber">
                   Verified Technical Features &amp; Stock Standards
                 </h4>
                 <span class="font-mono text-[10px] text-steel-gray">Yard Verified</span>
@@ -192,16 +192,16 @@ const products = [
                 {item.features.map((feature) => (
                   <li class="flex items-start gap-3">
                     <span class="w-2 h-2 bg-safety-amber inline-block shrink-0 mt-1.5"></span>
-                    <span class="font-body text-xs sm:text-sm text-steel-blue leading-relaxed font-medium">
+                    <span class="font-body text-xs sm:text-sm text-steel-gray-light leading-relaxed font-normal">
                       {feature}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              <div class="mt-8 pt-4 border-t border-steel-gray/20 flex flex-wrap justify-between items-center text-[11px] font-mono text-steel-gray gap-2">
+              <div class="mt-8 pt-4 hairline-t flex flex-wrap justify-between items-center text-[11px] font-mono text-steel-gray gap-2">
                 <span>Location: 200 Feet Road, Bhilwara</span>
-                <span class="text-steel-blue font-semibold">Immediate Loading Ready</span>
+                <span class="text-white font-semibold">Immediate Loading Ready</span>
               </div>
             </div>
           </div>

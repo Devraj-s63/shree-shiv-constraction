@@ -57,16 +57,22 @@ import Button from './Button.astro';
       <div class="mt-8 pt-6 hairline-t flex flex-wrap gap-3">
         <Button
           variant="call-outline"
-          href="tel:8278643303"
+          href="https://maps.app.goo.gl/2RhqprUiib4YRsQ77"
+          target="_blank"
           class="micro-label !border-white/20 !text-white hover:!border-safety-amber hover:!text-safety-amber"
+          ariaLabel="Get Directions to Shree Shiv Construction on Google Maps"
         >
-          Call For Directions
+          <svg class="w-3.5 h-3.5 mr-1.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Get Directions
         </Button>
         <Button
           variant="whatsapp"
           href="https://wa.me/918278643303?text=Requesting%20location%20pin%20for%20yard"
           target="_blank"
-          class="text-xs"
+          class="micro-label"
+          ariaLabel="Request location pin on WhatsApp"
         >
           Get Location Pin
         </Button>
@@ -74,16 +80,16 @@ import Button from './Button.astro';
     </div>
 
     <!-- Right Column: Embedded Google Map (7 cols) -->
-    <div class="lg:col-span-7 border border-steel-gray/30 bg-canvasMuted min-h-[380px] lg:min-h-[460px] relative overflow-hidden flex flex-col">
-      <div class="bg-steel-blue text-canvas px-4 py-2 text-xs font-mono flex items-center justify-between border-b border-steel-gray/30">
+    <div class="lg:col-span-7 hairline-all bg-canvasMuted min-h-[380px] lg:min-h-[460px] relative overflow-hidden flex flex-col">
+      <div class="bg-canvasSubtle text-white px-4 py-2.5 text-xs font-mono flex items-center justify-between hairline-b">
         <span class="flex items-center gap-2">
-          <svg class="w-3.5 h-3.5 text-safety-amber fill-current" viewBox="0 0 24 24">
+          <svg class="w-3.5 h-3.5 text-safety-amber fill-current" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
-          200 Feet Road, Near Sharda Evergreen, Bhilwara 311001
+          SHREE SHIV CONSTRUCTION &amp; STEEL &bull; 25.3622326, 74.602833
         </span>
         <a
-          href="https://maps.google.com/?q=200+Feet+Road+Near+Sharda+Evergreen+Bhilwara+311001"
+          href="https://maps.app.goo.gl/2RhqprUiib4YRsQ77"
           target="_blank"
           rel="noopener noreferrer"
           class="text-safety-amber hover:underline uppercase text-[10px] tracking-wider font-bold"
@@ -93,9 +99,9 @@ import Button from './Button.astro';
       </div>
 
       <iframe
-        title="Shree Shiv Construction and Steel Location Map"
+        title="SHREE SHIV CONSTRUCTION &amp; STEEL Location Map"
         class="w-full flex-grow border-0 grayscale hover:grayscale-0 transition-all duration-200"
-        src="https://maps.google.com/maps?q=200%20Feet%20Road,%20Near%20Sharda%20Evergreen,%20Bhilwara%20311001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        src="https://maps.google.com/maps?q=25.3622326,74.602833&z=17&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         allowfullscreen
