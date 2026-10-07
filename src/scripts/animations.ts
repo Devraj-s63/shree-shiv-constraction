@@ -74,7 +74,7 @@ function initPreloader(reducedMotion: boolean) {
     return;
   }
 
-  // Animate progress bar then wipe shutters
+  // Fast, crisp animation so user never waits more than 500ms
   const tl = gsap.timeline({
     onComplete: () => {
       preloader.style.display = 'none';
@@ -83,29 +83,28 @@ function initPreloader(reducedMotion: boolean) {
 
   tl.to(bar, {
     width: '100%',
-    duration: 0.65,
+    duration: 0.35,
     ease: 'power2.inOut'
   })
   .to(content, {
     opacity: 0,
-    scale: 0.96,
-    duration: 0.25,
+    duration: 0.15,
     ease: 'power2.in'
   })
   .to(curtainTop, {
     yPercent: -100,
-    duration: 0.5,
+    duration: 0.35,
     ease: 'power3.inOut'
-  }, '-=0.1')
+  }, '-=0.05')
   .to(curtainBottom, {
     yPercent: 100,
-    duration: 0.5,
+    duration: 0.35,
     ease: 'power3.inOut'
   }, '<');
 }
 
 /**
- * 2. Split-Text Character Reveal on Hero Hindi Headline
+ * 2. Split-Text Character Reveal on Hero Hindi Headline (Progressive Enhancement)
  */
 function initHeroSplitText() {
   const headline = document.getElementById('hero-hindi-headline');
@@ -114,23 +113,17 @@ function initHeroSplitText() {
   const chars = headline.querySelectorAll('.split-char');
   if (chars.length === 0) return;
 
-  gsap.fromTo(
-    chars,
-    {
-      opacity: 0,
-      y: 40,
-      rotateX: -40
-    },
-    {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      stagger: 0.04,
-      duration: 0.75,
-      delay: 0.6,
-      ease: 'back.out(1.4)'
-    }
-  );
+  // Progressive enhancement: chars are visible by default in HTML/CSS.
+  // Animate with gsap.from so if interrupted or delayed, elements remain visible.
+  gsap.from(chars, {
+    y: 25,
+    opacity: 0.2,
+    stagger: 0.03,
+    duration: 0.6,
+    delay: 0.2,
+    ease: 'power2.out',
+    clearProps: 'all' // Removes all inline opacity and transform styles when done!
+  });
 }
 
 /**

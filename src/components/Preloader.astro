@@ -2,16 +2,25 @@
 // Preloader.astro - Branded industrial preloader with geometric logo mark that wipes away on load
 ---
 
+<!-- No-JS progressive enhancement: hide preloader immediately when JS is disabled so page is never trapped -->
+<noscript>
+  <style>
+    #brand-preloader {
+      display: none !important;
+    }
+  </style>
+</noscript>
+
 <div
   id="brand-preloader"
-  class="fixed inset-0 z-[100] bg-steel-blue-dark text-canvas flex flex-col items-center justify-center select-none overflow-hidden"
+  class="fixed inset-0 z-[100] bg-transparent text-white flex flex-col items-center justify-center select-none overflow-hidden"
   aria-hidden="true"
 >
   <!-- Background industrial grid pattern -->
-  <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" aria-hidden="true"></div>
+  <div class="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" aria-hidden="true"></div>
 
   <!-- Center Logo Container -->
-  <div id="preloader-content" class="relative z-10 flex flex-col items-center text-center px-6">
+  <div id="preloader-content" class="relative z-10 flex flex-col items-center text-center px-6 pointer-events-none">
     <!-- Geometric Steel Logo Mark -->
     <div id="preloader-logo-mark" class="w-20 h-20 sm:w-24 sm:h-24 relative flex items-center justify-center mb-6">
       <!-- Outer Rotating Steel Ring -->
@@ -26,7 +35,7 @@
     </div>
 
     <!-- Hindi Tagline -->
-    <span id="preloader-tagline" class="font-display text-2xl sm:text-3xl font-black uppercase tracking-wider text-canvas mb-2">
+    <span id="preloader-tagline" class="font-display text-2xl sm:text-3xl font-black uppercase tracking-wider text-white mb-2">
       मजबूती की सही पहचान
     </span>
 
@@ -36,11 +45,11 @@
     </span>
 
     <!-- Progress Track Bar -->
-    <div class="w-48 sm:w-64 h-1 bg-steel-blue border border-steel-gray/40 overflow-hidden relative">
+    <div class="w-48 sm:w-64 h-1 bg-steel-blue-dark border border-steel-gray/40 overflow-hidden relative">
       <div id="preloader-bar" class="absolute left-0 top-0 bottom-0 bg-safety-amber w-0"></div>
     </div>
 
-    <span class="font-mono text-[10px] text-canvas/50 mt-3 tracking-widest uppercase">
+    <span class="font-mono text-[10px] text-steel-gray mt-3 tracking-widest uppercase">
       BHILWARA &bull; FE 550D YARD DISPATCH
     </span>
   </div>
@@ -49,3 +58,22 @@
   <div id="preloader-curtain-top" class="absolute top-0 left-0 right-0 h-1/2 bg-steel-blue-dark border-b border-safety-amber pointer-events-none"></div>
   <div id="preloader-curtain-bottom" class="absolute bottom-0 left-0 right-0 h-1/2 bg-steel-blue-dark border-t border-safety-amber pointer-events-none"></div>
 </div>
+
+<!-- Inline fail-safe safety resolver: ensures preloader ALWAYS resolves and never traps page under any circumstance -->
+<script is:inline>
+  (function() {
+    function dismiss() {
+      var p = document.getElementById('brand-preloader');
+      if (p && p.style.display !== 'none') {
+        p.style.transition = 'opacity 0.25s ease-out';
+        p.style.opacity = '0';
+        p.style.pointerEvents = 'none';
+        setTimeout(function() {
+          p.style.display = 'none';
+        }, 250);
+      }
+    }
+    // Hard ceiling safety timeout: preloader must ALWAYS resolve within 900ms max
+    setTimeout(dismiss, 900);
+  })();
+</script>

@@ -93,7 +93,7 @@ import Button from './Button.astro';
 
         <!-- English Subtitle & Industrial Descriptor -->
         <div class="border-l-2 border-safety-amber pl-4 sm:pl-6 mb-8 max-w-xl">
-          <p class="font-body text-base sm:text-lg md:text-xl text-canvas/90 font-normal leading-relaxed">
+          <p class="font-body text-base sm:text-lg md:text-xl text-steel-gray-light font-normal leading-relaxed">
             High-ductility Fe 550D TMT reinforcement steel, annealed binding wire, and structural building materials delivered direct from our Bhilwara yard.
           </p>
           <div class="font-mono text-xs text-safety-amber/90 mt-2 flex items-center gap-2">
@@ -108,7 +108,7 @@ import Button from './Button.astro';
           <Button
             variant="call-outline"
             href="tel:8278643303"
-            class="!text-canvas !border-canvas hover:!bg-canvas hover:!text-steel-blue px-7 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
+            class="!text-white !border-white/40 hover:!border-safety-amber hover:!text-safety-amber px-7 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
             ariaLabel="Call Shree Shiv Construction directly"
           >
             <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
@@ -134,12 +134,12 @@ import Button from './Button.astro';
 
       <!-- Right Column: Honest Yard Stock Panel (5 cols) -->
       <div class="lg:col-span-5 motion-hero-entrance">
-        <div class="relative bg-steel-blue-dark/90 backdrop-blur-md border border-steel-gray/50 overflow-hidden">
+        <div class="relative bg-steel-blue-dark/90 backdrop-blur-md border border-white/20 overflow-hidden">
           <!-- Corner Safety Amber Accent Notch -->
           <div class="absolute top-0 right-0 w-3 h-3 bg-safety-amber z-10"></div>
 
           <!-- Real Photo of Actual Steel Stock in Yard -->
-          <div class="relative w-full aspect-[16/9] border-b border-steel-gray/40 overflow-hidden">
+          <div class="relative w-full aspect-[16/9] border-b border-white/10 overflow-hidden">
             <img
               src="/images/steel-yard-stock.webp"
               alt="Heavy TMT steel sariya bundles stacked in Shree Shiv Construction yard"
@@ -148,7 +148,7 @@ import Button from './Button.astro';
               loading="eager"
               class="w-full h-full object-cover filter contrast-[1.05]"
             />
-            <div class="absolute bottom-2 left-2 bg-steel-blue-dark/90 border border-steel-gray/50 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-canvas backdrop-blur-sm">
+            <div class="absolute bottom-2 left-2 bg-canvas/90 border border-white/20 px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-sm">
               <span class="w-1.5 h-1.5 bg-safety-amber inline-block mr-1"></span>
               200 Ft Rd Yard &bull; Physical Stock
             </div>
@@ -156,12 +156,12 @@ import Button from './Button.astro';
 
           <div class="p-5 md:p-6">
             <!-- Honest Header -->
-            <div class="border-b border-steel-gray/30 pb-3 mb-4 flex justify-between items-center">
+            <div class="border-b border-white/10 pb-3 mb-4 flex justify-between items-center">
               <div>
-                <h2 class="font-display text-sm uppercase tracking-wider text-canvas font-bold block">
+                <h2 class="font-display text-sm uppercase tracking-wider text-white font-bold block">
                   Yard Steel Stock &amp; Gauges
                 </h2>
-                <span class="font-mono text-[10px] text-canvas/60">
+                <span class="font-mono text-[10px] text-steel-gray">
                   AUTHORISED DEALER &bull; BHILWARA
                 </span>
               </div>
@@ -172,37 +172,37 @@ import Button from './Button.astro';
 
             <!-- Listed Sizes Table -->
             <div class="space-y-2 font-mono text-xs mb-5">
-              <div class="flex justify-between items-center border-b border-steel-gray/20 pb-1.5">
-                <span class="text-canvas font-semibold font-body">TMT Sariya Sizes</span>
-                <span class="text-canvas/90">8mm, 10mm, 12mm, 16mm, 20mm, 25mm, 32mm</span>
+              <div class="flex justify-between items-center border-b border-white/10 pb-1.5">
+                <span class="text-white font-medium font-body">TMT Sariya Sizes</span>
+                <span class="text-steel-gray-light">8mm, 10mm, 12mm, 16mm, 20mm, 25mm, 32mm</span>
               </div>
-              <div class="flex justify-between items-center border-b border-steel-gray/20 pb-1.5">
-                <span class="text-canvas font-semibold font-body">Primary Brands</span>
+              <div class="flex justify-between items-center border-b border-white/10 pb-1.5">
+                <span class="text-white font-medium font-body">Primary Brands</span>
                 <span class="text-safety-amber font-mono">Kay2 Xenox Fe 550D &amp; ISI</span>
               </div>
-              <div class="flex justify-between items-center border-b border-steel-gray/20 pb-1.5">
-                <span class="text-canvas font-semibold font-body">Structural Wire</span>
-                <span class="text-canvas/90">Annealed Binding Wire Coils</span>
+              <div class="flex justify-between items-center border-b border-white/10 pb-1.5">
+                <span class="text-white font-medium font-body">Structural Wire</span>
+                <span class="text-steel-gray-light">Annealed Binding Wire Coils</span>
               </div>
               <div class="flex justify-between items-center pb-1">
-                <span class="text-canvas font-semibold font-body">Concrete Spacers</span>
-                <span class="text-canvas/90">20mm, 25mm, 40mm, 50mm Cover Blocks</span>
+                <span class="text-white font-medium font-body">Concrete Spacers</span>
+                <span class="text-steel-gray-light">20mm, 25mm, 40mm, 50mm Cover Blocks</span>
               </div>
             </div>
 
             <!-- Clear Honest Notice: Steel market rates fluctuate daily in Mandi -->
-            <div class="bg-steel-blue/70 border border-steel-gray/40 p-3.5 flex items-center justify-between gap-3">
+            <div class="bg-canvasMuted border border-white/10 p-3.5 flex items-center justify-between gap-3">
               <div>
                 <span class="font-display text-xs uppercase tracking-wider text-safety-amber font-bold block">
                   Call for today's rates
                 </span>
-                <span class="font-body text-[11px] text-canvas/70 block">
+                <span class="font-body text-[11px] text-steel-gray-light block">
                   Market prices update daily &bull; Direct computerized weighbridge
                 </span>
               </div>
               <a
                 href="tel:8278643303"
-                class="shrink-0 bg-safety-amber text-steel-blue-dark font-display text-xs font-black uppercase tracking-wider px-3.5 py-2 hover:bg-safety-amber-light transition-colors"
+                class="shrink-0 bg-safety-amber text-canvas font-display text-xs font-black uppercase tracking-wider px-3.5 py-2 hover:bg-safety-amber-light transition-colors"
                 aria-label="Call for today's TMT steel rates"
               >
                 8278643303
