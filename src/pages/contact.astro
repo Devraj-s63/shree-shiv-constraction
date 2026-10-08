@@ -12,15 +12,15 @@ const openingHours = [
 const contactLines = [
   {
     type: 'Primary Sales & Rates',
-    phone: '8278643303',
-    href: 'tel:8278643303',
+    phone: '+91 8278643303',
+    href: 'tel:+918278643303',
     label: '+91 8278643303',
     subtext: 'Daily TMT rates, truckload orders, invoice inquiries',
   },
   {
     type: 'Alternate & Yard Support',
-    phone: '9602812764',
-    href: 'tel:9602812764',
+    phone: '+91 9602812764',
+    href: 'tel:+919602812764',
     label: '+91 9602812764',
     subtext: 'Logistics tracking, driver coordination, yard loading',
   },
@@ -64,7 +64,11 @@ const contactLines = [
               </span>
               <Badge variant="steel">{line.type}</Badge>
             </div>
-            <a href={line.href} class="font-display text-2xl md:text-3xl font-black text-steel-blue hover:text-safety-amber transition-colors block mb-2">
+            <a
+              href={line.href}
+              class="font-display text-2xl md:text-3xl font-black text-steel-blue hover:text-safety-amber transition-colors block mb-2"
+              aria-label={`Call ${line.type} directly at ${line.label}`}
+            >
               {line.label}
             </a>
             <p class="font-body text-xs text-steel-gray leading-relaxed mb-6">
@@ -72,7 +76,12 @@ const contactLines = [
             </p>
           </div>
           <div>
-            <Button variant="call-outline" href={line.href} class="w-full text-xs">
+            <Button
+              variant="call-outline"
+              href={line.href}
+              class="w-full text-xs"
+              ariaLabel={`Call ${line.type} at ${line.label}`}
+            >
               Call {line.phone}
             </Button>
           </div>

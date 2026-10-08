@@ -74,10 +74,11 @@ import Button from './Button.astro';
           </span>
         </div>
 
-        <!-- Oversized Hindi Main Headline: clamp(3rem, 8vw, 7rem) with tight tracking -->
+        <!-- Oversized Hindi Main Headline: responsive clamp starting at 2.4rem for 360px mobile -->
         <h1
           id="hero-hindi-headline"
-          class="font-display text-[clamp(3.2rem,8.5vw,7.2rem)] font-black tracking-tighter text-white leading-[0.94] uppercase mb-6 drop-shadow-md overflow-hidden"
+          lang="hi"
+          class="font-display text-[clamp(2.4rem,7.5vw,7.2rem)] sm:text-[clamp(3.2rem,8.5vw,7.2rem)] font-black tracking-tighter text-white leading-[0.94] uppercase mb-6 drop-shadow-md overflow-hidden"
           aria-label="मजबूती की सही पहचान"
         >
           <span class="split-line block">
@@ -103,26 +104,26 @@ import Button from './Button.astro';
           </div>
         </div>
 
-        <!-- Direct Action Bar -->
-        <div class="flex flex-wrap items-center gap-4">
+        <!-- Direct Action Bar with 360px Mobile Reachability -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
           <Button
             variant="call-outline"
-            href="tel:8278643303"
-            class="!text-white !border-white/40 hover:!border-safety-amber hover:!text-safety-amber px-7 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
-            ariaLabel="Call Shree Shiv Construction directly"
+            href="tel:+918278643303"
+            class="w-full sm:w-auto justify-center !text-white !border-white/40 hover:!border-safety-amber hover:!text-safety-amber px-6 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
+            ariaLabel="Call direct dispatch desk at +91 8278643303"
           >
             <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
               <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
-            Direct Dispatch: 8278643303
+            Direct Dispatch: +91 8278643303
           </Button>
 
           <Button
             variant="whatsapp"
             href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20TMT%20Sariya%20prices%20in%20Bhilwara"
             target="_blank"
-            class="px-7 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
-            ariaLabel="Chat on WhatsApp with Shree Shiv Construction"
+            class="w-full sm:w-auto justify-center px-6 py-4 text-xs md:text-sm font-bold tracking-wider uppercase"
+            ariaLabel="Request daily TMT rate sheet on WhatsApp"
           >
             <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
@@ -207,14 +208,14 @@ import Button from './Button.astro';
                 </span>
               </div>
               <a
-                href="tel:8278643303"
+                href="tel:+918278643303"
                 class="magnetic-btn shrink-0 inline-flex items-center justify-center gap-2 bg-safety-amber text-canvas font-display text-xs font-black uppercase tracking-wider px-4 py-2.5 hover:bg-safety-amber-light transition-all shadow-[0_0_15px_rgba(217,119,6,0.25)]"
-                aria-label="Call 8278643303 for today's TMT steel rates"
+                aria-label="Call yard desk at +91 8278643303 for today's live steel rates"
               >
                 <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
-                <span>8278643303</span>
+                <span>+91 8278643303</span>
               </a>
             </div>
           </div>

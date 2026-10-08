@@ -153,14 +153,16 @@ const faqPageSchema = {
                 target="_blank"
                 rel="noopener noreferrer"
                 class="font-display font-bold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5"
+                aria-label="Ask our desk on WhatsApp about this question"
               >
                 <span>Ask on WhatsApp</span>
                 <span>&rarr;</span>
               </a>
               <span class="text-white/20">|</span>
               <a
-                href="tel:8278643303"
+                href="tel:+918278643303"
                 class="font-display font-bold uppercase tracking-wider text-white hover:text-safety-amber"
+                aria-label="Call yard desk directly at +91 8278643303"
               >
                 Call Desk
               </a>
@@ -181,11 +183,20 @@ const faqPageSchema = {
         </p>
       </div>
       <div class="flex flex-wrap items-center gap-3 shrink-0">
-        <Button variant="whatsapp" href="https://wa.me/918278643303" target="_blank">
-          WhatsApp: 8278643303
+        <Button
+          variant="whatsapp"
+          href="https://wa.me/918278643303"
+          target="_blank"
+          ariaLabel="Send project requirements to sales on WhatsApp"
+        >
+          WhatsApp: +91 8278643303
         </Button>
-        <Button variant="call-outline" href="tel:8278643303">
-          Call 8278643303
+        <Button
+          variant="call-outline"
+          href="tel:+918278643303"
+          ariaLabel="Call sales desk at +91 8278643303 for a custom estimate"
+        >
+          Call: +91 8278643303
         </Button>
       </div>
     </div>

@@ -36,6 +36,14 @@ const navLinks = [
   { label: 'Contact', href: '/contact' },
 ];
 
+// Current path normalization for active-page nav state
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isLinkActive = (href: string) => {
+  const target = href.replace(/\/$/, '') || '/';
+  if (target === '/') return currentPath === '/';
+  return currentPath === target || currentPath.startsWith(target + '/');
+};
+
 // Google Rich Results Compliant HardwareStore Schema
 const hardwareStoreSchema = {
   "@context": "https://schema.org",
@@ -176,9 +184,15 @@ const hardwareStoreSchema = {
           <span>Bhilwara, Rajasthan &bull; GSTIN: 08FFXPB0515IZ5</span>
         </div>
         <div class="hidden sm:flex items-center gap-4 text-steel-gray/80">
-          <span class="micro-label text-canvasMuted/40 text-steel-gray">मजबूती की सही पहचान</span>
+          <span lang="hi" class="micro-label text-canvasMuted/40 text-steel-gray">मजबूती की सही पहचान</span>
           <span class="text-steel-gray/30">|</span>
-          <a href="tel:8278643303" class="hover:text-safety-amber transition-colors">Direct Desk: 8278643303</a>
+          <a
+            href="tel:+918278643303"
+            class="hover:text-safety-amber transition-colors"
+            aria-label="Call primary sales desk at +91 8278643303"
+          >
+            Direct Desk: +91 8278643303
+          </a>
         </div>
       </div>
     </aside>
@@ -196,25 +210,33 @@ const hardwareStoreSchema = {
           </span>
         </a>
 
-        <!-- Desktop Navigation Links -->
+        <!-- Desktop Navigation Links with Active Page State -->
         <nav class="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
-          {navLinks.map((link) => (
-            <a
-              href={link.href}
-              class="micro-label text-steel-gray hover:text-white border-b-2 border-transparent hover:border-safety-amber py-2 transition-colors duration-150"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const active = isLinkActive(link.href);
+            return (
+              <a
+                href={link.href}
+                class={`micro-label py-2 transition-colors duration-150 border-b-2 ${
+                  active
+                    ? 'text-safety-amber border-safety-amber font-bold'
+                    : 'text-steel-gray hover:text-white border-transparent hover:border-safety-amber'
+                }`}
+                aria-current={active ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <!-- Navbar Actions (Call & WhatsApp Buttons) -->
         <div class="flex items-center gap-2 md:gap-3">
           <Button
             variant="call-outline"
-            href="tel:8278643303"
+            href="tel:+918278643303"
             class="hidden sm:inline-flex py-2 px-3 md:px-4 text-[11px] md:text-xs !border-white/20 !text-white hover:!border-safety-amber hover:!text-safety-amber"
-            ariaLabel="Call Shree Shiv Construction directly"
+            ariaLabel="Call sales desk at +91 8278643303"
           >
             <svg class="w-3.5 h-3.5 mr-1.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -224,10 +246,10 @@ const hardwareStoreSchema = {
 
           <Button
             variant="whatsapp"
-            href="https://wa.me/918278643303"
+            href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20TMT%20steel%20rates"
             target="_blank"
             class="py-2 px-3 md:px-4 text-[11px] md:text-xs"
-            ariaLabel="Chat on WhatsApp with Shree Shiv Construction"
+            ariaLabel="Chat with sales desk on WhatsApp"
           >
             <svg class="w-3.5 h-3.5 mr-1.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
@@ -252,22 +274,40 @@ const hardwareStoreSchema = {
         </div>
       </div>
 
-      <!-- Mobile Dropdown Navigation -->
+      <!-- Mobile Dropdown Navigation with Active Page State -->
       <div id="mobile-nav-menu" class="hidden lg:hidden border-t border-steel-gray/20 bg-canvas px-4 py-4 space-y-2">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="block font-display text-sm uppercase tracking-wider font-bold text-steel-gray hover:text-steel-blue py-2 border-b border-steel-gray/10"
+        {navLinks.map((link) => {
+          const active = isLinkActive(link.href);
+          return (
+            <a
+              href={link.href}
+              class={`block font-display text-sm uppercase tracking-wider py-2.5 px-3 border-l-2 transition-colors ${
+                active
+                  ? 'text-safety-amber font-black border-safety-amber bg-white/[0.04]'
+                  : 'text-steel-gray hover:text-white border-transparent'
+              }`}
+              aria-current={active ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          );
+        })}
+        <div class="pt-3 flex flex-col gap-2">
+          <Button
+            variant="call-outline"
+            href="tel:+918278643303"
+            class="w-full text-xs justify-center"
+            ariaLabel="Call primary sales line at +91 8278643303"
           >
-            {link.label}
-          </a>
-        ))}
-        <div class="pt-2 flex flex-col gap-2">
-          <Button variant="call-outline" href="tel:8278643303" class="w-full text-xs">
-            Call Primary: 8278643303
+            Call Primary: +91 8278643303
           </Button>
-          <Button variant="secondary" href="tel:9602812764" class="w-full text-xs">
-            Call Alternate: 9602812764
+          <Button
+            variant="secondary"
+            href="tel:+919602812764"
+            class="w-full text-xs justify-center"
+            ariaLabel="Call alternate yard line at +91 9602812764"
+          >
+            Call Alternate: +91 9602812764
           </Button>
         </div>
       </div>
@@ -278,19 +318,19 @@ const hardwareStoreSchema = {
       <slot />
     </div>
 
-    <!-- Industrial Editorial Footer with High Contrast -->
+    <!-- Industrial Editorial Footer with Quick-Link Sitemap & Operating Hours -->
     <footer class="bg-canvasMuted text-white hairline-t mt-20">
       <div class="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14">
-          <!-- Column 1: Identity & Official Tagline (5 cols) -->
-          <div class="md:col-span-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+          <!-- Column 1: Identity & Official Tagline (4 cols) -->
+          <div class="lg:col-span-4">
             <span class="font-display text-xl md:text-2xl font-black uppercase tracking-tight text-white block">
               Shree Shiv Construction &amp; Steel
             </span>
             <p class="micro-label text-safety-amber mt-1.5">
-              मजबूती की सही पहचान &bull; Building a Stronger Tomorrow
+              <span lang="hi">मजबूती की सही पहचान</span> &bull; Building a Stronger Tomorrow
             </p>
-            <p class="font-body text-sm text-steel-gray mt-4 leading-relaxed max-w-md">
+            <p class="font-body text-sm text-steel-gray mt-4 leading-relaxed max-w-sm">
               Authorized Kay2 Xenox dealer and primary building material supplier in Bhilwara. Stocking Fe 550D TMT sariya, annealed binding wire, and precision concrete cover blocks for residential and commercial construction across Rajasthan.
             </p>
             <div class="mt-6 inline-block hairline-all px-3 py-1.5 text-xs font-mono text-steel-gray">
@@ -298,57 +338,144 @@ const hardwareStoreSchema = {
             </div>
           </div>
 
-          <!-- Column 2: Physical Address & Office (4 cols) -->
-          <div class="md:col-span-4">
+          <!-- Column 2: Quick-Link Sitemap (3 cols) -->
+          <div class="lg:col-span-3">
             <h3 class="micro-label text-safety-amber mb-4">
-              Registered Location &amp; Yard
+              Quick Links &bull; Sitemap
             </h3>
-            <address class="not-italic text-sm text-steel-gray leading-relaxed font-body">
-              <strong class="text-white block mb-1">Shree Shiv Construction &amp; Steel</strong>
-              200 Feet Road, Near Sharda Evergreen,<br />
-              Bhilwara 311001, Rajasthan, India
+            <ul class="space-y-2.5 font-display text-xs uppercase tracking-wider font-semibold">
+              <li>
+                <a href="/" class="text-steel-gray hover:text-safety-amber transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+                  <span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a href="/products" class="text-steel-gray hover:text-safety-amber transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+                  <span>Products &amp; Inventory</span>
+                </a>
+              </li>
+              <li>
+                <a href="/about" class="text-steel-gray hover:text-safety-amber transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+                  <span>About Us &amp; Story</span>
+                </a>
+              </li>
+              <li>
+                <a href="/faq" class="text-steel-gray hover:text-safety-amber transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+                  <span>FAQs &amp; Guidance</span>
+                </a>
+              </li>
+              <li>
+                <a href="/contact" class="text-steel-gray hover:text-safety-amber transition-colors flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+                  <span>Contact &amp; Location</span>
+                </a>
+              </li>
+              <li class="pt-2 border-t border-white/10">
+                <a href="/privacy-policy" class="text-steel-gray/80 hover:text-white transition-colors text-[11px]">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms" class="text-steel-gray/80 hover:text-white transition-colors text-[11px]">
+                  Terms &amp; Conditions
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Operating Hours (3 cols) -->
+          <div class="lg:col-span-3">
+            <h3 class="micro-label text-safety-amber mb-4">
+              Depot &amp; Yard Hours
+            </h3>
+            <div class="space-y-3 font-mono text-xs">
+              <div class="border-b border-white/10 pb-2.5">
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="font-display font-bold text-white uppercase text-xs">Monday – Saturday</span>
+                  <span class="text-safety-amber font-bold">8:00 AM – 8:00 PM</span>
+                </div>
+                <span class="text-steel-gray text-[11px] font-body block">
+                  Regular Yard Loading &amp; Electronic Weighbridge Dispatch
+                </span>
+              </div>
+              <div class="border-b border-white/10 pb-2.5">
+                <div class="flex justify-between items-baseline mb-1">
+                  <span class="font-display font-bold text-white uppercase text-xs">Sunday</span>
+                  <span class="text-steel-gray-light">By Appointment</span>
+                </div>
+                <span class="text-steel-gray text-[11px] font-body block">
+                  Emergency Site Dispatch &amp; On-Call Truck Loading
+                </span>
+              </div>
+              <p class="font-body text-[11px] text-steel-gray mt-3 leading-relaxed">
+                * Direct loading available for tractors, mini-trucks, and 50T commercial trailers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 4: Physical Yard & Direct Desk (2 cols) -->
+          <div class="lg:col-span-2">
+            <h3 class="micro-label text-safety-amber mb-4">
+              Yard Direct Desk
+            </h3>
+            <address class="not-italic text-xs text-steel-gray leading-relaxed font-body mb-4">
+              <strong class="text-white block mb-1">200 Feet Road</strong>
+              Near Sharda Evergreen,<br />
+              Bhilwara 311001, Rajasthan
             </address>
 
-            <div class="mt-6 space-y-2.5 text-sm font-mono">
-              <div class="flex items-center gap-2">
-                <span class="text-steel-gray text-xs uppercase font-display tracking-wider">Phone 1:</span>
-                <a href="tel:8278643303" class="text-white hover:text-safety-amber font-semibold transition-colors">
+            <div class="space-y-2 text-xs font-mono mb-5">
+              <div>
+                <span class="text-steel-gray text-[10px] uppercase font-display block">Sales Desk:</span>
+                <a
+                  href="tel:+918278643303"
+                  class="text-white hover:text-safety-amber font-bold transition-colors"
+                  aria-label="Call primary sales line at +91 8278643303"
+                >
                   +91 8278643303
                 </a>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="text-steel-gray text-xs uppercase font-display tracking-wider">Phone 2:</span>
-                <a href="tel:9602812764" class="text-white hover:text-safety-amber font-semibold transition-colors">
+              <div>
+                <span class="text-steel-gray text-[10px] uppercase font-display block">Alternate Line:</span>
+                <a
+                  href="tel:+919602812764"
+                  class="text-white hover:text-safety-amber font-bold transition-colors"
+                  aria-label="Call alternate logistics line at +91 9602812764"
+                >
                   +91 9602812764
                 </a>
               </div>
             </div>
-          </div>
 
-          <!-- Column 3: Quick Navigation & Social (3 cols) -->
-          <div class="md:col-span-3">
-            <h3 class="micro-label text-safety-amber mb-4">
-              Connect &amp; Social
-            </h3>
-            <ul class="space-y-3 text-xs uppercase tracking-wider font-display font-semibold mb-6">
+            <ul class="space-y-2 text-xs uppercase tracking-wider font-display font-semibold">
+              <li>
+                <a
+                  href="https://wa.me/918278643303"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-steel-gray hover:text-white transition-colors flex items-center gap-1.5"
+                  aria-label="Chat on WhatsApp with customer support"
+                >
+                  <span class="w-1.5 h-1.5 bg-emerald-400 inline-block"></span>
+                  <span>WhatsApp Line</span>
+                </a>
+              </li>
               <li>
                 <a
                   href="https://instagram.com/shreeshivconstructionsteel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-steel-gray hover:text-white transition-colors flex items-center gap-2"
+                  class="text-steel-gray hover:text-white transition-colors flex items-center gap-1.5"
                   aria-label="Follow Shree Shiv Construction on Instagram"
                 >
-                  <svg class="w-4 h-4 fill-current text-safety-amber" viewBox="0 0 24 24">
+                  <svg class="w-3.5 h-3.5 fill-current text-safety-amber" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
-                  <span>@shreeshivconstructionsteel</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://wa.me/918278643303" target="_blank" rel="noopener noreferrer" class="text-steel-gray hover:text-white transition-colors flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 bg-emerald-400 inline-block"></span>
-                  <span>Direct WhatsApp Line</span>
+                  <span>Instagram</span>
                 </a>
               </li>
             </ul>
@@ -376,6 +503,23 @@ const hardwareStoreSchema = {
         </div>
       </div>
     </footer>
+
+    <!-- Persistent Floating WhatsApp Action Button -->
+    <a
+      href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20TMT%20steel%20rates%20in%20Bhilwara"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-3.5 rounded-full shadow-2xl hover:bg-[#20bd5a] hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center group focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
+      aria-label="Chat directly on WhatsApp with Shree Shiv Construction sales desk"
+      title="Chat with us on WhatsApp"
+    >
+      <svg class="w-6 h-6 fill-current group-hover:rotate-12 transition-transform duration-200" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
+      </svg>
+      <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 ease-in-out font-display text-xs font-bold uppercase tracking-wider text-white hidden sm:inline-block">
+        WhatsApp Us
+      </span>
+    </a>
 
     <!-- Minimal Cookie Consent Banner with Consent-Gated GA4 Loader -->
     <CookieConsent />
