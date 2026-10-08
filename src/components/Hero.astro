@@ -2,18 +2,18 @@
 import Button from './Button.astro';
 ---
 
-<section id="hero-section" class="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center px-6 md:px-10 py-12 sm:py-20 lg:py-24 overflow-hidden select-none">
+<section id="hero-section" class="relative lg:h-[calc(100vh-5rem)] lg:min-h-[560px] lg:max-h-[850px] flex flex-col justify-center px-6 md:px-10 py-6 sm:py-8 lg:py-2 overflow-hidden select-none">
   
   <!-- Single-Screen Blueprint Statement Container with Hero Visual -->
   <div class="max-w-7xl mx-auto relative z-10 w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
       
       <!-- Left Column: Typography, Headline, CTAs, Blueprint Meta (7 cols) -->
       <div class="lg:col-span-7 text-left">
         <!-- Tiny Tracked Kicker: Small Caps with Wide Tracking -->
-        <div class="hero-theatrical-kicker flex items-center gap-2 mb-5 sm:mb-7">
+        <div class="hero-theatrical-kicker flex items-center gap-2 mb-2.5 sm:mb-3">
           <span class="w-1.5 h-1.5 rounded-full bg-camel inline-block"></span>
-          <span class="font-mono text-[10px] sm:text-xs uppercase tracking-[0.24em] text-charcoal-muted font-bold">
+          <span class="font-mono text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.24em] text-charcoal-muted font-bold">
             SHREE SHIV CONSTRUCTION &amp; STEEL &copy;2026 &mdash; BHILWARA
           </span>
           <span class="w-1.5 h-1.5 rounded-full bg-camel inline-block"></span>
@@ -23,35 +23,35 @@ import Button from './Button.astro';
         <h1
           id="hero-hindi-headline"
           lang="hi"
-          class="font-hindi text-[clamp(3.5rem,8.5vw,7.5rem)] font-normal text-charcoal leading-[0.88] uppercase select-none text-left"
+          class="font-hindi text-[clamp(2.5rem,4.4vw,4.6rem)] font-normal text-charcoal leading-[0.88] uppercase select-none text-left"
           aria-label="मजबूती की सही पहचान"
         >
-          <span class="block overflow-hidden py-1">
+          <span class="block overflow-hidden py-0.5">
             <span class="inline-block hero-theatrical-line">मजबूती</span>
           </span>
-          <span class="block overflow-hidden py-1">
+          <span class="block overflow-hidden py-0.5">
             <span class="inline-block hero-theatrical-line">की सही</span>
           </span>
-          <span class="block overflow-hidden py-1">
+          <span class="block overflow-hidden py-0.5">
             <span class="inline-block hero-theatrical-line text-charcoal relative">
               पहचान
               <!-- Camel Underline Marker -->
-              <span class="absolute -bottom-1.5 left-0 w-full h-[4px] md:h-[6px] bg-camel"></span>
+              <span class="absolute -bottom-1 left-0 w-full h-[3px] md:h-[4px] bg-camel"></span>
             </span>
           </span>
         </h1>
 
         <!-- Short Sans Sub-Line in Public Sans -->
-        <p class="hero-theatrical-sub font-body text-sm sm:text-base md:text-lg text-charcoal-muted max-w-xl mt-6 md:mt-8 leading-relaxed font-normal">
+        <p class="hero-theatrical-sub font-body text-xs sm:text-sm md:text-base text-charcoal-muted max-w-xl mt-3 sm:mt-4 leading-normal sm:leading-relaxed font-normal">
           Authorized Kay2 Xenox TMT Fe 550D, annealed binding wire, and certified structural supplies. Dispatched daily from our 200 Feet Road yard.
         </p>
 
         <!-- Two Pill CTAs Side by Side: "CALL NOW" and "WHATSAPP RATES" -->
-        <div class="hero-theatrical-cta flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 mt-8 md:mt-10">
+        <div class="hero-theatrical-cta flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-4 sm:mt-5">
           <Button
             variant="primary"
             href="tel:+918278643303"
-            class="px-8 sm:px-9 py-4 text-xs font-mono uppercase tracking-[0.22em] font-black shadow-sm text-center"
+            class="px-6 sm:px-8 py-3 sm:py-3.5 text-xs font-mono uppercase tracking-[0.2em] font-black shadow-sm text-center"
             ariaLabel="Call dispatch desk directly at +91 8278643303"
           >
             CALL NOW
@@ -61,7 +61,7 @@ import Button from './Button.astro';
             variant="camel-outline"
             href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20daily%20TMT%20steel%20rates%20in%20Bhilwara"
             target="_blank"
-            class="px-8 sm:px-9 py-4 text-xs font-mono uppercase tracking-[0.22em] font-bold text-center"
+            class="px-6 sm:px-8 py-3 sm:py-3.5 text-xs font-mono uppercase tracking-[0.2em] font-bold text-center"
             ariaLabel="Request daily TMT steel rate sheet on WhatsApp"
           >
             WHATSAPP RATES
@@ -69,7 +69,7 @@ import Button from './Button.astro';
         </div>
 
         <!-- Small-Caps Micro Blueprint Meta Footer -->
-        <div class="hero-theatrical-meta mt-10 sm:mt-12 pt-6 border-t border-cream-border/60 max-w-xl flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal-muted">
+        <div class="hero-theatrical-meta mt-4 sm:mt-5 pt-3 border-t border-cream-border/60 max-w-xl flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-[9px] sm:text-[10px] tracking-[0.22em] uppercase text-charcoal-muted">
           <span>YARD NO. 01 &bull; 200 FT RD</span>
           <span>MILL CERTIFIED Fe 550D</span>
           <span>COMPUTERIZED KANTA</span>
@@ -79,28 +79,28 @@ import Button from './Button.astro';
 
       <!-- Right Column: Striking Framed Hero Product Visual (5 cols) -->
       <div class="lg:col-span-5 hero-theatrical-visual">
-        <div class="border border-cream-border bg-white p-2.5 sm:p-3 shadow-sm group">
+        <div class="border border-cream-border bg-white p-2 sm:p-2.5 shadow-sm group max-w-lg lg:max-w-none mx-auto">
           
-          <!-- Striking Framed 4:5 Photo of Kay2 Xenox Closeup -->
-          <div class="relative aspect-[4/5] w-full overflow-hidden bg-cream-warm">
+          <!-- Striking Framed Photo of Kay2 Xenox Closeup with Compact Desktop Aspect Ratio -->
+          <div class="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full max-h-[320px] sm:max-h-[360px] overflow-hidden bg-cream-warm">
             <img
               src="/images/tmt-kay2xenox-closeup.webp"
               srcset="/images/tmt-kay2xenox-closeup-600w.webp 600w, /images/tmt-kay2xenox-closeup-1000w.webp 1000w, /images/tmt-kay2xenox-closeup.webp 1600w"
               sizes="(max-width: 1024px) 100vw, 42vw"
               alt="Kay2 Xenox Fe 550D TMT bars at Shree Shiv Construction & Steel, Bhilwara"
               width="1000"
-              height="1250"
+              height="750"
               fetchpriority="high"
               class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
             />
 
             <!-- Corner Badges -->
-            <div class="absolute top-3 left-3 bg-charcoal text-cream px-3 py-1 font-mono text-[10px] tracking-widest uppercase font-bold">
-              <span class="w-1.5 h-1.5 bg-camel inline-block mr-1.5"></span>
+            <div class="absolute top-2.5 left-2.5 bg-charcoal text-cream px-2.5 py-0.5 font-mono text-[9px] tracking-widest uppercase font-bold">
+              <span class="w-1.5 h-1.5 bg-camel inline-block mr-1"></span>
               KAY2 XENOX Fe 550D
             </div>
 
-            <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm border border-cream-border p-2.5 font-mono text-[10px] text-charcoal">
+            <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-white/95 backdrop-blur-sm border border-cream-border p-2 font-mono text-[9px] sm:text-[10px] text-charcoal">
               <div class="flex items-center justify-between font-bold tracking-wider uppercase">
                 <span>EMBOSSED BRAND VERIFIED</span>
                 <span class="text-camel">PRIMARY BILLET</span>
@@ -109,18 +109,18 @@ import Button from './Button.astro';
           </div>
 
           <!-- Technical Specs Strip Under Image -->
-          <div class="mt-2.5 p-3.5 bg-cream-warm/60 border border-cream-border space-y-1.5 font-mono text-xs">
+          <div class="mt-2 p-2.5 bg-cream-warm/60 border border-cream-border space-y-1 font-mono text-xs">
             <div class="flex items-center justify-between">
-              <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Brand Embossing:</span>
-              <strong class="text-charcoal text-right text-[11px]">KAY2 XENOX Fe 550D</strong>
+              <span class="text-charcoal-muted uppercase text-[9px] sm:text-[10px] tracking-wider">Brand Embossing:</span>
+              <strong class="text-charcoal text-right text-[10px] sm:text-[11px]">KAY2 XENOX Fe 550D</strong>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Stock Gauges:</span>
-              <span class="text-charcoal font-semibold text-[11px]">8mm &ndash; 32mm Available</span>
+              <span class="text-charcoal-muted uppercase text-[9px] sm:text-[10px] tracking-wider">Stock Gauges:</span>
+              <span class="text-charcoal font-semibold text-[10px] sm:text-[11px]">8mm &ndash; 32mm Available</span>
             </div>
-            <div class="flex items-center justify-between pt-1 border-t border-cream-border">
-              <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Direct Dispatch:</span>
-              <a href="tel:+918278643303" class="text-charcoal font-bold hover:text-camel transition-colors text-[11px]">
+            <div class="flex items-center justify-between pt-0.5 border-t border-cream-border">
+              <span class="text-charcoal-muted uppercase text-[9px] sm:text-[10px] tracking-wider">Direct Dispatch:</span>
+              <a href="tel:+918278643303" class="text-charcoal font-bold hover:text-camel transition-colors text-[10px] sm:text-[11px]">
                 +91 8278643303
               </a>
             </div>
