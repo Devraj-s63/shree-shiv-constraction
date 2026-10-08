@@ -17,22 +17,23 @@ const {
   class: className = '',
 } = Astro.props;
 
-const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
+const alignClass = align === 'center' ? 'text-center mx-auto items-center' : 'text-left items-start';
 ---
 
-<div class={`mb-12 md:mb-16 max-w-4xl ${alignClass} ${className}`}>
+<div class={`mb-12 md:mb-16 max-w-5xl snap-section-opener flex flex-col ${alignClass} ${className}`}>
   {eyebrow && (
-    <div class="inline-flex items-center gap-2 mb-3">
-      <span class="inline-block px-2.5 py-1 bg-eucalyptus text-cream micro-label font-bold border border-eucalyptus">
+    <div class="snap-label flex items-center gap-2 mb-4">
+      <span class="w-2 h-2 bg-camel inline-block"></span>
+      <span class="inline-block px-2.5 py-1 bg-eucalyptus text-cream font-mono text-[10px] tracking-[0.25em] uppercase font-bold border border-eucalyptus">
         {eyebrow}
       </span>
     </div>
   )}
-  <h2 lang={titleLang} class="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-black uppercase tracking-tight text-charcoal leading-[1.02]">
+  <h2 lang={titleLang} class="snap-title font-display text-[clamp(2.5rem,5.5vw,5rem)] font-black uppercase tracking-tight text-charcoal leading-[0.94]">
     {title}
   </h2>
   {subtitle && (
-    <p class="font-body text-sm md:text-base text-charcoal-muted mt-4 leading-relaxed max-w-2xl">
+    <p class="snap-item font-body text-sm md:text-base text-charcoal-muted mt-5 leading-relaxed max-w-2xl border-l-2 border-camel pl-4">
       {subtitle}
     </p>
   )}
