@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- Industrial Steel Blue Dark Background -->
-  <rect width="1200" height="630" fill="#0A1C2D" />
+  <!-- Deep Charcoal Background -->
+  <rect width="1200" height="630" fill="#2C2A29" />
 
-  <!-- Outer Structural Hairline Border in Safety Amber -->
-  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#D97706" stroke-width="3" />
+  <!-- Outer Structural Border in Camel Brown -->
+  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#C19A6B" stroke-width="3" />
 
-  <!-- Technical Blueprint Grid Accents -->
-  <g opacity="0.15" stroke="#F4F3EF" stroke-width="1">
+  <!-- Technical Grid Accents -->
+  <g opacity="0.12" stroke="#FDFBF7" stroke-width="1">
     <line x1="24" y1="120" x2="1176" y2="120" stroke-dasharray="4,8" />
     <line x1="24" y1="260" x2="1176" y2="260" stroke-dasharray="4,8" />
     <line x1="24" y1="460" x2="1176" y2="460" stroke-dasharray="4,8" />
@@ -15,60 +15,60 @@
   </g>
 
   <!-- Top Metadata Ledger Bar -->
-  <rect x="64" y="60" width="480" height="36" fill="#0F2A43" stroke="#3E4A56" stroke-width="1" />
-  <rect x="64" y="60" width="8" height="36" fill="#D97706" />
-  <text x="86" y="83" fill="#F4F3EF" font-family="'Archivo', Arial, sans-serif" font-size="14" font-weight="bold" letter-spacing="2">
+  <rect x="64" y="60" width="520" height="36" fill="#3B3836" stroke="#4D4946" stroke-width="1" />
+  <rect x="64" y="60" width="8" height="36" fill="#C19A6B" />
+  <text x="86" y="83" fill="#FDFBF7" font-family="'Archivo', Arial, sans-serif" font-size="14" font-weight="bold" letter-spacing="2">
     BHILWARA, RAJASTHAN • GSTIN: 08FFXPB0515IZ5
   </text>
 
   <!-- Brand Name -->
-  <text x="64" y="180" fill="#F4F3EF" font-family="'Archivo', Arial, sans-serif" font-size="52" font-weight="900" letter-spacing="-1">
+  <text x="64" y="180" fill="#FDFBF7" font-family="'Archivo', Arial, sans-serif" font-size="52" font-weight="900" letter-spacing="-1">
     SHREE SHIV CONSTRUCTION &amp; STEEL
   </text>
 
   <!-- Taglines: Hindi & English -->
   <g>
-    <rect x="64" y="215" width="410" height="52" fill="#D97706" />
-    <text x="80" y="252" fill="#0A1C2D" font-family="'Archivo', Arial, sans-serif" font-size="34" font-weight="900">
+    <rect x="64" y="215" width="410" height="52" fill="#C19A6B" />
+    <text x="80" y="252" fill="#2C2A29" font-family="'Archivo', Arial, sans-serif" font-size="34" font-weight="900">
       मजबूती की सही पहचान
     </text>
-    <text x="495" y="252" fill="#F4F3EF" font-family="'Inter', Arial, sans-serif" font-size="24" font-weight="600">
+    <text x="495" y="252" fill="#FDFBF7" font-family="'Inter', Arial, sans-serif" font-size="24" font-weight="600">
       Building a Stronger Tomorrow
     </text>
   </g>
 
   <!-- Products & Brand Scope -->
   <g transform="translate(64, 310)">
-    <rect x="0" y="0" width="320" height="96" fill="#0F2A43" stroke="#3E4A56" stroke-width="1" />
-    <text x="24" y="38" fill="#D97706" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">AUTHORIZED STOCKIST</text>
-    <text x="24" y="68" fill="#F4F3EF" font-family="'Archivo', Arial, sans-serif" font-size="20" font-weight="bold">Kay2 Xenox TMT</text>
-    <text x="24" y="85" fill="#CBD5E1" font-family="'Inter', Arial, sans-serif" font-size="12">Fe 550D Certified Bars</text>
+    <rect x="0" y="0" width="320" height="96" fill="#3B3836" stroke="#4D4946" stroke-width="1" />
+    <text x="24" y="38" fill="#C19A6B" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">AUTHORIZED STOCKIST</text>
+    <text x="24" y="68" fill="#FDFBF7" font-family="'Archivo', Arial, sans-serif" font-size="20" font-weight="bold">Kay2 Xenox TMT</text>
+    <text x="24" y="85" fill="#E7DDCB" font-family="'Inter', Arial, sans-serif" font-size="12">Fe 550D Certified Bars</text>
 
-    <rect x="340" y="0" width="340" height="96" fill="#0F2A43" stroke="#3E4A56" stroke-width="1" />
-    <text x="364" y="38" fill="#D97706" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">GAUGE INVENTORY</text>
-    <text x="364" y="68" fill="#F4F3EF" font-family="'Archivo', Arial, sans-serif" font-size="20" font-weight="bold">TMT Sariya 8mm – 32mm</text>
-    <text x="364" y="85" fill="#CBD5E1" font-family="'Inter', Arial, sans-serif" font-size="12">Full Structural Stock</text>
+    <rect x="340" y="0" width="340" height="96" fill="#3B3836" stroke="#4D4946" stroke-width="1" />
+    <text x="364" y="38" fill="#C19A6B" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">GAUGE INVENTORY</text>
+    <text x="364" y="68" fill="#FDFBF7" font-family="'Archivo', Arial, sans-serif" font-size="20" font-weight="bold">TMT Sariya 8mm – 32mm</text>
+    <text x="364" y="85" fill="#E7DDCB" font-family="'Inter', Arial, sans-serif" font-size="12">Full Structural Stock</text>
 
-    <rect x="700" y="0" width="372" height="96" fill="#0F2A43" stroke="#3E4A56" stroke-width="1" />
-    <text x="724" y="38" fill="#D97706" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">SITE SUPPLIES</text>
-    <text x="724" y="68" fill="#F4F3EF" font-family="'Archivo', Arial, sans-serif" font-size="20" font-weight="bold">Binding Wire &amp; Cover Blocks</text>
-    <text x="724" y="85" fill="#CBD5E1" font-family="'Inter', Arial, sans-serif" font-size="12">Annealed Coils &amp; Spacers</text>
+    <rect x="700" y="0" width="372" height="96" fill="#3B3836" stroke="#4D4946" stroke-width="1" />
+    <text x="724" y="38" fill="#C19A6B" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">SITE SUPPLIES</text>
+    <text x="724" y="68" fill="#FDFBF7" font-family="'Archivo', Arial, sans-serif" font-size="20" font-weight="bold">Binding Wire &amp; Cover Blocks</text>
+    <text x="724" y="85" fill="#E7DDCB" font-family="'Inter', Arial, sans-serif" font-size="12">Annealed Coils &amp; Spacers</text>
   </g>
 
   <!-- Bottom Yard Location & Contact Bar -->
   <g transform="translate(64, 450)">
-    <rect x="0" y="0" width="1072" height="96" fill="#0F2A43" stroke="#D97706" stroke-width="2" />
+    <rect x="0" y="0" width="1072" height="96" fill="#3B3836" stroke="#C19A6B" stroke-width="2" />
     
     <!-- Yard Location -->
-    <text x="28" y="42" fill="#D97706" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">YARD &amp; DEPOT LOCATION</text>
-    <text x="28" y="70" fill="#F4F3EF" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="600">
+    <text x="28" y="42" fill="#C19A6B" font-family="'Archivo', Arial, sans-serif" font-size="12" font-weight="bold" letter-spacing="1">YARD &amp; DEPOT LOCATION</text>
+    <text x="28" y="70" fill="#FDFBF7" font-family="'Inter', Arial, sans-serif" font-size="18" font-weight="600">
       200 Feet Road, Near Sharda Evergreen, Bhilwara 311001
     </text>
 
     <!-- Phone Contact Badges -->
-    <rect x="660" y="20" width="384" height="56" fill="#D97706" />
-    <text x="680" y="45" fill="#0A1C2D" font-family="'Archivo', Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1">CALL DESK / WHATSAPP</text>
-    <text x="680" y="68" fill="#0A1C2D" font-family="'Archivo', Arial, sans-serif" font-size="22" font-weight="900">
+    <rect x="660" y="20" width="384" height="56" fill="#C19A6B" />
+    <text x="680" y="45" fill="#2C2A29" font-family="'Archivo', Arial, sans-serif" font-size="11" font-weight="bold" letter-spacing="1">CALL DESK / WHATSAPP</text>
+    <text x="680" y="68" fill="#2C2A29" font-family="'Archivo', Arial, sans-serif" font-size="22" font-weight="900">
       +91 8278643303 / 9602812764
     </text>
   </g>

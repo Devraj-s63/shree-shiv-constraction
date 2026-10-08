@@ -21,13 +21,20 @@ const {
   ariaLabel,
 } = Astro.props;
 
-const baseStyles = 'magnetic-btn inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-5 py-3 transition-colors duration-150 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-safety-amber focus:ring-offset-2 will-change-transform';
+const baseStyles = 'inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-5 py-3 transition-colors duration-150 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-camel focus:ring-offset-2';
 
 const variantStyles: Record<string, string> = {
-  primary: 'bg-steel-blue text-canvas border border-steel-blue hover:bg-steel-blue-light hover:border-steel-blue-light active:bg-steel-blue-dark',
-  whatsapp: 'bg-[#128C7E] text-white border border-[#128C7E] hover:bg-[#075E54] hover:border-[#075E54] active:bg-[#075E54]',
-  'call-outline': 'bg-transparent text-steel-blue border-2 border-steel-blue hover:bg-steel-blue hover:text-canvas active:bg-steel-blue-dark',
-  secondary: 'bg-transparent text-steel-gray border border-steel-gray/40 hover:border-steel-blue hover:text-steel-blue active:bg-canvasMuted',
+  // Primary CTA: Camel fill with deep charcoal text (WCAG AA compliant 5.19:1)
+  primary: 'bg-camel text-charcoal border border-camel hover:bg-camel-dark hover:border-camel-dark active:bg-camel-dark font-black',
+  
+  // WhatsApp CTA: Eucalyptus fill with cream text (WCAG AA compliant 6.9:1)
+  whatsapp: 'bg-eucalyptus text-cream border border-eucalyptus hover:bg-eucalyptus-dark hover:border-eucalyptus-dark active:bg-eucalyptus-dark',
+  
+  // Call Outline: Clean border in charcoal/camel with high contrast
+  'call-outline': 'bg-transparent text-charcoal border border-charcoal hover:bg-camel hover:border-camel hover:text-charcoal active:bg-camel-dark',
+  
+  // Secondary: Warm cream card with #E7DDCB border
+  secondary: 'bg-cream-card text-charcoal border border-cream-border hover:border-camel hover:text-charcoal active:bg-cream-warm',
 };
 
 const computedClass = `${baseStyles} ${variantStyles[variant] || variantStyles.primary} ${className}`;

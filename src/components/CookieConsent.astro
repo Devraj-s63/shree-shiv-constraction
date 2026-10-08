@@ -6,21 +6,21 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
 
 <div
   id="cookie-consent-banner"
-  class="fixed bottom-0 inset-x-0 z-50 bg-steel-blue-dark text-white border-t-2 border-safety-amber p-4 md:p-6 shadow-none transform translate-y-full transition-transform duration-300 hidden"
+  class="fixed bottom-0 inset-x-0 z-50 bg-charcoal text-cream border-t-2 border-camel p-4 md:p-6 shadow-2xl transform translate-y-full transition-transform duration-300 hidden"
   role="region"
   aria-label="Cookie and Privacy Preferences"
 >
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-    <!-- Notice Copy -->
+    <!-- Plain Human Notice Copy -->
     <div class="max-w-3xl">
       <div class="flex items-center gap-2 mb-1.5">
-        <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-        <span class="font-display text-xs uppercase tracking-wider font-bold text-safety-amber">
+        <span class="w-2 h-2 bg-camel inline-block"></span>
+        <span class="font-display text-xs uppercase tracking-wider font-bold text-camel">
           Cookie &amp; Privacy Notice
         </span>
       </div>
-      <p class="font-body text-xs sm:text-sm text-steel-gray-light leading-relaxed">
-        We use anonymous telemetry cookies to understand site traffic and optimize our material catalog for builders in Bhilwara. We never sell personal data or track financial information. Read our <a href="/privacy-policy" class="text-safety-amber underline hover:text-white">Privacy Policy</a>.
+      <p class="font-body text-xs sm:text-sm text-cream/80 leading-relaxed">
+        We use basic cookies to see how visitors browse our site and to improve our steel catalog. We never track banking details or sell your personal information. Read our <a href="/privacy-policy" class="text-camel underline hover:text-cream">Privacy Policy</a>.
       </p>
     </div>
 
@@ -29,8 +29,8 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
       <button
         id="cookie-decline-btn"
         type="button"
-        class="flex-1 md:flex-none px-5 py-2.5 font-display text-xs uppercase tracking-wider font-bold text-white bg-transparent border border-white/40 hover:border-white hover:bg-white/10 focus:outline-none transition-colors cursor-pointer"
-        aria-label="Decline anonymous cookies"
+        class="flex-1 md:flex-none px-5 py-2.5 font-display text-xs uppercase tracking-wider font-bold text-cream bg-transparent border border-cream/30 hover:border-cream hover:bg-cream/10 focus:outline-none transition-colors cursor-pointer"
+        aria-label="Decline cookies"
       >
         Decline
       </button>
@@ -38,7 +38,7 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
       <button
         id="cookie-accept-btn"
         type="button"
-        class="flex-1 md:flex-none px-5 py-2.5 font-display text-xs uppercase tracking-wider font-bold bg-safety-amber text-canvas hover:bg-safety-amber-light focus:outline-none transition-colors cursor-pointer font-black"
+        class="flex-1 md:flex-none px-5 py-2.5 font-display text-xs uppercase tracking-wider font-bold bg-camel text-charcoal hover:bg-camel-dark focus:outline-none transition-colors cursor-pointer font-black"
         aria-label="Accept and continue with cookies"
       >
         Accept &amp; Continue
@@ -82,7 +82,6 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
   function showBanner() {
     if (!banner) return;
     banner.classList.remove('hidden');
-    // Trigger transition after unhide
     requestAnimationFrame(() => {
       banner.classList.remove('translate-y-full');
       banner.classList.add('translate-y-0');
@@ -98,15 +97,13 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
     }, 300);
   }
 
-  // Check saved choice in localStorage
   const consent = localStorage.getItem(STORAGE_KEY);
 
   if (consent === 'accepted') {
     loadGA4();
   } else if (consent === 'declined') {
-    // Consent was declined; do nothing
+    // Consent declined
   } else {
-    // No prior choice; display banner
     setTimeout(showBanner, 600);
   }
 

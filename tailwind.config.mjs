@@ -4,32 +4,55 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Deep Charcoal-Black Canvas
-        canvas: '#0B0D10',
-        canvasMuted: '#12161C',
-        canvasSubtle: '#181E26',
-        
-        // Steel Palettes adapted for deep luxury dark-mode
+        // Primary Camel Brown Palette
+        camel: {
+          DEFAULT: '#C19A6B',
+          dark: '#A98053',
+          light: '#D2AF84',
+        },
+        // Background Off-White Cream Palette
+        cream: {
+          DEFAULT: '#FDFBF7',
+          card: '#FFFFFF',
+          warm: '#F6F1E7',
+          border: '#E7DDCB',
+        },
+        // Deep Charcoal Text Palette
+        charcoal: {
+          DEFAULT: '#2C2A29',
+          muted: '#6E665C',
+          dark: '#1E1D1C',
+        },
+        // Eucalyptus Green Accent Palette
+        eucalyptus: {
+          DEFAULT: '#2E5A44',
+          dark: '#244735',
+          light: '#3B7257',
+        },
+
+        // Theme Token Aliases for Seamless Component Integration
+        canvas: '#FDFBF7',
+        canvasMuted: '#F6F1E7',
+        canvasSubtle: '#FFFFFF',
+
         'steel-blue': {
-          DEFAULT: '#E2E8F0', // High-contrast crisp foreground heading color
-          dark: '#080A0E',    // Absolute obsidian black
-          light: '#F8FAFC',
-          card: '#10141A',
+          DEFAULT: '#2C2A29',
+          dark: '#2C2A29',
+          light: '#3B3938',
+          card: '#FFFFFF',
         },
         'steel-gray': {
-          DEFAULT: '#94A3B8', // High-contrast silver body copy
-          light: '#CBD5E1',
-          dark: '#475569',
-          border: 'rgba(255, 255, 255, 0.08)', // Ultra-thin luxury divider
+          DEFAULT: '#6E665C',
+          light: '#6E665C',
+          dark: '#2C2A29',
+          border: '#E7DDCB',
         },
-        
-        // Warm Amber-Gold Accents
         'safety-amber': {
-          DEFAULT: '#D97706', // Rich warm amber-gold
-          light: '#F59E0B',
-          dark: '#B45309',
-          brand: '#FBBF24',
-          glow: 'rgba(217, 119, 6, 0.15)'
+          DEFAULT: '#C19A6B',
+          light: '#D2AF84',
+          dark: '#A98053',
+          brand: '#C19A6B',
+          glow: 'rgba(193, 154, 107, 0.15)',
         },
       },
       fontFamily: {

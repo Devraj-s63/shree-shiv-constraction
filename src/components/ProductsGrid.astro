@@ -45,7 +45,7 @@ const products = [
 ];
 ---
 
-<section id="products-grid" class="py-24 md:py-36 hairline-b motion-reveal-section">
+<section id="products-grid" class="py-24 md:py-32 border-b border-cream-border">
   <SectionHeading
     eyebrow="Reinforcement &amp; Structural Products"
     title="Core Inventory Breakdown"
@@ -53,41 +53,41 @@ const products = [
   />
 
   <!-- Asymmetric Editorial Composition (7:5 and 4:4:4 split) -->
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 motion-stagger-grid">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
     {products.map((item) => (
-      <div class={`${item.colSpan} motion-stagger-item hairline-all bg-canvasMuted/50 hover:bg-canvasMuted p-8 md:p-10 flex flex-col justify-between transition-all duration-300 group relative`}>
+      <div class={`${item.colSpan} border border-cream-border bg-cream-card hover:border-camel p-8 md:p-10 flex flex-col justify-between transition-colors duration-200 group relative`}>
         <div>
           <!-- Card Header: Icon & Micro-label Tag -->
           <div class="flex items-start justify-between gap-4 mb-8">
-            <div class="w-12 h-12 bg-canvas text-white flex items-center justify-center shrink-0 hairline-all">
-              <span class="text-safety-amber" set:html={item.iconSvg} />
+            <div class="w-12 h-12 bg-cream-warm text-charcoal flex items-center justify-center shrink-0 border border-cream-border">
+              <span class="text-camel" set:html={item.iconSvg} />
             </div>
-            <span class="micro-label px-3 py-1 bg-canvas hairline-all text-safety-amber">
+            <span class="micro-label px-3 py-1 bg-cream-warm border border-cream-border text-charcoal font-bold">
               {item.tag}
             </span>
           </div>
 
           <!-- Product Title -->
-          <h3 class="font-display text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-4 group-hover:text-safety-amber transition-colors">
+          <h3 class="font-display text-2xl md:text-3xl font-black uppercase tracking-tight text-charcoal mb-4 group-hover:text-camel transition-colors">
             {item.title}
           </h3>
 
           <!-- One-line Description -->
-          <p class="font-body text-sm md:text-base text-steel-gray leading-relaxed mb-8">
+          <p class="font-body text-sm md:text-base text-charcoal-muted leading-relaxed mb-8">
             {item.description}
           </p>
         </div>
 
         <!-- Direct Link to /products with hairline divider -->
-        <div class="hairline-t pt-6 flex items-center justify-between">
+        <div class="border-t border-cream-border pt-6 flex items-center justify-between">
           <a
             href={item.href}
-            class="micro-label text-white hover:text-safety-amber inline-flex items-center gap-2 focus:outline-none focus:underline"
+            class="micro-label text-charcoal hover:text-camel inline-flex items-center gap-2 font-bold focus:outline-none focus:underline"
           >
             <span>View Specifications</span>
-            <span class="text-safety-amber">&rarr;</span>
+            <span class="text-camel">&rarr;</span>
           </a>
-          <span class="font-mono text-[10px] text-steel-gray/60 tracking-widest uppercase">READY IN YARD</span>
+          <span class="font-mono text-[10px] text-charcoal-muted tracking-widest uppercase">READY IN YARD</span>
         </div>
       </div>
     ))}

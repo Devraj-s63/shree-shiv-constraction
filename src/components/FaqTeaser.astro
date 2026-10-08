@@ -22,7 +22,7 @@ const faqs = [
 ];
 ---
 
-<section id="faq-teaser" class="py-24 md:py-36 hairline-b motion-reveal-section">
+<section id="faq-teaser" class="py-24 md:py-32 border-b border-cream-border">
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
     <div class="lg:col-span-8">
       <SectionHeading
@@ -32,7 +32,7 @@ const faqs = [
       />
     </div>
     <div class="lg:col-span-4 lg:text-right self-center">
-      <Button variant="call-outline" href="/faq" class="micro-label px-6 py-3.5 !border-white/20 !text-white hover:!border-safety-amber hover:!text-safety-amber">
+      <Button variant="call-outline" href="/faq" class="micro-label px-6 py-3.5">
         View All Questions &rarr;
       </Button>
     </div>
@@ -41,19 +41,19 @@ const faqs = [
   <!-- 4 Accordions with hairline borders -->
   <div class="space-y-4 max-w-4xl">
     {faqs.map((faq, index) => (
-      <details class="group hairline-all bg-canvasMuted transition-colors open:bg-canvasSubtle">
-        <summary class="flex justify-between items-center p-6 sm:p-8 cursor-pointer select-none font-display font-bold uppercase tracking-tight text-white text-base md:text-lg list-none focus:outline-none focus:ring-1 focus:ring-safety-amber">
+      <details class="group border border-cream-border bg-cream-card transition-colors open:bg-cream-warm">
+        <summary class="flex justify-between items-center p-6 sm:p-8 cursor-pointer select-none font-display font-bold uppercase tracking-tight text-charcoal text-base md:text-lg list-none focus:outline-none focus:ring-1 focus:ring-camel">
           <span class="flex items-center gap-4">
-            <span class="micro-label text-safety-amber">0{index + 1}.</span>
-            <span class="group-hover:text-safety-amber transition-colors">{faq.question}</span>
+            <span class="micro-label text-camel font-bold">0{index + 1}.</span>
+            <span class="group-hover:text-camel transition-colors">{faq.question}</span>
           </span>
-          <span class="ml-4 w-7 h-7 bg-canvas text-white flex items-center justify-center shrink-0 hairline-all text-xs transition-transform duration-200 group-open:rotate-45">
+          <span class="ml-4 w-7 h-7 bg-cream-warm text-charcoal flex items-center justify-center shrink-0 border border-cream-border text-xs transition-transform duration-200 group-open:rotate-45">
             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
             </svg>
           </span>
         </summary>
-        <div class="px-6 sm:px-8 pb-8 pt-2 font-body text-sm md:text-base text-steel-gray leading-relaxed hairline-t">
+        <div class="px-6 sm:px-8 pb-8 pt-2 font-body text-sm md:text-base text-charcoal-muted leading-relaxed border-t border-cream-border">
           <p>{faq.answer}</p>
         </div>
       </details>

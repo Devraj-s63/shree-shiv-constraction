@@ -23,17 +23,16 @@ const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
 <div class={`mb-12 md:mb-16 max-w-4xl ${alignClass} ${className}`}>
   {eyebrow && (
     <div class="inline-flex items-center gap-2 mb-3">
-      <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-      <span class="micro-label text-steel-gray">
+      <span class="inline-block px-2.5 py-1 bg-eucalyptus text-cream micro-label font-bold border border-eucalyptus">
         {eyebrow}
       </span>
     </div>
   )}
-  <h2 lang={titleLang} class="font-display text-[clamp(2.4rem,5vw,4.5rem)] font-black uppercase tracking-tight text-white leading-[1.02]">
+  <h2 lang={titleLang} class="font-display text-[clamp(2.2rem,4.5vw,4.2rem)] font-black uppercase tracking-tight text-charcoal leading-[1.02]">
     {title}
   </h2>
   {subtitle && (
-    <p class="font-body text-sm md:text-base text-steel-gray mt-4 leading-relaxed max-w-2xl">
+    <p class="font-body text-sm md:text-base text-charcoal-muted mt-4 leading-relaxed max-w-2xl">
       {subtitle}
     </p>
   )}

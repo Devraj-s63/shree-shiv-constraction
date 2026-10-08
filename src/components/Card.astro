@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'default' | 'steel' | 'canvas' | 'outline';
+  variant?: 'default' | 'warm' | 'outline' | 'steel' | 'canvas';
   class?: string;
   id?: string;
 }
@@ -11,13 +11,16 @@ const {
   id,
 } = Astro.props;
 
-const baseStyles = 'border p-6 md:p-8 transition-colors duration-150 relative';
+const baseStyles = 'border p-6 md:p-8 transition-colors duration-150 relative text-charcoal';
 
 const variantStyles: Record<string, string> = {
-  default: 'bg-canvas border-steel-gray/30 hover:border-steel-blue',
-  steel: 'bg-steel-blue text-canvas border-steel-blue hover:bg-steel-blue-dark',
-  canvas: 'bg-canvasMuted border-steel-gray/30 hover:border-steel-blue',
-  outline: 'bg-transparent border-steel-gray/40 hover:border-steel-blue',
+  // Pure white card with 1px #E7DDCB border
+  default: 'bg-cream-card border-cream-border hover:border-camel',
+  // Warm cream card with 1px #E7DDCB border
+  warm: 'bg-cream-warm border-cream-border hover:border-camel',
+  canvas: 'bg-cream-warm border-cream-border hover:border-camel',
+  steel: 'bg-cream-card border-cream-border hover:border-camel',
+  outline: 'bg-transparent border-cream-border hover:border-camel',
 };
 
 const computedClass = `${baseStyles} ${variantStyles[variant] || variantStyles.default} ${className}`;

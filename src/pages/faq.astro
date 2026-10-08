@@ -48,15 +48,9 @@ const faqs = [
     answer: 'Yes, individual home builders can buy custom retail quantities starting from single bundles or specific quintal weights. We regularly fulfill residential home orders across 8mm, 10mm, 12mm, and 16mm sizes, providing annealed binding wire and precision concrete cover blocks together in a convenient consolidated delivery.',
   },
   {
-    id: 'yard-location',
-    category: 'Location & Yard',
-    question: 'Where is your yard located in Bhilwara, and can I inspect the material before buying?',
-    answer: 'Our yard is located on 200 Feet Road, Near Sharda Evergreen, Bhilwara 311001, Rajasthan. Customers and contractors are always welcome to visit during operating hours to inspect bar physical condition, review stock gauges, observe computerized weighbridge operations, and verify our authorized Kay2 Xenox inventory in person.',
-  },
-  {
     id: 'payment-modes',
-    category: 'Payment & Billing',
-    question: 'What payment methods do you accept for retail and commercial steel purchases?',
+    category: 'Commercial & Billing',
+    question: 'What payment modes are accepted and do you provide legitimate GST tax invoices?',
     answer: 'We accept RTGS, NEFT, IMPS bank transfers, UPI payments, and cheque clearance alongside direct bank deposit. All sales are documented through legitimate computerized weighment slips and standard GST tax invoices under our registered entity GSTIN: 08FFXPB0515IZ5, ensuring complete commercial and accounting transparency.',
   },
   {
@@ -88,20 +82,19 @@ const faqPageSchema = {
   canonicalPath="/faq"
   faqSchema={faqPageSchema}
 >
-  <!-- Single H1 Page Header -->
-  <header class="bg-canvasMuted text-white hairline-b py-16 md:py-24">
+  <!-- Single H1 Page Header in Warm Cream -->
+  <header class="bg-cream-warm text-charcoal border-b border-cream-border py-16 md:py-24">
     <div class="max-w-7xl mx-auto px-6 md:px-8">
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 mb-3">
-          <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-          <span class="micro-label text-steel-gray">
+          <span class="inline-block px-2.5 py-1 bg-eucalyptus text-cream micro-label font-bold border border-eucalyptus">
             Buyer Knowledge Base &bull; Bhilwara
           </span>
         </div>
-        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight mb-4">
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-charcoal leading-tight mb-4">
           TMT Sariya FAQs in Bhilwara
         </h1>
-        <p class="font-body text-sm sm:text-base text-steel-gray-light leading-relaxed">
+        <p class="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed">
           Direct answers to the most common questions asked by homeowners, civil contractors, and commercial developers purchasing reinforcement steel in Bhilwara.
         </p>
       </div>
@@ -109,42 +102,42 @@ const faqPageSchema = {
   </header>
 
   <main class="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
-    <!-- Quick Topic Badges -->
+    <!-- Quick Topic Badges in Eucalyptus -->
     <div class="flex flex-wrap gap-2.5 mb-12">
-      <Badge variant="amber">Price of TMT Sariya</Badge>
-      <Badge variant="steel">Bhilwara Site Delivery</Badge>
-      <Badge variant="neutral">Kay2 Xenox Authenticity</Badge>
-      <Badge variant="steel">Bulk Contractor Orders</Badge>
-      <Badge variant="neutral">200 Feet Rd Location</Badge>
-      <Badge variant="amber">Payment &amp; GST Invoicing</Badge>
+      <Badge variant="eucalyptus">Price of TMT Sariya</Badge>
+      <Badge variant="eucalyptus">Bhilwara Site Delivery</Badge>
+      <Badge variant="eucalyptus">Kay2 Xenox Authenticity</Badge>
+      <Badge variant="eucalyptus">Bulk Contractor Orders</Badge>
+      <Badge variant="eucalyptus">200 Feet Rd Location</Badge>
+      <Badge variant="eucalyptus">Payment &amp; GST Invoicing</Badge>
     </div>
 
-    <!-- 10 Questions Accordions / Structured Blocks -->
+    <!-- 9 Questions Structured Blocks -->
     <div class="space-y-6">
       {faqs.map((faq, index) => (
         <article
           id={faq.id}
-          class="hairline-all bg-canvasMuted transition-colors hover:border-safety-amber/50 p-6 md:p-8 relative"
+          class="border border-cream-border bg-cream-card transition-colors hover:border-camel p-6 md:p-8 relative"
         >
-          <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
-            <span class="font-mono text-xs font-bold text-safety-amber tracking-widest">
+          <div class="flex items-center justify-between border-b border-cream-border pb-3 mb-4">
+            <span class="font-mono text-xs font-bold text-camel tracking-widest">
               QUESTION {index < 9 ? `0${index + 1}` : index + 1} // {faq.category}
             </span>
-            <span class="font-mono text-[10px] text-steel-gray uppercase">
+            <span class="font-mono text-[10px] text-charcoal-muted uppercase">
               Bhilwara Yard Standard
             </span>
           </div>
 
-          <h2 class="font-display text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-white mb-4">
+          <h2 class="font-display text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-charcoal mb-4">
             {faq.question}
           </h2>
 
-          <div class="bg-canvasSubtle border-l-2 border-safety-amber p-4 md:p-5 font-body text-sm sm:text-base text-steel-gray-light leading-relaxed">
+          <div class="bg-cream-warm/70 border-l-2 border-camel p-4 md:p-5 font-body text-sm sm:text-base text-charcoal leading-relaxed">
             <p>{faq.answer}</p>
           </div>
 
-          <div class="mt-5 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs">
-            <span class="font-mono text-steel-gray text-[11px]">
+          <div class="mt-5 pt-3 border-t border-cream-border flex flex-wrap items-center justify-between gap-3 text-xs">
+            <span class="font-mono text-charcoal-muted text-[11px]">
               Need more clarification on this?
             </span>
             <div class="flex items-center gap-3">
@@ -152,16 +145,16 @@ const faqPageSchema = {
                 href={`https://wa.me/918278643303?text=${encodeURIComponent(`Inquiry regarding: ${faq.question}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="font-display font-bold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1.5"
+                class="font-display font-bold uppercase tracking-wider text-eucalyptus hover:text-eucalyptus-dark inline-flex items-center gap-1.5"
                 aria-label="Ask our desk on WhatsApp about this question"
               >
                 <span>Ask on WhatsApp</span>
                 <span>&rarr;</span>
               </a>
-              <span class="text-white/20">|</span>
+              <span class="text-charcoal-muted/30">|</span>
               <a
                 href="tel:+918278643303"
-                class="font-display font-bold uppercase tracking-wider text-white hover:text-safety-amber"
+                class="font-display font-bold uppercase tracking-wider text-charcoal hover:text-camel"
                 aria-label="Call yard desk directly at +91 8278643303"
               >
                 Call Desk
@@ -173,12 +166,12 @@ const faqPageSchema = {
     </div>
 
     <!-- Bottom Contact Callout -->
-    <div class="mt-16 hairline-all bg-canvasMuted text-white p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="mt-16 border border-cream-border bg-cream-warm text-charcoal p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div>
-        <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
+        <h3 class="font-display text-xl sm:text-2xl font-black uppercase tracking-tight text-charcoal">
           Have a project schedule or specific estimate?
         </h3>
-        <p class="font-body text-sm text-steel-gray-light mt-1 max-w-xl">
+        <p class="font-body text-sm text-charcoal-muted mt-1 max-w-xl">
           Call or WhatsApp us your bar bending schedule (BBS) or material requirements for a custom rate quote.
         </p>
       </div>

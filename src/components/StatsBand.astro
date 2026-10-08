@@ -27,28 +27,28 @@ const stats = [
 ];
 ---
 
-<section class="bg-canvasMuted text-white hairline-y py-20 md:py-28 relative overflow-hidden motion-reveal-section" id="stats-band">
+<section class="bg-cream-warm text-charcoal border-y border-cream-border py-20 md:py-28 relative overflow-hidden" id="stats-band">
   <div class="max-w-7xl mx-auto px-6 md:px-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 divide-y sm:divide-y-0 lg:divide-x divide-white/10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 divide-y sm:divide-y-0 lg:divide-x divide-cream-border">
       {stats.map((stat, index) => (
         <div class={`flex flex-col justify-between pt-8 sm:pt-0 ${index > 0 ? 'lg:pl-10' : ''}`}>
           <div>
             <div class="flex items-baseline gap-1 mb-3">
               <span
-                class="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-safety-amber tracking-tighter motion-counter"
+                class="font-display text-[clamp(2.5rem,5vw,4.5rem)] font-black text-camel tracking-tighter motion-counter"
                 data-target={stat.target}
               >
-                0
+                {stat.target}
               </span>
-              <span class="font-display text-3xl sm:text-4xl font-black text-safety-amber">
+              <span class="font-display text-3xl sm:text-4xl font-black text-camel">
                 {stat.suffix}
               </span>
             </div>
-            <h3 class="micro-label text-white mb-2">
+            <h3 class="micro-label text-charcoal font-bold mb-2">
               {stat.label}
             </h3>
           </div>
-          <p class="font-body text-xs text-steel-gray mt-2 leading-relaxed">
+          <p class="font-body text-xs text-charcoal-muted mt-2 leading-relaxed">
             {stat.subtext}
           </p>
         </div>

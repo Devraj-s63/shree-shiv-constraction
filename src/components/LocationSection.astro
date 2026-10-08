@@ -3,7 +3,7 @@ import SectionHeading from './SectionHeading.astro';
 import Button from './Button.astro';
 ---
 
-<section id="location" class="py-24 md:py-36 hairline-b motion-reveal-section">
+<section id="location" class="py-24 md:py-32 border-b border-cream-border">
   <SectionHeading
     eyebrow="Physical Yard &bull; Bhilwara"
     title="Visit Our Yard &amp; Office"
@@ -12,54 +12,54 @@ import Button from './Button.astro';
 
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
     <!-- Left Column: Detailed Address & Coordinates (5 cols) -->
-    <div class="lg:col-span-5 hairline-all bg-canvasMuted p-8 md:p-10 flex flex-col justify-between">
+    <div class="lg:col-span-5 border border-cream-border bg-cream-card p-8 md:p-10 flex flex-col justify-between">
       <div>
         <div class="inline-flex items-center gap-2 mb-4">
-          <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-          <span class="micro-label text-safety-amber">
+          <span class="w-2 h-2 bg-eucalyptus inline-block"></span>
+          <span class="micro-label text-charcoal font-bold">
             Registered Depot &amp; Yard
           </span>
         </div>
 
-        <h3 class="font-display text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-4">
+        <h3 class="font-display text-2xl md:text-3xl font-black uppercase tracking-tight text-charcoal mb-4">
           Shree Shiv Construction &amp; Steel
         </h3>
 
-        <address class="not-italic font-body text-steel-gray text-sm md:text-base leading-relaxed mb-8 space-y-1">
-          <p class="font-semibold text-white">200 Feet Road, Near Sharda Evergreen,</p>
+        <address class="not-italic font-body text-charcoal-muted text-sm md:text-base leading-relaxed mb-8 space-y-1">
+          <p class="font-semibold text-charcoal">200 Feet Road, Near Sharda Evergreen,</p>
           <p>Bhilwara &ndash; 311001, Rajasthan, India</p>
         </address>
 
-        <div class="hairline-t pt-6 space-y-3 font-mono text-xs">
+        <div class="border-t border-cream-border pt-6 space-y-3 font-mono text-xs">
           <div class="flex justify-between items-center">
-            <span class="text-steel-gray">Primary Contact:</span>
-            <a href="tel:+918278643303" class="text-white font-bold hover:text-safety-amber transition-colors" aria-label="Call Shree Shiv Construction primary yard phone +91 8278643303">
+            <span class="text-charcoal-muted">Primary Contact:</span>
+            <a href="tel:+918278643303" class="text-charcoal font-bold hover:text-camel transition-colors" aria-label="Call Shree Shiv Construction primary yard phone +91 8278643303">
               +91 8278643303
             </a>
           </div>
           <div class="flex justify-between items-center">
-            <span class="text-steel-gray">Alternate Line:</span>
-            <a href="tel:+919602812764" class="text-white font-bold hover:text-safety-amber transition-colors" aria-label="Call Shree Shiv Construction alternate yard line +91 9602812764">
+            <span class="text-charcoal-muted">Alternate Line:</span>
+            <a href="tel:+919602812764" class="text-charcoal font-bold hover:text-camel transition-colors" aria-label="Call Shree Shiv Construction alternate yard line +91 9602812764">
               +91 9602812764
             </a>
           </div>
           <div class="flex justify-between items-center">
-            <span class="text-steel-gray">GSTIN:</span>
-            <span class="text-safety-amber font-semibold">08FFXPB0515IZ5</span>
+            <span class="text-charcoal-muted">GSTIN:</span>
+            <span class="text-camel font-bold">08FFXPB0515IZ5</span>
           </div>
           <div class="flex justify-between items-center">
-            <span class="text-steel-gray">Yard Timings:</span>
-            <span class="text-white">Mon &ndash; Sat: 8:00 AM &ndash; 8:00 PM</span>
+            <span class="text-charcoal-muted">Yard Timings:</span>
+            <span class="text-charcoal font-semibold">Mon &ndash; Sat: 8:00 AM &ndash; 8:00 PM</span>
           </div>
         </div>
       </div>
 
-      <div class="mt-8 pt-6 hairline-t flex flex-wrap gap-3">
+      <div class="mt-8 pt-6 border-t border-cream-border flex flex-wrap gap-3">
         <Button
           variant="call-outline"
           href="https://maps.app.goo.gl/2RhqprUiib4YRsQ77"
           target="_blank"
-          class="micro-label !border-white/20 !text-white hover:!border-safety-amber hover:!text-safety-amber"
+          class="micro-label"
           ariaLabel="Get Directions to Shree Shiv Construction on Google Maps"
         >
           <svg class="w-3.5 h-3.5 mr-1.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -82,11 +82,11 @@ import Button from './Button.astro';
       </div>
     </div>
 
-    <!-- Right Column: Embedded Google Map (7 cols) -->
-    <div class="lg:col-span-7 hairline-all bg-canvasMuted min-h-[380px] lg:min-h-[460px] relative overflow-hidden flex flex-col">
-      <div class="bg-canvasSubtle text-white px-4 py-2.5 text-xs font-mono flex items-center justify-between hairline-b">
+    <!-- Right Column: Embedded Google Map With NO Grayscale Filter (7 cols) -->
+    <div class="lg:col-span-7 border border-cream-border bg-cream-card min-h-[380px] lg:min-h-[460px] relative overflow-hidden flex flex-col">
+      <div class="bg-cream-warm text-charcoal px-4 py-2.5 text-xs font-mono flex items-center justify-between border-b border-cream-border">
         <span class="flex items-center gap-2">
-          <svg class="w-3.5 h-3.5 text-safety-amber fill-current" viewBox="0 0 24 24" aria-hidden="true">
+          <svg class="w-3.5 h-3.5 text-camel fill-current" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
           </svg>
           SHREE SHIV CONSTRUCTION &amp; STEEL &bull; 25.3622326, 74.602833
@@ -95,15 +95,16 @@ import Button from './Button.astro';
           href="https://maps.app.goo.gl/2RhqprUiib4YRsQ77"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-safety-amber hover:underline uppercase text-[10px] tracking-wider font-bold"
+          class="text-camel hover:underline uppercase text-[10px] tracking-wider font-bold"
         >
           Open In Google Maps &rarr;
         </a>
       </div>
 
+      <!-- Clean full-color Google Maps iframe (grayscale filter completely removed) -->
       <iframe
         title="SHREE SHIV CONSTRUCTION &amp; STEEL Location Map"
-        class="w-full flex-grow border-0 grayscale hover:grayscale-0 transition-all duration-200"
+        class="w-full flex-grow border-0 transition-opacity duration-200"
         src="https://maps.google.com/maps?q=25.3622326,74.602833&z=17&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"

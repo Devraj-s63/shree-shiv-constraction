@@ -32,20 +32,19 @@ const contactLines = [
   description="Contact Shree Shiv Construction & Steel on 200 Feet Road, Bhilwara. Leading building material supplier and authorized Kay2 Xenox dealer. Request a callback or call 8278643303."
   canonicalPath="/contact"
 >
-  <!-- Single H1 Page Header -->
-  <header class="bg-steel-blue-dark text-canvas border-b-2 border-safety-amber py-14 md:py-20">
+  <!-- Single H1 Page Header in Warm Cream -->
+  <header class="bg-cream-warm text-charcoal border-b border-cream-border py-14 md:py-20">
     <div class="max-w-7xl mx-auto px-6 md:px-8">
       <div class="max-w-3xl">
         <div class="inline-flex items-center gap-2 mb-3">
-          <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-          <span class="font-display text-xs uppercase tracking-widest text-canvas/70 font-bold">
+          <span class="inline-block px-2.5 py-1 bg-eucalyptus text-cream micro-label font-bold border border-eucalyptus">
             Yard Inquiries &bull; Direct Desk
           </span>
         </div>
-        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-canvas leading-tight mb-4">
+        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-charcoal leading-tight mb-4">
           Contact Kay2 Xenox Dealer in Bhilwara
         </h1>
-        <p class="font-body text-sm sm:text-base text-canvas/80 leading-relaxed">
+        <p class="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed">
           Get in touch with our sales and dispatch team for live steel rates, bundle quotations, computerized weighbridge slips, and site delivery scheduling.
         </p>
       </div>
@@ -56,22 +55,22 @@ const contactLines = [
     <!-- Quick Contact Cards -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-16">
       {contactLines.map((line, idx) => (
-        <div class="md:col-span-6 border border-steel-gray/30 bg-canvas p-6 md:p-8 flex flex-col justify-between hover:border-steel-blue transition-colors">
+        <div class="md:col-span-6 border border-cream-border bg-cream-card p-6 md:p-8 flex flex-col justify-between hover:border-camel transition-colors">
           <div>
-            <div class="flex justify-between items-center border-b border-steel-gray/20 pb-3 mb-4">
-              <span class="font-mono text-xs font-bold text-safety-amber tracking-widest">
+            <div class="flex justify-between items-center border-b border-cream-border pb-3 mb-4">
+              <span class="font-mono text-xs font-bold text-camel tracking-widest">
                 LINE 0{idx + 1}
               </span>
-              <Badge variant="steel">{line.type}</Badge>
+              <Badge variant="eucalyptus">{line.type}</Badge>
             </div>
             <a
               href={line.href}
-              class="font-display text-2xl md:text-3xl font-black text-steel-blue hover:text-safety-amber transition-colors block mb-2"
+              class="font-display text-2xl md:text-3xl font-black text-charcoal hover:text-camel transition-colors block mb-2"
               aria-label={`Call ${line.type} directly at ${line.label}`}
             >
               {line.label}
             </a>
-            <p class="font-body text-xs text-steel-gray leading-relaxed mb-6">
+            <p class="font-body text-xs text-charcoal-muted leading-relaxed mb-6">
               {line.subtext}
             </p>
           </div>
@@ -90,41 +89,41 @@ const contactLines = [
     </div>
 
     <!-- Request a Callback Form Section (Asymmetric Grid) -->
-    <section class="hairline-all bg-canvasMuted p-8 md:p-12 mb-16 relative" id="callback-section">
+    <section class="border border-cream-border bg-cream-card p-8 md:p-12 mb-16 relative" id="callback-section">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <!-- Form Header & Guidance (5 cols) -->
         <div class="lg:col-span-5 space-y-4">
-          <Badge variant="amber">Instant Yard Dispatch Response</Badge>
-          <h2 class="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">
+          <Badge variant="eucalyptus">Instant Yard Dispatch Response</Badge>
+          <h2 class="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-charcoal">
             Request a Callback
           </h2>
-          <p class="font-body text-sm text-steel-gray-light leading-relaxed">
-            Fill out your details below to start a verified WhatsApp callback request directly with our Bhilwara sales desk (<strong class="text-white">918278643303</strong>).
+          <p class="font-body text-sm text-charcoal-muted leading-relaxed">
+            Fill out your details below to start a verified WhatsApp callback request directly with our Bhilwara sales desk (<strong class="text-charcoal">+91 8278643303</strong>).
           </p>
-          <div class="border-t border-white/10 pt-4 space-y-2 text-xs font-mono text-steel-gray">
+          <div class="border-t border-cream-border pt-4 space-y-2 text-xs font-mono text-charcoal-muted">
             <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+              <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
               <span>10-digit Indian mobile verification</span>
             </div>
             <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+              <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
               <span>Direct prefilled WhatsApp format</span>
             </div>
             <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 bg-safety-amber inline-block"></span>
+              <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
               <span>Zero third-party telemetry data sharing</span>
             </div>
           </div>
 
           <!-- Note on Rate Limiting & Spam Protection -->
-          <div class="mt-6 p-4 bg-canvasSubtle hairline-all text-[11px] font-mono text-steel-gray leading-normal">
-            <span class="text-white font-bold uppercase block mb-1">Notice on Security &amp; Fair Use:</span>
-            Submissions are client-verified and rate-limited to 1 request every 30 seconds per browser session to prevent automated spam abuse.
+          <div class="mt-6 p-4 bg-cream-warm border border-cream-border text-[11px] font-mono text-charcoal-muted leading-normal">
+            <span class="text-charcoal font-bold uppercase block mb-1">Notice on Fair Use:</span>
+            Submissions are verified and rate-limited to 1 request every 30 seconds per browser session to prevent automated spam abuse.
           </div>
         </div>
 
         <!-- Form Fields & Validation (7 cols) -->
-        <div class="lg:col-span-7 bg-canvasSubtle hairline-all p-6 md:p-8">
+        <div class="lg:col-span-7 bg-cream-warm/50 border border-cream-border p-6 md:p-8">
           <form id="callback-form" novalidate class="space-y-6">
             <!-- Honeypot Field for anti-bot spam protection (hidden from humans) -->
             <div class="hidden" aria-hidden="true">
@@ -134,8 +133,8 @@ const contactLines = [
 
             <!-- Name Field -->
             <div>
-              <label for="cb-name" class="font-display text-xs uppercase tracking-wider font-bold text-white block mb-1.5">
-                Full Name <span class="text-safety-amber">*</span>
+              <label for="cb-name" class="font-display text-xs uppercase tracking-wider font-bold text-charcoal block mb-1.5">
+                Full Name <span class="text-camel">*</span>
               </label>
               <input
                 type="text"
@@ -143,18 +142,18 @@ const contactLines = [
                 name="name"
                 placeholder="e.g. Ramesh Sharma"
                 required
-                class="w-full bg-canvas hairline-all px-4 py-3 text-sm text-white placeholder-steel-gray/60 focus:border-safety-amber focus:outline-none focus:ring-1 focus:ring-safety-amber transition-colors"
+                class="w-full bg-cream-card border border-cream-border px-4 py-3 text-sm text-charcoal placeholder-charcoal-muted/60 focus:border-camel focus:outline-none focus:ring-1 focus:ring-camel transition-colors"
               />
-              <span id="name-error" class="hidden text-xs font-mono text-rose-400 mt-1 block"></span>
+              <span id="name-error" class="hidden text-xs font-mono text-rose-600 mt-1 block"></span>
             </div>
 
             <!-- 10-Digit Phone Field -->
             <div>
-              <label for="cb-phone" class="font-display text-xs uppercase tracking-wider font-bold text-white block mb-1.5">
-                10-Digit Mobile Number <span class="text-safety-amber">*</span>
+              <label for="cb-phone" class="font-display text-xs uppercase tracking-wider font-bold text-charcoal block mb-1.5">
+                10-Digit Mobile Number <span class="text-camel">*</span>
               </label>
               <div class="relative flex">
-                <span class="inline-flex items-center px-3.5 bg-canvasMuted text-white text-xs font-mono font-bold border border-r-0 border-white/20 select-none">
+                <span class="inline-flex items-center px-3.5 bg-cream-warm text-charcoal text-xs font-mono font-bold border border-r-0 border-cream-border select-none">
                   +91
                 </span>
                 <input
@@ -164,16 +163,16 @@ const contactLines = [
                   maxlength="10"
                   placeholder="9876543210"
                   required
-                  class="w-full bg-canvas hairline-all px-4 py-3 text-sm font-mono text-white placeholder-steel-gray/60 focus:border-safety-amber focus:outline-none focus:ring-1 focus:ring-safety-amber transition-colors"
+                  class="w-full bg-cream-card border border-cream-border px-4 py-3 text-sm font-mono text-charcoal placeholder-charcoal-muted/60 focus:border-camel focus:outline-none focus:ring-1 focus:ring-camel transition-colors"
                 />
               </div>
-              <span id="phone-error" class="hidden text-xs font-mono text-rose-400 mt-1 block"></span>
+              <span id="phone-error" class="hidden text-xs font-mono text-rose-600 mt-1 block"></span>
             </div>
 
             <!-- Material Requirement / Message Field -->
             <div>
-              <label for="cb-message" class="font-display text-xs uppercase tracking-wider font-bold text-white block mb-1.5">
-                Material Requirement / Message <span class="text-safety-amber">*</span>
+              <label for="cb-message" class="font-display text-xs uppercase tracking-wider font-bold text-charcoal block mb-1.5">
+                Material Requirement / Message <span class="text-camel">*</span>
               </label>
               <textarea
                 id="cb-message"
@@ -181,19 +180,19 @@ const contactLines = [
                 rows="3"
                 placeholder="e.g. Need price for 12mm &amp; 16mm Kay2 Xenox TMT bars (approx 2 tons) + binding wire for house in Bhilwara."
                 required
-                class="w-full bg-canvas hairline-all px-4 py-3 text-sm text-white placeholder-steel-gray/60 focus:border-safety-amber focus:outline-none focus:ring-1 focus:ring-safety-amber transition-colors"
+                class="w-full bg-cream-card border border-cream-border px-4 py-3 text-sm text-charcoal placeholder-charcoal-muted/60 focus:border-camel focus:outline-none focus:ring-1 focus:ring-camel transition-colors"
               ></textarea>
-              <span id="message-error" class="hidden text-xs font-mono text-rose-400 mt-1 block"></span>
+              <span id="message-error" class="hidden text-xs font-mono text-rose-600 mt-1 block"></span>
             </div>
 
             <!-- Form Status / Rate-limit alert -->
             <div id="form-status" class="hidden p-3 font-mono text-xs border"></div>
 
-            <!-- Submit Button -->
+            <!-- Submit Button (Eucalyptus fill with cream text) -->
             <button
               type="submit"
               id="submit-btn"
-              class="w-full inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-6 py-4 bg-[#128C7E] text-white hover:bg-[#075E54] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-safety-amber"
+              class="w-full inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-6 py-4 bg-eucalyptus text-cream hover:bg-eucalyptus-dark transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-eucalyptus"
             >
               <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
@@ -208,69 +207,69 @@ const contactLines = [
     <!-- Location & Timings Section -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
       <div class="lg:col-span-5 space-y-8">
-        <div class="hairline-all bg-canvasMuted p-6 md:p-8">
+        <div class="border border-cream-border bg-cream-card p-6 md:p-8">
           <SectionHeading
             eyebrow="Physical Location"
             title="Yard &amp; Depot"
             subtitle="Strategically located on 200 Feet Road with wide trailer access and convenient approach from all parts of Bhilwara."
           />
 
-          <address class="not-italic font-body text-steel-gray-light text-sm md:text-base leading-relaxed space-y-1 mb-6">
-            <p class="font-bold text-white">Shree Shiv Construction &amp; Steel</p>
+          <address class="not-italic font-body text-charcoal-muted text-sm md:text-base leading-relaxed space-y-1 mb-6">
+            <p class="font-bold text-charcoal">Shree Shiv Construction &amp; Steel</p>
             <p>200 Feet Road, Near Sharda Evergreen,</p>
             <p>Bhilwara &ndash; 311001, Rajasthan, India</p>
           </address>
 
-          <div class="space-y-2 font-mono text-xs text-steel-gray border-t border-white/10 pt-4">
+          <div class="space-y-2 font-mono text-xs text-charcoal-muted border-t border-cream-border pt-4">
             <div class="flex justify-between">
               <span>GSTIN:</span>
-              <strong class="text-white">08FFXPB0515IZ5</strong>
+              <strong class="text-charcoal">08FFXPB0515IZ5</strong>
             </div>
             <div class="flex justify-between">
               <span>Instagram:</span>
-              <a href="https://instagram.com/shreeshivconstructionsteel" target="_blank" rel="noopener noreferrer" class="text-safety-amber hover:underline">
+              <a href="https://instagram.com/shreeshivconstructionsteel" target="_blank" rel="noopener noreferrer" class="text-camel font-semibold hover:underline">
                 @shreeshivconstructionsteel
               </a>
             </div>
           </div>
         </div>
 
-        <div class="hairline-all bg-canvasMuted p-6 md:p-8">
+        <div class="border border-cream-border bg-cream-card p-6 md:p-8">
           <div class="flex items-center gap-2 mb-4">
-            <span class="w-2 h-2 bg-safety-amber inline-block"></span>
-            <h3 class="font-display text-xs font-bold uppercase tracking-widest text-white">
+            <span class="w-2 h-2 bg-eucalyptus inline-block"></span>
+            <h3 class="font-display text-xs font-bold uppercase tracking-widest text-charcoal">
               Depot & Yard Operating Hours
             </h3>
           </div>
 
           <div class="space-y-4">
             {openingHours.map((schedule) => (
-              <div class="border-b border-white/10 pb-3">
+              <div class="border-b border-cream-border pb-3">
                 <div class="flex justify-between items-baseline mb-1">
-                  <span class="font-display text-sm font-bold uppercase text-white">
+                  <span class="font-display text-sm font-bold uppercase text-charcoal">
                     {schedule.days}
                   </span>
-                  <span class="font-mono text-xs font-semibold text-safety-amber">
+                  <span class="font-mono text-xs font-semibold text-camel">
                     {schedule.hours}
                   </span>
                 </div>
-                <span class="font-body text-xs text-steel-gray">
+                <span class="font-body text-xs text-charcoal-muted">
                   {schedule.status}
                 </span>
               </div>
             ))}
           </div>
 
-          <p class="font-body text-[11px] text-steel-gray mt-4">
+          <p class="font-body text-[11px] text-charcoal-muted mt-4">
             * Note: For bulk site shipments, tractor-trolley loading can be pre-scheduled outside standard yard hours by speaking to our dispatcher.
           </p>
         </div>
       </div>
 
-      <div class="lg:col-span-7 hairline-all bg-canvasMuted flex flex-col min-h-[500px]">
-        <div class="bg-canvasSubtle text-white px-4 py-2.5 text-xs font-mono flex items-center justify-between hairline-b">
+      <div class="lg:col-span-7 border border-cream-border bg-cream-card flex flex-col min-h-[500px]">
+        <div class="bg-cream-warm text-charcoal px-4 py-2.5 text-xs font-mono flex items-center justify-between border-b border-cream-border">
           <span class="flex items-center gap-2">
-            <svg class="w-3.5 h-3.5 text-safety-amber fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <svg class="w-3.5 h-3.5 text-camel fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
             SHREE SHIV CONSTRUCTION &amp; STEEL &bull; 25.3622326, 74.602833
@@ -279,15 +278,16 @@ const contactLines = [
             href="https://maps.app.goo.gl/2RhqprUiib4YRsQ77"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-safety-amber hover:underline uppercase text-[10px] tracking-wider font-bold"
+            class="text-camel hover:underline uppercase text-[10px] tracking-wider font-bold"
           >
             Google Maps &rarr;
           </a>
         </div>
 
+        <!-- Full color map with zero grayscale -->
         <iframe
           title="SHREE SHIV CONSTRUCTION &amp; STEEL Location Map"
-          class="w-full flex-grow border-0 grayscale hover:grayscale-0 transition-all duration-200 min-h-[460px]"
+          class="w-full flex-grow border-0 transition-opacity duration-200 min-h-[460px]"
           src="https://maps.google.com/maps?q=25.3622326,74.602833&z=17&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -314,13 +314,11 @@ const contactLines = [
     const RATE_LIMIT_MS = 30000; // 30 seconds
 
     function validatePhone(phone: string): boolean {
-      // 10-digit Indian phone starting with 6, 7, 8, or 9
       const indianPhoneRegex = /^[6-9]\d{9}$/;
       return indianPhoneRegex.test(phone.trim());
     }
 
     if (form && nameInput && phoneInput && messageInput) {
-      // Clean phone input to numbers only
       phoneInput.addEventListener('input', () => {
         phoneInput.value = phoneInput.value.replace(/\D/g, '');
         if (phoneError) phoneError.classList.add('hidden');
@@ -337,9 +335,8 @@ const contactLines = [
       form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // 1. Honeypot anti-spam check
+        // 1. Honeypot check
         if (honeypot && honeypot.value.trim() !== '') {
-          console.warn('Bot submission blocked via honeypot.');
           return;
         }
 
@@ -348,8 +345,8 @@ const contactLines = [
         if (now - lastSubmissionTime < RATE_LIMIT_MS) {
           const remainingSec = Math.ceil((RATE_LIMIT_MS - (now - lastSubmissionTime)) / 1000);
           if (formStatus) {
-            formStatus.className = 'p-3 font-mono text-xs border border-safety-amber bg-safety-amber/10 text-safety-amber-dark block';
-            formStatus.textContent = `Rate limit active: Please wait ${remainingSec} seconds before submitting another callback request.`;
+            formStatus.className = 'p-3 font-mono text-xs border border-camel bg-cream-warm text-charcoal block';
+            formStatus.textContent = `Rate limit active: Please wait ${remainingSec} seconds before submitting another request.`;
           }
           return;
         }
@@ -392,10 +389,8 @@ const contactLines = [
 
         if (!isValid) return;
 
-        // 4. Update submission timestamp
         lastSubmissionTime = now;
 
-        // 5. Construct prefilled WhatsApp payload targeting 918278643303
         const prefilledText = [
           `*CALLBACK REQUEST — Shree Shiv Construction & Steel*`,
           `*Name:* ${nameVal}`,
@@ -407,11 +402,10 @@ const contactLines = [
         const whatsappUrl = `https://wa.me/918278643303?text=${encodeURIComponent(prefilledText)}`;
 
         if (formStatus) {
-          formStatus.className = 'p-3 font-mono text-xs border border-emerald-600 bg-emerald-50 text-emerald-800 block';
-          formStatus.textContent = 'Redirecting to WhatsApp with your prefilled callback details...';
+          formStatus.className = 'p-3 font-mono text-xs border border-eucalyptus bg-eucalyptus/10 text-eucalyptus-dark block';
+          formStatus.textContent = 'Opening WhatsApp with your prefilled callback details...';
         }
 
-        // Open WhatsApp in new tab or native app
         window.open(whatsappUrl, '_blank');
       });
     }
