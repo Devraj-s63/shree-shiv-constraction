@@ -40,6 +40,7 @@ function initHeroTheatrical() {
   const sub = document.querySelector('.hero-theatrical-sub');
   const cta = document.querySelector('.hero-theatrical-cta');
   const meta = document.querySelector('.hero-theatrical-meta');
+  const visual = document.querySelector('.hero-theatrical-visual');
 
   const tl = gsap.timeline({
     defaults: { ease: 'power2.out' },
@@ -104,6 +105,19 @@ function initHeroTheatrical() {
         clearProps: 'opacity',
       },
       '-=0.3'
+    );
+  }
+
+  if (visual) {
+    tl.from(
+      visual,
+      {
+        y: 24,
+        opacity: 0,
+        duration: 0.8,
+        clearProps: 'transform,opacity',
+      },
+      '-=0.7'
     );
   }
 }

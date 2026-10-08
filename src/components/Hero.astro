@@ -2,76 +2,133 @@
 import Button from './Button.astro';
 ---
 
-<section id="hero-section" class="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center items-center px-6 md:px-10 py-16 sm:py-24 overflow-hidden select-none">
+<section id="hero-section" class="relative min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center px-6 md:px-10 py-12 sm:py-20 lg:py-24 overflow-hidden select-none">
   
-  <!-- Centered Single-Screen Statement Content -->
-  <div class="max-w-5xl mx-auto text-center relative z-10 w-full">
-    
-    <!-- Tiny Tracked Kicker: Small Caps with Wide Tracking -->
-    <div class="hero-theatrical-kicker flex items-center justify-center gap-2 mb-6 sm:mb-8">
-      <span class="w-1.5 h-1.5 rounded-full bg-camel inline-block"></span>
-      <span class="font-mono text-[11px] sm:text-xs uppercase tracking-[0.3em] text-charcoal-muted font-bold">
-        SHREE SHIV &copy;2026 &mdash; BHILWARA
-      </span>
-      <span class="w-1.5 h-1.5 rounded-full bg-camel inline-block"></span>
+  <!-- Single-Screen Blueprint Statement Container with Hero Visual -->
+  <div class="max-w-7xl mx-auto relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Left Column: Typography, Headline, CTAs, Blueprint Meta (7 cols) -->
+      <div class="lg:col-span-7 text-left">
+        <!-- Tiny Tracked Kicker: Small Caps with Wide Tracking -->
+        <div class="hero-theatrical-kicker flex items-center gap-2 mb-5 sm:mb-7">
+          <span class="w-1.5 h-1.5 rounded-full bg-camel inline-block"></span>
+          <span class="font-mono text-[11px] sm:text-xs uppercase tracking-[0.3em] text-charcoal-muted font-bold">
+            SHREE SHIV &copy;2026 &mdash; BHILWARA
+          </span>
+          <span class="w-1.5 h-1.5 rounded-full bg-camel inline-block"></span>
+        </div>
+
+        <!-- Massive Hindi Serif Display Headline in Rozha One Stacked Over 3 Tight Lines -->
+        <h1
+          id="hero-hindi-headline"
+          lang="hi"
+          class="font-hindi text-[clamp(3.5rem,8.5vw,7.5rem)] font-normal text-charcoal leading-[0.88] uppercase select-none text-left"
+          aria-label="मजबूती की सही पहचान"
+        >
+          <span class="block overflow-hidden py-1">
+            <span class="inline-block hero-theatrical-line">मजबूती</span>
+          </span>
+          <span class="block overflow-hidden py-1">
+            <span class="inline-block hero-theatrical-line">की सही</span>
+          </span>
+          <span class="block overflow-hidden py-1">
+            <span class="inline-block hero-theatrical-line text-charcoal relative">
+              पहचान
+              <!-- Camel Underline Marker -->
+              <span class="absolute -bottom-1.5 left-0 w-full h-[4px] md:h-[6px] bg-camel"></span>
+            </span>
+          </span>
+        </h1>
+
+        <!-- Short Sans Sub-Line in Public Sans -->
+        <p class="hero-theatrical-sub font-body text-sm sm:text-base md:text-lg text-charcoal-muted max-w-xl mt-6 md:mt-8 leading-relaxed font-normal">
+          Authorized Kay2 Xenox TMT Fe 550D, annealed binding wire, and certified structural supplies. Dispatched daily from our 200 Feet Road yard.
+        </p>
+
+        <!-- Two Pill CTAs Side by Side: "CALL NOW" and "WHATSAPP RATES" -->
+        <div class="hero-theatrical-cta flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 mt-8 md:mt-10">
+          <Button
+            variant="primary"
+            href="tel:+918278643303"
+            class="px-8 sm:px-9 py-4 text-xs font-mono uppercase tracking-[0.22em] font-black shadow-sm text-center"
+            ariaLabel="Call dispatch desk directly at +91 8278643303"
+          >
+            CALL NOW
+          </Button>
+
+          <Button
+            variant="camel-outline"
+            href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20daily%20TMT%20steel%20rates%20in%20Bhilwara"
+            target="_blank"
+            class="px-8 sm:px-9 py-4 text-xs font-mono uppercase tracking-[0.22em] font-bold text-center"
+            ariaLabel="Request daily TMT steel rate sheet on WhatsApp"
+          >
+            WHATSAPP RATES
+          </Button>
+        </div>
+
+        <!-- Small-Caps Micro Blueprint Meta Footer -->
+        <div class="hero-theatrical-meta mt-10 sm:mt-12 pt-6 border-t border-cream-border/60 max-w-xl flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal-muted">
+          <span>YARD NO. 01 &bull; 200 FT RD</span>
+          <span>MILL CERTIFIED Fe 550D</span>
+          <span>COMPUTERIZED KANTA</span>
+          <span>PAKKA GST BILL</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Striking Framed Hero Product Visual (5 cols) -->
+      <div class="lg:col-span-5 hero-theatrical-visual">
+        <div class="border border-cream-border bg-white p-2.5 sm:p-3 shadow-sm group">
+          
+          <!-- Striking Framed 4:5 Photo of Kay2 Xenox Closeup -->
+          <div class="relative aspect-[4/5] w-full overflow-hidden bg-cream-warm">
+            <img
+              src="/images/tmt-kay2xenox-closeup.webp"
+              srcset="/images/tmt-kay2xenox-closeup-600w.webp 600w, /images/tmt-kay2xenox-closeup-1000w.webp 1000w, /images/tmt-kay2xenox-closeup.webp 1600w"
+              sizes="(max-width: 1024px) 100vw, 42vw"
+              alt="Kay2 Xenox Fe 550D TMT bars at Shree Shiv Construction & Steel, Bhilwara"
+              width="1000"
+              height="1250"
+              fetchpriority="high"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            />
+
+            <!-- Corner Badges -->
+            <div class="absolute top-3 left-3 bg-charcoal text-cream px-3 py-1 font-mono text-[10px] tracking-widest uppercase font-bold">
+              <span class="w-1.5 h-1.5 bg-camel inline-block mr-1.5"></span>
+              KAY2 XENOX Fe 550D
+            </div>
+
+            <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm border border-cream-border p-2.5 font-mono text-[10px] text-charcoal">
+              <div class="flex items-center justify-between font-bold tracking-wider uppercase">
+                <span>EMBOSSED BRAND VERIFIED</span>
+                <span class="text-camel">PRIMARY BILLET</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Specs Strip Under Image -->
+          <div class="mt-2.5 p-3.5 bg-cream-warm/60 border border-cream-border space-y-1.5 font-mono text-xs">
+            <div class="flex items-center justify-between">
+              <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Brand Embossing:</span>
+              <strong class="text-charcoal text-right text-[11px]">KAY2 XENOX Fe 550D</strong>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Stock Gauges:</span>
+              <span class="text-charcoal font-semibold text-[11px]">8mm &ndash; 32mm Available</span>
+            </div>
+            <div class="flex items-center justify-between pt-1 border-t border-cream-border">
+              <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Direct Dispatch:</span>
+              <a href="tel:+918278643303" class="text-charcoal font-bold hover:text-camel transition-colors text-[11px]">
+                +91 8278643303
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-
-    <!-- Massive Hindi Serif Display Headline in Rozha One Stacked Over 3 Tight Lines -->
-    <h1
-      id="hero-hindi-headline"
-      lang="hi"
-      class="font-hindi text-[clamp(3.8rem,10vw,8.5rem)] font-normal text-charcoal leading-[0.88] uppercase select-none text-center"
-      aria-label="मजबूती की सही पहचान"
-    >
-      <span class="block overflow-hidden py-1">
-        <span class="inline-block hero-theatrical-line">मजबूती</span>
-      </span>
-      <span class="block overflow-hidden py-1">
-        <span class="inline-block hero-theatrical-line">की सही</span>
-      </span>
-      <span class="block overflow-hidden py-1">
-        <span class="inline-block hero-theatrical-line text-charcoal relative">
-          पहचान
-          <!-- Camel Underline Marker -->
-          <span class="absolute -bottom-1.5 left-0 w-full h-[4px] md:h-[6px] bg-camel"></span>
-        </span>
-      </span>
-    </h1>
-
-    <!-- Short Sans Sub-Line in Public Sans -->
-    <p class="hero-theatrical-sub font-body text-sm sm:text-base md:text-lg text-charcoal-muted max-w-xl mx-auto mt-8 md:mt-10 leading-relaxed font-normal">
-      Authorized Kay2 Xenox TMT Fe 550D, annealed binding wire, and certified structural supplies. Dispatched daily from our 200 Feet Road yard.
-    </p>
-
-    <!-- Two Pill CTAs Side by Side: "CALL NOW" and "WHATSAPP RATES" -->
-    <div class="hero-theatrical-cta flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mt-10 md:mt-12">
-      <Button
-        variant="primary"
-        href="tel:+918278643303"
-        class="w-full sm:w-auto px-9 py-4 text-xs font-mono uppercase tracking-[0.22em] font-black shadow-sm"
-        ariaLabel="Call dispatch desk directly at +91 8278643303"
-      >
-        CALL NOW
-      </Button>
-
-      <Button
-        variant="camel-outline"
-        href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20daily%20TMT%20steel%20rates%20in%20Bhilwara"
-        target="_blank"
-        class="w-full sm:w-auto px-9 py-4 text-xs font-mono uppercase tracking-[0.22em] font-bold"
-        ariaLabel="Request daily TMT steel rate sheet on WhatsApp"
-      >
-        WHATSAPP RATES
-      </Button>
-    </div>
-
-    <!-- Small-Caps Micro Blueprint Meta Footer -->
-    <div class="hero-theatrical-meta mt-14 sm:mt-18 pt-6 border-t border-cream-border/60 max-w-2xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal-muted">
-      <span>YARD NO. 01 &bull; 200 FT RD</span>
-      <span>MILL CERTIFIED Fe 550D</span>
-      <span>COMPUTERIZED KANTA</span>
-      <span>PAKKA GST BILL</span>
-    </div>
-
   </div>
 </section>

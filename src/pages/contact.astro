@@ -208,6 +208,25 @@ const contactLines = [
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
       <div class="lg:col-span-5 space-y-8">
         <div class="border border-cream-border bg-cream-card p-6 md:p-8">
+          <!-- Real Shop Front Photo -->
+          <div class="mb-6 overflow-hidden border border-cream-border bg-white p-2 shadow-sm group">
+            <div class="relative aspect-[16/10] overflow-hidden bg-cream-warm">
+              <img
+                src="/images/shop-front.webp"
+                srcset="/images/shop-front-600w.webp 600w, /images/shop-front-1000w.webp 1000w, /images/shop-front.webp 1400w"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                alt="Shree Shiv Construction & Steel shop front, 200 Feet Road, Bhilwara"
+                width="800"
+                height="500"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              />
+              <div class="absolute top-2 left-2 bg-charcoal text-cream px-2.5 py-0.5 font-mono text-[10px] tracking-widest uppercase font-bold">
+                200 Feet Road Storefront
+              </div>
+            </div>
+          </div>
+
           <SectionHeading
             eyebrow="Physical Location"
             title="Yard &amp; Depot"

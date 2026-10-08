@@ -11,8 +11,9 @@ const products = [
     category: 'PRIMARY REINFORCEMENT',
     gauges: '8mm to 32mm Stock',
     summary: 'Original mill-certified Fe 550D sariya with specialized cross-rib pattern. Bends smoothly on site without cracking and offers superior earthquake resistance.',
-    image: '/images/yard-stock-clean.jpg',
-    imageAlt: 'Certified Kay2 Xenox Fe 550D TMT sariya stacks at Bhilwara yard',
+    image: '/images/tmt-kay2xenox-closeup.webp',
+    srcset: '/images/tmt-kay2xenox-closeup-600w.webp 600w, /images/tmt-kay2xenox-closeup-1000w.webp 1000w, /images/tmt-kay2xenox-closeup.webp 1600w',
+    imageAlt: 'Kay2 Xenox Fe 550D TMT bars at Shree Shiv Construction & Steel, Bhilwara',
     badge: 'AUTHORIZED STOCKIST',
     specs: [
       'IS 1786 Manufacturing Compliance & Roll Mark',
@@ -31,8 +32,9 @@ const products = [
     category: 'FULL YARD INVENTORY',
     gauges: 'Complete Size Range',
     summary: 'Full inventory of 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, and 32mm bars for residential house slabs, multi-story columns, and heavy foundation rafts.',
-    image: '/images/shop-front-depot.webp',
-    imageAlt: 'Organized rebar stock at Shree Shiv Construction depot',
+    image: '/images/yard-tmt-stock.webp',
+    srcset: '/images/yard-tmt-stock-600w.webp 600w, /images/yard-tmt-stock-1000w.webp 1000w, /images/yard-tmt-stock.webp 1600w',
+    imageAlt: 'TMT sariya stock bundles at Shree Shiv yard, Bhilwara',
     badge: 'YARD STOCK',
     specs: [
       'Strict Rolling Tolerance per Bureau of Indian Standards',
@@ -51,8 +53,8 @@ const products = [
     category: 'SITE TYING COILS',
     gauges: '18 & 20 Gauge Bundles',
     summary: 'Soft, pliable black annealed tying wire that knots effortlessly around sariya cages without snapping under intense tension during rebar tying.',
-    image: '/images/binding-wire-real.jpg',
-    imageAlt: 'Annealed industrial binding wire coils at Shree Shiv depot',
+    image: '/images/photo-coming-soon-binding-wire.webp',
+    imageAlt: 'Annealed binding wire stock at Shree Shiv Construction & Steel, Bhilwara - Photo coming soon',
     badge: 'ANNEALED COILS',
     specs: [
       'Thermal Annealing Process for Maximum Flexibility',
@@ -71,8 +73,8 @@ const products = [
     category: 'PRECAST SPACERS',
     gauges: '20mm / 25mm / 40mm / 50mm',
     summary: 'Heavy-duty precast concrete spacers designed to keep sariya elevated inside roof slabs, beams, and columns, protecting steel from moisture and corrosion.',
-    image: '/images/cover-blocks-real.jpg',
-    imageAlt: 'Precast concrete cover blocks with embedded tie-wires',
+    image: '/images/photo-coming-soon-cover-blocks.webp',
+    imageAlt: 'Precast concrete cover blocks stock at Shree Shiv Construction & Steel, Bhilwara - Photo coming soon',
     badge: 'PRECAST SPACERS',
     specs: [
       'High-Density M-35 Grade Concrete Matrix',
@@ -91,8 +93,8 @@ const products = [
     category: 'DEPOT SOURCING',
     gauges: 'Direct Yard Loading',
     summary: 'Direct sourcing of UltraTech cement, wire mesh, dowel bars, and essential civil construction reinforcement supplies from our 200 Feet Road depot.',
-    image: '/images/shop-front-depot.webp',
-    imageAlt: 'Storefront depot and trade counter on 200 Feet Road',
+    image: '/images/photo-coming-soon-materials.webp',
+    imageAlt: 'Building materials and structural supplies at Shree Shiv Construction, Bhilwara - Photo coming soon',
     badge: 'DEPOT SOURCING',
     specs: [
       'Consolidated Order Dispatch for Complete Jobsite Foundation',
@@ -163,6 +165,8 @@ const products = [
               <div class="relative w-full h-full overflow-hidden bg-cream-warm">
                 <img
                   src={item.image}
+                  srcset={item.srcset}
+                  sizes="(max-width: 1024px) 100vw, 60vw"
                   alt={item.imageAlt}
                   width="1200"
                   height="750"
