@@ -1,0 +1,123 @@
+---
+import Button from './Button.astro';
+---
+
+<section id="yard-gallery" class="py-24 sm:py-32 md:py-40 relative z-10 border-t border-cream-border/60 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    
+    <!-- Gallery Header: Small-Caps Micro-Labels -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 sm:mb-16">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-camel"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.28em] text-charcoal font-bold">
+          SELECTED STOCK &bull; YARD NO. 01 &mdash; BHILWARA
+        </span>
+      </div>
+
+      <div class="font-mono text-xs uppercase tracking-[0.22em] text-charcoal-muted">
+        EX-YARD DISPATCH &bull; 200 FEET ROAD
+      </div>
+    </div>
+
+    <!-- Oversized Serif Title Overlapping Photography -->
+    <div class="relative">
+      
+      <!-- Giant Fraunces Serif Title Floating & Overlapping the Upper Photo Edge -->
+      <div class="relative z-20 pointer-events-none mb-[-2rem] sm:mb-[-3.5rem] md:mb-[-4.5rem]">
+        <h2 class="font-serif text-[clamp(2.8rem,8vw,7.5rem)] font-normal text-charcoal leading-[0.88] tracking-tight">
+          Bhilwara Depot &amp; <br class="hidden sm:inline" />
+          <span class="italic font-light text-charcoal-muted">Heavy Stock</span>
+        </h2>
+      </div>
+
+      <!-- Photographic Composition: Real Daylight Photography (No AI, No Placeholders) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-stretch relative z-10 pt-4 sm:pt-6">
+        
+        <!-- Primary Photo Plane: Clean Rebar Stock Bundles (8 cols) -->
+        <div class="lg:col-span-8 border border-cream-border bg-white p-3 sm:p-4 shadow-sm group">
+          <div class="relative aspect-[16/10] overflow-hidden bg-cream-warm">
+            <img
+              src="/images/yard-stock-clean.jpg"
+              alt="Heavy TMT sariya stock neatly stacked on concrete sleepers at Shree Shiv Construction yard, Bhilwara"
+              width="1400"
+              height="875"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            />
+            
+            <!-- Corner Blueprint Spec Overlay -->
+            <div class="absolute top-3 left-3 bg-cream/95 backdrop-blur-sm border border-cream-border px-3.5 py-1.5 font-mono text-[10px] tracking-widest uppercase text-charcoal font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-eucalyptus inline-block mr-1.5"></span>
+              Fe 550D Billet Stock &bull; Crane Loading
+            </div>
+
+            <div class="absolute bottom-3 right-3 bg-charcoal text-cream px-3 py-1 font-mono text-[10px] tracking-widest uppercase font-bold">
+              YARD CAP: 50T
+            </div>
+          </div>
+
+          <!-- Photo Metadata Strip -->
+          <div class="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class="font-mono text-xs text-camel uppercase tracking-wider font-bold block mb-1">
+                KAY2 XENOX AUTHORIZED STOCKIST
+              </span>
+              <p class="font-body text-xs sm:text-sm text-charcoal-muted max-w-md">
+                Genuine factory-tested rebar sorted by diameter on elevated concrete sleepers to prevent ground moisture exposure.
+              </p>
+            </div>
+            <span class="font-mono text-xs text-charcoal font-bold uppercase tracking-widest whitespace-nowrap bg-cream-warm px-3.5 py-2 border border-cream-border rounded-full">
+              PAKKA GST BILL
+            </span>
+          </div>
+        </div>
+
+        <!-- Companion Photo Plane: 200 Feet Road Storefront & Order Desk (4 cols) -->
+        <div class="lg:col-span-4 border border-cream-border bg-white p-3 sm:p-4 shadow-sm flex flex-col justify-between group">
+          <div class="relative aspect-[4/3] overflow-hidden bg-cream-warm">
+            <img
+              src="/images/shop-front-depot.webp"
+              alt="Storefront depot and trade counter of Shree Shiv Construction on 200 Feet Road, Bhilwara"
+              width="900"
+              height="675"
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+            />
+            <div class="absolute top-3 left-3 bg-cream/95 backdrop-blur-sm border border-cream-border px-3 py-1.5 font-mono text-[10px] tracking-widest uppercase text-charcoal font-bold">
+              Retail Order Counter
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-6 flex-grow flex flex-col justify-between">
+            <div class="space-y-3">
+              <span class="font-mono text-xs uppercase tracking-widest text-charcoal-muted font-bold block">
+                LOCATION ANCHOR
+              </span>
+              <h3 class="font-serif text-xl sm:text-2xl text-charcoal leading-snug">
+                200 Feet Road, Near Sharda Evergreen
+              </h3>
+              <p class="font-body text-xs text-charcoal-muted leading-relaxed">
+                Walk in to verify manufacturer roll markings, check today's mandi prices, or collect computerized weighbridge receipts.
+              </p>
+            </div>
+
+            <!-- Direct Pill Action -->
+            <div class="pt-6 border-t border-cream-border mt-6">
+              <Button
+                variant="primary"
+                href="/products"
+                class="w-full text-xs font-mono uppercase tracking-[0.2em] font-bold"
+                ariaLabel="View all products and specifications"
+              >
+                VIEW ALL 05 PRODUCTS &rarr;
+              </Button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

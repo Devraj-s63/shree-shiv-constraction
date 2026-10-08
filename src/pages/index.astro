@@ -1,58 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
-import AmberMarquee from '../components/AmberMarquee.astro';
-import TrustStrip from '../components/TrustStrip.astro';
-import YardShowcase from '../components/YardShowcase.astro';
-import CraftPinnedSection from '../components/CraftPinnedSection.astro';
-import HorizontalGallery from '../components/HorizontalGallery.astro';
-import ProductsGrid from '../components/ProductsGrid.astro';
-import WhyChooseUs from '../components/WhyChooseUs.astro';
-import StatsBand from '../components/StatsBand.astro';
-import FaqTeaser from '../components/FaqTeaser.astro';
-import LocationSection from '../components/LocationSection.astro';
+import EditorialIntro from '../components/EditorialIntro.astro';
+import EditorialYardGallery from '../components/EditorialYardGallery.astro';
 ---
 
 <Base
   title="TMT Sariya in Bhilwara | Shree Shiv Construction & Steel | Kay2 Xenox Dealer"
-  description="Buy genuine TMT sariya in Bhilwara from Shree Shiv Construction & Steel. Authorized Kay2 Xenox dealer and leading building material supplier in Bhilwara. Fe 550D stock, binding wire & cover blocks. Call 8278643303."
+  description="Authorized Kay2 Xenox dealer and leading TMT sariya supplier in Bhilwara. Fe 550D reinforcement steel, binding wire & cover blocks. Call 8278643303."
   canonicalPath="/"
 >
   <main>
-    <!-- Band 1: Bold Massive Hero (Cream #FDFBF7) -->
+    <!-- 1. Single-Screen Statement Hero with Blueprint Line Art -->
     <Hero />
 
-    <!-- Ribbon 1: Rhythmic Charcoal Marquee Ribbon (#2C2A29) -->
-    <AmberMarquee />
+    <!-- 2. Two-Column Editorial Intro Block -->
+    <EditorialIntro />
 
-    <!-- Band 2: Trust Credentials Strip (Pure White #FFFFFF) -->
-    <TrustStrip />
-
-    <!-- Band 3: Heavy Stock Yard & Depot Showcase (Cream #FDFBF7) -->
-    <YardShowcase />
-
-    <!-- Ribbon 2: Rhythmic Charcoal Marquee Ribbon (#2C2A29) -->
-    <AmberMarquee text="GENUINE KAY2 XENOX Fe 550D // COMPUTERIZED WEIGHBRIDGE // DAILY MANDI RATES // PAKKA GST BILL" speed="40s" />
-
-    <!-- Band 4: Honest Yard Standards & Handling (Pure White #FFFFFF) -->
-    <CraftPinnedSection />
-
-    <!-- Band 5: Ready Stock Inventory Exhibition (Cream #FDFBF7) -->
-    <HorizontalGallery />
-
-    <!-- Band 6: Core Products Breakdown (Pure White #FFFFFF) -->
-    <ProductsGrid />
-
-    <!-- Band 7: Why Choose Shree Shiv (Cream #FDFBF7) -->
-    <WhyChooseUs />
-
-    <!-- Band 8: Rhythmic Charcoal Stats Band (#2C2A29) -->
-    <StatsBand />
-
-    <!-- Band 9: Frequently Asked Questions (Cream #FDFBF7) -->
-    <FaqTeaser />
-
-    <!-- Band 10: Physical Yard & Map (Pure White #FFFFFF) -->
-    <LocationSection />
+    <!-- 3. Editorial Yard Gallery with Overlapping Photography -->
+    <EditorialYardGallery />
   </main>
 </Base>

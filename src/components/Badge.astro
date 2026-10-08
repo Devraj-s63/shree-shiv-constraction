@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'eucalyptus' | 'camel' | 'neutral' | 'steel' | 'amber';
+  variant?: 'eucalyptus' | 'camel' | 'neutral' | 'outline';
   class?: string;
 }
 
@@ -9,15 +9,14 @@ const {
   class: className = '',
 } = Astro.props;
 
-const baseStyles = 'inline-flex items-center text-[10px] md:text-xs font-display uppercase tracking-widest font-bold px-2.5 py-1 border select-none';
+const baseStyles = 'inline-flex items-center text-[10px] font-mono uppercase tracking-[0.22em] font-bold px-3 py-1 rounded-full select-none';
 
 const variantStyles: Record<string, string> = {
-  // Primary default: Eucalyptus Green with Cream text (WCAG AA compliant 6.9:1)
-  eucalyptus: 'bg-eucalyptus text-cream border-eucalyptus',
-  steel: 'bg-eucalyptus text-cream border-eucalyptus',
-  amber: 'bg-camel/20 text-charcoal border-camel',
-  camel: 'bg-camel text-charcoal border-camel',
-  neutral: 'bg-cream-warm text-charcoal-muted border-cream-border',
+  // Eucalyptus Green Eyebrow Badge with Cream text
+  eucalyptus: 'bg-eucalyptus text-cream border border-eucalyptus',
+  camel: 'bg-camel text-charcoal border border-camel',
+  outline: 'bg-transparent text-charcoal-muted border border-cream-border',
+  neutral: 'bg-cream-warm text-charcoal-muted border border-cream-border',
 };
 
 const computedClass = `${baseStyles} ${variantStyles[variant] || variantStyles.eucalyptus} ${className}`;

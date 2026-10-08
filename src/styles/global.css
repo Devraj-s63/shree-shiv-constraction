@@ -3,37 +3,41 @@
 @tailwind utilities;
 
 @layer base {
-  *, ::before, ::after {
-    border-radius: 0px !important;
-    box-shadow: none !important;
-  }
-
   html {
     background-color: #FDFBF7;
     color: #2C2A29;
     font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     letter-spacing: -0.01em;
+    scroll-behavior: smooth;
   }
 
   body {
     background-color: #FDFBF7;
     color: #2C2A29;
     overflow-x: hidden;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
-    letter-spacing: -0.03em;
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.025em;
     color: #2C2A29;
+    font-feature-settings: 'cv01' on, 'opsz' 144;
   }
 
-  /* Micro-label editorial typography utilities */
+  /* Micro-label editorial small-caps typography */
   .micro-label {
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Public Sans', sans-serif;
     font-size: 0.6875rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
+  }
+
+  /* Editorial Small Caps with wide tracking */
+  .small-caps {
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.28em;
   }
 
   /* Flat, clean hairline dividers in #E7DDCB */
@@ -58,4 +62,27 @@
   .hairline-all {
     border: 1px solid #E7DDCB;
   }
+}
+
+/* 3D Perspective Stage for Yard Gallery */
+.perspective-stage {
+  perspective: 1400px;
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+}
+
+.perspective-plane {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+/* Blueprint Line Art Grids & Schematics */
+.blueprint-etching {
+  pointer-events: none;
+  user-select: none;
+  stroke: #2C2A29;
+  stroke-width: 0.75px;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
 }

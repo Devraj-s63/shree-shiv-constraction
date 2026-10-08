@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'primary' | 'whatsapp' | 'call-outline' | 'secondary';
+  variant?: 'primary' | 'whatsapp' | 'call-outline' | 'camel-outline' | 'outline' | 'secondary' | 'eucalyptus';
   href?: string;
   type?: 'button' | 'submit' | 'reset';
   class?: string;
@@ -21,20 +21,30 @@ const {
   ariaLabel,
 } = Astro.props;
 
-const baseStyles = 'inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-5 py-3 transition-colors duration-150 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-camel focus:ring-offset-2';
+// Rounded pill design for luxury editorial feel
+const baseStyles = 'inline-flex items-center justify-center rounded-full font-mono text-[11px] uppercase tracking-[0.2em] font-bold px-6 py-3 transition-all duration-200 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-camel focus:ring-offset-2';
 
 const variantStyles: Record<string, string> = {
-  // Primary CTA: Camel fill with deep charcoal text (WCAG AA compliant 5.19:1)
-  primary: 'bg-camel text-charcoal border border-camel hover:bg-camel-dark hover:border-camel-dark active:bg-camel-dark font-black',
+  // Primary CTA: Camel fill with deep charcoal text
+  primary: 'bg-camel text-charcoal border border-camel hover:bg-camel-dark hover:border-camel-dark active:bg-camel-dark font-black shadow-sm',
   
-  // WhatsApp CTA: Eucalyptus fill with cream text (WCAG AA compliant 6.9:1)
-  whatsapp: 'bg-eucalyptus text-cream border border-eucalyptus hover:bg-eucalyptus-dark hover:border-eucalyptus-dark active:bg-eucalyptus-dark',
+  // Camel Outline: Pill with camel border and charcoal text
+  'camel-outline': 'bg-transparent text-charcoal border border-camel hover:bg-camel hover:text-charcoal active:bg-camel-dark',
   
-  // Call Outline: Clean border in charcoal/camel with high contrast
-  'call-outline': 'bg-transparent text-charcoal border border-charcoal hover:bg-camel hover:border-camel hover:text-charcoal active:bg-camel-dark',
+  // WhatsApp CTA: Camel fill or outline as requested
+  whatsapp: 'bg-camel text-charcoal border border-camel hover:bg-camel-dark hover:border-camel-dark active:bg-camel-dark font-black',
   
-  // Secondary: Warm cream card with #E7DDCB border
-  secondary: 'bg-cream-card text-charcoal border border-cream-border hover:border-camel hover:text-charcoal active:bg-cream-warm',
+  // Call Outline: Charcoal/Camel hairline pill
+  'call-outline': 'bg-transparent text-charcoal border border-camel hover:bg-camel hover:text-charcoal active:bg-camel-dark',
+  
+  // Generic Outline: Border charcoal/40
+  outline: 'bg-transparent text-charcoal border border-charcoal/40 hover:border-camel hover:text-charcoal hover:bg-camel/10',
+  
+  // Secondary: Warm cream pill
+  secondary: 'bg-cream-warm text-charcoal border border-cream-border hover:border-camel hover:text-charcoal',
+
+  // Eucalyptus badge/pill
+  eucalyptus: 'bg-eucalyptus text-cream border border-eucalyptus hover:bg-eucalyptus-dark',
 };
 
 const computedClass = `${baseStyles} ${variantStyles[variant] || variantStyles.primary} ${className}`;

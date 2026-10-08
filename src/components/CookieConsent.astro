@@ -1,35 +1,29 @@
 ---
-// CookieConsent component with GA4 consent-gated loader
-// Set PUBLIC_GA_ID in environment variables (e.g. .env or Vercel dashboard) to activate GA4
+// CookieConsent.astro - Rounded pill bottom-center consent chip with GA4 loader
 const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
 ---
 
 <div
-  id="cookie-consent-banner"
-  class="fixed bottom-0 inset-x-0 z-50 bg-charcoal text-cream border-t-2 border-camel p-4 md:p-6 shadow-2xl transform translate-y-full transition-transform duration-300 hidden"
+  id="cookie-consent-pill"
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-full bg-cream-card/95 backdrop-blur-md border border-cream-border px-5 sm:px-6 py-3 shadow-xl transition-all duration-300 hidden max-w-xl w-[92vw] sm:w-auto"
   role="region"
-  aria-label="Cookie and Privacy Preferences"
+  aria-label="Cookie and Privacy Notice"
 >
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-    <!-- Plain Human Notice Copy -->
-    <div class="max-w-3xl">
-      <div class="flex items-center gap-2 mb-1.5">
-        <span class="w-2 h-2 bg-camel inline-block"></span>
-        <span class="font-display text-xs uppercase tracking-wider font-bold text-camel">
-          Cookie &amp; Privacy Notice
-        </span>
-      </div>
-      <p class="font-body text-xs sm:text-sm text-cream/80 leading-relaxed">
-        We use basic cookies to see how visitors browse our site and to improve our steel catalog. We never track banking details or sell your personal information. Read our <a href="/privacy-policy" class="text-camel underline hover:text-cream">Privacy Policy</a>.
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
+    <!-- Faint Blueprint Kicker & Notice Copy -->
+    <div class="flex items-center gap-2.5 text-center sm:text-left">
+      <span class="w-1.5 h-1.5 rounded-full bg-camel shrink-0"></span>
+      <p class="font-body text-xs text-charcoal leading-snug">
+        Essential cookies for catalog performance. No trackers sold. <a href="/privacy-policy" class="text-charcoal-muted underline hover:text-camel">Privacy</a>
       </p>
     </div>
 
-    <!-- Action Buttons (Accept / Decline) -->
-    <div class="flex items-center gap-3 shrink-0 w-full md:w-auto">
+    <!-- Action Pill Buttons -->
+    <div class="flex items-center gap-2 shrink-0">
       <button
         id="cookie-decline-btn"
         type="button"
-        class="flex-1 md:flex-none px-5 py-2.5 font-display text-xs uppercase tracking-wider font-bold text-cream bg-transparent border border-cream/30 hover:border-cream hover:bg-cream/10 focus:outline-none transition-colors cursor-pointer"
+        class="rounded-full px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-wider font-bold text-charcoal-muted hover:text-charcoal hover:bg-cream-warm transition-colors cursor-pointer"
         aria-label="Decline cookies"
       >
         Decline
@@ -38,10 +32,10 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
       <button
         id="cookie-accept-btn"
         type="button"
-        class="flex-1 md:flex-none px-5 py-2.5 font-display text-xs uppercase tracking-wider font-bold bg-camel text-charcoal hover:bg-camel-dark focus:outline-none transition-colors cursor-pointer font-black"
+        class="rounded-full px-4 py-1.5 font-mono text-[10px] uppercase tracking-widest font-black bg-camel text-charcoal hover:bg-camel-dark transition-colors cursor-pointer"
         aria-label="Accept and continue with cookies"
       >
-        Accept &amp; Continue
+        Accept
       </button>
     </div>
   </div>
@@ -49,12 +43,11 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
 
 <script define:vars={{ GA_MEASUREMENT_ID }}>
   const STORAGE_KEY = 'sscs_cookie_consent_v1';
-  const banner = document.getElementById('cookie-consent-banner');
+  const pill = document.getElementById('cookie-consent-pill');
   const acceptBtn = document.getElementById('cookie-accept-btn');
   const declineBtn = document.getElementById('cookie-decline-btn');
 
   function loadGA4() {
-    // Only load if a valid measurement ID is set and not loaded already
     if (!GA_MEASUREMENT_ID || !/^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID)) {
       return;
     }
@@ -62,7 +55,6 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
     if (window._ga4Loaded) return;
     window._ga4Loaded = true;
 
-    // Dynamically inject GA4 script tags
     const script = document.createElement('script');
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
@@ -79,21 +71,16 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
     });
   }
 
-  function showBanner() {
-    if (!banner) return;
-    banner.classList.remove('hidden');
-    requestAnimationFrame(() => {
-      banner.classList.remove('translate-y-full');
-      banner.classList.add('translate-y-0');
-    });
+  function showPill() {
+    if (!pill) return;
+    pill.classList.remove('hidden');
   }
 
-  function hideBanner() {
-    if (!banner) return;
-    banner.classList.remove('translate-y-0');
-    banner.classList.add('translate-y-full');
+  function hidePill() {
+    if (!pill) return;
+    pill.classList.add('opacity-0', 'pointer-events-none');
     setTimeout(() => {
-      banner.classList.add('hidden');
+      pill.classList.add('hidden');
     }, 300);
   }
 
@@ -104,13 +91,13 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
   } else if (consent === 'declined') {
     // Consent declined
   } else {
-    setTimeout(showBanner, 600);
+    setTimeout(showPill, 800);
   }
 
   if (acceptBtn) {
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem(STORAGE_KEY, 'accepted');
-      hideBanner();
+      hidePill();
       loadGA4();
     });
   }
@@ -118,7 +105,7 @@ const GA_MEASUREMENT_ID = (import.meta.env.PUBLIC_GA_ID || '').trim();
   if (declineBtn) {
     declineBtn.addEventListener('click', () => {
       localStorage.setItem(STORAGE_KEY, 'declined');
-      hideBanner();
+      hidePill();
     });
   }
 </script>

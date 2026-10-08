@@ -1,6 +1,6 @@
 ---
-import Button from '../components/Button.astro';
 import CookieConsent from '../components/CookieConsent.astro';
+import BlueprintBackground from '../components/BlueprintBackground.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -28,11 +28,10 @@ const canonicalUrl = new URL(canonicalPath, siteUrl).href.replace(/\/$/, '') || 
 const fullOgImageUrl = new URL(ogImage, siteUrl).href;
 
 const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/products' },
-  { label: 'About', href: '/about' },
+  { label: 'PRODUCTS', href: '/products' },
+  { label: 'ABOUT', href: '/about' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'CONTACT', href: '/contact' },
 ];
 
 // Current path normalization for active-page nav state
@@ -144,23 +143,23 @@ const hardwareStoreSchema = {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={fullOgImageUrl} />
 
-    <!-- Google Fonts Preconnect & High-Performance Asynchronous Loading: Archivo + Public Sans -->
+    <!-- Google Fonts Preconnect & High-Performance Asynchronous Loading: Fraunces + Rozha One + Public Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Public+Sans:wght@300;400;500;600;700&family=Rozha+One&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Public+Sans:wght@300;400;500;600;700&family=Rozha+One&display=swap"
       />
     </noscript>
 
-    <!-- Google Rich Results Verified: HardwareStore Schema (Present on every page) -->
+    <!-- Google Rich Results Verified: HardwareStore Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(hardwareStoreSchema)} />
 
     <!-- Optional FAQPage Schema (when provided) -->
@@ -168,361 +167,220 @@ const hardwareStoreSchema = {
       <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     )}
   </head>
-  <body class="bg-cream text-charcoal font-body min-h-screen flex flex-col selection:bg-camel selection:text-charcoal">
+  <body class="bg-cream text-charcoal font-body min-h-screen flex flex-col relative selection:bg-camel selection:text-charcoal">
     
-    <!-- Top Utility Announcement Bar with Hairline Divider -->
-    <aside class="bg-cream-warm text-charcoal-muted text-[11px] font-display uppercase tracking-widest py-2 px-4 md:px-8 hairline-b">
-      <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 bg-camel inline-block"></span>
-          <span class="font-bold text-charcoal">Bhilwara, Rajasthan</span>
-          <span>&bull; GSTIN: 08FFXPB0515IZ5</span>
-        </div>
-        <div class="hidden sm:flex items-center gap-4">
-          <span lang="hi" class="micro-label text-charcoal-muted">मजबूती की सही पहचान</span>
-          <span class="text-charcoal-muted/40">|</span>
-          <a
-            href="tel:+918278643303"
-            class="text-charcoal font-bold hover:text-camel transition-colors"
-            aria-label="Direct dispatch phone +91 8278643303"
-          >
-            Direct Dispatch: +91 8278643303
-          </a>
-        </div>
-      </div>
-    </aside>
+    <!-- Background Technical Blueprint Etchings Concentrated at Edges -->
+    <BlueprintBackground />
 
-    <!-- Editorial Light Sticky Navbar with 1px #E7DDCB Hairline Divider -->
-    <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md hairline-b transition-all duration-200">
-      <div id="main-navbar-container" class="max-w-7xl mx-auto px-4 md:px-8 h-20 transition-all duration-200 flex items-center justify-between gap-4">
-        <!-- Logo / Brand Identity -->
-        <a href="/" class="flex flex-col group focus:outline-none" aria-label="Shree Shiv Construction and Steel Home">
-          <span class="font-display font-black text-lg md:text-xl tracking-tight text-charcoal uppercase leading-none group-hover:text-camel transition-colors">
-            Shree Shiv
-          </span>
-          <span class="micro-label text-camel mt-1 font-bold">
-            Construction &amp; Steel
+    <!-- Floating Borderless Nav: SHREE SHIV wordmark left; small-caps links with tiny hollow circles; GET A QUOTE pill button -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-md transition-all duration-300">
+      <div id="main-navbar-container" class="max-w-7xl mx-auto px-6 md:px-10 h-20 sm:h-24 flex items-center justify-between gap-4">
+        
+        <!-- Left: Wordmark in Fraunces Serif -->
+        <a href="/" class="group focus:outline-none" aria-label="Shree Shiv Construction and Steel Home">
+          <span class="font-serif font-black text-xl sm:text-2xl tracking-[0.18em] text-charcoal uppercase leading-none group-hover:text-camel transition-colors">
+            SHREE SHIV
           </span>
         </a>
 
-        <!-- Desktop Navigation Links with Active Page State -->
-        <nav class="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
+        <!-- Center: Links in small caps with tiny hollow-circle markers -->
+        <nav class="hidden md:flex items-center gap-7 lg:gap-10" aria-label="Main Navigation">
           {navLinks.map((link) => {
             const active = isLinkActive(link.href);
             return (
               <a
                 href={link.href}
-                class={`micro-label py-2 transition-colors duration-150 border-b-2 ${
-                  active
-                    ? 'text-charcoal border-camel font-black'
-                    : 'text-charcoal-muted hover:text-charcoal border-transparent hover:border-camel'
+                class={`group flex items-center font-mono text-[11px] uppercase tracking-[0.25em] transition-colors py-2 ${
+                  active ? 'text-charcoal font-bold' : 'text-charcoal-muted hover:text-charcoal'
                 }`}
                 aria-current={active ? 'page' : undefined}
               >
-                {link.label}
+                <!-- Tiny hollow-circle marker -->
+                <span class={`w-1.5 h-1.5 rounded-full border mr-2 transition-colors ${
+                  active ? 'border-camel bg-camel' : 'border-charcoal/40 group-hover:border-camel'
+                }`}></span>
+                <span>{link.label}</span>
               </a>
             );
           })}
         </nav>
 
-        <!-- Navbar Actions (Call & WhatsApp Buttons) -->
-        <div class="flex items-center gap-2 md:gap-3">
-          <Button
-            variant="call-outline"
+        <!-- Right: Outlined Pill Button for "GET A QUOTE" & Mobile Menu Toggle -->
+        <div class="flex items-center gap-3">
+          <a
             href="tel:+918278643303"
-            class="hidden sm:inline-flex py-2 px-3 md:px-4 text-[11px] md:text-xs !border-charcoal !text-charcoal hover:!border-camel hover:!bg-camel hover:!text-charcoal"
-            ariaLabel="Call sales desk at +91 8278643303"
+            class="hidden sm:inline-flex rounded-full border border-camel text-charcoal px-5 py-2 font-mono text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-camel hover:text-charcoal transition-all active:scale-95"
+            aria-label="Get a direct quote at +91 8278643303"
           >
-            <svg class="w-3.5 h-3.5 mr-1.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            Call
-          </Button>
-
-          <Button
-            variant="whatsapp"
-            href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20TMT%20steel%20rates"
-            target="_blank"
-            class="py-2 px-3 md:px-4 text-[11px] md:text-xs"
-            ariaLabel="Chat with sales desk on WhatsApp"
-          >
-            <svg class="w-3.5 h-3.5 mr-1.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
-            </svg>
-            WhatsApp
-          </Button>
+            GET A QUOTE
+          </a>
 
           <!-- Mobile Menu Toggle Button -->
           <button
             id="mobile-nav-toggle"
             type="button"
-            class="lg:hidden p-2 text-charcoal border border-cream-border hover:border-camel focus:outline-none"
+            class="md:hidden p-2 text-charcoal border border-cream-border rounded-full hover:border-camel focus:outline-none"
             aria-label="Toggle mobile menu"
           >
-            <svg id="hamburger-icon" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <svg id="hamburger-icon" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
               <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
             </svg>
-            <svg id="close-icon" class="w-6 h-6 fill-current hidden" viewBox="0 0 24 24">
+            <svg id="close-icon" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24">
               <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
             </svg>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Dropdown Navigation with Active Page State -->
-      <div id="mobile-nav-menu" class="hidden lg:hidden border-t border-cream-border bg-cream px-4 py-4 space-y-2">
+      <!-- Mobile Dropdown Navigation -->
+      <div id="mobile-nav-menu" class="hidden md:hidden border-t border-cream-border bg-cream/95 backdrop-blur-md px-6 py-5 space-y-3">
         {navLinks.map((link) => {
           const active = isLinkActive(link.href);
           return (
             <a
               href={link.href}
-              class={`block font-display text-sm uppercase tracking-wider py-2.5 px-3 border-l-2 transition-colors ${
-                active
-                  ? 'text-charcoal font-black border-camel bg-cream-warm'
-                  : 'text-charcoal-muted hover:text-charcoal border-transparent'
+              class={`flex items-center font-mono text-xs uppercase tracking-[0.22em] py-2 transition-colors ${
+                active ? 'text-charcoal font-bold' : 'text-charcoal-muted hover:text-charcoal'
               }`}
               aria-current={active ? 'page' : undefined}
             >
+              <span class={`w-1.5 h-1.5 rounded-full border mr-2.5 ${active ? 'border-camel bg-camel' : 'border-charcoal/40'}`}></span>
               {link.label}
             </a>
           );
         })}
-        <div class="pt-3 flex flex-col gap-2">
-          <Button
-            variant="call-outline"
+        <div class="pt-3 border-t border-cream-border">
+          <a
             href="tel:+918278643303"
-            class="w-full text-xs justify-center"
-            ariaLabel="Call primary sales line at +91 8278643303"
+            class="block text-center rounded-full border border-camel text-charcoal py-2.5 font-mono text-xs uppercase tracking-[0.2em] font-bold hover:bg-camel hover:text-charcoal"
           >
-            Call Primary: +91 8278643303
-          </Button>
-          <Button
-            variant="secondary"
-            href="tel:+919602812764"
-            class="w-full text-xs justify-center"
-            ariaLabel="Call alternate yard line at +91 9602812764"
-          >
-            Call Alternate: +91 9602812764
-          </Button>
+            GET A QUOTE: +91 8278643303
+          </a>
         </div>
       </div>
     </header>
 
     <!-- Page Body Slot -->
-    <div class="flex-grow">
+    <div class="flex-grow relative z-10 pt-20 sm:pt-24">
       <slot />
     </div>
 
-    <!-- Editorial Deep Charcoal Footer with Quick-Link Sitemap & Operating Hours -->
-    <footer class="bg-charcoal text-cream border-t border-cream-border mt-20">
-      <div class="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
-          <!-- Column 1: Identity & Official Tagline (4 cols) -->
-          <div class="lg:col-span-4">
-            <span class="font-display text-xl md:text-2xl font-black uppercase tracking-tight text-cream block">
-              Shree Shiv Construction &amp; Steel
+    <!-- Persistent Bottom-Left WhatsApp Chip with Unread Counter -->
+    <a
+      href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20TMT%20steel%20rates%20in%20Bhilwara"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 left-6 z-40 rounded-full bg-cream-card/95 backdrop-blur-md border border-cream-border pl-2.5 pr-4 py-2 shadow-lg flex items-center gap-2.5 hover:border-camel hover:scale-105 active:scale-95 transition-all group"
+      aria-label="Chat directly on WhatsApp with Shree Shiv Construction sales desk"
+      title="Direct WhatsApp Rate Desk"
+    >
+      <!-- Unread Counter Badge -->
+      <span class="w-5 h-5 rounded-full bg-camel text-charcoal text-[10px] font-mono font-bold flex items-center justify-center shrink-0">
+        1
+      </span>
+      <span class="font-mono text-[11px] uppercase tracking-[0.18em] font-bold text-charcoal group-hover:text-camel transition-colors">
+        WhatsApp Rates
+      </span>
+    </a>
+
+    <!-- Cookie Consent as a Rounded Pill Bottom-Center -->
+    <CookieConsent />
+
+    <!-- Refined Editorial Footer Strip -->
+    <footer class="relative z-10 border-t border-cream-border bg-cream py-14 md:py-20 text-charcoal mt-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start">
+          
+          <!-- Brand & Origin (5 cols) -->
+          <div class="md:col-span-5 space-y-4">
+            <span class="font-serif font-black text-xl uppercase tracking-[0.16em] block">
+              SHREE SHIV
             </span>
-            <p class="micro-label text-camel mt-1.5 font-bold">
-              <span lang="hi">मजबूती की सही पहचान</span> &bull; Building a Stronger Tomorrow
+            <p class="font-mono text-xs text-charcoal-muted tracking-widest uppercase">
+              YARD NO. 01 &bull; 200 FEET ROAD &bull; BHILWARA 311001
             </p>
-            <p class="font-body text-sm text-cream/70 mt-4 leading-relaxed max-w-sm">
-              Authorized Kay2 Xenox dealer and primary building material supplier in Bhilwara. Stocking Fe 550D TMT sariya, annealed binding wire, and precision concrete cover blocks for residential and commercial construction across Rajasthan.
+            <p class="font-body text-xs text-charcoal-muted max-w-sm leading-relaxed">
+              Authorized Kay2 Xenox TMT Fe 550D distributor. Computerized weighbridge dispatch, factory test certificates, and immediate site logistics across Rajasthan.
             </p>
-            <div class="mt-6 inline-block border border-cream/20 px-3 py-1.5 text-xs font-mono text-cream/80">
-              GSTIN: <strong class="text-cream font-semibold">08FFXPB0515IZ5</strong>
+            <div class="font-mono text-[11px] text-charcoal space-y-1 pt-1">
+              <div>GSTIN: <strong class="font-bold">08FFXPB0515IZ5</strong></div>
+              <div>DIRECT DESK: <a href="tel:+918278643303" class="font-bold hover:text-camel transition-colors">+91 8278643303</a></div>
             </div>
           </div>
 
-          <!-- Column 2: Quick-Link Sitemap (3 cols) -->
-          <div class="lg:col-span-3">
-            <h3 class="micro-label text-camel mb-4 font-bold">
-              Quick Links &bull; Sitemap
-            </h3>
-            <ul class="space-y-2.5 font-display text-xs uppercase tracking-wider font-semibold">
+          <!-- Quick Navigation in Small Caps (4 cols) -->
+          <div class="md:col-span-4 space-y-3">
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-charcoal font-bold block mb-2">
+              INDEX
+            </span>
+            <ul class="space-y-2 font-mono text-xs uppercase tracking-[0.2em] text-charcoal-muted">
               <li>
-                <a href="/" class="text-cream/70 hover:text-camel transition-colors flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
-                  <span>Home</span>
+                <a href="/" class="hover:text-camel transition-colors flex items-center gap-2">
+                  <span class="w-1 h-1 rounded-full bg-camel"></span>
+                  <span>HOME</span>
                 </a>
               </li>
               <li>
-                <a href="/products" class="text-cream/70 hover:text-camel transition-colors flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
-                  <span>Products &amp; Inventory</span>
+                <a href="/products" class="hover:text-camel transition-colors flex items-center gap-2">
+                  <span class="w-1 h-1 rounded-full bg-camel"></span>
+                  <span>SELECTED STOCK &bull; PRODUCTS</span>
                 </a>
               </li>
               <li>
-                <a href="/about" class="text-cream/70 hover:text-camel transition-colors flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
-                  <span>About Us &amp; Story</span>
+                <a href="/about" class="hover:text-camel transition-colors flex items-center gap-2">
+                  <span class="w-1 h-1 rounded-full bg-camel"></span>
+                  <span>ABOUT YARD OPERATIONS</span>
                 </a>
               </li>
               <li>
-                <a href="/faq" class="text-cream/70 hover:text-camel transition-colors flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
-                  <span>FAQs &amp; Guidance</span>
+                <a href="/faq" class="hover:text-camel transition-colors flex items-center gap-2">
+                  <span class="w-1 h-1 rounded-full bg-camel"></span>
+                  <span>FAQS &bull; TECHNICAL SPECIFICATIONS</span>
                 </a>
               </li>
               <li>
-                <a href="/contact" class="text-cream/70 hover:text-camel transition-colors flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 bg-camel inline-block"></span>
-                  <span>Contact &amp; Location</span>
-                </a>
-              </li>
-              <li class="pt-2 border-t border-cream/10">
-                <a href="/privacy-policy" class="text-cream/50 hover:text-cream transition-colors text-[11px]">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="/terms" class="text-cream/50 hover:text-cream transition-colors text-[11px]">
-                  Terms &amp; Conditions
+                <a href="/contact" class="hover:text-camel transition-colors flex items-center gap-2">
+                  <span class="w-1 h-1 rounded-full bg-camel"></span>
+                  <span>CONTACT &bull; DEPOT LOCATION</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          <!-- Column 3: Operating Hours (3 cols) -->
-          <div class="lg:col-span-3">
-            <h3 class="micro-label text-camel mb-4 font-bold">
-              Depot &amp; Yard Hours
-            </h3>
-            <div class="space-y-3 font-mono text-xs">
-              <div class="border-b border-cream/10 pb-2.5">
-                <div class="flex justify-between items-baseline mb-1">
-                  <span class="font-display font-bold text-cream uppercase text-xs">Monday – Saturday</span>
-                  <span class="text-camel font-bold">8:00 AM – 8:00 PM</span>
-                </div>
-                <span class="text-cream/60 text-[11px] font-body block">
-                  Regular Yard Loading &amp; Electronic Weighbridge Dispatch
-                </span>
-              </div>
-              <div class="border-b border-cream/10 pb-2.5">
-                <div class="flex justify-between items-baseline mb-1">
-                  <span class="font-display font-bold text-cream uppercase text-xs">Sunday</span>
-                  <span class="text-cream/60">By Appointment</span>
-                </div>
-                <span class="text-cream/60 text-[11px] font-body block">
-                  Emergency Site Dispatch &amp; On-Call Truck Loading
-                </span>
-              </div>
-              <p class="font-body text-[11px] text-cream/50 mt-3 leading-relaxed">
-                * Direct loading available for tractors, mini-trucks, and commercial trailers.
-              </p>
+          <!-- Operating Hours & Status (3 cols) -->
+          <div class="md:col-span-3 space-y-3 font-mono text-xs">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-charcoal font-bold block mb-2">
+              DEPOT SCHEDULE
+            </span>
+            <div class="border-l-2 border-camel pl-3 space-y-1">
+              <span class="text-charcoal font-bold block">MON &ndash; SAT</span>
+              <span class="text-charcoal-muted">8:00 AM &ndash; 8:00 PM</span>
             </div>
+            <p class="text-[11px] text-charcoal-muted pt-2 leading-relaxed">
+              Crane loading for trailers, pickups, and tractors. Verified weighbridge receipt with every dispatch.
+            </p>
           </div>
 
-          <!-- Column 4: Physical Yard & Direct Desk (2 cols) -->
-          <div class="lg:col-span-2">
-            <h3 class="micro-label text-camel mb-4 font-bold">
-              Yard Direct Desk
-            </h3>
-            <address class="not-italic text-xs text-cream/70 leading-relaxed font-body mb-4">
-              <strong class="text-cream block">200 Feet Road</strong>
-              Near Sharda Evergreen,<br />
-              Bhilwara &ndash; 311001,<br />
-              Rajasthan, India
-            </address>
-            <div class="space-y-2 font-mono text-xs">
-              <div>
-                <span class="text-cream/50 block text-[10px] uppercase">Primary:</span>
-                <a
-                  href="tel:+918278643303"
-                  class="text-cream font-bold hover:text-camel transition-colors"
-                  aria-label="Call yard direct desk at +91 8278643303"
-                >
-                  +91 8278643303
-                </a>
-              </div>
-              <div>
-                <span class="text-cream/50 block text-[10px] uppercase">Dispatch:</span>
-                <a
-                  href="tel:+919602812764"
-                  class="text-cream font-bold hover:text-camel transition-colors"
-                  aria-label="Call dispatch line at +91 9602812764"
-                >
-                  +91 9602812764
-                </a>
-              </div>
-            </div>
-            <ul class="mt-4 pt-3 border-t border-cream/10 space-y-1.5 text-xs font-mono">
-              <li>
-                <a
-                  href="https://wa.me/918278643303"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-cream/70 hover:text-cream transition-colors flex items-center gap-1.5"
-                  aria-label="Chat on WhatsApp with customer support"
-                >
-                  <span class="w-1.5 h-1.5 bg-emerald-400 inline-block"></span>
-                  <span>WhatsApp Line</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com/shreeshivconstructionsteel"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-cream/70 hover:text-cream transition-colors flex items-center gap-1.5"
-                  aria-label="Follow Shree Shiv Construction on Instagram"
-                >
-                  <svg class="w-3.5 h-3.5 fill-current text-camel" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                  <span>Instagram</span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <!-- Bottom Legal / Copyright Bar with Hairline -->
-        <div class="border-t border-cream/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-cream/60">
-          <div class="flex flex-col sm:flex-row items-center gap-3">
-            <p>
-              &copy; {new Date().getFullYear()} Shree Shiv Construction &amp; Steel. All rights reserved.
-            </p>
-            <div class="flex items-center gap-2">
-              <span class="hidden sm:inline">&bull;</span>
-              <a href="/privacy-policy" class="hover:text-cream transition-colors underline">Privacy Policy</a>
-              <span>&bull;</span>
-              <a href="/terms" class="hover:text-cream transition-colors underline">Terms &amp; Conditions</a>
-            </div>
-          </div>
+        <!-- Hairline Bottom Legal Row -->
+        <div class="border-t border-cream-border mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-[11px] text-charcoal-muted">
+          <p>&copy; {new Date().getFullYear()} SHREE SHIV CONSTRUCTION &amp; STEEL.</p>
           <div class="flex items-center gap-4">
-            <span>Bhilwara, Rajasthan</span>
+            <a href="/privacy-policy" class="hover:text-charcoal transition-colors">PRIVACY</a>
             <span>&bull;</span>
-            <span class="text-camel font-semibold">GSTIN: 08FFXPB0515IZ5</span>
+            <a href="/terms" class="hover:text-charcoal transition-colors">TERMS</a>
+            <span>&bull;</span>
+            <span>BHILWARA, RAJASTHAN</span>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Persistent Floating WhatsApp Action Button in Eucalyptus Green -->
-    <a
-      href="https://wa.me/918278643303?text=Namaste%2C%20I%20am%20inquiring%20about%20TMT%20steel%20rates%20in%20Bhilwara"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="fixed bottom-6 right-6 z-40 bg-eucalyptus text-cream p-3.5 rounded-full shadow-lg hover:bg-eucalyptus-dark hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center group focus:outline-none focus:ring-4 focus:ring-eucalyptus/30 border border-eucalyptus"
-      aria-label="Chat directly on WhatsApp with Shree Shiv Construction sales desk"
-      title="Chat with us on WhatsApp"
-    >
-      <svg class="w-6 h-6 fill-current group-hover:rotate-12 transition-transform duration-200" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
-      </svg>
-      <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:ml-2 transition-all duration-300 ease-in-out font-display text-xs font-bold uppercase tracking-wider text-cream hidden sm:inline-block">
-        WhatsApp Us
-      </span>
-    </a>
-
-    <!-- Cookie Consent Banner with Consent-Gated GA4 -->
-    <CookieConsent />
-
-    <!-- Performance-Optimized Client Scripts -->
+    <!-- Theatrical Interaction Scripts -->
     <script>
       import { initAnimations } from '../scripts/animations';
 
-      // Initialize editorial interactions when DOM is ready
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => initAnimations());
       } else {

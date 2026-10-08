@@ -1,212 +1,437 @@
 ---
 import Base from '../layouts/Base.astro';
-import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import Badge from '../components/Badge.astro';
 
 const products = [
   {
+    index: '01',
     id: 'kay2-xenox',
-    badge: 'Authorized Stockist',
-    badgeVariant: 'eucalyptus' as const,
-    name: 'Kay2 Xenox TMT Bars',
-    subtitle: 'High Ductility Fe 550D Reinforcement Steel',
-    overview: 'Kay2 Xenox represents advanced thermo-mechanical bar engineering with specialized rib design. Engineered specifically for high seismic zone compliance, offering exceptional bendability, earthquake protection, and thermal resistance.',
-    features: [
-      'Certified Fe 550D and Fe 500 grade manufacturing compliance (IS 1786)',
-      'Specialized cross-rib geometry delivering solid bonding grip with surrounding concrete',
-      'High uniform elongation prevents sudden brittle snapping under severe seismic vibrations',
-      'Superior corrosion resistance protects against internal chemical oxidation and concrete spalling',
-      'Available across full standard diameters: 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, and 32mm',
-      'Supplied in 12-meter straight lengths or folded factory bundles with original manufacturer roll marks',
+    name: 'Kay2 Xenox TMT Fe 550D',
+    category: 'PRIMARY REINFORCEMENT',
+    gauges: '8mm to 32mm Stock',
+    summary: 'Original mill-certified Fe 550D sariya with specialized cross-rib pattern. Bends smoothly on site without cracking and offers superior earthquake resistance.',
+    image: '/images/yard-stock-clean.jpg',
+    imageAlt: 'Certified Kay2 Xenox Fe 550D TMT sariya stacks at Bhilwara yard',
+    badge: 'AUTHORIZED STOCKIST',
+    specs: [
+      'IS 1786 Manufacturing Compliance & Roll Mark',
+      'High Uniform Elongation (>14.5%) for Seismic Safety',
+      'Advanced Thermo-Mechanical Rib Bonding with Concrete',
+      'Standard 12m Straight Lengths & Folded Factory Bundles',
+      'Computerized Weighbridge Slip with Zero Shortage',
+      'Official Mill Test Certificate & Pakka GST Bill',
     ],
     whatsappMsg: 'Hello Shree Shiv Construction, I would like to check today’s rate for Kay2 Xenox TMT Bars.',
-    iconSvg: `<svg class="w-6 h-6 fill-current text-camel" viewBox="0 0 24 24"><path d="M4 2h4v20H4V2zm12 0h4v20h-4V2zM9 5h6v2H9V5zm0 5h6v2H9v-2zm0 5h6v2H9v-2zm0 5h6v2H9v-2z"/></svg>`,
   },
   {
+    index: '02',
     id: 'tmt-sariya',
-    badge: 'Structural Sariya',
-    badgeVariant: 'eucalyptus' as const,
-    name: 'TMT Sariya (Full Range)',
-    subtitle: 'Primary Civil & Structural Reinforcement',
-    overview: 'Complete yard stock of primary structural steel sariya for individual residential house construction, multi-story structural columns, beams, lintels, and heavy foundation rafts.',
-    features: [
-      'Comprehensive gauge inventory stocked ex-yard: 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, 32mm',
-      'Strict rolling tolerance and consistent linear weight according to Indian Standard codes',
-      'High thermal stability retaining structural strength during high temperature exposure',
-      'Flexible procurement: available in custom bundle quantities for home builders or multi-ton truckloads for projects',
-      'Prompt computerized weighbridge yard dispatch with transparent weight verification slips',
+    name: 'Primary TMT Sariya',
+    category: 'FULL YARD INVENTORY',
+    gauges: 'Complete Size Range',
+    summary: 'Full inventory of 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, and 32mm bars for residential house slabs, multi-story columns, and heavy foundation rafts.',
+    image: '/images/shop-front-depot.webp',
+    imageAlt: 'Organized rebar stock at Shree Shiv Construction depot',
+    badge: 'YARD STOCK',
+    specs: [
+      'Strict Rolling Tolerance per Bureau of Indian Standards',
+      'Consistent Linear Weight per Meter Verification',
+      'Rust-Protected Elevated Sleeper Staging',
+      'Custom Bundle Orders for Builders & Full Truckloads for Sites',
+      'Immediate Loading via Crane or Manual Yard Crew',
+      'Transparent Mandi Rates with Instant GST Invoicing',
     ],
     whatsappMsg: 'Hello Shree Shiv Construction, I would like to check today’s rate for TMT Sariya.',
-    iconSvg: `<svg class="w-6 h-6 fill-current text-camel" viewBox="0 0 24 24"><path d="M3 4h18v3H3V4zm0 6h18v3H3v-3zm0 6h18v4H3v-4z"/></svg>`,
   },
   {
+    index: '03',
     id: 'binding-wire',
-    badge: 'Annealed Coils',
-    badgeVariant: 'eucalyptus' as const,
-    name: 'Binding Wire',
-    subtitle: 'High Tensile Annealed Industrial Coils',
-    overview: 'Manufactured from low-carbon steel and thermal annealing processes to deliver supreme pliability for rapid bar bending and cage tying on construction sites.',
-    features: [
-      'Soft annealed treatment allows effortless manual tying and knotting with standard tying hooks',
-      'Consistent tensile strength eliminates accidental wire breakage during tensioning',
-      'Available in 18-gauge and 20-gauge standards suited for light mesh and heavy structural rebar ties',
-      'Packaged in clean, easy-to-handle rolls and 25kg / 50kg protective bundle coils',
-      'Rust-resistant packaging ensuring maximum workability at the job site',
+    name: 'Annealed Binding Wire',
+    category: 'SITE TYING COILS',
+    gauges: '18 & 20 Gauge Bundles',
+    summary: 'Soft, pliable black annealed tying wire that knots effortlessly around sariya cages without snapping under intense tension during rebar tying.',
+    image: '/images/binding-wire-real.jpg',
+    imageAlt: 'Annealed industrial binding wire coils at Shree Shiv depot',
+    badge: 'ANNEALED COILS',
+    specs: [
+      'Thermal Annealing Process for Maximum Flexibility',
+      'Uniform Wire Diameter Across Entire Coil Length',
+      'High Tensile Knot Strength with Zero Site Snapping',
+      'Available in 18-Gauge and 20-Gauge Specifications',
+      'Convenient 25kg and 50kg Protective Bundles',
+      'Ready Yard Stock for Immediate Vehicle Loading',
     ],
     whatsappMsg: 'Hello Shree Shiv Construction, I would like to check today’s rate for Binding Wire.',
-    iconSvg: `<svg class="w-6 h-6 fill-current text-camel" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>`,
   },
   {
+    index: '04',
     id: 'cover-blocks',
-    badge: 'Precast Spacers',
-    badgeVariant: 'eucalyptus' as const,
-    name: 'Cover Blocks',
-    subtitle: 'High-Density Precast Concrete Spacers',
-    overview: 'Precision-manufactured concrete cover blocks designed to maintain mandatory structural spacing between reinforcement bars and formwork panels during heavy concrete pouring.',
-    features: [
-      'High-density concrete composition matching structural concrete strength (M30/M40 grade)',
-      'Prevents rebar displacement, shuttering leaks, and steel oxidation caused by air/moisture exposure',
-      'Available in standard cover depths: 20mm, 25mm, 40mm, 50mm, and 75mm',
-      'Dedicated profiles: slab spacers, beam bottom pads, column ring spacers, and heavy footing blocks',
-      'Includes embedded tie wires on selected variants for secure fastening to rebar cages',
+    name: 'Precast Concrete Cover Blocks',
+    category: 'PRECAST SPACERS',
+    gauges: '20mm / 25mm / 40mm / 50mm',
+    summary: 'Heavy-duty precast concrete spacers designed to keep sariya elevated inside roof slabs, beams, and columns, protecting steel from moisture and corrosion.',
+    image: '/images/cover-blocks-real.jpg',
+    imageAlt: 'Precast concrete cover blocks with embedded tie-wires',
+    badge: 'PRECAST SPACERS',
+    specs: [
+      'High-Density M-35 Grade Concrete Matrix',
+      'Prevents Formwork Leaks & Reinforcement Displacement',
+      'Dedicated Profiles: Roof Slab, Beam Bottom, Column Ring',
+      'Integrated Galvanized Tie Wire for Positive Fixing',
+      'Maintains Mandatory Structural Concrete Cover Depth',
+      'Supplied in Bulk Bags for Direct Jobsite Delivery',
     ],
     whatsappMsg: 'Hello Shree Shiv Construction, I would like to check today’s rate for Cover Blocks.',
-    iconSvg: `<svg class="w-6 h-6 fill-current text-camel" viewBox="0 0 24 24"><path d="M21 16.5l-9 5.2-9-5.2V7.5l9-5.2 9 5.2v9zM12 4.1L4.8 8.3 12 12.4l7.2-4.1L12 4.1zm-8 5.6v7.2l7 4v-7.2l-7-4zm16 7.2v-7.2l-7 4v7.2l7-4z"/></svg>`,
   },
   {
+    index: '05',
     id: 'building-materials',
-    badge: 'Site Essentials',
-    badgeVariant: 'eucalyptus' as const,
-    name: 'Building Materials',
-    subtitle: 'Civil Construction Reinforcement Supplies',
-    overview: 'Reliable site-delivery inventory of supplementary building materials and civil construction reinforcement essentials for residential builders, commercial developers, and industrial projects.',
-    features: [
-      'Structural accessories, dowel bars, reinforcement meshes, and site reinforcement hardware',
-      'Immediate yard loading facilities with direct access for heavy commercial vehicles',
-      'Competitive transparent pricing for consolidated mixed-material construction orders',
-      'Complete invoicing backed by official GST compliance (GSTIN: 08FFXPB0515IZ5)',
-      'Dedicated logistics support for jobsites across Bhilwara district and neighboring regions',
+    name: 'Building & Structural Supplies',
+    category: 'DEPOT SOURCING',
+    gauges: 'Direct Yard Loading',
+    summary: 'Direct sourcing of UltraTech cement, wire mesh, dowel bars, and essential civil construction reinforcement supplies from our 200 Feet Road depot.',
+    image: '/images/shop-front-depot.webp',
+    imageAlt: 'Storefront depot and trade counter on 200 Feet Road',
+    badge: 'DEPOT SOURCING',
+    specs: [
+      'Consolidated Order Dispatch for Complete Jobsite Foundation',
+      'Single-Point Sourcing for Cement, Steel & Accessories',
+      'Wide Road Access for Multi-Axle Trucks and Trolleys',
+      'Mandi Wholesale Pricing with Official GST Compliance',
+      'Prompt On-Call Dispatch Across Bhilwara District',
+      'Direct Yard Inspection Before Payment & Delivery',
     ],
     whatsappMsg: 'Hello Shree Shiv Construction, I would like to check today’s rate for Building Materials.',
-    iconSvg: `<svg class="w-6 h-6 fill-current text-camel" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h4v4H7V7zm6 0h4v4h-4V7zm-6 6h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>`,
   },
 ];
 ---
 
 <Base
-  title="Kay2 Xenox Dealer Bhilwara | TMT Sariya & Building Material Supplier"
-  description="Authorized Kay2 Xenox dealer in Bhilwara. Leading building material supplier stocking Fe 550D TMT sariya, binding wire, and concrete cover blocks. WhatsApp 8278643303 for rates."
+  title="Selected Stock & Products | Shree Shiv Construction & Steel Bhilwara"
+  description="Bespoke yard gallery of certified Kay2 Xenox Fe 550D TMT bars, annealed binding wire, and concrete cover blocks in Bhilwara. 200 Feet Road depot."
   canonicalPath="/products"
 >
-  <!-- Single H1 Page Header in Warm Cream -->
-  <header class="bg-cream-warm text-charcoal border-b border-cream-border py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-6 md:px-8">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 mb-3">
-          <span class="inline-block px-2.5 py-1 bg-eucalyptus text-cream micro-label font-bold border border-eucalyptus">
-            Bhilwara Yard Inventory
-          </span>
-        </div>
-        <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-charcoal leading-tight mb-4">
-          TMT Sariya &amp; Building Materials in Bhilwara
-        </h1>
-        <p class="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed">
-          Authorized Kay2 Xenox dealer stocking certified Fe 550D reinforcement steel, industrial binding wire, and precision cover blocks. Inquire directly on WhatsApp for daily yard rates.
-        </p>
+  <!-- Full-Viewport 3D Perspective Yard Gallery -->
+  <div class="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between py-6 md:py-10 px-6 md:px-12 overflow-hidden select-none">
+    
+    <!-- Top Micro-Label Kicker & Category Count -->
+    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-cream-border/60 pb-4 relative z-20">
+      <div class="flex items-center gap-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-camel"></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.28em] text-charcoal font-bold">
+          SELECTED STOCK &bull; YARD GALLERY 3D
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal-muted hidden sm:inline-block">
+          200 FEET ROAD DEPOT &bull; BHILWARA
+        </span>
+        <Badge variant="eucalyptus">05 CORE CATEGORIES</Badge>
       </div>
     </div>
-  </header>
 
-  <!-- Detailed Product Sections List (H2 per section) -->
-  <main class="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
-    <div class="space-y-16 md:space-y-24">
-      {products.map((item, index) => (
-        <section
-          id={item.id}
-          class="border border-cream-border bg-cream-card p-8 md:p-12 relative scroll-mt-28 hover:border-camel transition-colors"
-        >
-          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-cream-border pb-6 mb-8">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-cream-warm text-charcoal flex items-center justify-center shrink-0 border border-cream-border">
-                <span set:html={item.iconSvg} />
-              </div>
-              <div>
-                <span class="micro-label text-camel font-bold block">
-                  PRODUCT 0{index + 1}
-                </span>
-                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-charcoal mt-0.5">
-                  {item.name}
-                </h2>
+    <!-- Center Stage: 3D Perspective Floating Photo Plane Stage -->
+    <div class="my-auto py-8 sm:py-12 relative z-20 flex flex-col items-center justify-center">
+      
+      <!-- 3D Stage Container -->
+      <div class="perspective-stage w-full max-w-5xl mx-auto relative min-h-[380px] sm:min-h-[460px] md:min-h-[520px] flex items-center justify-center">
+        
+        {products.map((item, idx) => (
+          <div
+            id={`product-plane-${idx}`}
+            class={`product-perspective-plane absolute inset-0 flex flex-col items-center justify-center transition-all duration-700 ease-out ${
+              idx === 0
+                ? 'opacity-100 scale-100 z-30 pointer-events-auto'
+                : 'opacity-0 scale-95 pointer-events-none z-10 translate-y-8'
+            }`}
+            data-index={idx}
+          >
+            <!-- Giant Overlapping Fraunces Serif Title -->
+            <div class="relative z-20 text-center mb-[-2rem] sm:mb-[-3rem] md:mb-[-4rem] pointer-events-none px-4">
+              <span class="font-mono text-xs uppercase tracking-[0.3em] text-camel font-bold block mb-2">
+                {item.index} // {item.category}
+              </span>
+              <h1 class="font-serif text-[clamp(2.4rem,6.5vw,5.5rem)] font-normal text-charcoal leading-[0.9] tracking-tight">
+                {item.name}
+              </h1>
+            </div>
+
+            <!-- Floating Photographic Plane with Sharp Framed Borders -->
+            <div class="relative z-10 w-full max-w-2xl sm:max-w-3xl aspect-[16/10] sm:aspect-[16/9] border border-cream-border bg-white p-2.5 sm:p-3.5 shadow-2xl transition-transform duration-500 hover:rotate-[-0.5deg]">
+              <div class="relative w-full h-full overflow-hidden bg-cream-warm">
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  width="1200"
+                  height="750"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  class="w-full h-full object-cover"
+                />
+
+                <!-- Corner Badge in Eucalyptus/Charcoal -->
+                <div class="absolute top-3 left-3 bg-charcoal text-cream px-3 py-1 font-mono text-[10px] tracking-widest uppercase font-bold">
+                  {item.badge}
+                </div>
+
+                <div class="absolute bottom-3 left-3 bg-cream/95 backdrop-blur-sm border border-cream-border px-3 py-1 font-mono text-[10px] tracking-wider uppercase text-charcoal font-bold">
+                  {item.gauges}
+                </div>
               </div>
             </div>
 
-            <Badge variant={item.badgeVariant}>{item.badge}</Badge>
+            <!-- Action Pill: Camel "VIEW PRODUCT" Button -->
+            <div class="relative z-20 mt-6 sm:mt-8 flex items-center gap-4">
+              <button
+                type="button"
+                class="view-product-btn rounded-full bg-camel text-charcoal px-8 py-3.5 font-mono text-xs uppercase tracking-[0.22em] font-black hover:bg-camel-dark active:scale-95 transition-all shadow-md cursor-pointer"
+                data-target-modal={`product-modal-${idx}`}
+                aria-label={`View technical specifications for ${item.name}`}
+              >
+                VIEW PRODUCT
+              </button>
+
+              <a
+                href={`https://wa.me/918278643303?text=${encodeURIComponent(item.whatsappMsg)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full border border-camel text-charcoal px-6 py-3.5 font-mono text-xs uppercase tracking-[0.2em] font-bold hover:bg-camel hover:text-charcoal transition-all"
+                aria-label={`Request rate sheet for ${item.name} on WhatsApp`}
+              >
+                WHATSAPP RATES
+              </a>
+            </div>
+
           </div>
+        ))}
 
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div class="lg:col-span-5 flex flex-col justify-between h-full">
-              <div>
-                <h3 class="font-display text-base font-bold uppercase tracking-wider text-charcoal mb-3">
-                  {item.subtitle}
-                </h3>
-                <p class="font-body text-sm md:text-base text-charcoal-muted leading-relaxed mb-8">
-                  {item.overview}
-                </p>
-              </div>
+      </div>
 
-              <div class="pt-6 border-t border-cream-border space-y-3">
-                <Button
-                  variant="whatsapp"
-                  href={`https://wa.me/918278643303?text=${encodeURIComponent(item.whatsappMsg)}`}
-                  target="_blank"
-                  class="w-full text-xs md:text-sm py-3.5"
-                  ariaLabel={`Get price on WhatsApp for ${item.name}`}
-                >
-                  <svg class="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z"/>
-                  </svg>
-                  Get price on WhatsApp
-                </Button>
-
-                <Button
-                  variant="call-outline"
-                  href="tel:+918278643303"
-                  class="w-full text-xs py-3"
-                  ariaLabel={`Call sales desk at +91 8278643303 for ${item.name}`}
-                >
-                  Direct Call: +91 8278643303
-                </Button>
-              </div>
-            </div>
-
-            <div class="lg:col-span-7 bg-cream-warm/70 border border-cream-border p-6 md:p-8">
-              <div class="flex items-center justify-between border-b border-cream-border pb-3 mb-6">
-                <h4 class="micro-label text-charcoal font-bold">
-                  Verified Technical Features &amp; Stock Standards
-                </h4>
-                <span class="font-mono text-[10px] text-charcoal-muted">Yard Verified</span>
-              </div>
-
-              <ul class="space-y-4">
-                {item.features.map((feature) => (
-                  <li class="flex items-start gap-3">
-                    <span class="w-2 h-2 bg-camel inline-block shrink-0 mt-1.5"></span>
-                    <span class="font-body text-xs sm:text-sm text-charcoal leading-relaxed font-normal">
-                      {feature}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <div class="mt-8 pt-4 border-t border-cream-border flex flex-wrap justify-between items-center text-[11px] font-mono text-charcoal-muted gap-2">
-                <span>Location: 200 Feet Road, Bhilwara</span>
-                <span class="text-charcoal font-semibold">Immediate Loading Ready</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
     </div>
-  </main>
+
+    <!-- Bottom Carousel Bar: PREV name / counter / NEXT name -->
+    <div class="border-t border-cream-border/60 pt-5 relative z-20 flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em]">
+      
+      <!-- Prev Button -->
+      <button
+        id="carousel-prev-btn"
+        type="button"
+        class="flex items-center gap-2 text-charcoal-muted hover:text-charcoal transition-colors cursor-pointer py-2 focus:outline-none"
+        aria-label="Previous product"
+      >
+        <span class="w-1.5 h-1.5 rounded-full bg-camel"></span>
+        <span>&larr; PREV:</span>
+        <span id="prev-name-label" class="text-charcoal font-bold hidden sm:inline">
+          {products[products.length - 1].name}
+        </span>
+      </button>
+
+      <!-- Counter -->
+      <div class="flex items-center gap-2 border border-cream-border px-4 py-1.5 rounded-full bg-cream-card font-bold">
+        <span id="carousel-current-index" class="text-charcoal">01</span>
+        <span class="text-charcoal-muted">/</span>
+        <span class="text-charcoal-muted">05</span>
+      </div>
+
+      <!-- Next Button -->
+      <button
+        id="carousel-next-btn"
+        type="button"
+        class="flex items-center gap-2 text-charcoal-muted hover:text-charcoal transition-colors cursor-pointer py-2 focus:outline-none"
+        aria-label="Next product"
+      >
+        <span id="next-name-label" class="text-charcoal font-bold hidden sm:inline">
+          {products[1].name}
+        </span>
+        <span>NEXT: &rarr;</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-camel"></span>
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Interactive Slide-In / Modal Technical Drawers for Each Product -->
+  {products.map((item, idx) => (
+    <div
+      id={`product-modal-${idx}`}
+      class="product-modal-drawer fixed inset-0 z-50 bg-charcoal/60 backdrop-blur-sm flex justify-end opacity-0 pointer-events-none transition-opacity duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${item.name} Technical Specifications`}
+    >
+      <div class="w-full max-w-xl bg-cream h-full overflow-y-auto p-8 sm:p-12 border-l border-cream-border flex flex-col justify-between transform translate-x-full transition-transform duration-300">
+        
+        <div>
+          <!-- Drawer Header -->
+          <div class="flex items-center justify-between border-b border-cream-border pb-6 mb-8">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-camel"></span>
+              <span class="font-mono text-xs uppercase tracking-[0.25em] text-charcoal font-bold">
+                SPECIFICATION // {item.index}
+              </span>
+            </div>
+            
+            <button
+              type="button"
+              class="close-modal-btn rounded-full border border-cream-border p-2 text-charcoal hover:border-camel hover:text-camel transition-colors cursor-pointer"
+              aria-label="Close specifications"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Title & Badges -->
+          <div class="space-y-3 mb-6">
+            <Badge variant="eucalyptus">{item.badge}</Badge>
+            <h2 class="font-serif text-3xl sm:text-4xl text-charcoal leading-tight">
+              {item.name}
+            </h2>
+            <div class="font-mono text-xs text-camel uppercase tracking-wider font-bold">
+              {item.gauges}
+            </div>
+          </div>
+
+          <!-- Overview Copy in Public Sans -->
+          <p class="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed mb-8">
+            {item.summary}
+          </p>
+
+          <!-- Verified Specs Checklist -->
+          <div class="border-t border-cream-border pt-6 mb-8">
+            <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-charcoal font-bold block mb-4">
+              VERIFIED YARD TECHNICAL STANDARDS
+            </span>
+            <ul class="space-y-3">
+              {item.specs.map((spec) => (
+                <li class="flex items-start gap-3 font-body text-xs sm:text-sm text-charcoal">
+                  <span class="w-1.5 h-1.5 rounded-full bg-camel shrink-0 mt-1.5"></span>
+                  <span>{spec}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Action Bar at Drawer Bottom -->
+        <div class="pt-6 border-t border-cream-border space-y-3">
+          <Button
+            variant="primary"
+            href={`https://wa.me/918278643303?text=${encodeURIComponent(item.whatsappMsg)}`}
+            target="_blank"
+            class="w-full text-xs font-mono uppercase tracking-[0.2em] font-bold py-3.5"
+            ariaLabel={`Request instant price on WhatsApp for ${item.name}`}
+          >
+            REQUEST INSTANT QUOTE ON WHATSAPP
+          </Button>
+
+          <Button
+            variant="call-outline"
+            href="tel:+918278643303"
+            class="w-full text-xs font-mono uppercase tracking-[0.2em] font-bold py-3"
+            ariaLabel="Call yard desk directly at +91 8278643303"
+          >
+            CALL DESK: +91 8278643303
+          </Button>
+        </div>
+
+      </div>
+    </div>
+  ))}
+
+  <!-- Interactive 3D Perspective Carousel & Drawer Scripts -->
+  <script define:vars={{ products }}>
+    let currentIndex = 0;
+    const totalProducts = products.length;
+
+    const planes = document.querySelectorAll('.product-perspective-plane');
+    const prevBtn = document.getElementById('carousel-prev-btn');
+    const nextBtn = document.getElementById('carousel-next-btn');
+    const counterEl = document.getElementById('carousel-current-index');
+    const prevNameLabel = document.getElementById('prev-name-label');
+    const nextNameLabel = document.getElementById('next-name-label');
+
+    function updateCarousel(newIndex) {
+      if (newIndex < 0) newIndex = totalProducts - 1;
+      if (newIndex >= totalProducts) newIndex = 0;
+      currentIndex = newIndex;
+
+      planes.forEach((plane, idx) => {
+        if (idx === currentIndex) {
+          plane.classList.remove('opacity-0', 'scale-95', 'pointer-events-none', 'z-10', 'translate-y-8');
+          plane.classList.add('opacity-100', 'scale-100', 'z-30', 'pointer-events-auto', 'translate-y-0');
+        } else {
+          plane.classList.remove('opacity-100', 'scale-100', 'z-30', 'pointer-events-auto', 'translate-y-0');
+          plane.classList.add('opacity-0', 'scale-95', 'pointer-events-none', 'z-10', 'translate-y-8');
+        }
+      });
+
+      if (counterEl) {
+        counterEl.textContent = (currentIndex + 1).toString().padStart(2, '0');
+      }
+
+      const prevIdx = (currentIndex - 1 + totalProducts) % totalProducts;
+      const nextIdx = (currentIndex + 1) % totalProducts;
+
+      if (prevNameLabel) prevNameLabel.textContent = products[prevIdx].name;
+      if (nextNameLabel) nextNameLabel.textContent = products[nextIdx].name;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+    }
+
+    // Keyboard arrow navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') updateCarousel(currentIndex - 1);
+      if (e.key === 'ArrowRight') updateCarousel(currentIndex + 1);
+    });
+
+    // Modal drawer controls
+    const viewButtons = document.querySelectorAll('.view-product-btn');
+    const closeButtons = document.querySelectorAll('.close-modal-btn');
+    const modalDrawers = document.querySelectorAll('.product-modal-drawer');
+
+    viewButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target-modal');
+        const modal = document.getElementById(targetId);
+        if (modal) {
+          modal.classList.remove('opacity-0', 'pointer-events-none');
+          modal.classList.add('opacity-100', 'pointer-events-auto');
+          const drawer = modal.firstElementChild;
+          if (drawer) drawer.classList.remove('translate-x-full');
+        }
+      });
+    });
+
+    function closeModal(modal) {
+      const drawer = modal.firstElementChild;
+      if (drawer) drawer.classList.add('translate-x-full');
+      setTimeout(() => {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modal.classList.remove('opacity-100', 'pointer-events-auto');
+      }, 250);
+    }
+
+    closeButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('.product-modal-drawer');
+        if (modal) closeModal(modal);
+      });
+    });
+
+    modalDrawers.forEach((modal) => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+  </script>
 </Base>

@@ -1,0 +1,63 @@
+---
+import Button from './Button.astro';
+---
+
+<section id="intro-statement" class="py-24 sm:py-32 md:py-40 relative z-10 border-t border-cream-border/60">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Left Column: Large High-Contrast Fraunces Serif Statement (7 cols) -->
+      <div class="lg:col-span-7 editorial-intro-left">
+        <span class="font-mono text-[10px] tracking-[0.28em] uppercase text-charcoal-muted font-bold block mb-4">
+          STATEMENT // PRIMARY FOUNDATION
+        </span>
+        <h2 class="font-serif text-[clamp(2.2rem,4.6vw,4.2rem)] font-normal text-charcoal leading-[1.04] tracking-tight">
+          We supply the primary steel that anchors Bhilwara's homes, high-rises, and industrial structures.
+        </h2>
+      </div>
+
+      <!-- Right Column: Small-Caps Label + Support Paragraph + Pill Link (5 cols) -->
+      <div class="lg:col-span-5 editorial-intro-right space-y-6 pt-2 lg:pt-8 lg:border-l lg:border-cream-border/80 lg:pl-10">
+        
+        <!-- Small-Caps Label with Very Wide Letter-Spacing -->
+        <div class="flex items-center gap-2.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-camel"></span>
+          <span class="font-mono text-[11px] uppercase tracking-[0.28em] text-charcoal font-bold">
+            YARD NO. 01 &mdash; BHILWARA
+          </span>
+        </div>
+
+        <!-- Support Paragraph in Public Sans -->
+        <p class="font-body text-base text-charcoal-muted leading-relaxed font-normal">
+          Direct mill supply of certified Kay2 Xenox Fe 550D TMT sariya, annealed tying wire, and high-density concrete cover blocks. Every order is weighed on our computerized weighbridge with zero shortage, verified with factory test certificates, and billed with a pakka GST invoice.
+        </p>
+
+        <!-- Technical Yard Fact Chips -->
+        <div class="py-3 border-y border-cream-border/60 font-mono text-xs text-charcoal space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Ready Gauges:</span>
+            <strong class="font-bold">8mm, 10mm, 12mm, 16mm, 20mm, 25mm, 32mm</strong>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-charcoal-muted uppercase text-[10px] tracking-wider">Loading Facility:</span>
+            <span class="text-charcoal-muted font-semibold">Tractor, Pickup &amp; Multi-Axle Trailer</span>
+          </div>
+        </div>
+
+        <!-- Pill Link to Products -->
+        <div class="pt-2">
+          <Button
+            variant="camel-outline"
+            href="/products"
+            class="px-7 py-3.5 text-xs font-mono uppercase tracking-[0.2em] font-bold"
+            ariaLabel="Explore our complete selected stock on products page"
+          >
+            EXPLORE SELECTED STOCK &rarr;
+          </Button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
