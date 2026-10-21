@@ -1,0 +1,212 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import SectionHeading from '@/components/SectionHeading';
+import Button from '@/components/Button';
+import Badge from '@/components/Badge';
+
+export const metadata: Metadata = {
+  title: 'About Shree Shiv Construction & Steel | Leading Building Material Supplier Bhilwara',
+  description:
+    'Discover Shree Shiv Construction & Steel in Bhilwara, led by Chandraprakash Bairwa. Authorized Kay2 Xenox dealer and trusted building material supplier stocking Fe 550D TMT sariya.',
+  alternates: {
+    canonical: '/about',
+  },
+};
+
+const values = [
+  {
+    title: 'Certified Sourcing Only',
+    description:
+      'We only partner with established steel mills like Kay2 Xenox. Every bar delivered to a customer carries authentic BIS roll marks and mill test certificates.',
+  },
+  {
+    title: 'Computerized Weighment',
+    description:
+      'Zero guesswork or estimated weights. Consignments undergo precise electronic weighbridge verification so builders pay strictly for what they receive.',
+  },
+  {
+    title: 'Dedicated Jobsite Dispatch',
+    description:
+      'Located right on 200 Feet Road, our yard provides rapid truck loading and organized tractor-trailer deliveries across Bhilwara and nearby districts.',
+  },
+  {
+    title: 'Official GST Transparency',
+    description:
+      'Operating with full regulatory compliance under GSTIN: 08FFXPB0515IZ5, protecting individual homeowners and commercial contractors alike.',
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <>
+      {/* Single H1 Page Header in Warm Cream with Real Shop Front Hero Visual */}
+      <header className="bg-cream-warm text-charcoal border-b border-cream-border py-14 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-7 max-w-2xl">
+              <div className="inline-flex items-center gap-2 mb-3">
+                <span className="inline-block px-3 py-1 bg-eucalyptus text-cream font-mono text-[10px] tracking-[0.25em] uppercase font-bold rounded-full">
+                  Bhilwara, Rajasthan
+                </span>
+              </div>
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal leading-tight mb-4">
+                Building Material Supplier in Bhilwara
+              </h1>
+              <p className="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed">
+                The story and foundational principles behind Shree Shiv Construction &amp; Steel. Authorized Kay2 Xenox dealer supplying Fe 550D TMT bars directly from our 200 Feet Road depot.
+              </p>
+            </div>
+            <div className="lg:col-span-5 border border-cream-border bg-white p-2.5 shadow-sm">
+              <div className="relative aspect-[4/3] overflow-hidden bg-cream-warm">
+                <Image
+                  src="/images/shop-front.webp"
+                  alt="Shree Shiv Construction & Steel shop front, 200 Feet Road, Bhilwara"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+                <div className="absolute bottom-2 left-2 bg-cream/95 backdrop-blur-sm border border-cream-border px-2.5 py-1 font-mono text-[10px] tracking-widest uppercase text-charcoal font-bold z-10">
+                  200 Feet Road Depot
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
+        {/* Story & Leadership Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-20">
+          <div className="lg:col-span-7 space-y-6">
+            <SectionHeading
+              eyebrow="Our Story"
+              title="मजबूती की सही पहचान"
+              titleLang="hi"
+              subtitle="Built on trust, honest weighbridge billing, and genuine factory-tested steel for home builders and contractors in Bhilwara."
+            />
+
+            <div className="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed space-y-4">
+              <p>
+                Shree Shiv Construction &amp; Steel was started with one clear goal: give local builders, contractors, and families in Bhilwara direct access to 100% genuine, mill-certified steel at fair daily mandi rates without middleman markups or weight shortages.
+              </p>
+              <p>
+                In a market where sub-standard rerolled sariya is often passed off as branded steel, we stock only authorized{' '}
+                <strong className="text-charcoal font-semibold">Kay2 Xenox Fe 550D TMT bars</strong> with authentic manufacturer roll marks, alongside high-tensile binding wire and precast concrete cover blocks.
+              </p>
+              <p>
+                Operating directly from our depot on{' '}
+                <strong className="text-charcoal font-semibold">200 Feet Road, Near Sharda Evergreen</strong>, we verify every single bundle on our computerized weighbridge and provide proper GST tax invoices for every order.
+              </p>
+            </div>
+
+            <div className="pt-6 border-t border-cream-border flex flex-wrap gap-4">
+              <Button
+                variant="whatsapp"
+                href="https://wa.me/918278643303"
+                target="_blank"
+                ariaLabel="Connect with our founders on WhatsApp"
+              >
+                Connect on WhatsApp
+              </Button>
+              <Button
+                variant="call-outline"
+                href="tel:+918278643303"
+                ariaLabel="Call primary depot desk at +91 8278643303"
+              >
+                Call Primary Desk
+              </Button>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 border border-cream-border bg-cream-card p-8 relative">
+            <div className="border-b border-cream-border pb-4 mb-6">
+              <Badge variant="eucalyptus" className="mb-2">Proprietorship &amp; Management</Badge>
+              <h2 className="font-serif text-2xl font-black uppercase tracking-tight text-charcoal">
+                Chandraprakash Bairwa
+              </h2>
+              <span className="font-mono text-xs text-charcoal-muted block mt-1">
+                Founder &bull; Shree Shiv Construction &amp; Steel
+              </span>
+            </div>
+
+            <div className="space-y-4 font-mono text-xs text-charcoal-muted">
+              <div className="flex justify-between border-b border-cream-border pb-2">
+                <span>Direct Desk:</span>
+                <span className="text-charcoal font-bold">+91 8278643303</span>
+              </div>
+              <div className="flex justify-between border-b border-cream-border pb-2">
+                <span>Alternate Line:</span>
+                <span className="text-charcoal font-bold">+91 9602812764</span>
+              </div>
+              <div className="flex justify-between border-b border-cream-border pb-2">
+                <span>Yard Depot:</span>
+                <span className="text-charcoal text-right">200 Feet Rd, Bhilwara</span>
+              </div>
+              <div className="flex justify-between border-b border-cream-border pb-2">
+                <span>GST Registration:</span>
+                <span className="text-camel font-bold">08FFXPB0515IZ5</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Instagram:</span>
+                <a
+                  href="https://instagram.com/shreeshivconstructionsteel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-charcoal font-semibold hover:text-camel"
+                >
+                  @shreeshivconstructionsteel
+                </a>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-4 border-t border-cream-border bg-cream-warm -mx-8 -mb-8 p-6 text-xs font-body text-charcoal-muted">
+              <p>
+                &ldquo;Our commitment is simple: what we quote is what we weigh, and what we dispatch is genuine mill-tested grade. Every building deserves an unshakeable foundation.&rdquo;
+              </p>
+              <span className="font-serif text-[10px] uppercase font-bold text-charcoal mt-2 block tracking-wider">
+                &mdash; Chandraprakash Bairwa
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Operating Standards (H2) */}
+        <section className="border-t border-cream-border pt-16 md:pt-24">
+          <SectionHeading
+            eyebrow="Operating Standards"
+            title="Principles That Define Our Yard"
+            subtitle="How we maintain trust with civil contractors, developers, and individual homeowners every day."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {values.map((val, idx) => (
+              <div
+                key={val.title}
+                className="md:col-span-6 border border-cream-border bg-cream-card p-8 flex flex-col justify-between hover:border-camel transition-colors"
+              >
+                <div>
+                  <span className="micro-label text-camel font-bold block mb-2">
+                    STANDARD 0{idx + 1}
+                  </span>
+                  <h3 className="font-serif text-xl md:text-2xl font-bold uppercase tracking-tight text-charcoal mb-3">
+                    {val.title}
+                  </h3>
+                  <p className="font-body text-sm md:text-base text-charcoal-muted leading-relaxed">
+                    {val.description}
+                  </p>
+                </div>
+                <div className="mt-6 pt-3 border-t border-cream-border flex items-center gap-2 text-[10px] font-mono text-charcoal-muted">
+                  <span className="w-1.5 h-1.5 bg-eucalyptus inline-block" />
+                  <span className="tracking-widest uppercase font-semibold">
+                    Shree Shiv Construction &amp; Steel Verified Quality
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

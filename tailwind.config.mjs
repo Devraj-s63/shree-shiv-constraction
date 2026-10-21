@@ -1,6 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
       colors: {
@@ -37,17 +41,17 @@ export default {
       },
       fontFamily: {
         // English display: Fraunces (high-contrast Didone serif, huge, tight leading)
-        serif: ['Fraunces', 'Georgia', 'serif'],
-        display: ['Fraunces', 'Georgia', 'serif'],
+        serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
+        display: ['var(--font-fraunces)', 'Georgia', 'serif'],
         // Hindi display: Rozha One (fashion-editorial Devanagari serif)
-        hindi: ['"Rozha One"', 'serif'],
+        hindi: ['var(--font-rozha)', 'serif'],
         // Body / UI: Public Sans
-        body: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        sans: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        body: ['var(--font-public-sans)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['var(--font-public-sans)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         // Technical blueprint notation
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
         // Sneaker stage massive condensed uppercase display
-        condensed: ['"Bebas Neue"', 'Impact', '"Arial Narrow"', 'sans-serif'],
+        condensed: ['var(--font-bebas)', 'Impact', '"Arial Narrow"', 'sans-serif'],
       },
     },
   },
