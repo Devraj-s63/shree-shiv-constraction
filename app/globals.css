@@ -106,3 +106,16 @@ html.lenis, html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* Mobile hero scroll-snap support */
+@media (max-width: 1023px) {
+  #hero-mobile-snap-stack {
+    scroll-snap-type: y mandatory;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #hero-mobile-snap-stack {
+    scroll-snap-type: none !important;
+  }
+}
