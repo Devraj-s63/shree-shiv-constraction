@@ -20,8 +20,8 @@ export function initAnimations() {
   // Register GSAP plugins
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1. Theatrical Hero Reveal
-  initHeroTheatrical();
+  // 1. Hero Product Stage manages its own snappy sneaker drop transitions
+  // (initHeroStage in Hero.astro)
 
   // 2. Slow Parallax Drift of Blueprint Layers
   initBlueprintParallax();

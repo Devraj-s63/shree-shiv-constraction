@@ -46,6 +46,8 @@ export default {
         sans: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         // Technical blueprint notation
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        // Sneaker stage massive condensed uppercase display
+        condensed: ['"Bebas Neue"', 'Impact', '"Arial Narrow"', 'sans-serif'],
       },
     },
   },
