@@ -244,6 +244,12 @@ export default function Hero() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // (8) Preload all three product cutout images before pin engages so swaps never pop in
+    products.forEach((p) => {
+      const img = new window.Image();
+      img.src = p.imageSrc;
+    });
+
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setReducedMotion(mq.matches);
 
@@ -269,173 +275,195 @@ export default function Hero() {
       () => {
         if (!heroContainerRef.current) return;
 
-        // Initialize starting states explicitly via GSAP so no conflicting inline transform strings
-        if (wipe1Ref.current) gsap.set(wipe1Ref.current, { xPercent: 100 });
-        if (wipe2Ref.current) gsap.set(wipe2Ref.current, { xPercent: 100 });
-        if (word1Ref.current) gsap.set(word1Ref.current, { x: 120, opacity: 0 });
-        if (word2Ref.current) gsap.set(word2Ref.current, { x: 120, opacity: 0 });
-        if (prod1Ref.current) gsap.set(prod1Ref.current, { x: 80, rotation: 10, scale: 0.9, opacity: 0 });
-        if (prod2Ref.current) gsap.set(prod2Ref.current, { x: 80, rotation: 10, scale: 0.9, opacity: 0 });
-        if (copy1Ref.current) gsap.set(copy1Ref.current, { y: 10, opacity: 0 });
-        if (copy2Ref.current) gsap.set(copy2Ref.current, { y: 10, opacity: 0 });
-        if (var1Ref.current) gsap.set(var1Ref.current, { y: 6, opacity: 0 });
-        if (var2Ref.current) gsap.set(var2Ref.current, { y: 6, opacity: 0 });
+        // (5) Animate transform and opacity only (force3D on) - initialize starting states via GSAP
+        // (6) Full-screen wipe layers animated by transform (scaleX) stacked above base background
+        if (wipe1Ref.current) gsap.set(wipe1Ref.current, { scaleX: 0, transformOrigin: 'right center', force3D: true });
+        if (wipe2Ref.current) gsap.set(wipe2Ref.current, { scaleX: 0, transformOrigin: 'right center', force3D: true });
+        if (word1Ref.current) gsap.set(word1Ref.current, { x: 120, opacity: 0, force3D: true });
+        if (word2Ref.current) gsap.set(word2Ref.current, { x: 120, opacity: 0, force3D: true });
+        if (prod1Ref.current) gsap.set(prod1Ref.current, { x: 80, rotation: 8, scale: 0.9, opacity: 0, force3D: true });
+        if (prod2Ref.current) gsap.set(prod2Ref.current, { x: 80, rotation: 8, scale: 0.9, opacity: 0, force3D: true });
+        if (copy1Ref.current) gsap.set(copy1Ref.current, { y: 10, opacity: 0, force3D: true });
+        if (copy2Ref.current) gsap.set(copy2Ref.current, { y: 10, opacity: 0, force3D: true });
+        if (var1Ref.current) gsap.set(var1Ref.current, { y: 8, opacity: 0, force3D: true });
+        if (var2Ref.current) gsap.set(var2Ref.current, { y: 8, opacity: 0, force3D: true });
 
+        // (1) ONE master GSAP timeline scrubbed across full ~300vh
+        // Total duration = 10.0.
+        // 60% calm hold, 40% transition per segment
         const tl = gsap.timeline({
-          defaults: { ease: 'none' },
+          defaults: { ease: 'none', force3D: true },
         });
 
-        // Passive progress line scrub (0% to 100% over total scroll duration)
+        // Continuous passive progress line scrub (0% to 100%)
         if (progressLineRef.current) {
           tl.to(
             progressLineRef.current,
             {
               scaleX: 1,
               ease: 'none',
-              duration: 2.0,
+              duration: 10.0,
             },
             0
           );
         }
 
-        // Segment 1 (Time 0.35 -> 0.65, middle at 0.5): Transition Product 0 -> Product 1
-        // 1. Wipe layer 1 slides in with Wine Red #7F011F AND hero container background turns Wine Red
-        if (wipe1Ref.current) {
-          tl.to(wipe1Ref.current, { xPercent: 0, duration: 0.3, ease: 'power2.inOut' }, 0.35);
-        }
-        if (heroContainerRef.current) {
-          tl.to(heroContainerRef.current, { backgroundColor: '#7F011F', duration: 0.05 }, 0.5);
+        // --- PRODUCT 0 (Kay2 Xenox TMT Sariya / STRONG) ---
+        // Calm hold with subtle idle drift from t = 0.0 to t = 2.0 (duration 2.0 = 40% of Segment 1)
+        if (prod0Ref.current) {
+          tl.to(prod0Ref.current, { y: -6, duration: 2.0, ease: 'sine.inOut' }, 0);
         }
 
-        // 2. Color swap to Light Sand text on Wine Red
+        // --- TRANSITION 1 (Product 0 -> Product 1, Binding Wire / BIND) ---
+        // Transition window: t = 2.0 to t = 4.0 (duration 2.0 = 40% of Segment 1)
+        // (4) Smooth eases: power2.inOut or sine.inOut everywhere
+        // (6) Wipe layer 1 (Wine Red #7F011F) scales in via transform scaleX from right
+        if (wipe1Ref.current) {
+          tl.to(wipe1Ref.current, { scaleX: 1, duration: 1.8, ease: 'sine.inOut' }, 2.1);
+        }
+
+        // Color swap to Light Sand text on Wine Red
         const colorTargets = [leftColRef.current, visualColRef.current, gritRef.current].filter(Boolean);
         if (colorTargets.length > 0) {
-          tl.to(colorTargets, { color: '#F5EBD0', duration: 0.05 }, 0.5);
+          tl.to(colorTargets, { color: '#F5EBD0', duration: 1.2, ease: 'sine.inOut' }, 2.4);
         }
         if (ctaWhatsappRef.current) {
-          tl.to(ctaWhatsappRef.current, { backgroundColor: '#F5EBD0', color: '#7F011F', duration: 0.05 }, 0.5);
+          tl.to(ctaWhatsappRef.current, { backgroundColor: '#F5EBD0', color: '#7F011F', duration: 1.2, ease: 'sine.inOut' }, 2.4);
         }
         if (ctaAllRef.current) {
-          tl.to(ctaAllRef.current, { borderColor: '#F5EBD0', color: '#F5EBD0', duration: 0.05 }, 0.5);
+          tl.to(ctaAllRef.current, { borderColor: '#F5EBD0', color: '#F5EBD0', duration: 1.2, ease: 'sine.inOut' }, 2.4);
         }
 
-        // 3. Giant Word 0 -> 1
+        // Giant Word 0 -> 1 (sine.inOut)
         if (word0Ref.current) {
-          tl.to(word0Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 0.35);
+          tl.to(word0Ref.current, { x: -140, opacity: 0, duration: 1.4, ease: 'sine.inOut' }, 2.0);
         }
         if (word1Ref.current) {
-          tl.to(word1Ref.current, { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' }, 0.5);
+          tl.to(word1Ref.current, { x: 0, opacity: 0.24, duration: 1.5, ease: 'sine.inOut' }, 2.5);
         }
 
-        // 4. Product Cutout 0 -> 1 (flips/slides out with rotation, new one flips in)
+        // Product Cutout 0 -> 1 (power2.inOut)
         if (prod0Ref.current) {
           tl.to(
             prod0Ref.current,
-            { x: -80, rotation: -10, scale: 0.88, opacity: 0, duration: 0.15, ease: 'power2.in' },
-            0.35
+            { x: -90, rotation: -8, scale: 0.9, opacity: 0, duration: 1.4, ease: 'power2.inOut' },
+            2.0
           );
         }
         if (prod1Ref.current) {
           tl.to(
             prod1Ref.current,
-            { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
-            0.5
+            { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 1.5, ease: 'power2.inOut' },
+            2.5
           );
         }
 
-        // 5. Copy & Badges 0 -> 1
+        // Copy & Badges 0 -> 1 (power2.inOut)
         if (copy0Ref.current) {
-          tl.to(copy0Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 0.35);
+          tl.to(copy0Ref.current, { y: -10, opacity: 0, duration: 1.3, ease: 'power2.inOut' }, 2.1);
         }
         if (copy1Ref.current) {
-          tl.to(copy1Ref.current, { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' }, 0.52);
+          tl.to(copy1Ref.current, { y: 0, opacity: 1, duration: 1.4, ease: 'power2.inOut' }, 2.6);
         }
 
-        // 6. Static Variant chips 0 -> 1 (repositioned under product visual)
+        // Static Variant chips 0 -> 1 (power2.inOut)
         if (var0Ref.current) {
-          tl.to(var0Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 0.35);
+          tl.to(var0Ref.current, { opacity: 0, y: -8, duration: 1.3, ease: 'power2.inOut' }, 2.1);
         }
         if (var1Ref.current) {
-          tl.to(var1Ref.current, { opacity: 1, y: 0, duration: 0.13 }, 0.52);
+          tl.to(var1Ref.current, { opacity: 1, y: 0, duration: 1.4, ease: 'power2.inOut' }, 2.6);
         }
 
-        // Segment 2 (Time 1.35 -> 1.65, middle at 1.5): Transition Product 1 -> Product 2
-        // 1. Wipe layer 2 slides in with Light Sand #F5EBD0 AND hero container background turns Light Sand
+        // --- PRODUCT 1 (Binding Wire / BIND) ---
+        // Product 1 arrives FULLY SETTLED by t = 4.0.
+        // Calm hold with subtle idle drift from t = 4.0 to t = 7.0 (duration 3.0 = 60% calm hold!)
+        // Perfectly centered at t = 5.0 (the 0.5 snap point!)
+        if (prod1Ref.current) {
+          tl.to(prod1Ref.current, { y: -6, duration: 3.0, ease: 'sine.inOut' }, 4.0);
+        }
+
+        // --- TRANSITION 2 (Product 1 -> Product 2, Cover Blocks / SOLID) ---
+        // Transition window: t = 7.0 to t = 9.0 (duration 2.0 = 40% of Segment 2)
+        // (6) Wipe layer 2 (Light Sand #F5EBD0) scales in via transform scaleX stacked above Wipe layer 1
         if (wipe2Ref.current) {
-          tl.to(wipe2Ref.current, { xPercent: 0, duration: 0.3, ease: 'power2.inOut' }, 1.35);
-        }
-        if (heroContainerRef.current) {
-          tl.to(heroContainerRef.current, { backgroundColor: '#F5EBD0', duration: 0.05 }, 1.5);
+          tl.to(wipe2Ref.current, { scaleX: 1, duration: 1.8, ease: 'sine.inOut' }, 7.1);
         }
 
-        // 2. Color swap back to Wine Red text on Light Sand
+        // Color swap back to Wine Red text on Light Sand
         if (colorTargets.length > 0) {
-          tl.to(colorTargets, { color: '#7F011F', duration: 0.05 }, 1.5);
+          tl.to(colorTargets, { color: '#7F011F', duration: 1.2, ease: 'sine.inOut' }, 7.4);
         }
         if (ctaWhatsappRef.current) {
-          tl.to(ctaWhatsappRef.current, { backgroundColor: '#7F011F', color: '#F5EBD0', duration: 0.05 }, 1.5);
+          tl.to(ctaWhatsappRef.current, { backgroundColor: '#7F011F', color: '#F5EBD0', duration: 1.2, ease: 'sine.inOut' }, 7.4);
         }
         if (ctaAllRef.current) {
-          tl.to(ctaAllRef.current, { borderColor: '#7F011F', color: '#7F011F', duration: 0.05 }, 1.5);
+          tl.to(ctaAllRef.current, { borderColor: '#7F011F', color: '#7F011F', duration: 1.2, ease: 'sine.inOut' }, 7.4);
         }
 
-        // 3. Giant Word 1 -> 2
+        // Giant Word 1 -> 2 (sine.inOut)
         if (word1Ref.current) {
-          tl.to(word1Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 1.35);
+          tl.to(word1Ref.current, { x: -140, opacity: 0, duration: 1.4, ease: 'sine.inOut' }, 7.0);
         }
         if (word2Ref.current) {
-          tl.to(word2Ref.current, { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' }, 1.5);
+          tl.to(word2Ref.current, { x: 0, opacity: 0.24, duration: 1.5, ease: 'sine.inOut' }, 7.5);
         }
 
-        // 4. Product Cutout 1 -> 2
+        // Product Cutout 1 -> 2 (power2.inOut)
         if (prod1Ref.current) {
           tl.to(
             prod1Ref.current,
-            { x: -80, rotation: -10, scale: 0.88, opacity: 0, duration: 0.15, ease: 'power2.in' },
-            1.35
+            { x: -90, rotation: -8, scale: 0.9, opacity: 0, duration: 1.4, ease: 'power2.inOut' },
+            7.0
           );
         }
         if (prod2Ref.current) {
           tl.to(
             prod2Ref.current,
-            { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
-            1.5
+            { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 1.5, ease: 'power2.inOut' },
+            7.5
           );
         }
 
-        // 5. Copy & Badges 1 -> 2
+        // Copy & Badges 1 -> 2 (power2.inOut)
         if (copy1Ref.current) {
-          tl.to(copy1Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 1.35);
+          tl.to(copy1Ref.current, { y: -10, opacity: 0, duration: 1.3, ease: 'power2.inOut' }, 7.1);
         }
         if (copy2Ref.current) {
-          tl.to(copy2Ref.current, { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' }, 1.52);
+          tl.to(copy2Ref.current, { y: 0, opacity: 1, duration: 1.4, ease: 'power2.inOut' }, 7.6);
         }
 
-        // 6. Static Variant chips 1 -> 2
+        // Static Variant chips 1 -> 2 (power2.inOut)
         if (var1Ref.current) {
-          tl.to(var1Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 1.35);
+          tl.to(var1Ref.current, { opacity: 0, y: -8, duration: 1.3, ease: 'power2.inOut' }, 7.1);
         }
         if (var2Ref.current) {
-          tl.to(var2Ref.current, { opacity: 1, y: 0, duration: 0.13 }, 1.52);
+          tl.to(var2Ref.current, { opacity: 1, y: 0, duration: 1.4, ease: 'power2.inOut' }, 7.6);
         }
 
-        // Extend timeline to 2.0 total duration so Product 2 settles in its own resting plateau
-        tl.to({}, { duration: 0.35 });
+        // --- PRODUCT 2 (Cover Blocks / SOLID) ---
+        // Product 2 arrives FULLY SETTLED by t = 9.0.
+        // Calm hold with subtle idle drift from t = 9.0 to t = 10.0 (and releases into next section at t = 10.0 / snap 1.0)
+        if (prod2Ref.current) {
+          tl.to(prod2Ref.current, { y: -4, duration: 1.0, ease: 'sine.inOut' }, 9.0);
+        }
 
-        // Create ScrollTrigger pin spanning ~300vh total scroll distance (~100vh per product)
+        // (2) Numeric catch-up scrub: 1.2
+        // (3) Soft snap to resting points [0, 0.5, 1], duration between 0.25s and 0.6s, ease power3.inOut, delay 0.1
+        // (7) anticipatePin: 1
         ScrollTrigger.create({
           trigger: heroContainerRef.current,
           start: 'top top',
           end: '+=200%', // 100vh trigger + 200vh pinned scroll travel = 300vh total
           pin: true,
           pinSpacing: true,
-          scrub: 0.6,
+          anticipatePin: 1,
+          scrub: 1.2,
           animation: tl,
           snap: {
             snapTo: [0, 0.5, 1],
-            duration: { min: 0.2, max: 0.45 },
-            delay: 0.05,
-            ease: 'power2.inOut',
+            duration: { min: 0.25, max: 0.6 },
+            delay: 0.1,
+            ease: 'power3.inOut',
           },
         });
       },
@@ -483,7 +511,7 @@ export default function Hero() {
           <div
             ref={wipe2Ref}
             id="hero-wipe-2"
-            className="pointer-events-none absolute inset-0 z-[5] bg-[#F5EBD0] will-change-transform"
+            className="pointer-events-none absolute inset-0 z-[6] bg-[#F5EBD0] will-change-transform"
             aria-hidden="true"
           />
 
