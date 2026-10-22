@@ -269,6 +269,18 @@ export default function Hero() {
       () => {
         if (!heroContainerRef.current) return;
 
+        // Initialize starting states explicitly via GSAP so no conflicting inline transform strings
+        if (wipe1Ref.current) gsap.set(wipe1Ref.current, { xPercent: 100 });
+        if (wipe2Ref.current) gsap.set(wipe2Ref.current, { xPercent: 100 });
+        if (word1Ref.current) gsap.set(word1Ref.current, { x: 120, opacity: 0 });
+        if (word2Ref.current) gsap.set(word2Ref.current, { x: 120, opacity: 0 });
+        if (prod1Ref.current) gsap.set(prod1Ref.current, { x: 80, rotation: 10, scale: 0.9, opacity: 0 });
+        if (prod2Ref.current) gsap.set(prod2Ref.current, { x: 80, rotation: 10, scale: 0.9, opacity: 0 });
+        if (copy1Ref.current) gsap.set(copy1Ref.current, { y: 10, opacity: 0 });
+        if (copy2Ref.current) gsap.set(copy2Ref.current, { y: 10, opacity: 0 });
+        if (var1Ref.current) gsap.set(var1Ref.current, { y: 6, opacity: 0 });
+        if (var2Ref.current) gsap.set(var2Ref.current, { y: 6, opacity: 0 });
+
         const tl = gsap.timeline({
           defaults: { ease: 'none' },
         });
@@ -287,14 +299,12 @@ export default function Hero() {
         }
 
         // Segment 1 (Time 0.35 -> 0.65, middle at 0.5): Transition Product 0 -> Product 1
-        // 1. Wipe layer 1 slides in with Wine Red #7F011F
+        // 1. Wipe layer 1 slides in with Wine Red #7F011F AND hero container background turns Wine Red
         if (wipe1Ref.current) {
-          tl.fromTo(
-            wipe1Ref.current,
-            { xPercent: 100 },
-            { xPercent: 0, duration: 0.3, ease: 'power2.inOut' },
-            0.35
-          );
+          tl.to(wipe1Ref.current, { xPercent: 0, duration: 0.3, ease: 'power2.inOut' }, 0.35);
+        }
+        if (heroContainerRef.current) {
+          tl.to(heroContainerRef.current, { backgroundColor: '#7F011F', duration: 0.05 }, 0.5);
         }
 
         // 2. Color swap to Light Sand text on Wine Red
@@ -314,12 +324,7 @@ export default function Hero() {
           tl.to(word0Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 0.35);
         }
         if (word1Ref.current) {
-          tl.fromTo(
-            word1Ref.current,
-            { x: 120, opacity: 0 },
-            { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' },
-            0.5
-          );
+          tl.to(word1Ref.current, { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' }, 0.5);
         }
 
         // 4. Product Cutout 0 -> 1 (flips/slides out with rotation, new one flips in)
@@ -331,9 +336,8 @@ export default function Hero() {
           );
         }
         if (prod1Ref.current) {
-          tl.fromTo(
+          tl.to(
             prod1Ref.current,
-            { x: 80, rotation: 10, scale: 0.9, opacity: 0 },
             { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
             0.5
           );
@@ -344,12 +348,7 @@ export default function Hero() {
           tl.to(copy0Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 0.35);
         }
         if (copy1Ref.current) {
-          tl.fromTo(
-            copy1Ref.current,
-            { y: 8, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' },
-            0.52
-          );
+          tl.to(copy1Ref.current, { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' }, 0.52);
         }
 
         // 6. Static Variant chips 0 -> 1 (repositioned under product visual)
@@ -357,23 +356,16 @@ export default function Hero() {
           tl.to(var0Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 0.35);
         }
         if (var1Ref.current) {
-          tl.fromTo(
-            var1Ref.current,
-            { opacity: 0, y: 6 },
-            { opacity: 1, y: 0, duration: 0.13 },
-            0.52
-          );
+          tl.to(var1Ref.current, { opacity: 1, y: 0, duration: 0.13 }, 0.52);
         }
 
         // Segment 2 (Time 1.35 -> 1.65, middle at 1.5): Transition Product 1 -> Product 2
-        // 1. Wipe layer 2 slides in with Light Sand #F5EBD0
+        // 1. Wipe layer 2 slides in with Light Sand #F5EBD0 AND hero container background turns Light Sand
         if (wipe2Ref.current) {
-          tl.fromTo(
-            wipe2Ref.current,
-            { xPercent: 100 },
-            { xPercent: 0, duration: 0.3, ease: 'power2.inOut' },
-            1.35
-          );
+          tl.to(wipe2Ref.current, { xPercent: 0, duration: 0.3, ease: 'power2.inOut' }, 1.35);
+        }
+        if (heroContainerRef.current) {
+          tl.to(heroContainerRef.current, { backgroundColor: '#F5EBD0', duration: 0.05 }, 1.5);
         }
 
         // 2. Color swap back to Wine Red text on Light Sand
@@ -392,12 +384,7 @@ export default function Hero() {
           tl.to(word1Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 1.35);
         }
         if (word2Ref.current) {
-          tl.fromTo(
-            word2Ref.current,
-            { x: 120, opacity: 0 },
-            { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' },
-            1.5
-          );
+          tl.to(word2Ref.current, { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' }, 1.5);
         }
 
         // 4. Product Cutout 1 -> 2
@@ -409,9 +396,8 @@ export default function Hero() {
           );
         }
         if (prod2Ref.current) {
-          tl.fromTo(
+          tl.to(
             prod2Ref.current,
-            { x: 75, rotation: 10, scale: 0.9, opacity: 0 },
             { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
             1.5
           );
@@ -422,12 +408,7 @@ export default function Hero() {
           tl.to(copy1Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 1.35);
         }
         if (copy2Ref.current) {
-          tl.fromTo(
-            copy2Ref.current,
-            { y: 8, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' },
-            1.52
-          );
+          tl.to(copy2Ref.current, { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' }, 1.52);
         }
 
         // 6. Static Variant chips 1 -> 2
@@ -435,12 +416,7 @@ export default function Hero() {
           tl.to(var1Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 1.35);
         }
         if (var2Ref.current) {
-          tl.fromTo(
-            var2Ref.current,
-            { opacity: 0, y: 6 },
-            { opacity: 1, y: 0, duration: 0.13 },
-            1.52
-          );
+          tl.to(var2Ref.current, { opacity: 1, y: 0, duration: 0.13 }, 1.52);
         }
 
         // Extend timeline to 2.0 total duration so Product 2 settles in its own resting plateau
@@ -483,363 +459,357 @@ export default function Hero() {
         className="lg:hidden w-full flex flex-col snap-y snap-mandatory"
       />
 
-      {/* DESKTOP EXPERIENCE (>= 1024px): Pinned GSAP ScrollTrigger Stage with 2-Column Balanced Composition */}
-      <section
-        ref={heroContainerRef}
-        id="hero-section"
-        className="hidden lg:flex relative w-full h-screen overflow-hidden select-none transition-none"
-        style={{
-          backgroundColor: '#F5EBD0',
-          color: '#7F011F',
-        }}
-        aria-label="Scroll-driven Interactive Product Stage"
-      >
-        {/* Fast Wipe Layer 1: Wine Red #7F011F */}
-        <div
-          ref={wipe1Ref}
-          id="hero-wipe-1"
-          className="pointer-events-none absolute inset-0 z-0 bg-[#7F011F] will-change-transform"
-          style={{ transform: 'translateX(100%)' }}
-          aria-hidden="true"
-        />
-
-        {/* Fast Wipe Layer 2: Light Sand #F5EBD0 */}
-        <div
-          ref={wipe2Ref}
-          id="hero-wipe-2"
-          className="pointer-events-none absolute inset-0 z-0 bg-[#F5EBD0] will-change-transform"
-          style={{ transform: 'translateX(100%)' }}
-          aria-hidden="true"
-        />
-
-        {/* Giant Background Word (Layer z-10) — ~15% larger & stronger opacity ~0.24 */}
-        <div
-          className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none overflow-hidden"
-          aria-hidden="true"
+      {/* DESKTOP EXPERIENCE (>= 1024px): Pinned GSAP ScrollTrigger Stage wrapped in static container */}
+      <div className="hidden lg:block w-full">
+        <section
+          ref={heroContainerRef}
+          id="hero-section"
+          className="relative w-full h-screen overflow-hidden select-none transition-none"
+          style={{
+            backgroundColor: '#F5EBD0',
+            color: '#7F011F',
+          }}
+          aria-label="Scroll-driven Interactive Product Stage"
         >
-          {/* Word 0: STRONG (Light Sand phase) */}
+          {/* Fast Wipe Layer 1: Wine Red #7F011F */}
           <div
-            ref={word0Ref}
-            className="absolute font-condensed font-black uppercase text-[clamp(5.5rem,21vw,20.5rem)] leading-[0.76] tracking-tighter text-center will-change-transform"
-            style={{
-              color: '#7F011F',
-              opacity: 0.24,
-            }}
-          >
-            STRONG
-          </div>
-
-          {/* Word 1: BIND (Wine Red phase) */}
-          <div
-            ref={word1Ref}
-            className="absolute font-condensed font-black uppercase text-[clamp(5.5rem,21vw,20.5rem)] leading-[0.76] tracking-tighter text-center will-change-transform"
-            style={{
-              color: '#F5EBD0',
-              opacity: 0,
-              transform: 'translateX(120px)',
-            }}
-          >
-            BIND
-          </div>
-
-          {/* Word 2: SOLID (Light Sand phase) */}
-          <div
-            ref={word2Ref}
-            className="absolute font-condensed font-black uppercase text-[clamp(5.5rem,21vw,20.5rem)] leading-[0.76] tracking-tighter text-center will-change-transform"
-            style={{
-              color: '#7F011F',
-              opacity: 0,
-              transform: 'translateX(120px)',
-            }}
-          >
-            SOLID
-          </div>
-        </div>
-
-        {/* Subtle Grit Specks Layer (Layer z-15) */}
-        <div
-          ref={gritRef}
-          id="hero-grit-specks"
-          className="absolute inset-0 z-15 pointer-events-none select-none flex items-center justify-center opacity-25"
-          style={{ color: '#7F011F' }}
-          aria-hidden="true"
-        >
-          <svg className="w-full h-full max-w-5xl max-h-[600px]" viewBox="0 0 1000 700" fill="currentColor">
-            <circle cx="480" cy="220" r="1.5" /><circle cx="560" cy="190" r="1.2" /><circle cx="420" cy="380" r="1.8" />
-            <circle cx="600" cy="340" r="1.4" /><circle cx="360" cy="310" r="1.1" /><circle cx="640" cy="270" r="1.6" />
-            <circle cx="510" cy="150" r="1.3" /><circle cx="450" cy="450" r="1.4" /><circle cx="540" cy="470" r="1.5" />
-            <circle cx="340" cy="240" r="1.2" /><circle cx="660" cy="410" r="1.7" /><circle cx="400" cy="170" r="1" />
-            <circle cx="590" cy="160" r="1.4" /><circle cx="380" cy="410" r="1.3" /><circle cx="620" cy="210" r="1.2" />
-            <circle cx="530" cy="290" r="1.6" /><circle cx="460" cy="260" r="1.1" /><circle cx="570" cy="390" r="1.4" />
-            <circle cx="410" cy="490" r="1.5" /><circle cx="580" cy="480" r="1.2" />
-          </svg>
-        </div>
-
-        {/* Main Stage Grid (Layer z-30): Clean 2-Column Editorial Composition without Right Selector Panel */}
-        <div className="relative z-30 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-full flex flex-col justify-center">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-            
-            {/* LEFT COLUMN (7 cols): Scaled-Up Typography, Headline, Dynamic Copy & CTAs */}
-            <div
-              ref={leftColRef}
-              className="lg:col-span-7 text-left flex flex-col justify-center space-y-4"
-              style={{ color: '#7F011F' }}
-            >
-              {/* Kicker up one size step */}
-              <div className="flex items-center gap-2.5">
-                <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ backgroundColor: 'currentColor' }} />
-                <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] font-bold opacity-85">
-                  PRODUCT STAGE &bull; BHILWARA
-                </span>
-              </div>
-
-              {/* Hindi Headline scaled up to clamp(2.75rem, 5.5vw, 5rem) with tight leading */}
-              <h1
-                lang="hi"
-                className="font-hindi text-[clamp(2.75rem,5.5vw,5rem)] font-bold leading-[1.04] select-none"
-                style={{ color: 'inherit' }}
-                aria-label="मजबूती की सही पहचान"
-              >
-                मजबूती की सही पहचान
-              </h1>
-
-              {/* Per-product dynamic text blocks scaled to ~1.375rem */}
-              <div className="relative min-h-[105px] pt-1">
-                {/* Copy 0: TMT Sariya */}
-                <div ref={copy0Ref} className="absolute inset-0">
-                  <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium" style={{ color: 'inherit' }}>
-                    {products[0].shortLine}
-                  </p>
-                  <div className="mt-3.5 inline-flex items-center gap-2">
-                    <span className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border" style={{ borderColor: 'currentColor', color: 'inherit' }}>
-                      {products[0].name}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Copy 1: Binding Wire */}
-                <div ref={copy1Ref} className="absolute inset-0 opacity-0" style={{ transform: 'translateY(8px)' }}>
-                  <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium" style={{ color: 'inherit' }}>
-                    {products[1].shortLine}
-                  </p>
-                  <div className="mt-3.5 inline-flex items-center gap-2">
-                    <span className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border" style={{ borderColor: 'currentColor', color: 'inherit' }}>
-                      {products[1].name}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Copy 2: Cover Blocks */}
-                <div ref={copy2Ref} className="absolute inset-0 opacity-0" style={{ transform: 'translateY(8px)' }}>
-                  <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium" style={{ color: 'inherit' }}>
-                    {products[2].shortLine}
-                  </p>
-                  <div className="mt-3.5 inline-flex items-center gap-2">
-                    <span className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border" style={{ borderColor: 'currentColor', color: 'inherit' }}>
-                      {products[2].name}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Dual CTAs with button text to ~1.125rem and larger padding */}
-              <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 pt-2">
-                <a
-                  ref={ctaWhatsappRef}
-                  id="hero-cta-whatsapp"
-                  href="https://wa.me/918278643303"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero-pill-cta inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-black transition-transform duration-200 active:scale-95 text-center shadow-sm"
-                  style={{
-                    backgroundColor: '#7F011F',
-                    color: '#F5EBD0',
-                  }}
-                  aria-label="Order on WhatsApp at +91 8278643303"
-                >
-                  Order on WhatsApp
-                </a>
-
-                <Link
-                  ref={ctaAllRef}
-                  id="hero-cta-all"
-                  href="/products"
-                  className="hero-pill-outline inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-bold border-2 transition-transform duration-200 active:scale-95 text-center"
-                  style={{
-                    borderColor: '#7F011F',
-                    color: '#7F011F',
-                  }}
-                  aria-label="See all products catalog"
-                >
-                  See all products
-                </Link>
-              </div>
-
-              {/* Bottom trust line up one size step */}
-              <div
-                className="pt-4 border-t font-mono text-xs sm:text-sm uppercase tracking-[0.22em] font-medium opacity-85 flex items-center gap-3"
-                style={{ borderColor: 'currentColor', color: 'inherit' }}
-              >
-                <span>DIRECT MILL ALLOTMENT</span>
-                <span>&bull;</span>
-                <span>WEIGHBRIDGE PAKKA BILL</span>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN (5 cols): Product Visual + Diameter Pills Repositioned Underneath */}
-            <div
-              ref={visualColRef}
-              className="lg:col-span-5 relative flex flex-col items-center justify-center"
-              style={{ color: '#7F011F' }}
-            >
-              <div className="relative w-full max-w-[420px] lg:max-w-[480px] flex flex-col items-center">
-                
-                {/* Product Visual Frame */}
-                <div className="relative w-full aspect-square flex items-center justify-center">
-                  {/* Soft Contact Shadow Beneath Floating Product */}
-                  <div
-                    id="hero-contact-shadow"
-                    className="absolute bottom-[6%] sm:bottom-[8%] left-1/2 -translate-x-1/2 w-[68%] sm:w-[72%] h-7 sm:h-10 rounded-[50%] blur-xl pointer-events-none transition-opacity"
-                    style={{
-                      background:
-                        'radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, transparent 75%)',
-                      opacity: 0.6,
-                    }}
-                    aria-hidden="true"
-                  />
-
-                  {/* Cutout 0: TMT Sariya (Visible on Load) */}
-                  <div
-                    ref={prod0Ref}
-                    id="hero-product-cutout-0"
-                    className="absolute inset-0 flex items-center justify-center pointer-events-none will-change-transform"
-                  >
-                    <Image
-                      src={products[0].imageSrc}
-                      alt={products[0].imageAlt}
-                      width={650}
-                      height={650}
-                      priority
-                      className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
-                    />
-                  </div>
-
-                  {/* Cutout 1: Binding Wire (Slides/flips in on scroll) */}
-                  <div
-                    ref={prod1Ref}
-                    id="hero-product-cutout-1"
-                    className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 will-change-transform"
-                    style={{ transform: 'translateX(80px) rotate(10deg) scale(0.9)' }}
-                  >
-                    <Image
-                      src={products[1].imageSrc}
-                      alt={products[1].imageAlt}
-                      width={650}
-                      height={650}
-                      priority
-                      className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
-                    />
-                  </div>
-
-                  {/* Cutout 2: Cover Blocks (Slides/flips in on scroll) */}
-                  <div
-                    ref={prod2Ref}
-                    id="hero-product-cutout-2"
-                    className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 will-change-transform"
-                    style={{ transform: 'translateX(75px) rotate(10deg) scale(0.9)' }}
-                  >
-                    <Image
-                      src={products[2].imageSrc}
-                      alt={products[2].imageAlt}
-                      width={650}
-                      height={650}
-                      priority
-                      className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
-                    />
-                  </div>
-                </div>
-
-                {/* Repositioned under the product visual: static, non-interactive diameter/size info chips */}
-                <div className="relative min-h-[48px] w-full mt-4 flex items-center justify-center">
-                  {/* Variants 0: TMT Diameters (Static chips) */}
-                  <div
-                    ref={var0Ref}
-                    className="absolute inset-0 flex flex-wrap gap-2 justify-center items-center pointer-events-none"
-                    aria-label="Available TMT Bar Diameters"
-                  >
-                    {products[0].variants.map((v) => (
-                      <span
-                        key={v}
-                        className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
-                        style={{
-                          borderColor: 'currentColor',
-                          color: 'inherit',
-                        }}
-                      >
-                        {v}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Variants 1: Binding Wire Gauges */}
-                  <div
-                    ref={var1Ref}
-                    className="absolute inset-0 flex flex-wrap gap-2 justify-center items-center pointer-events-none opacity-0"
-                    style={{ transform: 'translateY(6px)' }}
-                    aria-label="Available Wire Gauges"
-                  >
-                    {products[1].variants.map((v) => (
-                      <span
-                        key={v}
-                        className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
-                        style={{
-                          borderColor: 'currentColor',
-                          color: 'inherit',
-                        }}
-                      >
-                        {v}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Variants 2: Cover Block Sizes */}
-                  <div
-                    ref={var2Ref}
-                    className="absolute inset-0 flex flex-wrap gap-2 justify-center items-center pointer-events-none opacity-0"
-                    style={{ transform: 'translateY(6px)' }}
-                    aria-label="Available Cover Block Sizes"
-                  >
-                    {products[2].variants.map((v) => (
-                      <span
-                        key={v}
-                        className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
-                        style={{
-                          borderColor: 'currentColor',
-                          color: 'inherit',
-                        }}
-                      >
-                        {v}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Thin passive progress line at the hero's bottom edge (fills as user scrolls through the 3 products, non-interactive) */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-[3px] bg-current/15 pointer-events-none z-40 overflow-hidden"
-          aria-hidden="true"
-        >
-          <div
-            ref={progressLineRef}
-            className="h-full bg-current origin-left will-change-transform"
-            style={{ transform: 'scaleX(0)' }}
+            ref={wipe1Ref}
+            id="hero-wipe-1"
+            className="pointer-events-none absolute inset-0 z-[5] bg-[#7F011F] will-change-transform"
+            aria-hidden="true"
           />
-        </div>
-      </section>
+
+          {/* Fast Wipe Layer 2: Light Sand #F5EBD0 */}
+          <div
+            ref={wipe2Ref}
+            id="hero-wipe-2"
+            className="pointer-events-none absolute inset-0 z-[5] bg-[#F5EBD0] will-change-transform"
+            aria-hidden="true"
+          />
+
+          {/* Giant Background Word (Layer z-10) — ~15% larger & stronger opacity ~0.24 */}
+          <div
+            className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+            aria-hidden="true"
+          >
+            {/* Word 0: STRONG (Light Sand phase) */}
+            <div
+              ref={word0Ref}
+              className="absolute font-condensed font-black uppercase text-[clamp(5.5rem,21vw,20.5rem)] leading-[0.76] tracking-tighter text-center will-change-transform"
+              style={{
+                color: '#7F011F',
+                opacity: 0.24,
+              }}
+            >
+              STRONG
+            </div>
+
+            {/* Word 1: BIND (Wine Red phase) */}
+            <div
+              ref={word1Ref}
+              className="absolute font-condensed font-black uppercase text-[clamp(5.5rem,21vw,20.5rem)] leading-[0.76] tracking-tighter text-center will-change-transform"
+              style={{
+                color: '#F5EBD0',
+                opacity: 0,
+              }}
+            >
+              BIND
+            </div>
+
+            {/* Word 2: SOLID (Light Sand phase) */}
+            <div
+              ref={word2Ref}
+              className="absolute font-condensed font-black uppercase text-[clamp(5.5rem,21vw,20.5rem)] leading-[0.76] tracking-tighter text-center will-change-transform"
+              style={{
+                color: '#7F011F',
+                opacity: 0,
+              }}
+            >
+              SOLID
+            </div>
+          </div>
+
+          {/* Subtle Grit Specks Layer (Layer z-15) */}
+          <div
+            ref={gritRef}
+            id="hero-grit-specks"
+            className="absolute inset-0 z-15 pointer-events-none select-none flex items-center justify-center opacity-25"
+            style={{ color: '#7F011F' }}
+            aria-hidden="true"
+          >
+            <svg className="w-full h-full max-w-5xl max-h-[600px]" viewBox="0 0 1000 700" fill="currentColor">
+              <circle cx="480" cy="220" r="1.5" /><circle cx="560" cy="190" r="1.2" /><circle cx="420" cy="380" r="1.8" />
+              <circle cx="600" cy="340" r="1.4" /><circle cx="360" cy="310" r="1.1" /><circle cx="640" cy="270" r="1.6" />
+              <circle cx="510" cy="150" r="1.3" /><circle cx="450" cy="450" r="1.4" /><circle cx="540" cy="470" r="1.5" />
+              <circle cx="340" cy="240" r="1.2" /><circle cx="660" cy="410" r="1.7" /><circle cx="400" cy="170" r="1" />
+              <circle cx="590" cy="160" r="1.4" /><circle cx="380" cy="410" r="1.3" /><circle cx="620" cy="210" r="1.2" />
+              <circle cx="530" cy="290" r="1.6" /><circle cx="460" cy="260" r="1.1" /><circle cx="570" cy="390" r="1.4" />
+              <circle cx="410" cy="490" r="1.5" /><circle cx="580" cy="480" r="1.2" />
+            </svg>
+          </div>
+
+          {/* Main Stage Grid (Layer z-30): Clean 2-Column Editorial Composition without Right Selector Panel */}
+          <div className="relative z-30 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-full flex flex-col justify-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+              
+              {/* LEFT COLUMN (7 cols): Scaled-Up Typography, Headline, Dynamic Copy & CTAs */}
+              <div
+                ref={leftColRef}
+                className="lg:col-span-7 text-left flex flex-col justify-center space-y-4"
+                style={{ color: '#7F011F' }}
+              >
+                {/* Kicker up one size step */}
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ backgroundColor: 'currentColor' }} />
+                  <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] font-bold opacity-85">
+                    PRODUCT STAGE &bull; BHILWARA
+                  </span>
+                </div>
+
+                {/* Hindi Headline scaled up to clamp(2.75rem, 5.5vw, 5rem) with tight leading */}
+                <h1
+                  lang="hi"
+                  className="font-hindi text-[clamp(2.75rem,5.5vw,5rem)] font-bold leading-[1.04] select-none"
+                  style={{ color: 'inherit' }}
+                  aria-label="मजबूती की सही पहचान"
+                >
+                  मजबूती की सही पहचान
+                </h1>
+
+                {/* Per-product dynamic text blocks scaled to ~1.375rem */}
+                <div className="relative min-h-[105px] pt-1">
+                  {/* Copy 0: TMT Sariya */}
+                  <div ref={copy0Ref} className="absolute inset-0">
+                    <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium" style={{ color: 'inherit' }}>
+                      {products[0].shortLine}
+                    </p>
+                    <div className="mt-3.5 inline-flex items-center gap-2">
+                      <span className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border" style={{ borderColor: 'currentColor', color: 'inherit' }}>
+                        {products[0].name}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Copy 1: Binding Wire */}
+                  <div ref={copy1Ref} className="absolute inset-0 opacity-0">
+                    <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium" style={{ color: 'inherit' }}>
+                      {products[1].shortLine}
+                    </p>
+                    <div className="mt-3.5 inline-flex items-center gap-2">
+                      <span className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border" style={{ borderColor: 'currentColor', color: 'inherit' }}>
+                        {products[1].name}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Copy 2: Cover Blocks */}
+                  <div ref={copy2Ref} className="absolute inset-0 opacity-0">
+                    <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium" style={{ color: 'inherit' }}>
+                      {products[2].shortLine}
+                    </p>
+                    <div className="mt-3.5 inline-flex items-center gap-2">
+                      <span className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border" style={{ borderColor: 'currentColor', color: 'inherit' }}>
+                        {products[2].name}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Dual CTAs with button text to ~1.125rem and larger padding */}
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 pt-2">
+                  <a
+                    ref={ctaWhatsappRef}
+                    id="hero-cta-whatsapp"
+                    href="https://wa.me/918278643303"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hero-pill-cta inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-black transition-transform duration-200 active:scale-95 text-center shadow-sm"
+                    style={{
+                      backgroundColor: '#7F011F',
+                      color: '#F5EBD0',
+                    }}
+                    aria-label="Order on WhatsApp at +91 8278643303"
+                  >
+                    Order on WhatsApp
+                  </a>
+
+                  <Link
+                    ref={ctaAllRef}
+                    id="hero-cta-all"
+                    href="/products"
+                    className="hero-pill-outline inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-bold border-2 transition-transform duration-200 active:scale-95 text-center"
+                    style={{
+                      borderColor: '#7F011F',
+                      color: '#7F011F',
+                    }}
+                    aria-label="See all products catalog"
+                  >
+                    See all products
+                  </Link>
+                </div>
+
+                {/* Bottom trust line up one size step */}
+                <div
+                  className="pt-4 border-t font-mono text-xs sm:text-sm uppercase tracking-[0.22em] font-medium opacity-85 flex items-center gap-3"
+                  style={{ borderColor: 'currentColor', color: 'inherit' }}
+                >
+                  <span>DIRECT MILL ALLOTMENT</span>
+                  <span>&bull;</span>
+                  <span>WEIGHBRIDGE PAKKA BILL</span>
+                </div>
+              </div>
+
+              {/* RIGHT COLUMN (5 cols): Product Visual + Diameter Pills Repositioned Underneath */}
+              <div
+                ref={visualColRef}
+                className="lg:col-span-5 relative flex flex-col items-center justify-center"
+                style={{ color: '#7F011F' }}
+              >
+                <div className="relative w-full max-w-[420px] lg:max-w-[480px] flex flex-col items-center">
+                  
+                  {/* Product Visual Frame */}
+                  <div className="relative w-full aspect-square flex items-center justify-center">
+                    {/* Soft Contact Shadow Beneath Floating Product */}
+                    <div
+                      id="hero-contact-shadow"
+                      className="absolute bottom-[6%] sm:bottom-[8%] left-1/2 -translate-x-1/2 w-[68%] sm:w-[72%] h-7 sm:h-10 rounded-[50%] blur-xl pointer-events-none transition-opacity"
+                      style={{
+                        background:
+                          'radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, transparent 75%)',
+                        opacity: 0.6,
+                      }}
+                      aria-hidden="true"
+                    />
+
+                    {/* Cutout 0: TMT Sariya (Visible on Load) */}
+                    <div
+                      ref={prod0Ref}
+                      id="hero-product-cutout-0"
+                      className="absolute inset-0 flex items-center justify-center pointer-events-none will-change-transform"
+                    >
+                      <Image
+                        src={products[0].imageSrc}
+                        alt={products[0].imageAlt}
+                        width={650}
+                        height={650}
+                        priority
+                        className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
+                      />
+                    </div>
+
+                    {/* Cutout 1: Binding Wire (Slides/flips in on scroll) */}
+                    <div
+                      ref={prod1Ref}
+                      id="hero-product-cutout-1"
+                      className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 will-change-transform"
+                    >
+                      <Image
+                        src={products[1].imageSrc}
+                        alt={products[1].imageAlt}
+                        width={650}
+                        height={650}
+                        priority
+                        className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
+                      />
+                    </div>
+
+                    {/* Cutout 2: Cover Blocks (Slides/flips in on scroll) */}
+                    <div
+                      ref={prod2Ref}
+                      id="hero-product-cutout-2"
+                      className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 will-change-transform"
+                    >
+                      <Image
+                        src={products[2].imageSrc}
+                        alt={products[2].imageAlt}
+                        width={650}
+                        height={650}
+                        priority
+                        className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Repositioned under the product visual: static, non-interactive diameter/size info chips */}
+                  <div className="relative min-h-[48px] w-full mt-4 flex items-center justify-center">
+                    {/* Variants 0: TMT Diameters (Static chips) */}
+                    <div
+                      ref={var0Ref}
+                      className="absolute inset-0 flex flex-wrap gap-2 justify-center items-center pointer-events-none"
+                      aria-label="Available TMT Bar Diameters"
+                    >
+                      {products[0].variants.map((v) => (
+                        <span
+                          key={v}
+                          className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
+                          style={{
+                            borderColor: 'currentColor',
+                            color: 'inherit',
+                          }}
+                        >
+                          {v}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Variants 1: Binding Wire Gauges */}
+                    <div
+                      ref={var1Ref}
+                      className="absolute inset-0 flex flex-wrap gap-2 justify-center items-center pointer-events-none opacity-0"
+                      aria-label="Available Wire Gauges"
+                    >
+                      {products[1].variants.map((v) => (
+                        <span
+                          key={v}
+                          className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
+                          style={{
+                            borderColor: 'currentColor',
+                            color: 'inherit',
+                          }}
+                        >
+                          {v}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Variants 2: Cover Block Sizes */}
+                    <div
+                      ref={var2Ref}
+                      className="absolute inset-0 flex flex-wrap gap-2 justify-center items-center pointer-events-none opacity-0"
+                      aria-label="Available Cover Block Sizes"
+                    >
+                      {products[2].variants.map((v) => (
+                        <span
+                          key={v}
+                          className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
+                          style={{
+                            borderColor: 'currentColor',
+                            color: 'inherit',
+                          }}
+                        >
+                          {v}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Thin passive progress line at the hero's bottom edge (fills as user scrolls through the 3 products, non-interactive) */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-[3px] bg-current/15 pointer-events-none z-40 overflow-hidden"
+            aria-hidden="true"
+          >
+            <div
+              ref={progressLineRef}
+              className="h-full bg-current origin-left will-change-transform"
+              style={{ transform: 'scaleX(0)' }}
+            />
+          </div>
+        </section>
+      </div>
     </>
   );
 }
