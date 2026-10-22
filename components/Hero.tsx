@@ -1,10 +1,12 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
 interface ProductStage {
   name: string;
@@ -261,7 +263,7 @@ export default function Hero() {
     return () => mq.removeEventListener('change', handleMotionChange);
   }, []);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (typeof window === 'undefined') return;
     if (reducedMotion) return;
 
@@ -479,7 +481,7 @@ export default function Hero() {
   }
 
   return (
-    <>
+    <div className="relative w-full">
       {/* MOBILE EXPERIENCE (< 1024px): 3 Full-Height Scroll-Snap Panels */}
       <StaticProductStack
         isOnlyHero={false}
@@ -838,6 +840,6 @@ export default function Hero() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
