@@ -13,6 +13,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     if (prefersReducedMotion) return;
 
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     const lenis = new Lenis({
       lerp: 0.09,
@@ -25,6 +26,11 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
 
     lenis.on('scroll', ScrollTrigger.update);
 
+    const onNativeScroll = () => {
+      ScrollTrigger.update();
+    };
+    window.addEventListener('scroll', onNativeScroll, { passive: true });
+
     const tickerCallback = (time: number) => {
       lenis.raf(time * 1000);
     };
@@ -33,6 +39,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      window.removeEventListener('scroll', onNativeScroll);
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
     };
