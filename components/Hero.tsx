@@ -54,6 +54,158 @@ const products: ProductStage[] = [
   },
 ];
 
+interface StaticProductStackProps {
+  isOnlyHero?: boolean;
+  isSnap?: boolean;
+  className?: string;
+}
+
+function StaticProductStack({ isOnlyHero, isSnap, className }: StaticProductStackProps) {
+  return (
+    <div className={className}>
+      {products.map((item, idx) => (
+        <section
+          key={item.name}
+          className={`w-full min-h-[100dvh] relative flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-20 overflow-hidden select-none ${
+            isSnap ? 'snap-start' : ''
+          }`}
+          style={{
+            backgroundColor: item.bgHex,
+            color: item.fgHex,
+          }}
+        >
+          {/* Giant Background Word (~15% larger & stronger opacity ~0.24) */}
+          <div
+            className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+            aria-hidden="true"
+          >
+            <div
+              className="font-condensed font-black uppercase text-[clamp(5.2rem,20vw,18rem)] leading-[0.76] tracking-tighter text-center"
+              style={{ color: item.fgHex, opacity: 0.24 }}
+            >
+              {item.word}
+            </div>
+          </div>
+
+          {/* Grit Specks */}
+          <div
+            className="absolute inset-0 z-15 pointer-events-none select-none flex items-center justify-center opacity-25"
+            aria-hidden="true"
+          >
+            <svg className="w-full h-full max-w-5xl max-h-[600px]" viewBox="0 0 1000 700" fill="currentColor">
+              <circle cx="480" cy="220" r="1.5" /><circle cx="560" cy="190" r="1.2" /><circle cx="420" cy="380" r="1.8" /><circle cx="600" cy="340" r="1.4" />
+            </svg>
+          </div>
+
+          {/* Content Grid in Balanced Editorial Grid */}
+          <div className="relative z-30 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="lg:col-span-7 text-left space-y-4">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ backgroundColor: 'currentColor' }} />
+                <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] font-bold opacity-85">
+                  STAGE 0{idx + 1} &bull; BHILWARA
+                </span>
+              </div>
+
+              {idx === 0 && isOnlyHero ? (
+                <h1
+                  lang="hi"
+                  className="font-hindi text-[clamp(2.75rem,5.5vw,5rem)] font-bold leading-[1.04] select-none"
+                >
+                  मजबूती की सही पहचान
+                </h1>
+              ) : (
+                <h2
+                  lang="hi"
+                  className="font-hindi text-[clamp(2.75rem,5.5vw,5rem)] font-bold leading-[1.04] select-none"
+                >
+                  मजबूती की सही पहचान
+                </h2>
+              )}
+
+              <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium">
+                {item.shortLine}
+              </p>
+
+              <div className="pt-1 inline-flex items-center gap-2">
+                <span
+                  className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border"
+                  style={{ borderColor: 'currentColor' }}
+                >
+                  {item.name}
+                </span>
+              </div>
+
+              <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 pt-2">
+                <a
+                  href="https://wa.me/918278643303"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-black text-center shadow-sm active:scale-95 transition-transform"
+                  style={{ backgroundColor: item.fgHex, color: item.bgHex }}
+                >
+                  Order on WhatsApp
+                </a>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-bold border-2 text-center active:scale-95 transition-transform"
+                  style={{ borderColor: 'currentColor', color: 'inherit' }}
+                >
+                  See all products
+                </Link>
+              </div>
+
+              <div
+                className="pt-4 border-t font-mono text-xs sm:text-sm uppercase tracking-[0.22em] font-medium opacity-85 flex items-center gap-3"
+                style={{ borderColor: 'currentColor' }}
+              >
+                <span>DIRECT MILL ALLOTMENT</span>
+                <span>&bull;</span>
+                <span>WEIGHBRIDGE PAKKA BILL</span>
+              </div>
+            </div>
+
+            {/* Product Visual & Repositioned Diameter Chips */}
+            <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
+              <div className="relative w-full max-w-[360px] sm:max-w-[420px] aspect-square flex items-center justify-center">
+                <div
+                  className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[70%] h-8 rounded-[50%] blur-xl pointer-events-none"
+                  style={{
+                    background:
+                      'radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, transparent 75%)',
+                    opacity: 0.6,
+                  }}
+                  aria-hidden="true"
+                />
+                <Image
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  width={500}
+                  height={500}
+                  priority={idx === 0}
+                  className="w-full h-full object-contain filter drop-shadow-2xl max-h-[340px]"
+                />
+              </div>
+
+              <div className="flex flex-wrap gap-2 justify-center mt-4">
+                {item.variants.map((v) => (
+                  <span
+                    key={v}
+                    className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
+                    style={{ borderColor: 'currentColor', color: 'inherit' }}
+                  >
+                    {v}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+  );
+}
+
 export default function Hero() {
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -107,453 +259,229 @@ export default function Hero() {
     if (typeof window === 'undefined') return;
     if (reducedMotion) return;
 
-    // Pinning enabled only on desktop (viewport >= 1024px)
-    if (window.innerWidth < 1024) return;
-
     gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
-      if (!heroContainerRef.current) return;
+    // Responsive ScrollTrigger: Automatically attaches on >= 1024px, reverts on < 1024px
+    const mm = gsap.matchMedia();
 
-      const tl = gsap.timeline({
-        defaults: { ease: 'none' },
-      });
+    mm.add(
+      '(min-width: 1024px)',
+      () => {
+        if (!heroContainerRef.current) return;
 
-      // Passive progress line scrub (0% to 100% over total scroll duration)
-      if (progressLineRef.current) {
-        tl.to(
-          progressLineRef.current,
-          {
-            scaleX: 1,
-            ease: 'none',
-            duration: 2.0,
+        const tl = gsap.timeline({
+          defaults: { ease: 'none' },
+        });
+
+        // Passive progress line scrub (0% to 100% over total scroll duration)
+        if (progressLineRef.current) {
+          tl.to(
+            progressLineRef.current,
+            {
+              scaleX: 1,
+              ease: 'none',
+              duration: 2.0,
+            },
+            0
+          );
+        }
+
+        // Segment 1 (Time 0.35 -> 0.65, middle at 0.5): Transition Product 0 -> Product 1
+        // 1. Wipe layer 1 slides in with Wine Red #7F011F
+        if (wipe1Ref.current) {
+          tl.fromTo(
+            wipe1Ref.current,
+            { xPercent: 100 },
+            { xPercent: 0, duration: 0.3, ease: 'power2.inOut' },
+            0.35
+          );
+        }
+
+        // 2. Color swap to Light Sand text on Wine Red
+        const colorTargets = [leftColRef.current, visualColRef.current, gritRef.current].filter(Boolean);
+        if (colorTargets.length > 0) {
+          tl.to(colorTargets, { color: '#F5EBD0', duration: 0.05 }, 0.5);
+        }
+        if (ctaWhatsappRef.current) {
+          tl.to(ctaWhatsappRef.current, { backgroundColor: '#F5EBD0', color: '#7F011F', duration: 0.05 }, 0.5);
+        }
+        if (ctaAllRef.current) {
+          tl.to(ctaAllRef.current, { borderColor: '#F5EBD0', color: '#F5EBD0', duration: 0.05 }, 0.5);
+        }
+
+        // 3. Giant Word 0 -> 1
+        if (word0Ref.current) {
+          tl.to(word0Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 0.35);
+        }
+        if (word1Ref.current) {
+          tl.fromTo(
+            word1Ref.current,
+            { x: 120, opacity: 0 },
+            { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' },
+            0.5
+          );
+        }
+
+        // 4. Product Cutout 0 -> 1 (flips/slides out with rotation, new one flips in)
+        if (prod0Ref.current) {
+          tl.to(
+            prod0Ref.current,
+            { x: -80, rotation: -10, scale: 0.88, opacity: 0, duration: 0.15, ease: 'power2.in' },
+            0.35
+          );
+        }
+        if (prod1Ref.current) {
+          tl.fromTo(
+            prod1Ref.current,
+            { x: 80, rotation: 10, scale: 0.9, opacity: 0 },
+            { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
+            0.5
+          );
+        }
+
+        // 5. Copy & Badges 0 -> 1
+        if (copy0Ref.current) {
+          tl.to(copy0Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 0.35);
+        }
+        if (copy1Ref.current) {
+          tl.fromTo(
+            copy1Ref.current,
+            { y: 8, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' },
+            0.52
+          );
+        }
+
+        // 6. Static Variant chips 0 -> 1 (repositioned under product visual)
+        if (var0Ref.current) {
+          tl.to(var0Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 0.35);
+        }
+        if (var1Ref.current) {
+          tl.fromTo(
+            var1Ref.current,
+            { opacity: 0, y: 6 },
+            { opacity: 1, y: 0, duration: 0.13 },
+            0.52
+          );
+        }
+
+        // Segment 2 (Time 1.35 -> 1.65, middle at 1.5): Transition Product 1 -> Product 2
+        // 1. Wipe layer 2 slides in with Light Sand #F5EBD0
+        if (wipe2Ref.current) {
+          tl.fromTo(
+            wipe2Ref.current,
+            { xPercent: 100 },
+            { xPercent: 0, duration: 0.3, ease: 'power2.inOut' },
+            1.35
+          );
+        }
+
+        // 2. Color swap back to Wine Red text on Light Sand
+        if (colorTargets.length > 0) {
+          tl.to(colorTargets, { color: '#7F011F', duration: 0.05 }, 1.5);
+        }
+        if (ctaWhatsappRef.current) {
+          tl.to(ctaWhatsappRef.current, { backgroundColor: '#7F011F', color: '#F5EBD0', duration: 0.05 }, 1.5);
+        }
+        if (ctaAllRef.current) {
+          tl.to(ctaAllRef.current, { borderColor: '#7F011F', color: '#7F011F', duration: 0.05 }, 1.5);
+        }
+
+        // 3. Giant Word 1 -> 2
+        if (word1Ref.current) {
+          tl.to(word1Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 1.35);
+        }
+        if (word2Ref.current) {
+          tl.fromTo(
+            word2Ref.current,
+            { x: 120, opacity: 0 },
+            { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' },
+            1.5
+          );
+        }
+
+        // 4. Product Cutout 1 -> 2
+        if (prod1Ref.current) {
+          tl.to(
+            prod1Ref.current,
+            { x: -80, rotation: -10, scale: 0.88, opacity: 0, duration: 0.15, ease: 'power2.in' },
+            1.35
+          );
+        }
+        if (prod2Ref.current) {
+          tl.fromTo(
+            prod2Ref.current,
+            { x: 75, rotation: 10, scale: 0.9, opacity: 0 },
+            { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
+            1.5
+          );
+        }
+
+        // 5. Copy & Badges 1 -> 2
+        if (copy1Ref.current) {
+          tl.to(copy1Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 1.35);
+        }
+        if (copy2Ref.current) {
+          tl.fromTo(
+            copy2Ref.current,
+            { y: 8, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' },
+            1.52
+          );
+        }
+
+        // 6. Static Variant chips 1 -> 2
+        if (var1Ref.current) {
+          tl.to(var1Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 1.35);
+        }
+        if (var2Ref.current) {
+          tl.fromTo(
+            var2Ref.current,
+            { opacity: 0, y: 6 },
+            { opacity: 1, y: 0, duration: 0.13 },
+            1.52
+          );
+        }
+
+        // Extend timeline to 2.0 total duration so Product 2 settles in its own resting plateau
+        tl.to({}, { duration: 0.35 });
+
+        // Create ScrollTrigger pin spanning ~300vh total scroll distance (~100vh per product)
+        ScrollTrigger.create({
+          trigger: heroContainerRef.current,
+          start: 'top top',
+          end: '+=200%', // 100vh trigger + 200vh pinned scroll travel = 300vh total
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.6,
+          animation: tl,
+          snap: {
+            snapTo: [0, 0.5, 1],
+            duration: { min: 0.2, max: 0.45 },
+            delay: 0.05,
+            ease: 'power2.inOut',
           },
-          0
-        );
-      }
+        });
+      },
+      heroContainerRef
+    );
 
-      // Segment 1 (Time 0.35 -> 0.65, middle at 0.5): Transition Product 0 -> Product 1
-      // 1. Wipe layer 1 slides in with Wine Red #7F011F
-      if (wipe1Ref.current) {
-        tl.fromTo(
-          wipe1Ref.current,
-          { xPercent: 100 },
-          { xPercent: 0, duration: 0.3, ease: 'power2.inOut' },
-          0.35
-        );
-      }
-
-      // 2. Color swap to Light Sand text on Wine Red
-      const colorTargets = [leftColRef.current, visualColRef.current, gritRef.current].filter(Boolean);
-      if (colorTargets.length > 0) {
-        tl.to(colorTargets, { color: '#F5EBD0', duration: 0.05 }, 0.5);
-      }
-      if (ctaWhatsappRef.current) {
-        tl.to(ctaWhatsappRef.current, { backgroundColor: '#F5EBD0', color: '#7F011F', duration: 0.05 }, 0.5);
-      }
-      if (ctaAllRef.current) {
-        tl.to(ctaAllRef.current, { borderColor: '#F5EBD0', color: '#F5EBD0', duration: 0.05 }, 0.5);
-      }
-
-      // 3. Giant Word 0 -> 1
-      if (word0Ref.current) {
-        tl.to(word0Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 0.35);
-      }
-      if (word1Ref.current) {
-        tl.fromTo(
-          word1Ref.current,
-          { x: 120, opacity: 0 },
-          { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' },
-          0.5
-        );
-      }
-
-      // 4. Product Cutout 0 -> 1 (flips/slides out with rotation, new one flips in)
-      if (prod0Ref.current) {
-        tl.to(
-          prod0Ref.current,
-          { x: -80, rotation: -10, scale: 0.88, opacity: 0, duration: 0.15, ease: 'power2.in' },
-          0.35
-        );
-      }
-      if (prod1Ref.current) {
-        tl.fromTo(
-          prod1Ref.current,
-          { x: 80, rotation: 10, scale: 0.9, opacity: 0 },
-          { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
-          0.5
-        );
-      }
-
-      // 5. Copy & Badges 0 -> 1
-      if (copy0Ref.current) {
-        tl.to(copy0Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 0.35);
-      }
-      if (copy1Ref.current) {
-        tl.fromTo(
-          copy1Ref.current,
-          { y: 8, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' },
-          0.52
-        );
-      }
-
-      // 6. Static Variant chips 0 -> 1 (repositioned under product visual)
-      if (var0Ref.current) {
-        tl.to(var0Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 0.35);
-      }
-      if (var1Ref.current) {
-        tl.fromTo(
-          var1Ref.current,
-          { opacity: 0, y: 6 },
-          { opacity: 1, y: 0, duration: 0.13 },
-          0.52
-        );
-      }
-
-      // Segment 2 (Time 1.35 -> 1.65, middle at 1.5): Transition Product 1 -> Product 2
-      // 1. Wipe layer 2 slides in with Light Sand #F5EBD0
-      if (wipe2Ref.current) {
-        tl.fromTo(
-          wipe2Ref.current,
-          { xPercent: 100 },
-          { xPercent: 0, duration: 0.3, ease: 'power2.inOut' },
-          1.35
-        );
-      }
-
-      // 2. Color swap back to Wine Red text on Light Sand
-      if (colorTargets.length > 0) {
-        tl.to(colorTargets, { color: '#7F011F', duration: 0.05 }, 1.5);
-      }
-      if (ctaWhatsappRef.current) {
-        tl.to(ctaWhatsappRef.current, { backgroundColor: '#7F011F', color: '#F5EBD0', duration: 0.05 }, 1.5);
-      }
-      if (ctaAllRef.current) {
-        tl.to(ctaAllRef.current, { borderColor: '#7F011F', color: '#7F011F', duration: 0.05 }, 1.5);
-      }
-
-      // 3. Giant Word 1 -> 2
-      if (word1Ref.current) {
-        tl.to(word1Ref.current, { x: -120, opacity: 0, duration: 0.15, ease: 'power2.in' }, 1.35);
-      }
-      if (word2Ref.current) {
-        tl.fromTo(
-          word2Ref.current,
-          { x: 120, opacity: 0 },
-          { x: 0, opacity: 0.24, duration: 0.15, ease: 'power3.out' },
-          1.5
-        );
-      }
-
-      // 4. Product Cutout 1 -> 2
-      if (prod1Ref.current) {
-        tl.to(
-          prod1Ref.current,
-          { x: -80, rotation: -10, scale: 0.88, opacity: 0, duration: 0.15, ease: 'power2.in' },
-          1.35
-        );
-      }
-      if (prod2Ref.current) {
-        tl.fromTo(
-          prod2Ref.current,
-          { x: 75, rotation: 10, scale: 0.9, opacity: 0 },
-          { x: 0, rotation: 0, scale: 1, opacity: 1, duration: 0.15, ease: 'power3.out' },
-          1.5
-        );
-      }
-
-      // 5. Copy & Badges 1 -> 2
-      if (copy1Ref.current) {
-        tl.to(copy1Ref.current, { y: -8, opacity: 0, duration: 0.13, ease: 'power2.in' }, 1.35);
-      }
-      if (copy2Ref.current) {
-        tl.fromTo(
-          copy2Ref.current,
-          { y: 8, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.13, ease: 'power3.out' },
-          1.52
-        );
-      }
-
-      // 6. Static Variant chips 1 -> 2
-      if (var1Ref.current) {
-        tl.to(var1Ref.current, { opacity: 0, y: -6, duration: 0.13 }, 1.35);
-      }
-      if (var2Ref.current) {
-        tl.fromTo(
-          var2Ref.current,
-          { opacity: 0, y: 6 },
-          { opacity: 1, y: 0, duration: 0.13 },
-          1.52
-        );
-      }
-
-      // Extend timeline to 2.0 total duration so Product 2 settles in its own resting plateau
-      tl.to({}, { duration: 0.35 });
-
-      // Create ScrollTrigger pin spanning ~300vh total scroll distance (~100vh per product)
-      ScrollTrigger.create({
-        trigger: heroContainerRef.current,
-        start: 'top top',
-        end: '+=200%', // 100vh trigger + 200vh pinned scroll travel = 300vh total
-        pin: true,
-        pinSpacing: true,
-        scrub: 0.6,
-        animation: tl,
-        snap: {
-          snapTo: [0, 0.5, 1],
-          duration: { min: 0.2, max: 0.45 },
-          delay: 0.05,
-          ease: 'power2.inOut',
-        },
-      });
-    }, heroContainerRef);
-
-    return () => ctx.revert();
+    return () => mm.revert();
   }, [reducedMotion]);
 
   // Reduced Motion: 3 Full-height Stacked Static Panels (No Pin, No Snap)
   if (reducedMotion) {
-    return (
-      <div id="hero-reduced-motion-stack" className="w-full flex flex-col">
-        {products.map((item, idx) => (
-          <section
-            key={item.name}
-            className="w-full min-h-[100dvh] relative flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-20 overflow-hidden select-none"
-            style={{
-              backgroundColor: item.bgHex,
-              color: item.fgHex,
-            }}
-          >
-            {/* Giant Background Word (~15% larger & stronger opacity ~0.24) */}
-            <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden="true">
-              <div
-                className="font-condensed font-black uppercase text-[clamp(5.5rem,21vw,20.5rem)] leading-[0.76] tracking-tighter text-center"
-                style={{ color: item.fgHex, opacity: 0.24 }}
-              >
-                {item.word}
-              </div>
-            </div>
-
-            {/* Grit Specks */}
-            <div className="absolute inset-0 z-15 pointer-events-none select-none flex items-center justify-center opacity-25" aria-hidden="true">
-              <svg className="w-full h-full max-w-5xl max-h-[600px]" viewBox="0 0 1000 700" fill="currentColor">
-                <circle cx="480" cy="220" r="1.5" /><circle cx="560" cy="190" r="1.2" /><circle cx="420" cy="380" r="1.8" /><circle cx="600" cy="340" r="1.4" />
-              </svg>
-            </div>
-
-            {/* Content Container in Balanced 2-Column Editorial Grid */}
-            <div className="relative z-30 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-              <div className="lg:col-span-7 text-left space-y-4">
-                <div className="flex items-center gap-2.5">
-                  <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ backgroundColor: 'currentColor' }} />
-                  <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] font-bold opacity-85">
-                    STAGE 0{idx + 1} &bull; BHILWARA
-                  </span>
-                </div>
-
-                <h1
-                  lang="hi"
-                  className="font-hindi text-[clamp(2.75rem,5.5vw,5rem)] font-bold leading-[1.04] select-none"
-                >
-                  मजबूती की सही पहचान
-                </h1>
-
-                <p className="font-body text-lg sm:text-xl lg:text-[1.375rem] leading-relaxed max-w-xl font-medium">
-                  {item.shortLine}
-                </p>
-
-                <div className="pt-1 inline-flex items-center gap-2">
-                  <span className="font-mono text-xs sm:text-sm uppercase tracking-widest font-bold px-3.5 py-1.5 rounded-full border" style={{ borderColor: 'currentColor' }}>
-                    {item.name}
-                  </span>
-                </div>
-
-                <div className="flex flex-wrap sm:flex-nowrap items-center gap-4 pt-2">
-                  <a
-                    href="https://wa.me/918278643303"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-black text-center shadow-sm active:scale-95 transition-transform"
-                    style={{ backgroundColor: item.fgHex, color: item.bgHex }}
-                  >
-                    Order on WhatsApp
-                  </a>
-                  <Link
-                    href="/products"
-                    className="inline-flex items-center justify-center px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-mono text-base sm:text-lg lg:text-[1.125rem] uppercase tracking-[0.16em] font-bold border-2 text-center active:scale-95 transition-transform"
-                    style={{ borderColor: 'currentColor', color: 'inherit' }}
-                  >
-                    See all products
-                  </Link>
-                </div>
-
-                <div
-                  className="pt-4 border-t font-mono text-xs sm:text-sm uppercase tracking-[0.22em] font-medium opacity-85 flex items-center gap-3"
-                  style={{ borderColor: 'currentColor' }}
-                >
-                  <span>DIRECT MILL ALLOTMENT</span>
-                  <span>&bull;</span>
-                  <span>WEIGHBRIDGE PAKKA BILL</span>
-                </div>
-              </div>
-
-              {/* Product Visual & Repositioned Diameter Chips */}
-              <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
-                <div className="relative w-full max-w-[360px] sm:max-w-[420px] aspect-square flex items-center justify-center">
-                  <div
-                    className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[70%] h-8 rounded-[50%] blur-xl pointer-events-none"
-                    style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, transparent 75%)', opacity: 0.6 }}
-                    aria-hidden="true"
-                  />
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
-                    width={500}
-                    height={500}
-                    className="w-full h-full object-contain filter drop-shadow-2xl max-h-[340px]"
-                  />
-                </div>
-
-                {/* Repositioned under the product visual: static, non-interactive info chips */}
-                <div className="flex flex-wrap gap-2 justify-center mt-4">
-                  {item.variants.map((v) => (
-                    <span
-                      key={v}
-                      className="font-mono text-xs sm:text-[13px] font-bold px-3.5 py-1.5 rounded-full border tracking-wide select-none"
-                      style={{ borderColor: 'currentColor', color: 'inherit' }}
-                    >
-                      {v}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        ))}
-      </div>
-    );
+    return <StaticProductStack isOnlyHero={true} isSnap={false} className="w-full flex flex-col" />;
   }
 
   return (
     <>
       {/* MOBILE EXPERIENCE (< 1024px): 3 Full-Height Scroll-Snap Panels */}
-      <div id="hero-mobile-snap-stack" className="lg:hidden w-full flex flex-col snap-y snap-mandatory">
-        {products.map((item, idx) => (
-          <section
-            key={item.name}
-            className="w-full min-h-[100dvh] snap-start relative flex flex-col justify-center px-6 sm:px-8 py-20 overflow-hidden select-none"
-            style={{
-              backgroundColor: item.bgHex,
-              color: item.fgHex,
-            }}
-          >
-            {/* Giant Background Word (~15% larger & stronger opacity ~0.24) */}
-            <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden="true">
-              <div
-                className="font-condensed font-black uppercase text-[clamp(5.2rem,20vw,9.5rem)] leading-[0.76] tracking-tighter text-center"
-                style={{ color: item.fgHex, opacity: 0.24 }}
-              >
-                {item.word}
-              </div>
-            </div>
-
-            {/* Grit Specks */}
-            <div className="absolute inset-0 z-15 pointer-events-none select-none flex items-center justify-center opacity-25" aria-hidden="true">
-              <svg className="w-full h-full max-w-5xl max-h-[600px]" viewBox="0 0 1000 700" fill="currentColor">
-                <circle cx="480" cy="220" r="1.5" /><circle cx="560" cy="190" r="1.2" /><circle cx="420" cy="380" r="1.8" /><circle cx="600" cy="340" r="1.4" />
-              </svg>
-            </div>
-
-            <div className="relative z-30 w-full max-w-xl mx-auto flex flex-col justify-center space-y-3.5">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full inline-block" style={{ backgroundColor: 'currentColor' }} />
-                <span className="font-mono text-xs uppercase tracking-[0.26em] font-bold opacity-85">
-                  PRODUCT STAGE &bull; BHILWARA
-                </span>
-              </div>
-
-              <h1
-                lang="hi"
-                className="font-hindi text-[clamp(2.75rem,5.5vw,5rem)] font-bold leading-[1.04]"
-              >
-                मजबूती की सही पहचान
-              </h1>
-
-              {/* Product Visual Stage */}
-              <div className="relative w-full max-w-[300px] sm:max-w-[340px] aspect-square mx-auto my-1 flex items-center justify-center">
-                <div
-                  className="absolute bottom-[6%] left-1/2 -translate-x-1/2 w-[70%] h-7 rounded-[50%] blur-xl pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 50%, transparent 75%)', opacity: 0.6 }}
-                  aria-hidden="true"
-                />
-                <Image
-                  src={item.imageSrc}
-                  alt={item.imageAlt}
-                  width={400}
-                  height={400}
-                  priority={idx === 0}
-                  className="w-full h-full object-contain filter drop-shadow-2xl max-h-[270px]"
-                />
-              </div>
-
-              {/* Repositioned under the product visual: static, non-interactive info chips */}
-              <div className="flex flex-wrap gap-1.5 justify-center">
-                {item.variants.map((v) => (
-                  <span
-                    key={v}
-                    className="font-mono text-xs font-bold px-3 py-1 rounded-full border tracking-wide select-none"
-                    style={{ borderColor: 'currentColor', color: 'inherit' }}
-                  >
-                    {v}
-                  </span>
-                ))}
-              </div>
-
-              <div>
-                <p className="font-body text-base sm:text-lg leading-relaxed max-w-md font-medium">
-                  {item.shortLine}
-                </p>
-
-                <div className="mt-2.5 inline-flex items-center gap-2">
-                  <span className="font-mono text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full border" style={{ borderColor: 'currentColor' }}>
-                    {item.name}
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 pt-1">
-                <a
-                  href="https://wa.me/918278643303"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-full font-mono text-base uppercase tracking-[0.16em] font-black text-center shadow-sm"
-                  style={{ backgroundColor: item.fgHex, color: item.bgHex }}
-                >
-                  Order on WhatsApp
-                </a>
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-full font-mono text-base uppercase tracking-[0.16em] font-bold border-2 text-center"
-                  style={{ borderColor: 'currentColor', color: 'inherit' }}
-                >
-                  See all products
-                </Link>
-              </div>
-
-              <div
-                className="pt-3 border-t font-mono text-xs uppercase tracking-[0.22em] font-medium opacity-85 flex items-center gap-2"
-                style={{ borderColor: 'currentColor' }}
-              >
-                <span>DIRECT MILL ALLOTMENT</span>
-                <span>&bull;</span>
-                <span>WEIGHBRIDGE PAKKA BILL</span>
-              </div>
-            </div>
-          </section>
-        ))}
-      </div>
+      <StaticProductStack
+        isOnlyHero={false}
+        isSnap={true}
+        className="lg:hidden w-full flex flex-col snap-y snap-mandatory"
+      />
 
       {/* DESKTOP EXPERIENCE (>= 1024px): Pinned GSAP ScrollTrigger Stage with 2-Column Balanced Composition */}
       <section
@@ -808,6 +736,7 @@ export default function Hero() {
                       alt={products[1].imageAlt}
                       width={650}
                       height={650}
+                      priority
                       className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
                     />
                   </div>
@@ -824,6 +753,7 @@ export default function Hero() {
                       alt={products[2].imageAlt}
                       width={650}
                       height={650}
+                      priority
                       className="w-full h-full object-contain filter drop-shadow-2xl max-h-[380px] lg:max-h-[440px]"
                     />
                   </div>
