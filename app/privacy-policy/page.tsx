@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Badge from '@/components/Badge';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Shree Shiv Construction & Steel, Bhilwara',
@@ -23,56 +22,72 @@ const businessMeta = {
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <header className="bg-cream-warm text-charcoal border-b border-cream-border py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="max-w-3xl">
-            <Badge variant="eucalyptus" className="mb-3">Legal &amp; Compliance</Badge>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-charcoal leading-tight mb-2">
-              Privacy Policy
-            </h1>
-            <p className="font-mono text-xs text-charcoal-muted">
-              Last Updated: {businessMeta.lastUpdated} &bull; Jurisdiction: Bhilwara, Rajasthan
-            </p>
+      {/* Mini-Hero Band in Light Sand with Ghost Word PRIVACY */}
+      <header className="relative bg-[#F5EBD0] text-[#7F011F] border-b border-[#7F011F]/20 py-16 sm:py-20 md:py-24 px-6 md:px-12 overflow-hidden">
+        {/* Giant Hero Ghost Word */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden -z-0 opacity-[0.05]"
+          aria-hidden="true"
+        >
+          <span className="font-condensed font-black uppercase text-[clamp(6rem,25vw,22rem)] leading-[0.76] tracking-tighter text-[#7F011F] whitespace-nowrap">
+            PRIVACY
+          </span>
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#7F011F]" />
+            <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] text-[#7F011F] font-bold">
+              LEGAL &bull; COMPLIANCE &bull; BHILWARA
+            </span>
           </div>
+
+          <h1 className="font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] font-black uppercase tracking-tight text-[#7F011F] leading-[0.95] mb-4">
+            Privacy Policy
+          </h1>
+
+          <p className="font-mono text-xs uppercase tracking-widest text-[#7F011F]/80">
+            Last Updated: {businessMeta.lastUpdated} &bull; Jurisdiction: Bhilwara, Rajasthan
+          </p>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        <div className="border border-cream-border bg-cream-card p-8 md:p-12 space-y-10 font-body text-sm md:text-base text-charcoal-muted leading-relaxed">
+      <main className="max-w-4xl mx-auto px-6 md:px-8 py-14 sm:py-20">
+        <div className="border-2 border-[#7F011F] bg-[#F5EBD0] p-8 md:p-12 space-y-10 font-body text-sm md:text-base text-[#2A080C] leading-relaxed shadow-[6px_6px_0_0_#7F011F]">
           {/* Section 1 */}
           <section>
-            <h2 className="font-serif text-lg md:text-xl font-bold uppercase tracking-tight text-charcoal mb-3 pb-2 border-b border-cream-border">
+            <h2 className="font-serif text-lg md:text-xl font-black uppercase tracking-tight text-[#7F011F] mb-3 pb-2 border-b border-[#7F011F]/25">
               1. Business Overview &amp; Scope
             </h2>
             <p>
-              This Privacy Policy governs the manner in which <strong className="text-charcoal font-semibold">{businessMeta.name}</strong> collects, uses, and safeguards information collected from customers, contractors, and visitors communicating with our offline yard or through this informational website.
+              This Privacy Policy governs the manner in which <strong className="text-[#7F011F] font-bold">{businessMeta.name}</strong> collects, uses, and safeguards information collected from customers, contractors, and visitors communicating with our offline yard or through this informational website.
             </p>
             <p className="mt-2">
-              We operate as a local building materials and TMT steel supply business based in Bhilwara, Rajasthan. This website is purely informational and catalog-oriented. <strong className="text-charcoal font-semibold">We do not collect online payments, process credit cards, or store banking credentials through this website.</strong>
+              We operate as a local building materials and TMT steel supply business based in Bhilwara, Rajasthan. This website is purely informational and catalog-oriented. <strong className="text-[#7F011F] font-bold">We do not collect online payments, process credit cards, or store banking credentials through this website.</strong>
             </p>
           </section>
 
           {/* Section 2 */}
           <section>
-            <h2 className="font-serif text-lg md:text-xl font-bold uppercase tracking-tight text-charcoal mb-3 pb-2 border-b border-cream-border">
+            <h2 className="font-serif text-lg md:text-xl font-black uppercase tracking-tight text-[#7F011F] mb-3 pb-2 border-b border-[#7F011F]/25">
               2. Information We Collect
             </h2>
             <p>We only receive personal or business contact details that you voluntarily supply when inquiring about steel rates, delivery schedules, or product specifications:</p>
-            <ul className="list-disc list-inside space-y-1 mt-3 pl-2">
-              <li><strong>Direct Contact Information:</strong> Name, phone number, and WhatsApp contact handle.</li>
-              <li><strong>Project &amp; Logistics Details:</strong> Delivery site address or plot location in Bhilwara or neighboring tehsils.</li>
-              <li><strong>Inquiry Content:</strong> Bar bending schedules, required TMT diameters, binding wire rolls, or cover block quantities.</li>
-              <li><strong>Taxation Information:</strong> Business GSTIN and billing legal name (provided solely for issuing official GST tax invoices).</li>
+            <ul className="list-disc list-inside space-y-1.5 mt-3 pl-2 text-[#2A080C]">
+              <li><strong className="text-[#7F011F]">Direct Contact Information:</strong> Name, phone number, and WhatsApp contact handle.</li>
+              <li><strong className="text-[#7F011F]">Project &amp; Logistics Details:</strong> Delivery site address or plot location in Bhilwara or neighboring tehsils.</li>
+              <li><strong className="text-[#7F011F]">Inquiry Content:</strong> Bar bending schedules, required TMT diameters, binding wire rolls, or cover block quantities.</li>
+              <li><strong className="text-[#7F011F]">Taxation Information:</strong> Business GSTIN and billing legal name (provided solely for issuing official GST tax invoices).</li>
             </ul>
           </section>
 
           {/* Section 3 */}
           <section>
-            <h2 className="font-serif text-lg md:text-xl font-bold uppercase tracking-tight text-charcoal mb-3 pb-2 border-b border-cream-border">
+            <h2 className="font-serif text-lg md:text-xl font-black uppercase tracking-tight text-[#7F011F] mb-3 pb-2 border-b border-[#7F011F]/25">
               3. How We Use Collected Information
             </h2>
             <p>Information shared via direct phone calls, SMS, WhatsApp messaging, or direct inquiry channels is utilized strictly to:</p>
-            <ul className="list-disc list-inside space-y-1 mt-3 pl-2">
+            <ul className="list-disc list-inside space-y-1.5 mt-3 pl-2 text-[#2A080C]">
               <li>Calculate and provide requested per-quintal or per-ton material rate estimates.</li>
               <li>Coordinate vehicle dispatch, tractor-trolley transport, and weighbridge verification receipts.</li>
               <li>Generate legitimate commercial tax invoices adhering to statutory GST guidelines.</li>
@@ -85,7 +100,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 4 */}
           <section>
-            <h2 className="font-serif text-lg md:text-xl font-bold uppercase tracking-tight text-charcoal mb-3 pb-2 border-b border-cream-border">
+            <h2 className="font-serif text-lg md:text-xl font-black uppercase tracking-tight text-[#7F011F] mb-3 pb-2 border-b border-[#7F011F]/25">
               4. WhatsApp &amp; Third-Party Communication
             </h2>
             <p>
@@ -95,7 +110,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 5 */}
           <section>
-            <h2 className="font-serif text-lg md:text-xl font-bold uppercase tracking-tight text-charcoal mb-3 pb-2 border-b border-cream-border">
+            <h2 className="font-serif text-lg md:text-xl font-black uppercase tracking-tight text-[#7F011F] mb-3 pb-2 border-b border-[#7F011F]/25">
               5. Data Storage &amp; Security
             </h2>
             <p>
@@ -104,14 +119,14 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Section 6: Contact Information */}
-          <section className="bg-cream-warm border border-cream-border p-6">
-            <h2 className="font-serif text-sm font-bold uppercase tracking-wider text-charcoal mb-3">
+          <section className="bg-[#F5EBD0] border-2 border-[#7F011F] p-6 sm:p-8">
+            <h2 className="font-serif text-base font-black uppercase tracking-wider text-[#7F011F] mb-3">
               6. Privacy Inquiries &amp; Grievances
             </h2>
-            <p className="mb-3 text-xs">
+            <p className="mb-3 text-xs sm:text-sm text-[#2A080C]">
               For any questions concerning this Privacy Policy or to request removal of your contact details from our inquiry log, please contact our desk:
             </p>
-            <address className="not-italic font-mono text-xs text-charcoal space-y-1">
+            <address className="not-italic font-mono text-xs sm:text-sm text-[#7F011F] space-y-1.5">
               <p><strong>{businessMeta.name}</strong> (Proprietor: {businessMeta.proprietor})</p>
               <p>Address: {businessMeta.address}</p>
               <p>Phones: {businessMeta.phone1} / {businessMeta.phone2}</p>

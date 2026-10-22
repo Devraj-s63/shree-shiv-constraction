@@ -138,7 +138,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(hardwareStoreSchema) }}
         />
       </head>
-      <body className="bg-cream text-charcoal font-body min-h-screen flex flex-col relative selection:bg-camel selection:text-charcoal">
+      <body className="bg-[#F5EBD0] text-[#2A080C] font-body min-h-screen flex flex-col relative selection:bg-[#7F011F] selection:text-[#F5EBD0]">
         <LenisProvider>
           <CurtainTransition />
           <BlueprintBackground />

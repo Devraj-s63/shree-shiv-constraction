@@ -23,7 +23,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/85 backdrop-blur-md transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#F5EBD0]/90 backdrop-blur-md border-b border-[#7F011F]/15 transition-all duration-300">
       <div id="main-navbar-container" className="max-w-7xl mx-auto px-6 md:px-10 h-16 sm:h-20 flex items-center justify-between gap-4">
         
         {/* Left: Two-Line Brand Lockup in Serif Display + Small Tracked Capitals */}
@@ -32,10 +32,10 @@ export default function Navbar() {
           className="group flex flex-col justify-center focus:outline-none select-none py-1"
           aria-label="Shree Shiv Construction & Steel Home"
         >
-          <span className="font-serif font-black text-xl sm:text-2xl tracking-[0.12em] text-charcoal uppercase leading-none group-hover:text-camel transition-colors">
+          <span className="font-serif font-black text-xl sm:text-2xl tracking-[0.12em] text-[#7F011F] uppercase leading-none transition-colors">
             SHREE SHIV
           </span>
-          <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-camel font-bold mt-1 leading-tight group-hover:text-charcoal transition-colors">
+          <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-[#7F011F]/80 font-bold mt-1 leading-tight transition-colors">
             CONSTRUCTION &amp; STEEL
           </span>
         </Link>
@@ -49,13 +49,13 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`group flex items-center font-mono text-[11px] uppercase tracking-[0.25em] transition-colors py-2 ${
-                  active ? 'text-charcoal font-bold' : 'text-charcoal-muted hover:text-charcoal'
+                  active ? 'text-[#7F011F] font-bold' : 'text-[#7F011F]/70 hover:text-[#7F011F]'
                 }`}
                 aria-current={active ? 'page' : undefined}
               >
                 <span
                   className={`w-1.5 h-1.5 rounded-full border mr-2 transition-colors ${
-                    active ? 'border-camel bg-camel' : 'border-charcoal/40 group-hover:border-camel'
+                    active ? 'border-[#7F011F] bg-[#7F011F]' : 'border-[#7F011F]/40 group-hover:border-[#7F011F]'
                   }`}
                 />
                 <span>{link.label}</span>
@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="tel:+918278643303"
-            className="hidden sm:inline-flex rounded-full border border-camel text-charcoal px-5 py-2 font-mono text-[11px] uppercase tracking-[0.2em] font-bold hover:bg-camel hover:text-charcoal transition-all active:scale-95"
+            className="hidden sm:inline-flex rounded-full border-2 border-[#7F011F] text-[#7F011F] px-6 py-2.5 font-mono text-xs uppercase tracking-[0.18em] font-bold hover:bg-[#7F011F] hover:text-[#F5EBD0] transition-all duration-250 active:scale-95"
             aria-label="Get a direct quote at +91 8278643303"
           >
             GET A QUOTE
@@ -77,7 +77,7 @@ export default function Navbar() {
           {/* Mobile Menu Toggle Button */}
           <button
             type="button"
-            className="md:hidden p-2 text-charcoal border border-cream-border rounded-full hover:border-camel focus:outline-none"
+            className="md:hidden p-2 text-[#7F011F] border border-[#7F011F]/30 rounded-full hover:border-[#7F011F] focus:outline-none"
             aria-label="Toggle mobile menu"
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -97,7 +97,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-cream-border bg-cream/95 backdrop-blur-md px-6 py-5 space-y-3">
+        <div className="md:hidden border-t border-[#7F011F]/20 bg-[#F5EBD0]/98 backdrop-blur-md px-6 py-5 space-y-3">
           {navLinks.map((link) => {
             const active = isLinkActive(link.href);
             return (
@@ -106,23 +106,23 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center font-mono text-xs uppercase tracking-[0.22em] py-2 transition-colors ${
-                  active ? 'text-charcoal font-bold' : 'text-charcoal-muted hover:text-charcoal'
+                  active ? 'text-[#7F011F] font-bold' : 'text-[#7F011F]/70 hover:text-[#7F011F]'
                 }`}
                 aria-current={active ? 'page' : undefined}
               >
                 <span
                   className={`w-1.5 h-1.5 rounded-full border mr-2.5 ${
-                    active ? 'border-camel bg-camel' : 'border-charcoal/40'
+                    active ? 'border-[#7F011F] bg-[#7F011F]' : 'border-[#7F011F]/40'
                   }`}
                 />
                 {link.label}
               </Link>
             );
           })}
-          <div className="pt-3 border-t border-cream-border">
+          <div className="pt-3 border-t border-[#7F011F]/20">
             <a
               href="tel:+918278643303"
-              className="block text-center rounded-full border border-camel text-charcoal py-2.5 font-mono text-xs uppercase tracking-[0.2em] font-bold hover:bg-camel hover:text-charcoal"
+              className="block text-center rounded-full border-2 border-[#7F011F] text-[#7F011F] py-2.5 font-mono text-xs uppercase tracking-[0.18em] font-bold hover:bg-[#7F011F] hover:text-[#F5EBD0] transition-all duration-250"
             >
               GET A QUOTE: +91 8278643303
             </a>

@@ -45,7 +45,7 @@ export default function CurtainTransition() {
   return (
     <div
       ref={curtainRef}
-      className="fixed inset-0 z-[9999] bg-camel pointer-events-none hidden will-change-transform"
+      className="fixed inset-0 z-[9999] bg-[#7F011F] pointer-events-none hidden will-change-transform"
       aria-hidden="true"
     />
   );

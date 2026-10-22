@@ -102,8 +102,8 @@ export default function ContactForm() {
 
       {/* Name Field */}
       <div>
-        <label htmlFor="cb-name" className="font-display text-xs uppercase tracking-wider font-bold text-charcoal block mb-1.5">
-          Full Name <span className="text-camel">*</span>
+        <label htmlFor="cb-name" className="font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#7F011F] block mb-2">
+          Full Name <span className="text-[#7F011F]">*</span>
         </label>
         <input
           type="text"
@@ -116,18 +116,18 @@ export default function ContactForm() {
             setName(e.target.value);
             if (errors.name) setErrors({ ...errors, name: undefined });
           }}
-          className="w-full bg-cream-card border border-cream-border px-4 py-3 text-sm text-charcoal placeholder-charcoal-muted/60 focus:border-camel focus:outline-none focus:ring-1 focus:ring-camel transition-colors"
+          className="w-full bg-[#F5EBD0] border-2 border-[#7F011F] px-4 py-3.5 text-sm text-[#7F011F] placeholder-[#7F011F]/50 focus:outline-none focus:ring-2 focus:ring-[#7F011F] transition-colors"
         />
-        {errors.name && <span className="text-xs font-mono text-rose-600 mt-1 block">{errors.name}</span>}
+        {errors.name && <span className="text-xs font-mono text-[#7F011F] font-bold mt-1.5 block">{errors.name}</span>}
       </div>
 
       {/* 10-Digit Phone Field */}
       <div>
-        <label htmlFor="cb-phone" className="font-display text-xs uppercase tracking-wider font-bold text-charcoal block mb-1.5">
-          10-Digit Mobile Number <span className="text-camel">*</span>
+        <label htmlFor="cb-phone" className="font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#7F011F] block mb-2">
+          10-Digit Mobile Number <span className="text-[#7F011F]">*</span>
         </label>
         <div className="relative flex">
-          <span className="inline-flex items-center px-3.5 bg-cream-warm text-charcoal text-xs font-mono font-bold border border-r-0 border-cream-border select-none">
+          <span className="inline-flex items-center px-4 bg-[#ECE0C3] text-[#7F011F] text-xs font-mono font-bold border-2 border-r-0 border-[#7F011F] select-none">
             +91
           </span>
           <input
@@ -142,16 +142,16 @@ export default function ContactForm() {
               setPhone(e.target.value);
               if (errors.phone) setErrors({ ...errors, phone: undefined });
             }}
-            className="w-full bg-cream-card border border-cream-border px-4 py-3 text-sm font-mono text-charcoal placeholder-charcoal-muted/60 focus:border-camel focus:outline-none focus:ring-1 focus:ring-camel transition-colors"
+            className="w-full bg-[#F5EBD0] border-2 border-[#7F011F] px-4 py-3.5 text-sm font-mono text-[#7F011F] placeholder-[#7F011F]/50 focus:outline-none focus:ring-2 focus:ring-[#7F011F] transition-colors"
           />
         </div>
-        {errors.phone && <span className="text-xs font-mono text-rose-600 mt-1 block">{errors.phone}</span>}
+        {errors.phone && <span className="text-xs font-mono text-[#7F011F] font-bold mt-1.5 block">{errors.phone}</span>}
       </div>
 
       {/* Material Requirement Field */}
       <div>
-        <label htmlFor="cb-message" className="font-display text-xs uppercase tracking-wider font-bold text-charcoal block mb-1.5">
-          Material Requirement / Message <span className="text-camel">*</span>
+        <label htmlFor="cb-message" className="font-mono text-xs uppercase tracking-[0.2em] font-bold text-[#7F011F] block mb-2">
+          Material Requirement / Message <span className="text-[#7F011F]">*</span>
         </label>
         <textarea
           id="cb-message"
@@ -164,31 +164,27 @@ export default function ContactForm() {
             setMessage(e.target.value);
             if (errors.message) setErrors({ ...errors, message: undefined });
           }}
-          className="w-full bg-cream-card border border-cream-border px-4 py-3 text-sm text-charcoal placeholder-charcoal-muted/60 focus:border-camel focus:outline-none focus:ring-1 focus:ring-camel transition-colors"
+          className="w-full bg-[#F5EBD0] border-2 border-[#7F011F] px-4 py-3.5 text-sm text-[#7F011F] placeholder-[#7F011F]/50 focus:outline-none focus:ring-2 focus:ring-[#7F011F] transition-colors"
         />
-        {errors.message && <span className="text-xs font-mono text-rose-600 mt-1 block">{errors.message}</span>}
+        {errors.message && <span className="text-xs font-mono text-[#7F011F] font-bold mt-1.5 block">{errors.message}</span>}
       </div>
 
       {/* Form Status Banner */}
       {status && (
         <div
-          className={`p-3 font-mono text-xs border ${
-            status.type === 'success'
-              ? 'border-eucalyptus bg-eucalyptus/10 text-eucalyptus-dark'
-              : 'border-camel bg-cream-warm text-charcoal'
-          } block`}
+          className="p-3.5 font-mono text-xs font-bold border-2 border-[#7F011F] bg-[#F5EBD0] text-[#7F011F] block"
         >
           {status.message}
         </div>
       )}
 
-      {/* Submit Button */}
+      {/* Hero Pill Submit Button */}
       <button
         type="submit"
         id="submit-btn"
-        className="w-full inline-flex items-center justify-center font-display uppercase tracking-wider text-xs md:text-sm font-bold px-6 py-4 bg-eucalyptus text-cream hover:bg-eucalyptus-dark transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-eucalyptus"
+        className="w-full inline-flex items-center justify-center font-mono uppercase tracking-[0.18em] text-xs sm:text-sm font-black px-8 py-4 rounded-full bg-[#7F011F] text-[#F5EBD0] border-2 border-[#7F011F] hover:bg-[#F5EBD0] hover:text-[#7F011F] transition-all duration-250 cursor-pointer active:scale-95 shadow-md focus:outline-none focus:ring-2 focus:ring-[#7F011F]"
       >
-        <svg className="w-4 h-4 mr-2 inline-block fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <svg className="w-4 h-4 mr-2.5 inline-block fill-current" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.941-.708-1.793s.448-1.273.607-1.446c.16-.175.348-.217.464-.217l.333.006c.107.005.249-.041.389.296.145.348.494 1.202.537 1.29.044.087.073.188.015.304-.058.116-.087.189-.174.29-.087.102-.183.227-.261.305-.088.087-.179.182-.077.357.101.174.45 1.055 1.291 1.803.626.557 1.155.73 1.32.812.165.082.261.07.36-.044.098-.114.421-.49.534-.658.113-.169.227-.142.381-.085.155.057.982.463 1.15.547.168.084.281.127.322.197.042.07.042.408-.102.813z" />
         </svg>
         <span>Submit &amp; Open WhatsApp Callback</span>

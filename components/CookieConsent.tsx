@@ -72,28 +72,28 @@ export default function CookieConsent() {
   return (
     <div
       id="cookie-consent-pill"
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-full bg-cream-card/95 backdrop-blur-md border border-cream-border px-5 sm:px-6 py-3 shadow-xl transition-all duration-300 max-w-xl w-[92vw] sm:w-auto"
+      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 rounded-full bg-[#F5EBD0] border-2 border-[#7F011F] px-5 sm:px-7 py-3.5 shadow-2xl transition-all duration-300 max-w-xl w-[92vw] sm:w-auto"
       role="region"
       aria-label="Cookie and Privacy Notice"
     >
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
         {/* Notice Copy */}
         <div className="flex items-center gap-2.5 text-center sm:text-left">
-          <span className="w-1.5 h-1.5 rounded-full bg-camel shrink-0" />
-          <p className="font-body text-xs text-charcoal leading-snug">
+          <span className="w-2 h-2 rounded-full bg-[#7F011F] shrink-0" />
+          <p className="font-body text-xs text-[#2A080C] leading-snug">
             Essential cookies for catalog performance. No trackers sold.{' '}
-            <Link href="/privacy-policy" className="text-charcoal-muted underline hover:text-camel">
+            <Link href="/privacy-policy" className="text-[#7F011F] underline font-bold hover:opacity-80">
               Privacy
             </Link>
           </p>
         </div>
 
-        {/* Action Buttons with Equal Visual Weight */}
+        {/* Action Buttons with Hero Pills */}
         <div className="flex items-center gap-2.5 shrink-0">
           <button
             type="button"
             onClick={handleDecline}
-            className="rounded-full px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider font-bold text-charcoal border border-charcoal/30 hover:border-charcoal hover:bg-cream-warm transition-all cursor-pointer"
+            className="rounded-full px-4 py-2 font-mono text-xs uppercase tracking-wider font-bold text-[#7F011F] border-2 border-[#7F011F] hover:bg-[#7F011F] hover:text-[#F5EBD0] transition-all duration-250 cursor-pointer"
             aria-label="Decline cookies"
           >
             Decline
@@ -102,7 +102,7 @@ export default function CookieConsent() {
           <button
             type="button"
             onClick={handleAccept}
-            className="rounded-full px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider font-bold text-charcoal border border-camel bg-camel/20 hover:bg-camel transition-all cursor-pointer"
+            className="rounded-full px-5 py-2 font-mono text-xs uppercase tracking-wider font-bold text-[#F5EBD0] border-2 border-[#7F011F] bg-[#7F011F] hover:bg-[#F5EBD0] hover:text-[#7F011F] transition-all duration-250 cursor-pointer"
             aria-label="Accept and continue with cookies"
           >
             Accept

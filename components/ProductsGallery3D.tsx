@@ -151,22 +151,33 @@ export default function ProductsGallery3D() {
   }, [activeModalIndex, total]);
 
   return (
-    <div className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between py-6 md:py-10 px-6 md:px-12 overflow-hidden select-none">
+    <div className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between py-6 md:py-10 px-6 md:px-12 overflow-hidden select-none bg-[#F5EBD0] text-[#7F011F]">
+      {/* Hero's Giant Ghost Word Behind Product Stage */}
+      <div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden -z-0 opacity-[0.06]"
+        aria-hidden="true"
+      >
+        <span className="font-condensed font-black uppercase text-[clamp(6rem,24vw,22rem)] leading-[0.76] tracking-tighter text-[#7F011F] whitespace-nowrap">
+          PRODUCTS
+        </span>
+      </div>
       
       {/* Top Micro-Label Kicker & Category Count */}
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-cream-border/60 pb-4 relative z-20">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#7F011F]/20 pb-4 relative z-20">
         <div className="flex items-center gap-3">
-          <span className="w-1.5 h-1.5 rounded-full bg-camel" />
-          <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-charcoal font-bold">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#7F011F]" />
+          <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] text-[#7F011F] font-bold">
             SELECTED STOCK &bull; YARD GALLERY 3D
           </span>
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-charcoal-muted hidden sm:inline-block">
+          <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#7F011F]/80 hidden sm:inline-block">
             200 FEET ROAD DEPOT &bull; BHILWARA
           </span>
-          <Badge variant="eucalyptus">05 CORE CATEGORIES</Badge>
+          <span className="font-mono text-xs font-bold px-3.5 py-1 rounded-full border border-[#7F011F] text-[#7F011F]">
+            05 CORE CATEGORIES
+          </span>
         </div>
       </div>
 
@@ -186,19 +197,22 @@ export default function ProductsGallery3D() {
                     : 'opacity-0 scale-95 pointer-events-none z-10 translate-y-8'
                 }`}
               >
-                {/* Giant Overlapping Fraunces Serif Title */}
+                {/* Giant Overlapping Fraunces Serif Title at Hero Scale */}
                 <div className="relative z-20 text-center mb-[-2rem] sm:mb-[-3rem] md:mb-[-4rem] pointer-events-none px-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.3em] text-camel font-bold block mb-2">
-                    {item.index} // {item.category}
-                  </span>
-                  <h1 className="font-serif text-[clamp(2.4rem,6.5vw,5.5rem)] font-normal text-charcoal leading-[0.9] tracking-tight">
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-[#7F011F]" />
+                    <span className="font-mono text-xs uppercase tracking-[0.28em] text-[#7F011F] font-bold">
+                      {item.index} // {item.category}
+                    </span>
+                  </div>
+                  <h1 className="font-serif text-[clamp(2.5rem,6.5vw,5rem)] font-bold text-[#7F011F] leading-[0.95] tracking-tight">
                     {item.name}
                   </h1>
                 </div>
 
-                {/* Floating Photographic Plane with Sharp Framed Borders */}
-                <div className="relative z-10 w-full max-w-2xl sm:max-w-3xl aspect-[16/10] sm:aspect-[16/9] border border-cream-border bg-white p-2.5 sm:p-3.5 shadow-2xl transition-transform duration-500 hover:rotate-[-0.5deg]">
-                  <div className="relative w-full h-full overflow-hidden bg-cream-warm">
+                {/* Floating Photographic Plane with Light Sand Surface & Wine Red Border */}
+                <div className="relative z-10 w-full max-w-2xl sm:max-w-3xl aspect-[16/10] sm:aspect-[16/9] border-2 border-[#7F011F] bg-[#F5EBD0] p-3 sm:p-4 shadow-xl transition-transform duration-500 hover:rotate-[-0.5deg]">
+                  <div className="relative w-full h-full overflow-hidden bg-[#ECE0C3]">
                     <Image
                       src={item.image}
                       alt={item.imageAlt}
@@ -209,22 +223,22 @@ export default function ProductsGallery3D() {
                     />
 
                     {/* Corner Badge */}
-                    <div className="absolute top-3 left-3 bg-charcoal text-cream px-3 py-1 font-mono text-[10px] tracking-widest uppercase font-bold">
+                    <div className="absolute top-3 left-3 bg-[#7F011F] text-[#F5EBD0] px-3.5 py-1.5 font-mono text-[10px] tracking-widest uppercase font-bold">
                       {item.badge}
                     </div>
 
-                    <div className="absolute bottom-3 left-3 bg-cream/95 backdrop-blur-sm border border-cream-border px-3 py-1 font-mono text-[10px] tracking-wider uppercase text-charcoal font-bold">
+                    <div className="absolute bottom-3 left-3 bg-[#F5EBD0] border border-[#7F011F] px-3.5 py-1 font-mono text-[10px] tracking-wider uppercase text-[#7F011F] font-bold">
                       {item.gauges}
                     </div>
                   </div>
                 </div>
 
-                {/* Action Pills */}
-                <div className="relative z-20 mt-6 sm:mt-8 flex items-center gap-4">
+                {/* Action Hero Pills with 0.25s Hover Inversion */}
+                <div className="relative z-20 mt-6 sm:mt-8 flex flex-wrap justify-center items-center gap-4">
                   <button
                     type="button"
                     onClick={() => setActiveModalIndex(idx)}
-                    className="view-product-btn rounded-full bg-camel text-charcoal px-8 py-3.5 font-mono text-xs uppercase tracking-[0.22em] font-black hover:bg-camel-dark active:scale-95 transition-all shadow-md cursor-pointer"
+                    className="view-product-btn rounded-full bg-[#7F011F] text-[#F5EBD0] border-2 border-[#7F011F] px-8 py-3.5 font-mono text-xs uppercase tracking-[0.18em] font-black hover:bg-[#F5EBD0] hover:text-[#7F011F] active:scale-95 transition-all duration-250 shadow-md cursor-pointer"
                     aria-label={`View technical specifications for ${item.name}`}
                   >
                     VIEW PRODUCT
@@ -234,7 +248,7 @@ export default function ProductsGallery3D() {
                     href={`https://wa.me/918278643303?text=${encodeURIComponent(item.whatsappMsg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-camel text-charcoal px-6 py-3.5 font-mono text-xs uppercase tracking-[0.2em] font-bold hover:bg-camel hover:text-charcoal transition-all"
+                    className="rounded-full border-2 border-[#7F011F] text-[#7F011F] bg-transparent px-7 py-3.5 font-mono text-xs uppercase tracking-[0.18em] font-bold hover:bg-[#7F011F] hover:text-[#F5EBD0] active:scale-95 transition-all duration-250 cursor-pointer"
                     aria-label={`Request rate sheet for ${item.name} on WhatsApp`}
                   >
                     WHATSAPP RATES
@@ -249,41 +263,41 @@ export default function ProductsGallery3D() {
       </div>
 
       {/* Bottom Carousel Bar: PREV / COUNTER / NEXT */}
-      <div className="border-t border-cream-border/60 pt-5 relative z-20 flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em]">
+      <div className="border-t border-[#7F011F]/20 pt-5 relative z-20 flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em]">
         
         {/* Prev Button */}
         <button
           type="button"
           onClick={() => setCurrentIndex(prevIndex)}
-          className="flex items-center gap-2 text-charcoal-muted hover:text-charcoal transition-colors cursor-pointer py-2 focus:outline-none"
+          className="flex items-center gap-2 text-[#7F011F]/70 hover:text-[#7F011F] transition-colors cursor-pointer py-2 focus:outline-none"
           aria-label="Previous product"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-camel" />
+          <span className="w-2 h-2 rounded-full bg-[#7F011F]" />
           <span>&larr; PREV:</span>
-          <span className="text-charcoal font-bold hidden sm:inline">
+          <span className="text-[#7F011F] font-bold hidden sm:inline">
             {productsData[prevIndex].name}
           </span>
         </button>
 
         {/* Counter */}
-        <div className="flex items-center gap-2 border border-cream-border px-4 py-1.5 rounded-full bg-cream-card font-bold">
-          <span className="text-charcoal">{currentItem.index}</span>
-          <span className="text-charcoal-muted">/</span>
-          <span className="text-charcoal-muted">05</span>
+        <div className="flex items-center gap-2 border-2 border-[#7F011F] px-4 py-1.5 rounded-full bg-[#F5EBD0] font-bold text-[#7F011F]">
+          <span>{currentItem.index}</span>
+          <span className="opacity-50">/</span>
+          <span className="opacity-70">05</span>
         </div>
 
         {/* Next Button */}
         <button
           type="button"
           onClick={() => setCurrentIndex(nextIndex)}
-          className="flex items-center gap-2 text-charcoal-muted hover:text-charcoal transition-colors cursor-pointer py-2 focus:outline-none"
+          className="flex items-center gap-2 text-[#7F011F]/70 hover:text-[#7F011F] transition-colors cursor-pointer py-2 focus:outline-none"
           aria-label="Next product"
         >
-          <span className="text-charcoal font-bold hidden sm:inline">
+          <span className="text-[#7F011F] font-bold hidden sm:inline">
             {productsData[nextIndex].name}
           </span>
           <span>NEXT: &rarr;</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-camel" />
+          <span className="w-2 h-2 rounded-full bg-[#7F011F]" />
         </button>
 
       </div>
@@ -291,22 +305,22 @@ export default function ProductsGallery3D() {
       {/* Technical Drawers Modal */}
       {activeModalIndex !== null && (
         <div
-          className="product-modal-drawer fixed inset-0 z-50 bg-charcoal/60 backdrop-blur-sm flex justify-end transition-opacity duration-300"
+          className="product-modal-drawer fixed inset-0 z-50 bg-[#2A080C]/75 backdrop-blur-sm flex justify-end transition-opacity duration-300"
           role="dialog"
           aria-modal="true"
           aria-label={`${productsData[activeModalIndex].name} Technical Specifications`}
           onClick={() => setActiveModalIndex(null)}
         >
           <div
-            className="w-full max-w-xl bg-cream h-full overflow-y-auto p-8 sm:p-12 border-l border-cream-border flex flex-col justify-between transform transition-transform duration-300"
+            className="w-full max-w-xl bg-[#F5EBD0] h-full overflow-y-auto p-8 sm:p-12 border-l-2 border-[#7F011F] flex flex-col justify-between transform transition-transform duration-300 text-[#7F011F]"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
               {/* Drawer Header */}
-              <div className="flex items-center justify-between border-b border-cream-border pb-6 mb-8">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-camel" />
-                  <span className="font-mono text-xs uppercase tracking-[0.25em] text-charcoal font-bold">
+              <div className="flex items-center justify-between border-b border-[#7F011F]/20 pb-6 mb-8">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#7F011F]" />
+                  <span className="font-mono text-xs uppercase tracking-[0.26em] text-[#7F011F] font-bold">
                     SPECIFICATION // {productsData[activeModalIndex].index}
                   </span>
                 </div>
@@ -314,7 +328,7 @@ export default function ProductsGallery3D() {
                 <button
                   type="button"
                   onClick={() => setActiveModalIndex(null)}
-                  className="close-modal-btn rounded-full border border-cream-border p-2 text-charcoal hover:border-camel hover:text-camel transition-colors cursor-pointer"
+                  className="close-modal-btn rounded-full border-2 border-[#7F011F] p-2 text-[#7F011F] hover:bg-[#7F011F] hover:text-[#F5EBD0] transition-all duration-250 cursor-pointer"
                   aria-label="Close specifications"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -325,29 +339,31 @@ export default function ProductsGallery3D() {
 
               {/* Title & Badges */}
               <div className="space-y-3 mb-6">
-                <Badge variant="eucalyptus">{productsData[activeModalIndex].badge}</Badge>
-                <h2 className="font-serif text-3xl sm:text-4xl text-charcoal leading-tight">
+                <span className="inline-block px-3.5 py-1.5 rounded-full border border-[#7F011F] bg-[#7F011F] text-[#F5EBD0] font-mono text-xs font-bold uppercase tracking-wider">
+                  {productsData[activeModalIndex].badge}
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl text-[#7F011F] font-bold leading-tight">
                   {productsData[activeModalIndex].name}
                 </h2>
-                <div className="font-mono text-xs text-camel uppercase tracking-wider font-bold">
+                <div className="font-mono text-xs text-[#7F011F] uppercase tracking-wider font-bold">
                   {productsData[activeModalIndex].gauges}
                 </div>
               </div>
 
               {/* Overview Copy */}
-              <p className="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed mb-8">
+              <p className="font-body text-sm sm:text-base text-[#2A080C] leading-relaxed mb-8">
                 {productsData[activeModalIndex].summary}
               </p>
 
               {/* Verified Specs Checklist */}
-              <div className="border-t border-cream-border pt-6 mb-8">
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-charcoal font-bold block mb-4">
+              <div className="border-t border-[#7F011F]/20 pt-6 mb-8">
+                <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#7F011F] font-bold block mb-4">
                   VERIFIED YARD TECHNICAL STANDARDS
                 </span>
                 <ul className="space-y-3">
                   {productsData[activeModalIndex].specs.map((spec) => (
-                    <li key={spec} className="flex items-start gap-3 font-body text-xs sm:text-sm text-charcoal">
-                      <span className="w-1.5 h-1.5 rounded-full bg-camel shrink-0 mt-1.5" />
+                    <li key={spec} className="flex items-start gap-3 font-body text-xs sm:text-sm text-[#2A080C]">
+                      <span className="w-2 h-2 rounded-full bg-[#7F011F] shrink-0 mt-1.5" />
                       <span>{spec}</span>
                     </li>
                   ))}
@@ -356,12 +372,12 @@ export default function ProductsGallery3D() {
             </div>
 
             {/* Action Bar */}
-            <div className="pt-6 border-t border-cream-border space-y-3">
+            <div className="pt-6 border-t border-[#7F011F]/20 space-y-3">
               <Button
                 variant="primary"
                 href={`https://wa.me/918278643303?text=${encodeURIComponent(productsData[activeModalIndex].whatsappMsg)}`}
                 target="_blank"
-                className="w-full text-xs font-mono uppercase tracking-[0.2em] font-bold py-3.5"
+                className="w-full text-xs font-mono uppercase tracking-[0.18em] font-bold py-4"
                 ariaLabel={`Request instant price on WhatsApp for ${productsData[activeModalIndex].name}`}
               >
                 REQUEST INSTANT QUOTE ON WHATSAPP
@@ -370,7 +386,7 @@ export default function ProductsGallery3D() {
               <Button
                 variant="call-outline"
                 href="tel:+918278643303"
-                className="w-full text-xs font-mono uppercase tracking-[0.2em] font-bold py-3"
+                className="w-full text-xs font-mono uppercase tracking-[0.18em] font-bold py-3.5"
                 ariaLabel="Call yard desk directly at +91 8278643303"
               >
                 CALL DESK: +91 8278643303

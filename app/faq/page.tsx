@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import SectionHeading from '@/components/SectionHeading';
 import Button from '@/components/Button';
-import Badge from '@/components/Badge';
+import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata: Metadata = {
   title: 'TMT Sariya FAQs | Shree Shiv Construction & Steel, Bhilwara',
@@ -100,97 +99,50 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
       />
 
-      {/* Single H1 Page Header in Warm Cream */}
-      <header className="bg-cream-warm text-charcoal border-b border-cream-border py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="inline-block px-2.5 py-1 bg-eucalyptus text-cream micro-label font-bold border border-eucalyptus">
-                Buyer Knowledge Base &bull; Bhilwara
-              </span>
-            </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-charcoal leading-tight mb-4">
-              TMT Sariya FAQs in Bhilwara
-            </h1>
-            <p className="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed">
-              Direct answers to the most common questions asked by homeowners, civil contractors, and commercial developers purchasing reinforcement steel in Bhilwara.
-            </p>
+      {/* Mini-Hero Band in Light Sand with Ghost Word FAQS */}
+      <header className="relative bg-[#F5EBD0] text-[#7F011F] border-b border-[#7F011F]/20 py-16 sm:py-20 md:py-24 px-6 md:px-12 overflow-hidden">
+        {/* Giant Hero Ghost Word */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden -z-0 opacity-[0.05]"
+          aria-hidden="true"
+        >
+          <span className="font-condensed font-black uppercase text-[clamp(6rem,25vw,22rem)] leading-[0.76] tracking-tighter text-[#7F011F] whitespace-nowrap">
+            FAQS
+          </span>
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#7F011F]" />
+            <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] text-[#7F011F] font-bold">
+              BUYER KNOWLEDGE BASE &bull; BHILWARA
+            </span>
           </div>
+
+          <h1 className="font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] font-black uppercase tracking-tight text-[#7F011F] leading-[0.95] mb-5">
+            TMT Sariya FAQs in Bhilwara
+          </h1>
+
+          <p className="font-body text-base sm:text-lg text-[#2A080C] max-w-3xl leading-relaxed">
+            Direct answers to the most common questions asked by homeowners, civil contractors, and commercial developers purchasing reinforcement steel in Bhilwara.
+          </p>
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        {/* Quick Topic Badges in Eucalyptus */}
-        <div className="flex flex-wrap gap-2.5 mb-12">
-          <Badge variant="eucalyptus">Price of TMT Sariya</Badge>
-          <Badge variant="eucalyptus">Bhilwara Site Delivery</Badge>
-          <Badge variant="eucalyptus">Kay2 Xenox Authenticity</Badge>
-          <Badge variant="eucalyptus">Bulk Contractor Orders</Badge>
-          <Badge variant="eucalyptus">200 Feet Rd Location</Badge>
-          <Badge variant="eucalyptus">Payment &amp; GST Invoicing</Badge>
-        </div>
-
-        {/* 9 Questions Structured Blocks */}
-        <div className="space-y-6">
-          {faqs.map((faq, index) => (
-            <article
-              key={faq.id}
-              id={faq.id}
-              className="border border-cream-border bg-cream-card transition-colors hover:border-camel p-6 md:p-8 relative"
-            >
-              <div className="flex items-center justify-between border-b border-cream-border pb-3 mb-4">
-                <span className="font-mono text-xs font-bold text-camel tracking-widest">
-                  QUESTION {index < 9 ? `0${index + 1}` : index + 1} // {faq.category}
-                </span>
-                <span className="font-mono text-[10px] text-charcoal-muted uppercase">
-                  Bhilwara Yard Standard
-                </span>
-              </div>
-
-              <h2 className="font-serif text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-charcoal mb-4">
-                {faq.question}
-              </h2>
-
-              <div className="bg-cream-warm/70 border-l-2 border-camel p-4 md:p-5 font-body text-sm sm:text-base text-charcoal leading-relaxed">
-                <p>{faq.answer}</p>
-              </div>
-
-              <div className="mt-5 pt-3 border-t border-cream-border flex flex-wrap items-center justify-between gap-3 text-xs">
-                <span className="font-mono text-charcoal-muted text-[11px]">
-                  Need more clarification on this?
-                </span>
-                <div className="flex items-center gap-3">
-                  <a
-                    href={`https://wa.me/918278643303?text=${encodeURIComponent(`Inquiry regarding: ${faq.question}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-serif font-bold uppercase tracking-wider text-eucalyptus hover:text-eucalyptus-dark inline-flex items-center gap-1.5"
-                    aria-label="Ask our desk on WhatsApp about this question"
-                  >
-                    <span>Ask on WhatsApp</span>
-                    <span>&rarr;</span>
-                  </a>
-                  <span className="text-charcoal-muted/30">|</span>
-                  <a
-                    href="tel:+918278643303"
-                    className="font-serif font-bold uppercase tracking-wider text-charcoal hover:text-camel"
-                    aria-label="Call yard desk directly at +91 8278643303"
-                  >
-                    Call Desk
-                  </a>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+      <main className="max-w-5xl mx-auto px-6 md:px-8 py-14 sm:py-20">
+        {/* Accordions */}
+        <FaqAccordion faqs={faqs} />
 
         {/* Bottom Contact Callout */}
-        <div className="mt-16 border border-cream-border bg-cream-warm text-charcoal p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-16 border-2 border-[#7F011F] bg-[#F5EBD0] text-[#7F011F] p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-[6px_6px_0_0_#7F011F]">
           <div>
-            <h3 className="font-serif text-xl sm:text-2xl font-black uppercase tracking-tight text-charcoal">
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#7F011F] block mb-2">
+              PROJECT REINFORCEMENT &bull; DIRECT ASSISTANCE
+            </span>
+            <h3 className="font-serif text-xl sm:text-2xl font-black uppercase tracking-tight text-[#7F011F]">
               Have a project schedule or specific estimate?
             </h3>
-            <p className="font-body text-sm text-charcoal-muted mt-1 max-w-xl">
+            <p className="font-body text-sm text-[#2A080C] mt-1 max-w-xl">
               Call or WhatsApp us your bar bending schedule (BBS) or material requirements for a custom rate quote.
             </p>
           </div>
@@ -204,7 +156,7 @@ export default function FAQPage() {
               WhatsApp: +91 8278643303
             </Button>
             <Button
-              variant="call-outline"
+              variant="outline"
               href="tel:+918278643303"
               ariaLabel="Call sales desk at +91 8278643303 for a custom estimate"
             >

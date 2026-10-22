@@ -4,15 +4,15 @@
 
 @layer base {
   html {
-    background-color: #FDFBF7;
-    color: #2C2A29;
+    background-color: #F5EBD0;
+    color: #2A080C;
     font-family: var(--font-public-sans), -apple-system, BlinkMacSystemFont, sans-serif;
     letter-spacing: -0.01em;
   }
 
   body {
-    background-color: #FDFBF7;
-    color: #2C2A29;
+    background-color: #F5EBD0;
+    color: #2A080C;
     overflow-x: hidden;
     min-height: 100vh;
   }
@@ -20,7 +20,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-fraunces), Georgia, serif;
     letter-spacing: -0.025em;
-    color: #2C2A29;
+    color: #7F011F;
     font-feature-settings: 'cv01' on, 'opsz' 144;
   }
 
@@ -28,9 +28,10 @@
   .micro-label {
     font-family: var(--font-public-sans), sans-serif;
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.26em;
+    color: #7F011F;
   }
 
   /* Editorial Small Caps with wide tracking */
@@ -39,27 +40,27 @@
     letter-spacing: 0.28em;
   }
 
-  /* Flat, clean hairline dividers in #E7DDCB */
+  /* Flat, clean hairline dividers in Wine Red opacity */
   .hairline-b {
-    border-bottom: 1px solid #E7DDCB;
+    border-bottom: 1px solid rgba(127, 1, 31, 0.2);
   }
 
   .hairline-t {
-    border-top: 1px solid #E7DDCB;
+    border-top: 1px solid rgba(127, 1, 31, 0.2);
   }
 
   .hairline-x {
-    border-left: 1px solid #E7DDCB;
-    border-right: 1px solid #E7DDCB;
+    border-left: 1px solid rgba(127, 1, 31, 0.2);
+    border-right: 1px solid rgba(127, 1, 31, 0.2);
   }
 
   .hairline-y {
-    border-top: 1px solid #E7DDCB;
-    border-bottom: 1px solid #E7DDCB;
+    border-top: 1px solid rgba(127, 1, 31, 0.2);
+    border-bottom: 1px solid rgba(127, 1, 31, 0.2);
   }
 
   .hairline-all {
-    border: 1px solid #E7DDCB;
+    border: 1px solid rgba(127, 1, 31, 0.2);
   }
 }
 
@@ -80,7 +81,7 @@
 .blueprint-etching {
   pointer-events: none;
   user-select: none;
-  stroke: #2C2A29;
+  stroke: #7F011F;
   stroke-width: 0.75px;
   stroke-linecap: square;
   stroke-linejoin: miter;

@@ -2,7 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 
 export interface ButtonProps {
-  variant?: 'primary' | 'whatsapp' | 'call-outline' | 'camel-outline' | 'outline' | 'secondary' | 'eucalyptus';
+  variant?:
+    | 'primary'
+    | 'whatsapp'
+    | 'call-outline'
+    | 'camel-outline'
+    | 'outline'
+    | 'secondary'
+    | 'eucalyptus'
+    | 'inverted-primary'
+    | 'inverted-outline';
   href?: string;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
@@ -27,23 +36,27 @@ export default function Button({
   children,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center rounded-full font-mono text-[11px] uppercase tracking-[0.2em] font-bold px-6 py-3 transition-all duration-200 cursor-pointer select-none focus:outline-none focus:ring-2 focus:ring-camel focus:ring-offset-2';
+    'inline-flex items-center justify-center rounded-full font-mono text-xs sm:text-sm uppercase tracking-[0.18em] font-bold px-7 sm:px-8 py-3.5 sm:py-4 transition-all duration-250 cursor-pointer select-none active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#7F011F]';
 
   const variantStyles: Record<string, string> = {
     primary:
-      'bg-camel text-charcoal border border-camel hover:bg-camel-dark hover:border-camel-dark active:bg-camel-dark font-black shadow-sm',
-    'camel-outline':
-      'bg-transparent text-charcoal border border-camel hover:bg-camel hover:text-charcoal active:bg-camel-dark',
-    whatsapp:
-      'bg-camel text-charcoal border border-camel hover:bg-camel-dark hover:border-camel-dark active:bg-camel-dark font-black',
-    'call-outline':
-      'bg-transparent text-charcoal border border-camel hover:bg-camel hover:text-charcoal active:bg-camel-dark',
-    outline:
-      'bg-transparent text-charcoal border border-charcoal/40 hover:border-camel hover:text-charcoal hover:bg-camel/10',
+      'bg-[#7F011F] text-[#F5EBD0] border-2 border-[#7F011F] hover:bg-[#F5EBD0] hover:text-[#7F011F] font-black shadow-sm',
     secondary:
-      'bg-cream-warm text-charcoal border border-cream-border hover:border-camel hover:text-charcoal',
+      'bg-transparent text-[#7F011F] border-2 border-[#7F011F] hover:bg-[#7F011F] hover:text-[#F5EBD0] font-bold',
+    outline:
+      'bg-transparent text-[#7F011F] border-2 border-[#7F011F] hover:bg-[#7F011F] hover:text-[#F5EBD0] font-bold',
+    'camel-outline':
+      'bg-transparent text-[#7F011F] border-2 border-[#7F011F] hover:bg-[#7F011F] hover:text-[#F5EBD0] font-bold',
+    'call-outline':
+      'bg-transparent text-[#7F011F] border-2 border-[#7F011F] hover:bg-[#7F011F] hover:text-[#F5EBD0] font-bold',
+    whatsapp:
+      'bg-[#7F011F] text-[#F5EBD0] border-2 border-[#7F011F] hover:bg-[#F5EBD0] hover:text-[#7F011F] font-black shadow-sm',
     eucalyptus:
-      'bg-eucalyptus text-cream border border-eucalyptus hover:bg-eucalyptus-dark',
+      'bg-[#7F011F] text-[#F5EBD0] border-2 border-[#7F011F] hover:bg-[#F5EBD0] hover:text-[#7F011F] font-black shadow-sm',
+    'inverted-primary':
+      'bg-[#F5EBD0] text-[#7F011F] border-2 border-[#F5EBD0] hover:bg-transparent hover:text-[#F5EBD0] font-black shadow-sm',
+    'inverted-outline':
+      'bg-transparent text-[#F5EBD0] border-2 border-[#F5EBD0] hover:bg-[#F5EBD0] hover:text-[#7F011F] font-bold',
   };
 
   const computedClass = `${baseStyles} ${variantStyles[variant] || variantStyles.primary} ${className}`;

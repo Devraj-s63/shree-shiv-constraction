@@ -39,25 +39,36 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      {/* Single H1 Page Header in Warm Cream with Real Shop Front Hero Visual */}
-      <header className="bg-cream-warm text-charcoal border-b border-cream-border py-14 md:py-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      {/* Mini-Hero Band in Light Sand with Ghost Word ABOUT */}
+      <header className="relative bg-[#F5EBD0] text-[#7F011F] border-b-2 border-[#7F011F]/20 py-16 md:py-24 overflow-hidden">
+        {/* Hero's Giant Ghost Word */}
+        <div
+          className="absolute inset-0 flex items-center justify-start pointer-events-none select-none overflow-hidden -z-0 opacity-[0.06]"
+          aria-hidden="true"
+        >
+          <span className="font-condensed font-black uppercase text-[clamp(5rem,24vw,22rem)] leading-[0.76] tracking-tighter text-[#7F011F] whitespace-nowrap pl-6 md:pl-8">
+            ABOUT
+          </span>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 max-w-2xl">
-              <div className="inline-flex items-center gap-2 mb-3">
-                <span className="inline-block px-3 py-1 bg-eucalyptus text-cream font-mono text-[10px] tracking-[0.25em] uppercase font-bold rounded-full">
-                  Bhilwara, Rajasthan
+              <div className="flex items-center gap-2.5 mb-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#7F011F] inline-block" />
+                <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.26em] text-[#7F011F] font-bold">
+                  YARD DEPOT &bull; BHILWARA, RAJASTHAN
                 </span>
               </div>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal leading-tight mb-4">
+              <h1 className="font-serif text-[clamp(2.5rem,5.5vw,4.5rem)] font-bold text-[#7F011F] leading-[1.04] tracking-tight mb-4 select-none">
                 Building Material Supplier in Bhilwara
               </h1>
-              <p className="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed">
+              <p className="font-body text-base sm:text-lg text-[#2A080C] leading-relaxed font-normal">
                 The story and foundational principles behind Shree Shiv Construction &amp; Steel. Authorized Kay2 Xenox dealer supplying Fe 550D TMT bars directly from our 200 Feet Road depot.
               </p>
             </div>
-            <div className="lg:col-span-5 border border-cream-border bg-white p-2.5 shadow-sm">
-              <div className="relative aspect-[4/3] overflow-hidden bg-cream-warm">
+            <div className="lg:col-span-5 border-2 border-[#7F011F] bg-[#F5EBD0] p-3 shadow-xl">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#ECE0C3]">
                 <Image
                   src="/images/shop-front.webp"
                   alt="Shree Shiv Construction & Steel shop front, 200 Feet Road, Bhilwara"
@@ -66,7 +77,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover"
                 />
-                <div className="absolute bottom-2 left-2 bg-cream/95 backdrop-blur-sm border border-cream-border px-2.5 py-1 font-mono text-[10px] tracking-widest uppercase text-charcoal font-bold z-10">
+                <div className="absolute bottom-2 left-2 bg-[#F5EBD0] border border-[#7F011F] px-3 py-1 font-mono text-[10px] tracking-widest uppercase text-[#7F011F] font-bold z-10">
                   200 Feet Road Depot
                 </div>
               </div>
@@ -80,27 +91,28 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-20">
           <div className="lg:col-span-7 space-y-6">
             <SectionHeading
-              eyebrow="Our Story"
+              eyebrow="OUR STORY &bull; BHILWARA"
               title="मजबूती की सही पहचान"
               titleLang="hi"
+              ghostWord="TRUST"
               subtitle="Built on trust, honest weighbridge billing, and genuine factory-tested steel for home builders and contractors in Bhilwara."
             />
 
-            <div className="font-body text-sm sm:text-base text-charcoal-muted leading-relaxed space-y-4">
+            <div className="font-body text-base text-[#2A080C] leading-relaxed space-y-4">
               <p>
                 Shree Shiv Construction &amp; Steel was started with one clear goal: give local builders, contractors, and families in Bhilwara direct access to 100% genuine, mill-certified steel at fair daily mandi rates without middleman markups or weight shortages.
               </p>
               <p>
                 In a market where sub-standard rerolled sariya is often passed off as branded steel, we stock only authorized{' '}
-                <strong className="text-charcoal font-semibold">Kay2 Xenox Fe 550D TMT bars</strong> with authentic manufacturer roll marks, alongside high-tensile binding wire and precast concrete cover blocks.
+                <strong className="text-[#7F011F] font-bold">Kay2 Xenox Fe 550D TMT bars</strong> with authentic manufacturer roll marks, alongside high-tensile binding wire and precast concrete cover blocks.
               </p>
               <p>
                 Operating directly from our depot on{' '}
-                <strong className="text-charcoal font-semibold">200 Feet Road, Near Sharda Evergreen</strong>, we verify every single bundle on our computerized weighbridge and provide proper GST tax invoices for every order.
+                <strong className="text-[#7F011F] font-bold">200 Feet Road, Near Sharda Evergreen</strong>, we verify every single bundle on our computerized weighbridge and provide proper GST tax invoices for every order.
               </p>
             </div>
 
-            <div className="pt-6 border-t border-cream-border flex flex-wrap gap-4">
+            <div className="pt-6 border-t-2 border-[#7F011F]/20 flex flex-wrap gap-4">
               <Button
                 variant="whatsapp"
                 href="https://wa.me/918278643303"
@@ -119,33 +131,35 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 border border-cream-border bg-cream-card p-8 relative">
-            <div className="border-b border-cream-border pb-4 mb-6">
-              <Badge variant="eucalyptus" className="mb-2">Proprietorship &amp; Management</Badge>
-              <h2 className="font-serif text-2xl font-black uppercase tracking-tight text-charcoal">
+          <div className="lg:col-span-5 border-2 border-[#7F011F] bg-[#F5EBD0] p-8 relative shadow-lg">
+            <div className="border-b-2 border-[#7F011F]/20 pb-4 mb-6">
+              <span className="inline-block px-3 py-1 bg-[#7F011F] text-[#F5EBD0] font-mono text-[10px] tracking-[0.25em] uppercase font-bold rounded-full mb-3">
+                Proprietorship &amp; Management
+              </span>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold uppercase tracking-tight text-[#7F011F]">
                 Chandraprakash Bairwa
               </h2>
-              <span className="font-mono text-xs text-charcoal-muted block mt-1">
+              <span className="font-mono text-xs text-[#7F011F]/80 block mt-1 font-bold">
                 Founder &bull; Shree Shiv Construction &amp; Steel
               </span>
             </div>
 
-            <div className="space-y-4 font-mono text-xs text-charcoal-muted">
-              <div className="flex justify-between border-b border-cream-border pb-2">
+            <div className="space-y-4 font-mono text-xs text-[#2A080C]">
+              <div className="flex justify-between border-b border-[#7F011F]/20 pb-2">
                 <span>Direct Desk:</span>
-                <span className="text-charcoal font-bold">+91 8278643303</span>
+                <span className="text-[#7F011F] font-bold">+91 8278643303</span>
               </div>
-              <div className="flex justify-between border-b border-cream-border pb-2">
+              <div className="flex justify-between border-b border-[#7F011F]/20 pb-2">
                 <span>Alternate Line:</span>
-                <span className="text-charcoal font-bold">+91 9602812764</span>
+                <span className="text-[#7F011F] font-bold">+91 9602812764</span>
               </div>
-              <div className="flex justify-between border-b border-cream-border pb-2">
+              <div className="flex justify-between border-b border-[#7F011F]/20 pb-2">
                 <span>Yard Depot:</span>
-                <span className="text-charcoal text-right">200 Feet Rd, Bhilwara</span>
+                <span className="text-[#7F011F] text-right font-bold">200 Feet Rd, Bhilwara</span>
               </div>
-              <div className="flex justify-between border-b border-cream-border pb-2">
+              <div className="flex justify-between border-b border-[#7F011F]/20 pb-2">
                 <span>GST Registration:</span>
-                <span className="text-camel font-bold">08FFXPB0515IZ5</span>
+                <span className="text-[#7F011F] font-bold">08FFXPB0515IZ5</span>
               </div>
               <div className="flex justify-between">
                 <span>Instagram:</span>
@@ -153,57 +167,71 @@ export default function AboutPage() {
                   href="https://instagram.com/shreeshivconstructionsteel"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-charcoal font-semibold hover:text-camel"
+                  className="text-[#7F011F] font-bold hover:underline"
                 >
                   @shreeshivconstructionsteel
                 </a>
               </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-cream-border bg-cream-warm -mx-8 -mb-8 p-6 text-xs font-body text-charcoal-muted">
-              <p>
+            <div className="mt-8 pt-4 border-t-2 border-[#7F011F]/20 bg-[#ECE0C3] -mx-8 -mb-8 p-6 text-xs font-body text-[#2A080C]">
+              <p className="italic">
                 &ldquo;Our commitment is simple: what we quote is what we weigh, and what we dispatch is genuine mill-tested grade. Every building deserves an unshakeable foundation.&rdquo;
               </p>
-              <span className="font-serif text-[10px] uppercase font-bold text-charcoal mt-2 block tracking-wider">
+              <span className="font-mono text-[11px] uppercase font-bold text-[#7F011F] mt-2 block tracking-wider">
                 &mdash; Chandraprakash Bairwa
               </span>
             </div>
           </div>
         </div>
 
-        {/* Operating Standards (H2) */}
-        <section className="border-t border-cream-border pt-16 md:pt-24">
-          <SectionHeading
-            eyebrow="Operating Standards"
-            title="Principles That Define Our Yard"
-            subtitle="How we maintain trust with civil contractors, developers, and individual homeowners every day."
-          />
+        {/* Operating Standards (Full-bleed Wine Red Inverted Section Rhythm) */}
+        <section className="relative -mx-6 md:-mx-8 px-6 md:px-8 py-20 md:py-28 bg-[#7F011F] text-[#F5EBD0] overflow-hidden">
+          {/* Ghost Word behind section */}
+          <div
+            className="absolute inset-0 flex items-center justify-end pointer-events-none select-none overflow-hidden -z-0 opacity-[0.06]"
+            aria-hidden="true"
+          >
+            <span className="font-condensed font-black uppercase text-[clamp(5rem,24vw,22rem)] leading-[0.76] tracking-tighter whitespace-nowrap text-[#F5EBD0] pr-6 md:pr-10">
+              VALUES
+            </span>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            {values.map((val, idx) => (
-              <div
-                key={val.title}
-                className="md:col-span-6 border border-cream-border bg-cream-card p-8 flex flex-col justify-between hover:border-camel transition-colors"
-              >
-                <div>
-                  <span className="micro-label text-camel font-bold block mb-2">
-                    STANDARD 0{idx + 1}
-                  </span>
-                  <h3 className="font-serif text-xl md:text-2xl font-bold uppercase tracking-tight text-charcoal mb-3">
-                    {val.title}
-                  </h3>
-                  <p className="font-body text-sm md:text-base text-charcoal-muted leading-relaxed">
-                    {val.description}
-                  </p>
+          <div className="max-w-7xl mx-auto relative z-10">
+            <SectionHeading
+              eyebrow="OPERATING STANDARDS &bull; BHILWARA"
+              title="Principles That Define Our Yard"
+              ghostWord="STANDARDS"
+              theme="wine"
+              subtitle="How we maintain trust with civil contractors, developers, and individual homeowners every day."
+            />
+
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mt-12">
+              {values.map((val, idx) => (
+                <div
+                  key={val.title}
+                  className="md:col-span-6 border-2 border-[#F5EBD0] bg-transparent p-8 flex flex-col justify-between hover:bg-[#F5EBD0]/10 transition-colors"
+                >
+                  <div>
+                    <span className="font-mono text-xs uppercase tracking-[0.26em] text-[#F5EBD0] font-bold block mb-3">
+                      STANDARD 0{idx + 1}
+                    </span>
+                    <h3 className="font-serif text-2xl font-bold uppercase tracking-tight text-[#F5EBD0] mb-3">
+                      {val.title}
+                    </h3>
+                    <p className="font-body text-base text-[#F5EBD0]/85 leading-relaxed font-normal">
+                      {val.description}
+                    </p>
+                  </div>
+                  <div className="mt-8 pt-4 border-t border-[#F5EBD0]/20 flex items-center gap-2.5 text-xs font-mono text-[#F5EBD0]/80">
+                    <span className="w-2 h-2 rounded-full bg-[#F5EBD0] inline-block" />
+                    <span className="tracking-widest uppercase font-semibold">
+                      Shree Shiv Construction &amp; Steel Verified Quality
+                    </span>
+                  </div>
                 </div>
-                <div className="mt-6 pt-3 border-t border-cream-border flex items-center gap-2 text-[10px] font-mono text-charcoal-muted">
-                  <span className="w-1.5 h-1.5 bg-eucalyptus inline-block" />
-                  <span className="tracking-widest uppercase font-semibold">
-                    Shree Shiv Construction &amp; Steel Verified Quality
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
       </main>

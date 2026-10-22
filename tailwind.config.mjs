@@ -8,36 +8,48 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Camel Brown Palette (All pills, CTAs, and marker dots)
+        // Unified Design System: Wine Red & Light Sand
+        wine: {
+          DEFAULT: '#7F011F',
+          dark: '#5C0116',
+          light: '#9B0126',
+        },
+        sand: {
+          DEFAULT: '#F5EBD0',
+          dark: '#ECE0C3',
+          light: '#FAF4E4',
+          card: '#F5EBD0',
+          border: '#7F011F',
+        },
+        charcoalWine: '#2A080C',
+
+        // Legacy alias harmonization to prevent any rogue hues
         camel: {
-          DEFAULT: '#C19A6B',
-          dark: '#A98053',
-          light: '#D2AF84',
+          DEFAULT: '#7F011F',
+          dark: '#5C0116',
+          light: '#9B0126',
         },
-        // Background Off-White Cream Palette (Warm blueprint paper base)
         cream: {
-          DEFAULT: '#FDFBF7',
-          card: '#FFFFFF',
-          warm: '#F6F1E7',
-          border: '#E7DDCB',
+          DEFAULT: '#F5EBD0',
+          card: '#F5EBD0',
+          warm: '#F5EBD0',
+          border: 'rgba(127, 1, 31, 0.25)',
         },
-        // Deep Charcoal Text Palette (High-contrast Didone serifs & technical line art)
         charcoal: {
-          DEFAULT: '#2C2A29',
-          muted: '#6E665C',
-          dark: '#1E1D1C',
+          DEFAULT: '#7F011F',
+          muted: '#2A080C',
+          dark: '#2A080C',
         },
-        // Eucalyptus Green Accent Palette (Eyebrow badges)
         eucalyptus: {
-          DEFAULT: '#2E5A44',
-          dark: '#244735',
-          light: '#3B7257',
+          DEFAULT: '#7F011F',
+          dark: '#5C0116',
+          light: '#9B0126',
         },
 
         // Theme Token Aliases
-        canvas: '#FDFBF7',
-        canvasMuted: '#F6F1E7',
-        canvasSubtle: '#FFFFFF',
+        canvas: '#F5EBD0',
+        canvasMuted: '#ECE0C3',
+        canvasSubtle: '#F5EBD0',
       },
       fontFamily: {
         // English display: Fraunces (high-contrast Didone serif, huge, tight leading)

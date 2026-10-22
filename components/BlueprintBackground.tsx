@@ -51,9 +51,9 @@ export default function BlueprintBackground() {
       {/* Left Edge Blueprint Schematic: Rebar Cross-Section & Yard Coordinates */}
       <div
         ref={leftRef}
-        className="blueprint-drift-left absolute -left-12 sm:left-0 top-16 md:top-24 w-72 sm:w-96 md:w-[440px] opacity-[0.09] transition-transform"
+        className="blueprint-drift-left absolute -left-12 sm:left-0 top-16 md:top-24 w-72 sm:w-96 md:w-[440px] opacity-[0.06] transition-transform text-[#7F011F]"
       >
-        <svg viewBox="0 0 400 650" className="w-full h-auto text-charcoal stroke-current fill-none stroke-[0.75]">
+        <svg viewBox="0 0 400 650" className="w-full h-auto text-[#7F011F] stroke-current fill-none stroke-[0.75]">
           <line x1="20" y1="20" x2="380" y2="20" strokeDasharray="4 4" />
           <line x1="20" y1="20" x2="20" y2="630" strokeDasharray="4 4" />
           <line x1="20" y1="630" x2="380" y2="630" strokeDasharray="4 4" />
@@ -105,9 +105,9 @@ export default function BlueprintBackground() {
       {/* Right Edge Blueprint Schematic: Structural Beam Elevation & Shear Stirrup Schematics */}
       <div
         ref={rightRef}
-        className="blueprint-drift-right absolute -right-12 sm:right-0 top-36 md:top-48 w-72 sm:w-96 md:w-[460px] opacity-[0.09] transition-transform"
+        className="blueprint-drift-right absolute -right-12 sm:right-0 top-36 md:top-48 w-72 sm:w-96 md:w-[460px] opacity-[0.06] transition-transform text-[#7F011F]"
       >
-        <svg viewBox="0 0 420 700" className="w-full h-auto text-charcoal stroke-current fill-none stroke-[0.75]">
+        <svg viewBox="0 0 420 700" className="w-full h-auto text-[#7F011F] stroke-current fill-none stroke-[0.75]">
           <line x1="40" y1="40" x2="390" y2="40" strokeDasharray="4 4" />
           <line x1="390" y1="40" x2="390" y2="660" strokeDasharray="4 4" />
           <line x1="40" y1="660" x2="390" y2="660" strokeDasharray="4 4" />
